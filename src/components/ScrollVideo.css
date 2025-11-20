@@ -5,71 +5,59 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
-/* VIDEO BOX (expands from center) */
+/* WRAPPER */
 .video-expand-wrapper {
-  position: relative;   /* IMPORTANT for text over video */
-  width: 500px;
-  aspect-ratio: 16/9;
+  position: relative;
+  width: 350px;              /* 🔥 smaller starting width */
+  max-width: 90vw;           /* responsive limit */
+  aspect-ratio: 16 / 9;
   overflow: hidden;
   background: #000;
   border-radius: 40px;
   margin: 0 auto;
+  transition: width 0.4s ease, border-radius 0.4s ease;
 }
 
-/* TEXT OVER VIDEO */
-/* TEXT IN CENTER OF VIDEO */
+/* CENTER TEXT */
 .button-text {
   position: absolute;
-  inset: 0;                       /* NEW → covers full video area */
-  display: flex;                  /* NEW → perfect centering */
-  justify-content: center;        /* NEW → horizontal center */
-  align-items: center;            /* NEW → vertical center */
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  z-index: 10;
-  pointer-events: none;
-
-  background: transparent;
   color: white;
   font-size: clamp(1.4rem, 5vw, 2.2rem);
   font-weight: 700;
-  text-align: center;
-
-  /* Optional subtle background behind the text */
-  /* padding: 15px 30px;
-  border-radius: 40px;
-  background: rgba(0, 0, 0, 0.4);
-  width: max-content;
-  margin: auto;                   NEW → keeps it centered */
+  z-index: 10;
+  pointer-events: none;
 }
 
-
-
-/* VIDEO INSIDE */
+/* VIDEO */
 .scroll-video {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-/* MOBILE RESPONSIVE */
+/* MOBILE */
 @media (max-width: 650px) {
   .video-expand-wrapper {
-    width: 90vw;
-    border-radius: 20px;
+    width: 85vw !important;
+    border-radius: 20px !important;
   }
 
   .button-text {
-    font-size: 1.2rem;
-    padding: 12px 24px;
-    top: 15px;
+    font-size: clamp(1.1rem, 4vw, 1.6rem);
   }
 }
 
+/* SMALL MOBILE */
 @media (max-width: 400px) {
   .button-text {
-    font-size: 1rem;
-    padding: 10px 18px;
+    font-size: clamp(0.9rem, 4vw, 1.4rem);
   }
 }
