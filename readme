@@ -1,0 +1,6 @@
+npm install gsap
+npm install framer-motion
+npm install swiper
+npm install react-type-animation
+npm install react-router-dom
+npm install react-icons

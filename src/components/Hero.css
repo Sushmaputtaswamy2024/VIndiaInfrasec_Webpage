@@ -1,0 +1,130 @@
+.hero {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Background video with slightly brightened filter */
+.hero-video-bg {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  filter: brightness(0.8);
+  z-index: 0;
+}
+
+/* Black transparent overlay to dim video */
+.video-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.3);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Container for centered text content */
+.hero-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 2;
+  text-align: center;
+  padding: 0 20px;
+  color: white;
+}
+
+.hero-typed-container {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+}
+
+/* First line styling */
+.hero-typed-line1 {
+  color: #ffffffff;
+  font-weight: 400;
+  font-size: 3.5rem;
+  white-space: nowrap;
+  margin-bottom: 10px;
+}
+
+/* Second line styling */
+.hero-typed-line2 {
+  color: #014d83ff;
+  font-weight: 700;
+  font-size: 4rem;
+  white-space: nowrap;
+  margin-bottom: 40px;
+}
+
+/* Subtext styling */
+.hero-typed-subtext {
+  font-size: 1.4rem;
+  color: #fff8f8ff;
+  margin-bottom: 30px;
+}
+
+/* Call to action buttons */
+.cta-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.btn-primary, .btn-secondary {
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 12px 30px;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #3ca9f5;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #2a87d6;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: white;
+  color: #2a87d6;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .hero-typed-line1 {
+    font-size: 2rem;
+  }
+  .hero-typed-line2 {
+    font-size: 2.5rem;
+  }
+  .hero-typed-subtext {
+    font-size: 1rem;
+  }
+  .btn-primary, .btn-secondary {
+    font-size: 1rem;
+    padding: 10px 24px;
+  }
+}

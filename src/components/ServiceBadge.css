@@ -1,0 +1,127 @@
+/* FIXED BADGE CONTAINER */
+.badge-container {
+  position: absolute;
+  bottom: 2px;
+  right: 55px;
+
+  width: 60px;
+  height: 60px;
+  pointer-events: none;
+}
+
+/* ROTATING GRADIENT RING */
+.rotating-ring {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  background: conic-gradient(
+    #0a82c8,
+    #3a8df1,
+    #7bb0ff,
+    #7be8ff,
+    #3ae3c2,
+    #0a82c8
+  );
+
+  transform-origin: 50% 50%;
+  animation: spin 8s linear infinite;
+  z-index: 1;
+}
+
+/* CURVED TEXT INSIDE RING */
+.curved-text {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  transform-origin: 50% 50%;
+  transform: rotate(-70deg);
+  z-index: 2;
+}
+
+.curved-text text {
+  fill: white;
+  font-size: 30px;
+  letter-spacing: 3px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* CENTER WHITE CIRCLE */
+.center-circle {
+  width: 35px;
+  height: 35px;
+  background: white;
+  border-radius: 50%;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transform-origin: 50% 50%;
+  z-index: 3;
+}
+
+/* ARROW */
+.arrow {
+  font-size: 30px;
+  font-weight: bold;
+  background: linear-gradient(45deg, #3aa0ff, #42f1d0);
+  color: transparent;
+  -webkit-background-clip: text;
+}
+/* Prevent drifting when card hovers */
+.service-card:hover .badge-container {
+  transform: translateY(-4px);
+}
+
+
+
+/* ROTATION ANIMATION */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+/* ========================= */
+/* TABLET (≤ 900px)          */
+/* ========================= */
+@media (max-width: 900px) {
+  .badge-container {
+    transform: scale(0.9);
+    right: 35px; 
+    bottom: 8px;
+  }
+}
+
+/* ========================= */
+/* MOBILE (≤ 600px)          */
+/* ========================= */
+@media (max-width: 600px) {
+  .badge-container {
+    transform: scale(0.75);
+    right: 20px;
+    bottom: 10px;
+  }
+}
+
+/* ========================= */
+/* SMALL MOBILE (≤ 420px)    */
+/* ========================= */
+@media (max-width: 420px) {
+  .badge-container {
+    transform: scale(0.6);
+    right: 12px;
+    bottom: 12px;
+  }
+}

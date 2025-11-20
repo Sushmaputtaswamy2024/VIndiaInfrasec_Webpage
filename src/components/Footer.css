@@ -1,0 +1,28 @@
+.footer-bar {
+  width: 100%;
+  padding: clamp(10px, 3vw, 18px) 0;   /* responsive padding */
+  text-align: center;
+  font-size: clamp(0.9rem, 2.5vw, 1rem); /* responsive text */
+  color: #fff;
+  background: linear-gradient(to right, #00bce8 0%, #02528d 100%);
+
+  /* If you want it fixed at bottom, uncomment */
+  /* position: fixed;
+     bottom: 0;
+     left: 0; */
+}
+
+/* Small screen adjustments */
+@media (max-width: 480px) {
+  .footer-bar {
+    padding: 12px 8px;
+    line-height: 1.4;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 360px) {
+  .footer-bar {
+    font-size: 0.85rem;
+  }
+}

@@ -1,0 +1,260 @@
+/* ---------------------------
+   GLOBAL
+---------------------------- */
+.customer-feedback * {
+  box-sizing: border-box;
+}
+
+.customer-feedback img {
+  max-width: 100%;
+}
+
+/* Wrapper */
+.customer-feedback {
+  font-family: "Roboto Slab", serif;
+  font-size: 15px;
+  line-height: 1.67;
+  color: #444;
+  padding: 60px 0;
+}
+
+/* Responsive Container */
+.customer-feedback .container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ---------------------------
+   SECTION TITLE
+---------------------------- */
+.section-title {
+  font-size: clamp(20px, 5vw, 28px);
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  font-weight: 400;
+  position: relative;
+  text-align: center;
+  display: inline-block;
+}
+
+.section-title:after,
+.section-title:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+}
+
+.section-title:after {
+  height: 2px;
+  background-color: #02528d;
+  left: 20%;
+  right: 20%;
+}
+
+.section-title:before {
+  width: 15px;
+  height: 15px;
+  border: 3px solid #fff;
+  background-color: #02528d;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -6px;
+  border-radius: 50%;
+}
+
+/* ---------------------------
+   SLIDER AREA
+---------------------------- */
+.feedback-slider .swiper-slide img {
+  width: 85px;
+  height: 85px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Item */
+.feedback-slider-item {
+  position: relative;
+  padding: 60px;
+  margin-top: -40px;
+  width: 100%;
+  box-sizing: border-box;
+  background: transparent;
+}
+
+.customer-name {
+  margin-top: 15px;
+  margin-bottom: 25px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.feedback-slider-item p {
+  line-height: 1.875;
+  margin-bottom: 1em;
+}
+
+/* Rating Bubble */
+.customer-rating {
+  background-color: #eee;
+  border: 3px solid #fff;
+  color: rgba(1, 1, 1, 0.7);
+  font-weight: 700;
+  border-radius: 50%;
+  position: absolute;
+  width: 47px;
+  height: 47px;
+  line-height: 44px;
+  font-size: 15px;
+  right: 0;
+  top: 77px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.customer-rating i {
+  color: #02528d;
+  font-size: 12px;
+  margin-left: 2px;
+}
+
+/* Active slider background */
+.feedback-slider-item:after {
+  content: "";
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 0;
+  top: 103px;
+  background-color: #f6f6f6;
+  border: 1px solid rgba(251, 90, 13, 0.1);
+  border-radius: 10px;
+  z-index: -1;
+}
+
+/* ---------------------------
+   SIDE THUMBNAILS
+---------------------------- */
+.feedback-slider-thumb {
+  position: relative;
+}
+
+.thumb-prev,
+.thumb-next {
+  position: absolute;
+  top: 45%;
+  width: 85px;
+  height: 85px;
+  cursor: pointer;
+  z-index: 99;
+  transition: 0.3s;
+}
+
+.thumb-prev {
+  left: -90px;
+}
+
+.thumb-next {
+  right: -90px;
+}
+
+.feedback-slider-thumb img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.feedback-slider-thumb:hover {
+  opacity: 0.85;
+}
+
+/* ---------------------------
+   RESPONSIVENESS
+---------------------------- */
+
+/* Tablet */
+@media (max-width: 900px) {
+  .thumb-prev,
+  .thumb-next {
+    width: 70px;
+    height: 70px;
+    left: -70px;
+    right: -70px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+
+  .customer-feedback .container {
+    max-width: 100%;
+    padding: 0 12px;
+  }
+
+  .feedback-slider-item {
+    padding: 40px 20px;
+  }
+
+  .feedback-slider-item:after {
+    left: 15px;
+    right: 15px;
+  }
+
+  .customer-rating {
+    top: 55px;
+  }
+
+  /* Move thumbnails closer */
+  .thumb-prev {
+    left: -40px;
+  }
+
+  .thumb-next {
+    right: -40px;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 500px) {
+  .thumb-prev,
+  .thumb-next {
+    display: none; /* hide side thumbnails */
+  }
+
+  .customer-rating {
+    width: 40px;
+    height: 40px;
+    font-size: 13px;
+  }
+
+  .feedback-slider-item {
+    padding: 30px 16px;
+  }
+}
+
+/* ---------------------------
+   SWIPER CONTROLS
+---------------------------- */
+.swiper-button-prev,
+.swiper-button-next {
+  color: #00bce8;
+  font-size: 25px;
+  background: transparent;
+  border: none;
+}
+
+.swiper-pagination-bullet {
+  width: 11px !important;
+  height: 11px !important;
+  margin: 0 5px !important;
+  background: #fff !important;
+  border: 1px solid #02528d !important;
+  border-radius: 50% !important;
+  opacity: 1 !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #02528d !important;
+}
