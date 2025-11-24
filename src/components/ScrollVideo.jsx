@@ -1,35 +1,56 @@
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./ScrollVideo.css";
 
-export default function ScrollVideo() {
-  const ref = useRef(null);
+gsap.registerPlugin(ScrollTrigger);
 
-  const isInView = useInView(ref, { amount: 0.4, once: false });
+export default function ScrollVideo() {
+  const wrapperRef = useRef(null);
+  const sectionRef = useRef(null);
+  const textRef = useRef(null);
+
+  useEffect(() => {
+    const wrapper = wrapperRef.current;
+    const text = textRef.current;
+
+    // Initial states
+    gsap.set(wrapper, { width: "350px", borderRadius: "40px" });
+    gsap.set(text, { opacity: 1, y: 0 });
+
+    // Scroll Animation
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top 80%",        // When section enters view
+        end: "bottom top",       // Ends naturally
+        scrub: 1.2,              // Smooth scroll control
+      },
+    })
+      .to(wrapper, {
+        width: "100vw",
+        borderRadius: "0px",
+        duration: 1,
+        ease: "none",
+      })
+      .to(
+        text,
+        {
+          opacity: 0.7,
+          y: -15,
+          duration: 1,
+          ease: "power1.out",
+        },
+        "<"
+      );
+  }, []);
 
   return (
-    <section className="scroll-video-section" ref={ref}>
-      <motion.div
-        className="video-expand-wrapper"
-        animate={{
-          width: isInView ? "100%" : "350px",   // 🔥 smaller initial size
-          borderRadius: isInView ? "0px" : "40px",
-        }}
-        transition={{
-          duration: 1.6,
-          ease: [0.16, 1, 0.3, 1],
-        }}
-      >
-        <motion.div
-          className="button-text"
-          animate={{
-            opacity: isInView ? 0.8 : 1,
-            y: isInView ? -10 : 0,
-          }}
-          transition={{ duration: 0.8 }}
-        >
+    <section className="scroll-video-section" ref={sectionRef}>
+      <div className="video-expand-wrapper" ref={wrapperRef}>
+        <div className="button-text" ref={textRef}>
           Let’s Get Started
-        </motion.div>
+        </div>
 
         <video
           src="/VIndiaInfrasec_Webpage/intro.mp4"
@@ -39,7 +60,7 @@ export default function ScrollVideo() {
           playsInline
           className="scroll-video"
         />
-      </motion.div>
+      </div>
     </section>
   );
 }

@@ -22,56 +22,69 @@ function About() {
   useEffect(() => {
     const element = aboutRef.current;
 
-    const startCounters = () => {
-      const animate = (setter, final, speed) => {
-        let count = 0;
-        const interval = setInterval(() => {
-          count += 1;
-          setter(count);
-          if (count >= final) clearInterval(interval);
-        }, speed);
-      };
+    // Reset text lines before each animation
+    const resetLines = () => {
+      gsap.set(".about-line", { opacity: 0, y: 20 });
+    };
 
+    // Reset counters before each animation
+    const resetCounters = () => {
       setYears(0);
       setProjects(0);
       setCurrent(0);
       setEmployees(0);
-
-      animate(setYears, 15, 50);
-      animate(setProjects, 684, 2);
-      animate(setCurrent, 24, 40);
-      animate(setEmployees, 234, 10);
     };
 
-    // Line animations
+    // Smooth counter animation
+    const startCounters = () => {
+      const animate = (setter, finalVal, duration) => {
+        const obj = { val: 0 };
+        gsap.to(obj, {
+          val: finalVal,
+          duration,
+          ease: "power3.out",
+          onUpdate: () => setter(Math.floor(obj.val)),
+        });
+      };
+
+      animate(setYears, 15, 2.5);
+      animate(setProjects, 684, 3.5);
+      animate(setCurrent, 24, 2.0);
+      animate(setEmployees, 234, 2.8);
+    };
+
+    // Line-by-line text animation
     const animateLines = () => {
-      gsap.utils.toArray(".about-line").forEach((line, i) => {
-        gsap.fromTo(
-          line,
-          { opacity: 0, y: 12 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            delay: i * 0.2,
-            ease: "power2.out",
-          }
-        );
+      gsap.to(".about-line", {
+        opacity: 1,
+        y: 0,
+        stagger: 0.35,
+        duration: 1.2,
+        ease: "power2.out",
       });
     };
 
-    // ScrollTrigger to call animation every time visible
     ScrollTrigger.create({
       trigger: element,
-      start: "top 80%",
+      start: "top 75%",   // when About starts to come nicely into view
+      end: "bottom 60%",
       onEnter: () => {
-        startCounters();
+        resetLines();
+        resetCounters();
         animateLines();
+
+        // 🔥 tiny delay before counters start
+        gsap.delayedCall(0.6, startCounters);
       },
       onEnterBack: () => {
-        startCounters();
+        resetLines();
+        resetCounters();
         animateLines();
-      }
+
+        // 🔥 also delay when scrolling back up into view
+        gsap.delayedCall(0.6, startCounters);
+      },
+      once: false, // run every time we view the section
     });
   }, []);
 
