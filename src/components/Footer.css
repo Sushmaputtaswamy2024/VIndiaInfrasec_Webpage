@@ -1,28 +1,165 @@
-.footer-bar {
+.footer {
   width: 100%;
-  padding: clamp(10px, 3vw, 18px) 0;   /* responsive padding */
-  text-align: center;
-  font-size: clamp(0.9rem, 2.5vw, 1rem); /* responsive text */
+  padding: 60px 40px;
+  background: #0d1b2a;
   color: #fff;
-  background: linear-gradient(to right, #00bce8 0%, #02528d 100%);
-
-  /* If you want it fixed at bottom, uncomment */
-  /* position: fixed;
-     bottom: 0;
-     left: 0; */
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  flex-wrap: wrap;
 }
 
-/* Small screen adjustments */
-@media (max-width: 480px) {
-  .footer-bar {
-    padding: 12px 8px;
-    line-height: 1.4;
+/* SOCIAL BAR LEFT SIDE */
+.footer-social {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.footer-social a {
+  font-size: 28px;
+  color: #fff;
+  transition: 0.3s;
+}
+
+.footer-social a:hover {
+  color: #00bce8;
+  transform: scale(1.2);
+}
+
+/* QUICK LINKS */
+.footer-links {
+  min-width: 200px;
+}
+
+.footer-links h3 {
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin: 6px 0;
+}
+
+.footer-links a {
+  color: #ccc;
+  transition: 0.3s;
+  font-size: 15px;
+}
+
+.footer-links a:hover {
+  color: #00bce8;
+}
+
+/* LOCATION SECTION (DESKTOP) */
+.footer-location {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.footer-location .state {
+  min-width: 150px;
+}
+
+.footer-location h3 {
+  width: 100%;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.footer-location h4 {
+  margin-bottom: 6px;
+  color: #00bce8;
+  font-size: 17px;
+}
+
+.footer-location p {
+  margin: 3px 0;
+  color: #ccc;
+  font-size: 15px;
+}
+
+/* WHATSAPP FLOAT BUTTON */
+.whatsapp-float {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background: #25d366;
+  color: #fff;
+  padding: 14px;
+  border-radius: 50%;
+  font-size: 28px;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: 0.3s;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+
+/* --------------------------
+   RESPONSIVE DESIGN
+--------------------------- */
+
+/* Tablets (900px and below) */
+@media (max-width: 900px) {
+  .footer {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    gap: 50px;
+  }
+
+  .footer-location {
+    flex-direction: column;
+    gap: 25px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-location .state {
+    width: 100%;
+  }
+
+  .footer-social {
+    flex-direction: row;
+    justify-content: center;
   }
 }
 
-/* Very small phones */
-@media (max-width: 360px) {
-  .footer-bar {
-    font-size: 0.85rem;
+/* Mobile (600px and below) */
+@media (max-width: 600px) {
+  .footer {
+    padding: 40px 20px;
+  }
+
+  .footer-links ul {
+    padding: 0;
+  }
+
+  .footer-social a {
+    font-size: 26px;
+  }
+
+  .footer-location h3 {
+    margin-bottom: 10px;
+  }
+
+  .footer-location {
+    width: 100%;
+  }
+
+  /* Ensure states appear one below another in perfect stack */
+  .footer-location .state {
+    text-align: center;
+    margin-bottom: 20px;
   }
 }
