@@ -3,7 +3,6 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import logo from "../assets/logo.png";
 
-
 gsap.registerPlugin(ScrollTrigger);
 
 export default function LogoHeader({ triggerRef }) {
@@ -17,7 +16,7 @@ export default function LogoHeader({ triggerRef }) {
     const bar = barRef.current;
     const trigger = triggerRef?.current;
 
-    if (!trigger) return; // safety
+    if (!trigger) return;
 
     const isMobile = window.innerWidth < 600;
     const startWidth = isMobile ? 140 : 260;
@@ -43,9 +42,10 @@ export default function LogoHeader({ triggerRef }) {
 
   return (
     <>
-      {/* WHITE BAR */}
+      {/* FIXED WHITE BAR (DECORATIVE ONLY) */}
       <div
         ref={barRef}
+        aria-hidden="true"
         style={{
           position: "fixed",
           top: 0,
@@ -59,9 +59,11 @@ export default function LogoHeader({ triggerRef }) {
         }}
       />
 
-      {/* LOGO */}
+      {/* FLOATING LOGO */}
       <div
         ref={logoContainerRef}
+        role="banner"
+        aria-label="Company logo"
         style={{
           position: "fixed",
           top: "12px",
@@ -71,7 +73,9 @@ export default function LogoHeader({ triggerRef }) {
         <img
           ref={logoImageRef}
           src={logo}
-          alt="Logo"
+          alt="VIndia Infrasec logo"
+          loading="eager"           // ensures instant visibility
+          decoding="async"          // better performance
           style={{ width: "260px" }}
         />
       </div>

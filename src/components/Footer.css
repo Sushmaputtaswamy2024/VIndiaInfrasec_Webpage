@@ -1,165 +1,169 @@
 .footer {
   width: 100%;
   padding: 60px 40px;
-  background: #0d1b2a;
-  color: #fff;
+  background: linear-gradient(135deg, #0b1a2e, #14263f);
+  color: white;
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 40px;
-  flex-wrap: wrap;
+  /* justify-content: space-between; */
+  gap: 20px;
+  /* flex-wrap: nowrap; */
 }
 
-/* SOCIAL BAR LEFT SIDE */
+/* Footer Columns */
+.col {
+  width: 28%;
+  min-width: 260px;
+  
+}
+
+/* Logo + Description */
+.footer-logo {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.footer-desc {
+  margin-top: 10px;
+  line-height: 1.6;
+  font-size: 14px;
+  color: #c7d3e0;
+}
+
+/* Social Icons */
 .footer-social {
+  margin-top: 40px;
   display: flex;
-  flex-direction: column;
-  gap: 18px;
+  flex-direction: row;
+  gap: 15px;
+  position: relative;
+  bottom: 20px;
+
 }
 
 .footer-social a {
-  font-size: 28px;
-  color: #fff;
+  color: #00bce8;
+  font-size: 26px;
   transition: 0.3s;
 }
 
 .footer-social a:hover {
   color: #00bce8;
-  transform: scale(1.2);
+  transform: scale(1.15);
 }
 
-/* QUICK LINKS */
+/* Quick Links */
 .footer-links {
-  min-width: 200px;
-}
-
-.footer-links h3 {
-  margin-bottom: 15px;
-  font-size: 20px;
-}
-
-.footer-links ul {
   list-style: none;
   padding: 0;
 }
 
 .footer-links li {
-  margin: 6px 0;
+  margin: 8px 0;
 }
 
 .footer-links a {
-  color: #ccc;
-  transition: 0.3s;
+  color: #cbd4df;
   font-size: 15px;
+  transition: 0.3s;
 }
 
 .footer-links a:hover {
   color: #00bce8;
+  margin-left: 4px;
+}
+.footer-right {
+  width: 500px;
+  margin-right: 40px;
+padding-right: 20px;
 }
 
-/* LOCATION SECTION (DESKTOP) */
-.footer-location {
+/* Animated Maps Wrapper: Glassmorphism */
+.map-glass {
+  background: rgba(255, 255, 255, 0.06);
   display: flex;
-  gap: 40px;
-  flex-wrap: wrap;
+  justify-content: center;
+  backdrop-filter: blur(6px);
+  padding-right: 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.1);
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  width: 500px;   /* increase as much as you want */
+  margin-left: -20px; /* adjust the value as needed */
+
 }
 
-.footer-location .state {
-  min-width: 150px;
-}
 
-.footer-location h3 {
+/* State Animation */
+.state-box {
+  position: absolute;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.8s ease;
   width: 100%;
-  margin-bottom: 15px;
+  text-align: center  ;
+}
+
+.state-box.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* State Title */
+.state-title {
+  color: #46c2ff;
   font-size: 20px;
+  margin-bottom: 10px;
 }
 
-.footer-location h4 {
-  margin-bottom: 6px;
-  color: #00bce8;
-  font-size: 17px;
+/* District Cards */
+.district-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }
 
-.footer-location p {
-  margin: 3px 0;
-  color: #ccc;
-  font-size: 15px;
+.district-card {
+  width: 150px;
+  background: rgba(0,0,0,0.35);
+  border-radius: 10px;
+  padding: 6px;
+  text-align: center;
+  box-shadow:
+    0 0 10px rgba(0, 188, 232, 0.2),
+    inset 0 0 6px rgba(255,255,255,0.1);
+    height: 140px;
 }
 
-/* WHATSAPP FLOAT BUTTON */
+.district-name {
+  font-size: 13px;
+  margin-bottom: 4px;
+  color: #d9f3ff;
+}
+
+/* Maps */
+.map-frame {
+  width: 100%;
+  height: 100px;
+  border: none;
+  border-radius: 8px;
+}
+
+/* WhatsApp Floating */
 .whatsapp-float {
   position: fixed;
   right: 20px;
   bottom: 20px;
   background: #25d366;
-  color: #fff;
+  color: white;
   padding: 14px;
   border-radius: 50%;
   font-size: 28px;
   z-index: 1000;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
   transition: 0.3s;
 }
 
 .whatsapp-float:hover {
   transform: scale(1.1);
-}
-
-/* --------------------------
-   RESPONSIVE DESIGN
---------------------------- */
-
-/* Tablets (900px and below) */
-@media (max-width: 900px) {
-  .footer {
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-    gap: 50px;
-  }
-
-  .footer-location {
-    flex-direction: column;
-    gap: 25px;
-    align-items: center;
-    text-align: center;
-  }
-
-  .footer-location .state {
-    width: 100%;
-  }
-
-  .footer-social {
-    flex-direction: row;
-    justify-content: center;
-  }
-}
-
-/* Mobile (600px and below) */
-@media (max-width: 600px) {
-  .footer {
-    padding: 40px 20px;
-  }
-
-  .footer-links ul {
-    padding: 0;
-  }
-
-  .footer-social a {
-    font-size: 26px;
-  }
-
-  .footer-location h3 {
-    margin-bottom: 10px;
-  }
-
-  .footer-location {
-    width: 100%;
-  }
-
-  /* Ensure states appear one below another in perfect stack */
-  .footer-location .state {
-    text-align: center;
-    margin-bottom: 20px;
-  }
 }

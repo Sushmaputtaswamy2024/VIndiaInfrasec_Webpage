@@ -13,21 +13,20 @@ function About() {
   const [current, setCurrent] = useState(0);
   const [employees, setEmployees] = useState(0);
 
+  // About text (same content)
   const lines = [
     "VIndia Infrasec started its operations with a small villa project in the year 2010. VIndia Infrasec has defied all odds to be recognized as a spearheading force of engineering construction in South India.",
     "VIndia Infrasec is built on the principles of excellence and integrity. We work at the highest ethical standards and ensure the quality of our projects. It started its operations in the form of a partnership firm in the year 2010 and got incorporated as a Private Ltd Company in 2020.",
-    "VIndia Infrasec is headquartered in Bangalore.Today the company has a strategic presence in locations across South India.We are differentiated by the quality of our people.We align our capabilities to the objectives of our customers to convert their dreams into reality."
+    "VIndia Infrasec is headquartered in Bangalore. Today the company has a strategic presence in locations across South India. We are differentiated by the quality of our people. We align our capabilities to the objectives of our customers to convert their dreams into reality."
   ];
 
   useEffect(() => {
     const element = aboutRef.current;
 
-    // Reset text lines before each animation
     const resetLines = () => {
       gsap.set(".about-line", { opacity: 0, y: 20 });
     };
 
-    // Reset counters before each animation
     const resetCounters = () => {
       setYears(0);
       setProjects(0);
@@ -35,7 +34,6 @@ function About() {
       setEmployees(0);
     };
 
-    // Smooth counter animation
     const startCounters = () => {
       const animate = (setter, finalVal, duration) => {
         const obj = { val: 0 };
@@ -53,7 +51,6 @@ function About() {
       animate(setEmployees, 234, 2.8);
     };
 
-    // Line-by-line text animation
     const animateLines = () => {
       gsap.to(".about-line", {
         opacity: 1,
@@ -66,35 +63,43 @@ function About() {
 
     ScrollTrigger.create({
       trigger: element,
-      start: "top 75%",   // when About starts to come nicely into view
+      start: "top 75%",
       end: "bottom 60%",
       onEnter: () => {
         resetLines();
         resetCounters();
         animateLines();
-
-        // 🔥 tiny delay before counters start
         gsap.delayedCall(0.6, startCounters);
       },
       onEnterBack: () => {
         resetLines();
         resetCounters();
         animateLines();
-
-        // 🔥 also delay when scrolling back up into view
         gsap.delayedCall(0.6, startCounters);
       },
-      once: false, // run every time we view the section
+      once: false,
     });
   }, []);
 
   return (
-    <section className="about-section" ref={aboutRef}>
+    <section
+      className="about-section"
+      ref={aboutRef}
+      aria-labelledby="about-hidden-title"
+      role="region"
+    >
+      {/* Hidden SEO heading (Google reads it, UI unaffected) */}
+      <h2 id="about-hidden-title" className="sr-only">
+        About VIndia Infrasec – Construction, Interior, Architectural and Structural Design Company
+      </h2>
+
+      {/* Your original visible heading */}
       <h1>
         VIndia <span>Infrasec</span>
       </h1>
 
-      <div className="about-text">
+      {/* About text */}
+      <div className="about-text" aria-label="Company background information">
         {lines.map((text, i) => (
           <p key={i} className="about-line">
             {text}
@@ -102,7 +107,8 @@ function About() {
         ))}
       </div>
 
-      <div className="stats-container">
+      {/* Stats */}
+      <div className="stats-container" aria-label="Company achievements and milestones">
         <div className="stat-box">
           <h2>{years}+</h2>
           <p>Years of Experience</p>

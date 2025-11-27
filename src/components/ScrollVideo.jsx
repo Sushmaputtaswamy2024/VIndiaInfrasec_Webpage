@@ -18,13 +18,13 @@ export default function ScrollVideo() {
     gsap.set(wrapper, { width: "350px", borderRadius: "40px" });
     gsap.set(text, { opacity: 1, y: 0 });
 
-    // Scroll Animation
+    // Scroll animation
     gsap.timeline({
       scrollTrigger: {
         trigger: sectionRef.current,
-        start: "top 80%",        // When section enters view
-        end: "bottom top",       // Ends naturally
-        scrub: 1.2,              // Smooth scroll control
+        start: "top 80%",
+        end: "bottom top",
+        scrub: 1.2,
       },
     })
       .to(wrapper, {
@@ -46,11 +46,18 @@ export default function ScrollVideo() {
   }, []);
 
   return (
-    <section className="scroll-video-section" ref={sectionRef}>
+    <section
+      className="scroll-video-section"
+      ref={sectionRef}
+      aria-label="Intro video section"
+      role="region"
+    >
       <div className="video-expand-wrapper" ref={wrapperRef}>
-        <div className="button-text" ref={textRef}>
+        
+        {/* Text Improved Semantically */}
+        <p className="button-text" ref={textRef}>
           Let’s Get Started
-        </div>
+        </p>
 
         <video
           src="/VIndiaInfrasec_Webpage/intro.mp4"
@@ -58,8 +65,13 @@ export default function ScrollVideo() {
           muted
           loop
           playsInline
+          preload="auto"
           className="scroll-video"
-        />
+          aria-hidden="true"
+        >
+          Your browser does not support video playback.
+        </video>
+
       </div>
     </section>
   );
