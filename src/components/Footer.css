@@ -4,19 +4,42 @@
   background: linear-gradient(135deg, #0b1a2e, #14263f);
   color: white;
   display: flex;
-  /* justify-content: space-between; */
+  justify-content: space-between;
+  align-items: flex-start;
   gap: 20px;
-  /* flex-wrap: nowrap; */
 }
 
-/* Footer Columns */
-.col {
-  width: 28%;
-  min-width: 260px;
-  
+/* ============================= */
+/* COLUMN 1 — SOCIAL + BRAND */
+/* ============================= */
+
+.social-col {
+  width: 30%;
+  display: flex;
+  flex-direction: row;   /* 👈 keeps icons and description side-by-side */
+  align-items: flex-start;
+  gap: 55px;             /* space between icons and description */
 }
 
-/* Logo + Description */
+.footer-social-left {
+  display: flex;
+  flex-direction: column;   /* 👈 makes icons vertical */
+  gap: 18px;
+  align-items: flex-start;  /* 👈 sticks icons to left corner */
+}
+
+
+.footer-social-left a {
+  color: #00bce8;
+  font-size: 26px;
+  transition: 0.3s;
+}
+
+.footer-social-left a:hover {
+  transform: scale(1.15);
+}
+
+/* Brand Section */
 .footer-logo {
   font-size: 26px;
   font-weight: bold;
@@ -29,32 +52,14 @@
   color: #c7d3e0;
 }
 
-/* Social Icons */
-.footer-social {
-  margin-top: 40px;
-  display: flex;
-  flex-direction: row;
-  gap: 15px;
-  position: relative;
-  bottom: 20px;
+/* ============================= */
+/* QUICK LINKS */
+/* ============================= */
 
-}
-
-.footer-social a {
-  color: #00bce8;
-  font-size: 26px;
-  transition: 0.3s;
-}
-
-.footer-social a:hover {
-  color: #00bce8;
-  transform: scale(1.15);
-}
-
-/* Quick Links */
 .footer-links {
   list-style: none;
   padding: 0;
+  margin-left: 10px;
 }
 
 .footer-links li {
@@ -71,38 +76,35 @@
   color: #00bce8;
   margin-left: 4px;
 }
+
+/* ============================= */
+/* MAP CAROUSEL */
+/* ============================= */
+
 .footer-right {
-  width: 500px;
-  margin-right: 40px;
-padding-right: 20px;
+  width: 420px;
+  margin-right: 10px;
 }
 
-/* Animated Maps Wrapper: Glassmorphism */
 .map-glass {
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(255,255,255,0.06);
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.1);
   display: flex;
   justify-content: center;
   backdrop-filter: blur(6px);
-  padding-right: 20px;
-  border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.1);
-  position: relative;
-  height: 200px;
+  width: 420px;
+  height: 220px;
   overflow: hidden;
-  width: 500px;   /* increase as much as you want */
-  margin-left: -20px; /* adjust the value as needed */
-
 }
 
-
-/* State Animation */
 .state-box {
   position: absolute;
   opacity: 0;
   transform: translateY(40px);
-  transition: 0.8s ease;
+  transition: 0.7s ease;
   width: 100%;
-  text-align: center  ;
+  text-align: center;
 }
 
 .state-box.active {
@@ -110,14 +112,12 @@ padding-right: 20px;
   transform: translateY(0);
 }
 
-/* State Title */
 .state-title {
   color: #46c2ff;
   font-size: 20px;
   margin-bottom: 10px;
 }
 
-/* District Cards */
 .district-container {
   display: flex;
   justify-content: center;
@@ -125,24 +125,14 @@ padding-right: 20px;
 }
 
 .district-card {
-  width: 150px;
+  width: 140px;
   background: rgba(0,0,0,0.35);
   border-radius: 10px;
   padding: 6px;
+  height: 140px;
   text-align: center;
-  box-shadow:
-    0 0 10px rgba(0, 188, 232, 0.2),
-    inset 0 0 6px rgba(255,255,255,0.1);
-    height: 140px;
 }
 
-.district-name {
-  font-size: 13px;
-  margin-bottom: 4px;
-  color: #d9f3ff;
-}
-
-/* Maps */
 .map-frame {
   width: 100%;
   height: 100px;
@@ -150,20 +140,106 @@ padding-right: 20px;
   border-radius: 8px;
 }
 
-/* WhatsApp Floating */
+/* ============================= */
+/* FLOATING WHATSAPP BUTTON */
+/* ============================= */
+
 .whatsapp-float {
   position: fixed;
-  right: 20px;
   bottom: 20px;
+  right: 20px;
   background: #25d366;
   color: white;
   padding: 14px;
   border-radius: 50%;
-  font-size: 28px;
+  font-size: 20px;
   z-index: 1000;
   transition: 0.3s;
 }
 
 .whatsapp-float:hover {
   transform: scale(1.1);
+}
+
+/* ===================================================== */
+/* =============== RESPONSIVE FOOTER =================== */
+/* ===================================================== */
+
+/* 📱 Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    gap: 30px;
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  .social-col {
+    width: 100%;
+    align-items: center;
+  }
+
+  .footer-social-left {
+    justify-content: center;
+  }
+
+  .footer-brand {
+    text-align: center;
+  }
+
+  .footer-links {
+    margin: 0;
+    text-align: center;
+  }
+
+  .footer-right {
+    width: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .map-glass {
+    width: 100%;
+    max-width: 380px;
+    height: 220px;
+    margin: auto;
+  }
+
+  .district-container {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .district-card {
+    width: 140px;
+  }
+}
+
+/* 📲 Tablets (max-width: 1100px) */
+@media (max-width: 1100px) {
+  .footer {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .social-col,
+  .col {
+    width: 45%;
+    min-width: 280px;
+  }
+
+  .footer-right {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .map-glass {
+    width: 90%;
+    max-width: 480px;
+    margin: auto;
+  }
 }

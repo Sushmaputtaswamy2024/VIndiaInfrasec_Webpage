@@ -11,9 +11,6 @@ import { useState, useEffect } from "react";
 export default function Footer() {
   const [index, setIndex] = useState(0);
 
-  // ================================
-  // LOCATION DATA (SEO IMPROVED)
-  // ================================
   const states = [
     {
       title: "Kerala",
@@ -43,65 +40,64 @@ export default function Footer() {
     },
   ];
 
-  // Auto-switching state carousel
   useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % states.length);
-    }, 4500);
+    const interval = setInterval(
+      () => setIndex((prev) => (prev + 1) % states.length),
+      4500
+    );
     return () => clearInterval(interval);
   }, []);
 
   return (
     <>
-      {/* Floating WhatsApp button */}
-      <a
-        href="https://wa.me/8592921212"
-        className="whatsapp-float"
-        aria-label="Chat with us on WhatsApp"
-      >
+      {/* WhatsApp Button */}
+      <a href="https://wa.me/8592921212" className="whatsapp-float">
         <FaWhatsapp />
       </a>
 
-      {/* FOOTER */}
-      <footer className="footer" role="contentinfo">
-        {/* COLUMN 1 — BRAND + SOCIAL */}
-        <div className="col">
-          <h2 className="footer-logo">VIndia Infrasec</h2>
+      <footer className="footer">
 
-          <p className="footer-desc">
-            Delivering excellence in Construction, Interior Design & Structural
-            Engineering across South India.
-          </p>
+        {/* SOCIAL ICONS + BRAND TEXT SIDE-BY-SIDE */}
+        <div className="col social-col">
 
-          {/* Social Icons */}
-          <nav className="footer-social" aria-label="Social Media Links">
-            <a href="#" title="Google Business"><FaGoogle /></a>
-            <a href="#" title="YouTube"><FaYoutube /></a>
-            <a href="#" title="Instagram"><FaInstagram /></a>
-            <a href="#" title="LinkedIn"><FaLinkedin /></a>
+          {/* Vertical Social Icons */}
+          <nav className="footer-social-left">
+            <a href="#"><FaGoogle /></a>
+            <a href="#"><FaYoutube /></a>
+            <a href="#"><FaInstagram /></a>
+            <a href="#"><FaLinkedin /></a>
           </nav>
+
+          {/* Logo + Description beside icons */}
+          <div className="footer-brand">
+            <h2 className="footer-logo">VIndia Infrasec</h2>
+            <p className="footer-desc">
+              Delivering excellence in Construction, Interior Design & Structural
+              Engineering across South India.
+            </p>
+          </div>
+
         </div>
 
-        {/* COLUMN 2 — QUICK LINKS */}
-        <nav className="col" aria-label="Footer Navigation">
+        {/* QUICK LINKS */}
+        <div className="col">
           <ul className="footer-links">
-            <li><a href="/" title="Home">Home</a></li>
-            <li><a href="/about" title="About Us">About Us</a></li>
-            <li><a href="/services" title="Services">Services</a></li>
-            <li><a href="/projects" title="Projects">Projects</a></li>
-            <li><a href="/careers" title="Careers">Careers</a></li>
-            <li><a href="/contact" title="Contact">Contact</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/projects">Projects</a></li>
+            <li><a href="/careers">Careers</a></li>
+            <li><a href="/contact">Contact</a></li>
           </ul>
-        </nav>
+        </div>
 
-        {/* COLUMN 3 — ANIMATED MAP CAROUSEL */}
+        {/* MAP CAROUSEL */}
         <div className="col footer-right">
           <div className="map-glass">
             {states.map((state, i) => (
               <div
                 key={i}
                 className={`state-box ${index === i ? "active" : ""}`}
-                aria-hidden={index !== i}
               >
                 <h3 className="state-title">{state.title}</h3>
 
@@ -109,47 +105,23 @@ export default function Footer() {
                   {state.districts.map((district, idx) => (
                     <div className="district-card" key={idx}>
                       <h4 className="district-name">{district}</h4>
-
-                      {/* Lazy loaded ONLY for active state */}
                       {index === i && (
                         <iframe
                           src={state.maps[idx]}
                           loading="lazy"
-                          title={`${district} map`}
                           className="map-frame"
                         ></iframe>
                       )}
                     </div>
                   ))}
                 </div>
+
               </div>
             ))}
           </div>
         </div>
-      </footer>
 
-      {/* GOOGLE LOCAL BUSINESS SCHEMA */}
-      <script type="application/ld+json">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "LocalBusiness",
-          name: "VIndia Infrasec",
-          image: "https://your-website.com/logo.png",
-          url: "https://your-website.com",
-          telephone: "+918592921212",
-          address: {
-            "@type": "PostalAddress",
-            addressLocality: "Bengaluru",
-            addressRegion: "Karnataka",
-            addressCountry: "IN",
-          },
-          sameAs: [
-            "https://www.instagram.com/",
-            "https://www.linkedin.com/",
-            "https://www.youtube.com/",
-          ],
-        })}
-      </script>
+      </footer>
     </>
   );
 }
