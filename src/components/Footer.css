@@ -1,8 +1,61 @@
-/* MAIN FOOTER */
+/* ===========================================
+   FIXED / STICKY ICONS ABOVE FOOTER
+=========================================== */
+.icons-above-footer {
+  width: 100%;
+}
+
+/* BASE FIXED ICON STYLE */
+.icon-left,
+.icon-right {
+  position: fixed;
+  z-index: 3000;
+  padding: 16px;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+/* LEFT CALL ICON */
+.icon-left {
+  left: 20px;
+  bottom: 200px; /* moved a bit higher as requested */
+  background: #007bff;
+  color: white;
+  font-size: 24px;
+}
+
+.icon-left:hover {
+  transform: scale(1.18);
+}
+
+/* RIGHT WHATSAPP ICON */
+.icon-right {
+  right: 20px;
+  bottom: 200px; /* moved a bit higher as requested */
+  background: #25d366;
+  color: white;
+  padding: 16px;
+  border-radius: 50%;
+  font-size: 26px;
+}
+
+.icon-right:hover {
+  transform: scale(1.18);
+}
+
+/* WHEN FOOTER GETS CLOSE → LIFT ICONS UP MORE */
+.icons-stop {
+  bottom: 280px !important; /* lifted higher so footer never touches */
+}
+
+
+/* ===========================================
+   MAIN FOOTER
+=========================================== */
 .footer {
   width: 100%;
   padding: 60px 40px;
-  background: #f1f1f1;   /* light grey */
+  background: #f1f1f1;
   color: #222;
   display: flex;
   justify-content: flex-start;
@@ -11,7 +64,10 @@
   border-top: 1px solid #d3d3d3;
 }
 
-/* SOCIAL + BRAND BLOCK */
+
+/* ===========================================
+   SOCIAL + BRAND BLOCK
+=========================================== */
 .social-col {
   width: 30%;
   min-width: 260px;
@@ -19,7 +75,6 @@
   gap: 55px;
 }
 
-/* SOCIAL ICONS – BIG + BRIGHT */
 .footer-social-left {
   display: flex;
   flex-direction: column;
@@ -28,7 +83,7 @@
 
 .footer-social-left a {
   color: #007bff;
-  font-size: 34px;     /* Bigger size */
+  font-size: 34px;
   transition: 0.3s;
 }
 
@@ -53,7 +108,10 @@
   color: #444;
 }
 
-/* QUICK LINKS */
+
+/* ===========================================
+   QUICK LINKS
+=========================================== */
 .footer-links {
   list-style: none;
   min-width: 160px;
@@ -74,7 +132,10 @@
   margin-left: 4px;
 }
 
-/* CONTACT NUMBERS COLUMN */
+
+/* ===========================================
+   CONTACT NUMBERS
+=========================================== */
 .contact-col {
   min-width: 180px;
 }
@@ -97,7 +158,10 @@
   font-size: 15px;
 }
 
-/* MAP AREA */
+
+/* ===========================================
+   MAPS
+=========================================== */
 .col-maps {
   flex: 1.1;
   min-width: 350px;
@@ -106,16 +170,14 @@
   align-items: center;
 }
 
-/* STATE TITLE */
 .state-title {
   font-size: 20px;
   margin-bottom: 12px;
   color: #007bff;
   font-weight: 600;
-  margin-left: -40px;  /* Perfect centering adjustment */
+  margin-left: -40px;
 }
 
-/* MAP CARDS */
 .district-row {
   display: flex;
   gap: 16px;
@@ -157,43 +219,10 @@
   border-radius: 8px;
 }
 
-/* WHATSAPP FLOAT */
-.whatsapp-float {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-  background: #25d366;
-  color: white;
-  padding: 16px;
-  border-radius: 50%;
-  font-size: 26px;
-  z-index: 2000;
-  transition: 0.3s;
-}
 
-.whatsapp-float:hover {
-  transform: scale(1.15);
-}
-
-/* CONTACT FLOAT */
-.contact-float {
-  position: fixed;
-  left: 20px;
-  bottom: 20px;
-  background: #007bff;
-  color: white;
-  padding: 16px;
-  border-radius: 50%;
-  font-size: 22px;
-  z-index: 2000;
-  transition: 0.3s;
-}
-
-.contact-float:hover {
-  transform: scale(1.15);
-}
-
-/* MOBILE */
+/* ===========================================
+   MOBILE RESPONSIVE
+=========================================== */
 @media (max-width: 900px) {
   .footer {
     flex-direction: column;
@@ -208,5 +237,16 @@
   .district-row {
     justify-content: center;
     flex-wrap: wrap;
+  }
+
+  /* Higher on mobile too */
+  .icon-left {
+    left: 10px;
+    bottom: 180px;
+  }
+
+  .icon-right {
+    right: 10px;
+    bottom: 180px;
   }
 }

@@ -41,6 +41,7 @@ export default function Footer() {
     },
   ];
 
+  /* AUTO-SLIDE STATES */
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % states.length);
@@ -48,24 +49,51 @@ export default function Footer() {
     return () => clearInterval(interval);
   }, []);
 
+  /* STOP ICONS FROM OVERLAPPING THE FOOTER */
+  useEffect(() => {
+    const footer = document.querySelector(".footer");
+    const iconLeft = document.querySelector(".icon-left");
+    const iconRight = document.querySelector(".icon-right");
+
+    function adjustIcons() {
+      const footerTop = footer.getBoundingClientRect().top;
+      const winHeight = window.innerHeight;
+
+      if (footerTop < winHeight - 120) {
+        iconLeft.classList.add("icons-stop");
+        iconRight.classList.add("icons-stop");
+      } else {
+        iconLeft.classList.remove("icons-stop");
+        iconRight.classList.remove("icons-stop");
+      }
+    }
+
+    window.addEventListener("scroll", adjustIcons);
+    return () => window.removeEventListener("scroll", adjustIcons);
+  }, []);
+
   return (
     <>
-      {/* LEFT Floating Contact Button */}
-      <a href="tel:+918592921212" className="contact-float">
-        <FaPhoneAlt />
-      </a>
 
-      {/* RIGHT Floating WhatsApp Button */}
-      <a
-        href="https://api.whatsapp.com/send/?phone=918592921212"
-        className="whatsapp-float"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <FaWhatsapp />
-      </a>
+      {/* FIXED ICONS ABOVE FOOTER */}
+      <div className="icons-above-footer">
+        <a href="tel:+918592921212" className="icon-left">
+          <FaPhoneAlt />
+        </a>
 
+        <a
+          href="https://api.whatsapp.com/send/?phone=918592921212"
+          className="icon-right"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FaWhatsapp />
+        </a>
+      </div>
+
+      {/* FOOTER */}
       <footer className="footer">
+
         {/* SOCIAL + BRAND */}
         <div className="social-col">
           <div className="footer-social-left">
@@ -98,14 +126,14 @@ export default function Footer() {
 
         {/* CONTACT NUMBERS */}
         <div className="col contact-col">
-          <h3 className="contact-title">Contact Numbers</h3>
+          <h3 className="contact-title">Call Us</h3>
           <ul className="contact-list">
+            <li>+91 85929 11212</li>
             <li>+91 85929 21212</li>
-            <li>+91 98451 00000</li>
-            <li>+91 90000 12345</li>
-            <li>+91 70123 45678</li>
-            <li>+91 81234 56789</li>
-            <li>+91 98860 90909</li>
+            <li>+91 85929 31212</li>
+            <li>+91 85929 41212</li>
+            <li>+91 85929 51212</li>
+            <li>+91 85929 61212</li>
           </ul>
         </div>
 
@@ -131,6 +159,7 @@ export default function Footer() {
             ))}
           </div>
         </div>
+
       </footer>
     </>
   );
