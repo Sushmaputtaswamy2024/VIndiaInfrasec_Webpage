@@ -5,6 +5,7 @@ import {
   FaInstagram,
   FaLinkedin,
   FaWhatsapp,
+  FaPhoneAlt,
 } from "react-icons/fa";
 import { useState, useEffect } from "react";
 
@@ -40,82 +41,40 @@ export default function Footer() {
     },
   ];
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-  useEffect(() => {
-    const interval = setInterval(
-      () => setIndex((prev) => (prev + 1) % states.length),
-      4500
-    );
-=======
-=======
->>>>>>> Stashed changes
-  // Auto-change every 3 sec
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % states.length);
     }, 3000);
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
     return () => clearInterval(interval);
   }, []);
 
   return (
     <>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-      {/* WhatsApp Button */}
-      <a href="https://wa.me/8592921212" className="whatsapp-float">
-=======
-=======
->>>>>>> Stashed changes
-      {/* WhatsApp Floating */}
+      {/* LEFT Floating Contact Button */}
+      <a href="tel:+918592921212" className="contact-float">
+        <FaPhoneAlt />
+      </a>
+
+      {/* RIGHT Floating WhatsApp Button */}
       <a
         href="https://api.whatsapp.com/send/?phone=918592921212"
         className="whatsapp-float"
         target="_blank"
         rel="noopener noreferrer"
       >
->>>>>>> Stashed changes
         <FaWhatsapp />
       </a>
 
       <footer className="footer">
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-
-        {/* SOCIAL ICONS + BRAND TEXT SIDE-BY-SIDE */}
-        <div className="col social-col">
-
-          {/* Vertical Social Icons */}
-          <nav className="footer-social-left">
-=======
-=======
->>>>>>> Stashed changes
-        {/* LEFT COLUMN */}
-        <div className="col">
-          <h2 className="footer-logo">VIndia Infrasec</h2>
-          <p className="footer-desc">
-            Delivering excellence in Construction, Interior Design & Structural
-            Engineering across South India.
-          </p>
-
-          <div className="footer-social">
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+        {/* SOCIAL + BRAND */}
+        <div className="social-col">
+          <div className="footer-social-left">
             <a href="#"><FaGoogle /></a>
             <a href="#"><FaYoutube /></a>
             <a href="#"><FaInstagram /></a>
             <a href="#"><FaLinkedin /></a>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-          </nav>
+          </div>
 
-          {/* Logo + Description beside icons */}
           <div className="footer-brand">
             <h2 className="footer-logo">VIndia Infrasec</h2>
             <p className="footer-desc">
@@ -123,16 +82,9 @@ export default function Footer() {
               Engineering across South India.
             </p>
           </div>
-
         </div>
 
         {/* QUICK LINKS */}
-=======
-          </div>
-        </div>
-
-        {/* MIDDLE COLUMN */}
->>>>>>> Stashed changes
         <div className="col">
           <ul className="footer-links">
             <li><a href="/">Home</a></li>
@@ -144,84 +96,41 @@ export default function Footer() {
           </ul>
         </div>
 
-<<<<<<< Updated upstream
-        {/* MAP CAROUSEL */}
-        <div className="col footer-right">
-          <div className="map-glass">
-            {states.map((state, i) => (
-              <div
-                key={i}
-                className={`state-box ${index === i ? "active" : ""}`}
-              >
-                <h3 className="state-title">{state.title}</h3>
-
-                <div className="district-container">
-                  {state.districts.map((district, idx) => (
-                    <div className="district-card" key={idx}>
-                      <h4 className="district-name">{district}</h4>
-                      {index === i && (
-                        <iframe
-                          src={state.maps[idx]}
-                          loading="lazy"
-                          className="map-frame"
-                        ></iframe>
-                      )}
-                    </div>
-                  ))}
-                </div>
-
-=======
-        {/* RIGHT — MAPS SIDE-BY-SIDE */}
-        <div className="col col-maps">
-          <h3 className="state-title">{states[index].title}</h3>
-
-=======
-          </div>
-        </div>
-
-        {/* MIDDLE COLUMN */}
-        <div className="col">
-          <ul className="footer-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About Us</a></li>
-            <li><a href="/services">Services</a></li>
-            <li><a href="/projects">Projects</a></li>
-            <li><a href="/careers">Careers</a></li>
-            <li><a href="/contact">Contact</a></li>
+        {/* CONTACT NUMBERS */}
+        <div className="col contact-col">
+          <h3 className="contact-title">Contact Numbers</h3>
+          <ul className="contact-list">
+            <li>+91 85929 21212</li>
+            <li>+91 98451 00000</li>
+            <li>+91 90000 12345</li>
+            <li>+91 70123 45678</li>
+            <li>+91 81234 56789</li>
+            <li>+91 98860 90909</li>
           </ul>
         </div>
 
-        {/* RIGHT — MAPS SIDE-BY-SIDE */}
+        {/* MAPS */}
         <div className="col col-maps">
           <h3 className="state-title">{states[index].title}</h3>
 
->>>>>>> Stashed changes
           <div className="district-row">
             {states[index].districts.map((district, i) => (
               <div className="district-card" key={i}>
                 <h4 className="district-name">{district}</h4>
 
-                <iframe
-                  src={states[index].maps[i]}
-                  loading="lazy"
-                  title={`${district} map`}
-                  className="map-frame"
-                ></iframe>
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+                <div className="map-wrapper">
+                  <span className="map-icon">📍</span>
+                  <iframe
+                    src={states[index].maps[i]}
+                    loading="lazy"
+                    title={`${district} map`}
+                    className="map-frame"
+                  ></iframe>
+                </div>
               </div>
             ))}
           </div>
         </div>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
       </footer>
     </>
   );

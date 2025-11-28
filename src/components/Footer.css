@@ -1,133 +1,63 @@
-/* =============================
-   FOOTER WRAPPER
-============================= */
+/* MAIN FOOTER */
 .footer {
   width: 100%;
   padding: 60px 40px;
-  background: linear-gradient(135deg, #0b1a2e, #14263f);
-  color: white;
+  background: #f1f1f1;   /* light grey */
+  color: #222;
   display: flex;
-  justify-content: space-between;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-  align-items: flex-start;
-  gap: 20px;
+  justify-content: flex-start;
+  gap: 40px;
+  flex-wrap: wrap;
+  border-top: 1px solid #d3d3d3;
 }
 
-/* ============================= */
-/* COLUMN 1 — SOCIAL + BRAND */
-/* ============================= */
-
+/* SOCIAL + BRAND BLOCK */
 .social-col {
   width: 30%;
+  min-width: 260px;
   display: flex;
-  flex-direction: row;   /* 👈 keeps icons and description side-by-side */
-  align-items: flex-start;
-  gap: 55px;             /* space between icons and description */
+  gap: 55px;
 }
 
+/* SOCIAL ICONS – BIG + BRIGHT */
 .footer-social-left {
   display: flex;
-  flex-direction: column;   /* 👈 makes icons vertical */
-  gap: 18px;
-  align-items: flex-start;  /* 👈 sticks icons to left corner */
+  flex-direction: column;
+  gap: 10px;
 }
 
-
 .footer-social-left a {
-  color: #00bce8;
-  font-size: 26px;
+  color: #007bff;
+  font-size: 34px;     /* Bigger size */
   transition: 0.3s;
 }
 
 .footer-social-left a:hover {
-  transform: scale(1.15);
+  transform: scale(1.25);
+  color: #0056d6;
 }
 
-/* Brand Section */
-=======
-  gap: 40px;
-  flex-wrap: wrap;
+.footer-brand {
+  max-width: 300px;
 }
 
-=======
-  gap: 40px;
-  flex-wrap: wrap;
-}
-
->>>>>>> Stashed changes
-/* =============================
-   FOOTER COLUMNS
-============================= */
-.col {
-  flex: 1;
-  min-width: 260px;
-}
-
-.col-maps {
-  flex: 1.4;          /* Slightly wider to fit maps */
-  min-width: 360px;
-}
-
-/* =============================
-   BRAND + TEXT
-============================= */
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 .footer-logo {
   font-size: 26px;
   font-weight: bold;
+  color: #000;
 }
 
 .footer-desc {
-  margin-top: 10px;
+  margin-top: 8px;
   line-height: 1.6;
-  font-size: 14px;
-  color: #c7d3e0;
+  color: #444;
 }
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-/* ============================= */
 /* QUICK LINKS */
-/* ============================= */
-
-=======
-=======
->>>>>>> Stashed changes
-/* =============================
-   SOCIAL ICONS
-============================= */
-.footer-social {
-  margin-top: 40px;
-  display: flex;
-  flex-direction: row;
-  gap: 15px;
-}
-
-.footer-social a {
-  color: #00bce8;
-  font-size: 26px;
-  transition: 0.3s;
-}
-
-.footer-social a:hover {
-  transform: scale(1.15);
-}
-
-/* =============================
-   QUICK LINKS
-============================= */
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 .footer-links {
   list-style: none;
+  min-width: 160px;
   padding: 0;
-  margin-left: 10px;
 }
 
 .footer-links li {
@@ -135,315 +65,148 @@
 }
 
 .footer-links a {
-  color: #cbd4df;
-  font-size: 15px;
+  color: #333;
   transition: 0.3s;
 }
 
 .footer-links a:hover {
-  color: #00bce8;
+  color: #007bff;
   margin-left: 4px;
 }
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 
-/* ============================= */
-/* MAP CAROUSEL */
-/* ============================= */
-
-.footer-right {
-  width: 420px;
-  margin-right: 10px;
+/* CONTACT NUMBERS COLUMN */
+.contact-col {
+  min-width: 180px;
 }
 
-.map-glass {
-  background: rgba(255,255,255,0.06);
-  border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.1);
+.contact-title {
+  color: #007bff;
+  font-size: 18px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+}
+
+.contact-list li {
+  margin: 6px 0;
+  color: #333;
+  font-size: 15px;
+}
+
+/* MAP AREA */
+.col-maps {
+  flex: 1.1;
+  min-width: 350px;
   display: flex;
-  justify-content: center;
-  backdrop-filter: blur(6px);
-  width: 420px;
-  height: 220px;
-  overflow: hidden;
+  flex-direction: column;
+  align-items: center;
 }
 
-=======
-
-/* =============================
-   STATES (ROTATING)
-============================= */
->>>>>>> Stashed changes
-.state-box {
-  opacity: 0;
-<<<<<<< Updated upstream
-  transform: translateY(40px);
-  transition: 0.7s ease;
-  width: 100%;
-  text-align: center;
-=======
-  transform: translateY(20px);
-  transition: 0.7s ease;
->>>>>>> Stashed changes
-=======
-
-/* =============================
-   STATES (ROTATING)
-============================= */
-.state-box {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: 0.7s ease;
->>>>>>> Stashed changes
-}
-
-.state-box.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
 /* STATE TITLE */
->>>>>>> Stashed changes
-=======
-/* STATE TITLE */
->>>>>>> Stashed changes
 .state-title {
   font-size: 20px;
-  color: #46c2ff;
   margin-bottom: 12px;
+  color: #007bff;
   font-weight: 600;
-  text-align: center;
+  margin-left: -40px;  /* Perfect centering adjustment */
 }
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> Stashed changes
-/* =============================
-   DISTRICTS ROW (SIDE BY SIDE)
-============================= */
-.district-row,
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-.district-container {
+/* MAP CARDS */
+.district-row {
   display: flex;
-  gap: 12px;
-  justify-content: flex-end; /* Align maps to the right */
-  flex-wrap: nowrap;
+  gap: 16px;
+  justify-content: flex-end;
+  width: 100%;
 }
 
-/* EACH DISTRICT CARD */
 .district-card {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-  width: 140px;
-  background: rgba(0,0,0,0.35);
-  border-radius: 10px;
-  padding: 6px;
-  height: 140px;
-  text-align: center;
-}
-
-=======
-  width: 160px; /* ⭐ MEDIUM SIZE */
-  background: rgba(255,255,255,0.07);
+  width: 150px;
+  background: rgba(0,0,0,0.08);
   border-radius: 12px;
   padding: 8px;
   text-align: center;
-=======
-  width: 160px; /* ⭐ MEDIUM SIZE */
-  background: rgba(255,255,255,0.07);
-  border-radius: 12px;
-  padding: 8px;
-  text-align: center;
->>>>>>> Stashed changes
-  border: 1px solid rgba(255,255,255,0.12);
-  backdrop-filter: blur(3px);
 }
 
 .district-name {
-  font-size: 12px;
-  color: #d9f3ff;
-  margin-bottom: 5px;
+  font-size: 13px;
+  color: #222;
+  margin-bottom: 6px;
 }
 
-/* =============================
-   MAP FRAME
-============================= */
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+.map-wrapper {
+  position: relative;
+}
+
+.map-icon {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  font-size: 22px;
+  color: red;
+  z-index: 20;
+}
+
 .map-frame {
   width: 100%;
-  height: 110px;  /* ⭐ Medium height */
+  height: 110px;
   border: none;
   border-radius: 8px;
 }
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-/* ============================= */
-/* FLOATING WHATSAPP BUTTON */
-/* ============================= */
-
-=======
-/* =============================
-   WHATSAPP FLOATING BUTTON
-============================= */
->>>>>>> Stashed changes
-=======
-/* =============================
-   WHATSAPP FLOATING BUTTON
-============================= */
->>>>>>> Stashed changes
+/* WHATSAPP FLOAT */
 .whatsapp-float {
   position: fixed;
-  bottom: 20px;
   right: 20px;
+  bottom: 20px;
   background: #25d366;
   color: white;
-  padding: 14px;
+  padding: 16px;
   border-radius: 50%;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-  font-size: 20px;
-  z-index: 1000;
-=======
-  font-size: 28px;
+  font-size: 26px;
   z-index: 2000;
->>>>>>> Stashed changes
-=======
-  font-size: 28px;
-  z-index: 2000;
->>>>>>> Stashed changes
   transition: 0.3s;
 }
 
 .whatsapp-float:hover {
-  transform: scale(1.12);
+  transform: scale(1.15);
 }
 
-/* =============================
-   RESPONSIVE
-============================= */
+/* CONTACT FLOAT */
+.contact-float {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  background: #007bff;
+  color: white;
+  padding: 16px;
+  border-radius: 50%;
+  font-size: 22px;
+  z-index: 2000;
+  transition: 0.3s;
+}
+
+.contact-float:hover {
+  transform: scale(1.15);
+}
+
+/* MOBILE */
 @media (max-width: 900px) {
   .footer {
-    padding: 50px 20px;
-  }
-
-  .district-container {
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .district-card {
-    width: 45%;
-  }
-}
-
-@media (max-width: 600px) {
-  .col-maps {
-    min-width: 100%;
-  }
-
-  .district-card {
-    width: 48%;
-  }
-
-  .map-frame {
-    height: 130px;
-  }
-<<<<<<< Updated upstream
-}
-
-/* ===================================================== */
-/* =============== RESPONSIVE FOOTER =================== */
-/* ===================================================== */
-
-/* 📱 Mobile (max-width: 768px) */
-@media (max-width: 768px) {
-  .footer {
     flex-direction: column;
-    gap: 30px;
-    padding: 40px 20px;
     text-align: center;
-  }
-
-  .social-col {
-    width: 100%;
     align-items: center;
   }
 
-  .footer-social-left {
+  .social-col {
     justify-content: center;
   }
 
-  .footer-brand {
-    text-align: center;
-  }
-
-  .footer-links {
-    margin: 0;
-    text-align: center;
-  }
-
-  .footer-right {
-    width: 100%;
-    margin: 0;
-    display: flex;
+  .district-row {
     justify-content: center;
-  }
-
-  .map-glass {
-    width: 100%;
-    max-width: 380px;
-    height: 220px;
-    margin: auto;
-  }
-
-  .district-container {
     flex-wrap: wrap;
-    gap: 8px;
   }
-
-  .district-card {
-    width: 140px;
-  }
-}
-
-/* 📲 Tablets (max-width: 1100px) */
-@media (max-width: 1100px) {
-  .footer {
-    flex-wrap: wrap;
-    justify-content: center;
-    text-align: center;
-  }
-
-  .social-col,
-  .col {
-    width: 45%;
-    min-width: 280px;
-  }
-
-  .footer-right {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-  }
-
-  .map-glass {
-    width: 90%;
-    max-width: 480px;
-    margin: auto;
-  }
-=======
->>>>>>> Stashed changes
 }
