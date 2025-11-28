@@ -40,32 +40,63 @@ export default function Footer() {
     },
   ];
 
+<<<<<<< Updated upstream
   useEffect(() => {
     const interval = setInterval(
       () => setIndex((prev) => (prev + 1) % states.length),
       4500
     );
+=======
+  // Auto-change every 3 sec
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % states.length);
+    }, 3000);
+>>>>>>> Stashed changes
     return () => clearInterval(interval);
   }, []);
 
   return (
     <>
+<<<<<<< Updated upstream
       {/* WhatsApp Button */}
       <a href="https://wa.me/8592921212" className="whatsapp-float">
+=======
+      {/* WhatsApp Floating */}
+      <a
+        href="https://api.whatsapp.com/send/?phone=918592921212"
+        className="whatsapp-float"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+>>>>>>> Stashed changes
         <FaWhatsapp />
       </a>
 
       <footer className="footer">
+<<<<<<< Updated upstream
 
         {/* SOCIAL ICONS + BRAND TEXT SIDE-BY-SIDE */}
         <div className="col social-col">
 
           {/* Vertical Social Icons */}
           <nav className="footer-social-left">
+=======
+        {/* LEFT COLUMN */}
+        <div className="col">
+          <h2 className="footer-logo">VIndia Infrasec</h2>
+          <p className="footer-desc">
+            Delivering excellence in Construction, Interior Design & Structural
+            Engineering across South India.
+          </p>
+
+          <div className="footer-social">
+>>>>>>> Stashed changes
             <a href="#"><FaGoogle /></a>
             <a href="#"><FaYoutube /></a>
             <a href="#"><FaInstagram /></a>
             <a href="#"><FaLinkedin /></a>
+<<<<<<< Updated upstream
           </nav>
 
           {/* Logo + Description beside icons */}
@@ -80,6 +111,12 @@ export default function Footer() {
         </div>
 
         {/* QUICK LINKS */}
+=======
+          </div>
+        </div>
+
+        {/* MIDDLE COLUMN */}
+>>>>>>> Stashed changes
         <div className="col">
           <ul className="footer-links">
             <li><a href="/">Home</a></li>
@@ -91,6 +128,7 @@ export default function Footer() {
           </ul>
         </div>
 
+<<<<<<< Updated upstream
         {/* MAP CAROUSEL */}
         <div className="col footer-right">
           <div className="map-glass">
@@ -116,11 +154,31 @@ export default function Footer() {
                   ))}
                 </div>
 
+=======
+        {/* RIGHT — MAPS SIDE-BY-SIDE */}
+        <div className="col col-maps">
+          <h3 className="state-title">{states[index].title}</h3>
+
+          <div className="district-row">
+            {states[index].districts.map((district, i) => (
+              <div className="district-card" key={i}>
+                <h4 className="district-name">{district}</h4>
+
+                <iframe
+                  src={states[index].maps[i]}
+                  loading="lazy"
+                  title={`${district} map`}
+                  className="map-frame"
+                ></iframe>
+>>>>>>> Stashed changes
               </div>
             ))}
           </div>
         </div>
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
       </footer>
     </>
   );
