@@ -9,6 +9,7 @@
   display: flex;
   justify-content: space-between;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   align-items: flex-start;
   gap: 20px;
 }
@@ -49,6 +50,12 @@
   flex-wrap: wrap;
 }
 
+=======
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+>>>>>>> Stashed changes
 /* =============================
    FOOTER COLUMNS
 ============================= */
@@ -65,6 +72,9 @@
 /* =============================
    BRAND + TEXT
 ============================= */
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 .footer-logo {
   font-size: 26px;
@@ -79,11 +89,14 @@
 }
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 /* ============================= */
 /* QUICK LINKS */
 /* ============================= */
 
 =======
+=======
+>>>>>>> Stashed changes
 /* =============================
    SOCIAL ICONS
 ============================= */
@@ -107,6 +120,9 @@
 /* =============================
    QUICK LINKS
 ============================= */
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 .footer-links {
   list-style: none;
@@ -128,6 +144,7 @@
   color: #00bce8;
   margin-left: 4px;
 }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 
 /* ============================= */
@@ -168,6 +185,16 @@
   transform: translateY(20px);
   transition: 0.7s ease;
 >>>>>>> Stashed changes
+=======
+
+/* =============================
+   STATES (ROTATING)
+============================= */
+.state-box {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.7s ease;
+>>>>>>> Stashed changes
 }
 
 .state-box.active {
@@ -176,6 +203,10 @@
 }
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+/* STATE TITLE */
+>>>>>>> Stashed changes
 =======
 /* STATE TITLE */
 >>>>>>> Stashed changes
@@ -188,11 +219,17 @@
 }
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 /* =============================
    DISTRICTS ROW (SIDE BY SIDE)
 ============================= */
 .district-row,
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 .district-container {
   display: flex;
@@ -203,6 +240,7 @@
 
 /* EACH DISTRICT CARD */
 .district-card {
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
   width: 140px;
   background: rgba(0,0,0,0.35);
@@ -218,6 +256,13 @@
   border-radius: 12px;
   padding: 8px;
   text-align: center;
+=======
+  width: 160px; /* ⭐ MEDIUM SIZE */
+  background: rgba(255,255,255,0.07);
+  border-radius: 12px;
+  padding: 8px;
+  text-align: center;
+>>>>>>> Stashed changes
   border: 1px solid rgba(255,255,255,0.12);
   backdrop-filter: blur(3px);
 }
@@ -231,6 +276,9 @@
 /* =============================
    MAP FRAME
 ============================= */
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 .map-frame {
   width: 100%;
@@ -240,10 +288,16 @@
 }
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 /* ============================= */
 /* FLOATING WHATSAPP BUTTON */
 /* ============================= */
 
+=======
+/* =============================
+   WHATSAPP FLOATING BUTTON
+============================= */
+>>>>>>> Stashed changes
 =======
 /* =============================
    WHATSAPP FLOATING BUTTON
@@ -258,8 +312,13 @@
   padding: 14px;
   border-radius: 50%;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   font-size: 20px;
   z-index: 1000;
+=======
+  font-size: 28px;
+  z-index: 2000;
+>>>>>>> Stashed changes
 =======
   font-size: 28px;
   z-index: 2000;
@@ -301,6 +360,7 @@
   .map-frame {
     height: 130px;
   }
+<<<<<<< Updated upstream
 }
 
 /* ===================================================== */
@@ -384,4 +444,6 @@
     max-width: 480px;
     margin: auto;
   }
+=======
+>>>>>>> Stashed changes
 }

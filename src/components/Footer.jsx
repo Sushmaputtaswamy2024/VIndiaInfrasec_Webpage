@@ -41,17 +41,23 @@ export default function Footer() {
   ];
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   useEffect(() => {
     const interval = setInterval(
       () => setIndex((prev) => (prev + 1) % states.length),
       4500
     );
 =======
+=======
+>>>>>>> Stashed changes
   // Auto-change every 3 sec
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % states.length);
     }, 3000);
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     return () => clearInterval(interval);
   }, []);
@@ -59,9 +65,12 @@ export default function Footer() {
   return (
     <>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       {/* WhatsApp Button */}
       <a href="https://wa.me/8592921212" className="whatsapp-float">
 =======
+=======
+>>>>>>> Stashed changes
       {/* WhatsApp Floating */}
       <a
         href="https://api.whatsapp.com/send/?phone=918592921212"
@@ -75,6 +84,7 @@ export default function Footer() {
 
       <footer className="footer">
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
         {/* SOCIAL ICONS + BRAND TEXT SIDE-BY-SIDE */}
         <div className="col social-col">
@@ -82,6 +92,8 @@ export default function Footer() {
           {/* Vertical Social Icons */}
           <nav className="footer-social-left">
 =======
+=======
+>>>>>>> Stashed changes
         {/* LEFT COLUMN */}
         <div className="col">
           <h2 className="footer-logo">VIndia Infrasec</h2>
@@ -91,11 +103,15 @@ export default function Footer() {
           </p>
 
           <div className="footer-social">
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
             <a href="#"><FaGoogle /></a>
             <a href="#"><FaYoutube /></a>
             <a href="#"><FaInstagram /></a>
             <a href="#"><FaLinkedin /></a>
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
           </nav>
 
@@ -159,6 +175,27 @@ export default function Footer() {
         <div className="col col-maps">
           <h3 className="state-title">{states[index].title}</h3>
 
+=======
+          </div>
+        </div>
+
+        {/* MIDDLE COLUMN */}
+        <div className="col">
+          <ul className="footer-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/projects">Projects</a></li>
+            <li><a href="/careers">Careers</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+
+        {/* RIGHT — MAPS SIDE-BY-SIDE */}
+        <div className="col col-maps">
+          <h3 className="state-title">{states[index].title}</h3>
+
+>>>>>>> Stashed changes
           <div className="district-row">
             {states[index].districts.map((district, i) => (
               <div className="district-card" key={i}>
@@ -170,13 +207,19 @@ export default function Footer() {
                   title={`${district} map`}
                   className="map-frame"
                 ></iframe>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
               </div>
             ))}
           </div>
         </div>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
       </footer>
