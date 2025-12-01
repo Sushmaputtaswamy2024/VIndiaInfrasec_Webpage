@@ -2,23 +2,16 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import "./ProjectGallery.css";
 
-// ========================================
-// AUTO IMPORT IMAGES WITH SEO ALT TEXT
-// ========================================
-const images = Object.values(
-  import.meta.glob("./Gallery/*.{jpg,jpeg,png,webp}", { eager: true })
-).map((img, index) => ({
-  src: img.default || img,
-  alt: `VIndia Infrasec completed project image ${index + 1}`,
-}));
+// ✅ Import optimized image list
+import { images } from "../utils/projectImages";
 
 export default function ProjectGallery() {
   const row1 = useRef(null);
   const row2 = useRef(null);
 
-  // ========================================
-  // GSAP MARQUEE ANIMATION
-  // ========================================
+  // =========================================================
+  // GSAP Marquee Animation
+  // =========================================================
   useEffect(() => {
     gsap.to(row1.current, {
       xPercent: -50,
@@ -41,20 +34,20 @@ export default function ProjectGallery() {
       aria-labelledby="project-gallery-title"
       role="region"
     >
-      {/* 🔹 Hidden SEO description */}
+      {/* Invisible SEO text */}
       <p className="sr-only">
-        Explore completed construction, interior, architectural and structural projects 
-        delivered by VIndia Infrasec across South India.
+        Explore completed construction, interior, architectural and structural
+        projects delivered by VIndia Infrasec across South India.
       </p>
 
-      {/* 🔹 Correct SEO heading level */}
+      {/* Heading */}
       <h2 id="project-gallery-title" className="pg-heading">
         Our Project Gallery
       </h2>
 
-      {/* ========================================
-          FIRST IMAGE ROW
-      ======================================== */}
+      {/* =========================================================
+          FIRST SCROLLING ROW
+      ========================================================= */}
       <div
         className="pg-track"
         ref={row1}
@@ -62,7 +55,7 @@ export default function ProjectGallery() {
         role="list"
       >
         {[...Array(2)].map((_, repeatIndex) => (
-          <div className="pg-row" key={repeatIndex}>
+          <div className="pg-row" key={`row1-${repeatIndex}`}>
             {images.map((img, i) => (
               <figure
                 className="pg-card"
@@ -82,9 +75,9 @@ export default function ProjectGallery() {
         ))}
       </div>
 
-      {/* ========================================
-          SECOND IMAGE ROW
-      ======================================== */}
+      {/* =========================================================
+          SECOND SCROLLING ROW
+      ========================================================= */}
       <div
         className="pg-track reverse"
         ref={row2}
@@ -92,7 +85,7 @@ export default function ProjectGallery() {
         role="list"
       >
         {[...Array(2)].map((_, repeatIndex) => (
-          <div className="pg-row" key={repeatIndex}>
+          <div className="pg-row" key={`row2-${repeatIndex}`}>
             {images.map((img, i) => (
               <figure
                 className="pg-card"
