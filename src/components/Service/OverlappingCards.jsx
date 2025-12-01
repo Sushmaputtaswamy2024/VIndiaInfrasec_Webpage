@@ -13,32 +13,33 @@ gsap.registerPlugin(ScrollTrigger);
 // =============================
 const services = [
   {
-    img,
-    heading: "Construction",
-    subcontent1: "Develop",
-    subcontent2: "Supervision",
-    subcontent3: "Estimate",
-    description:
-      "Premium quality construction services with expert supervision, accurate estimation, and on-time delivery."
-  },
-  {
-    img,
-    heading: "Interior Design",
-    subcontent1: "Plan",
-    subcontent2: "Execute",
-    subcontent3: "Deliver",
-    description:
-      "Modern interior solutions combining aesthetics and functionality for homes and commercial spaces."
-  },
-  {
-    img,
-    heading: "Structural Design",
-    subcontent1: "Analysis",
-    subcontent2: "Engineering",
-    subcontent3: "Validation",
-    description:
-      "Reliable structural engineering ensuring safety, durability, and compliance with standards."
-  }
+  img,
+  heading: "Construction",
+  subcontent1: "Develop",
+  subcontent2: "Supervision",
+  subcontent3: "Estimate",
+  description:
+    "High-quality construction services with expert supervision, accurate estimation, and timely project delivery."
+},
+{
+  img,
+  heading: "Interior Design",
+  subcontent1: "Plan",
+  subcontent2: "Execute",
+  subcontent3: "Deliver",
+  description:
+    "Modern and functional interior design solutions crafted to enhance both residential and commercial spaces."
+},
+{
+  img,
+  heading: "Architectural Design",
+  subcontent1: "Concept",
+  subcontent2: "Planning",
+  subcontent3: "Execution",
+  description:
+    "Creative and efficient architectural designs that combine aesthetics, functionality, and intelligent space planning."
+}
+
 ];
 
 export default function OverlappingCards() {

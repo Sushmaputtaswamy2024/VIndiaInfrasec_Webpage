@@ -41,17 +41,16 @@ function App() {
   //  Page-Level SEO
   // =============================
   useEffect(() => {
-  setSEO({
-    title: "VIndia Infrasec Pvt Ltd | Construction, Interior, Architectural & Structural Design",
-    description:
-      "VIndia Infrasec specializes in construction, interior design, architectural planning, and structural engineering solutions across South India.",
-    keywords:
-      "construction company, interior design, architectural design, structural design, building contractors, house design, home construction, south india construction",
-    image: "/thumbnail.jpg",
-    url: "https://your-domain.com",
-  });
-}, []);
-
+    setSEO({
+      title: "VIndia Infrasec Pvt Ltd | Construction, Interiors & structural Solutions",
+      description:
+        "VIndia Infrasec delivers high-quality construction, interior design and advanced structural solutions across South India.",
+      keywords:
+        "construction company, interior design, building contractors, Kerala builders, Karnataka construction, Tamil Nadu interiors",
+      image: "/thumbnail.jpg",
+      url: "https://your-domain.com",
+    });
+  }, []);
 
   return (
     <>

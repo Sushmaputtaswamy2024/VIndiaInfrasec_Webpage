@@ -12,20 +12,20 @@ import "./Testimonials.css";
 const feedbacks = [
   {
     img: "//c2.staticflickr.com/8/7310/buddyicons/24846422@N06_r.jpg",
-    name: "Lisa Redfern",
-    desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. It is a long established fact that a reader will be distracted by the readable its layout.",
+    name: "Heena Kouser",
+    desc: "It's a great experience we had with them , they used best quality meterial, I highly recommend vindia",
     rating: 5,
   },
   {
     img: "https://i.postimg.cc/ydBjdm20/michael-dam-m-EZ3-Po-FGs-k-unsplash-1.jpg",
-    name: "Cassi",
-    desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. It is a long established fact that a reader will be distracted by the readable its layout.",
-    rating: 4,
+    name: "Kalyan Peeka",
+    desc: "Excellence in every brick and beam A dream home made possible!",
+    rating: 5,
   },
   {
     img: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/451270/profile/profile-80.jpg",
-    name: "Md Nahidul",
-    desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. It is a long established fact that a reader will be distracted by the readable its layout.",
+    name: "Prajith Kumar Pacha",
+    desc: "Actually first time in my life we got the work done by builder on time.Positive Responsiveness, Punctuality, Quality, Professionalism Services Home renovations",
     rating: 5,
   },
 ];
