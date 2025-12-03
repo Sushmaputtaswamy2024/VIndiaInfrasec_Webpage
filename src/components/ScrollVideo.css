@@ -8,17 +8,19 @@
   overflow: hidden;
 }
 
-/* WRAPPER (NO TRANSITION — GSAP handles animation) */
+/* WRAPPER (GSAP animates width & borderRadius) */
 .video-expand-wrapper {
   position: relative;
-  width: 350px;             /* starting width */
-  max-width: 90vw;          /* responsive */
+  width: 350px;               /* initial size controlled by GSAP */
+  max-width: 90vw;            /* responsive upper limit */
   aspect-ratio: 16 / 9;
   overflow: hidden;
   background: #000;
   border-radius: 40px;
   margin: 0 auto;
-  transition: none !important;    /* 🔥 remove conflicting CSS transitions */
+
+  /* Make GPU handle animations = smoother */
+  will-change: width, border-radius;
 }
 
 /* CENTER TEXT */
@@ -34,6 +36,10 @@
   font-weight: 700;
   z-index: 10;
   pointer-events: none;
+
+  /* Prevent text from shifting during animations */
+  padding: 0 10px;
+  text-align: center;
 }
 
 /* VIDEO */
@@ -41,9 +47,10 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  pointer-events: none;  /* prevents click issues on mobile */
 }
 
-/* MOBILE */
+/* TABLET + MOBILE */
 @media (max-width: 650px) {
   .video-expand-wrapper {
     width: 85vw;
