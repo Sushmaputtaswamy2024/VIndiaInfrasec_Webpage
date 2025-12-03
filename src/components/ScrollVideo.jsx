@@ -14,7 +14,7 @@ export default function ScrollVideo() {
     const wrapper = wrapperRef.current;
     const text = textRef.current;
 
-    // Initial states
+    // Initial state
     gsap.set(wrapper, { width: "350px", borderRadius: "40px" });
     gsap.set(text, { opacity: 1, y: 0 });
 
@@ -36,8 +36,8 @@ export default function ScrollVideo() {
       .to(
         text,
         {
-          opacity: 0.7,
-          y: -15,
+          opacity: 0,
+          y: -20,
           duration: 1,
           ease: "power1.out",
         },
@@ -54,13 +54,13 @@ export default function ScrollVideo() {
     >
       <div className="video-expand-wrapper" ref={wrapperRef}>
         
-        {/* Text Improved Semantically */}
         <p className="button-text" ref={textRef}>
           Let’s Get Started
         </p>
 
+        {/* FIXED PATH */}
         <video
-          src="/VIndiaInfrasec_Webpage/intro.mp4"
+          src="/intro.mp4"
           autoPlay
           muted
           loop
@@ -68,10 +68,7 @@ export default function ScrollVideo() {
           preload="auto"
           className="scroll-video"
           aria-hidden="true"
-        >
-          Your browser does not support video playback.
-        </video>
-
+        />
       </div>
     </section>
   );

@@ -10,11 +10,10 @@ const files = [
   "9.jpg",
   "10.jpg",
   "11.jpg",
-
   "Babu vaidyar_modern traditional.jpg",
   "Beena_Kannur_Fusion.jpg",
   "Binoj_spare2.jpg",
-  "Chandra_Ctnm_JP.jpg",
+  "Chandra_Cntm_JP.jpg",
   "Deepak_Kannur_MC.jpg",
   "DEEPESH 1080x1080 (2).jpg",
   "Emelia_Dubai_C.jpg",
@@ -46,8 +45,7 @@ function generateAltText(filename) {
   return `VIndia Infrasec project - ${name} house design and architecture`;
 }
 
-// FINAL EXPORT — THIS IS THE FIX
 export const images = files.map((file) => ({
-  src: encodeURI(`/Gallery/${file}`),   // ⭐ FIX: Incredibly important
+  src: encodeURI(`/Gallery/${file}`),
   alt: generateAltText(file),
 }));

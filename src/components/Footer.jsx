@@ -99,9 +99,9 @@ export default function Footer() {
         <div className="social-col">
           <div className="footer-social-left">
             <a href="#"><FaGoogle /></a>
-            <a href="#"><FaYoutube /></a>
+            <a href="https://youtube.com/@vindia_infrasec?si=rA3ED6kA1dz1QZlh" target="_blank" rel="noopener noreferrer"><FaYoutube /></a>
             <a href="#"><FaInstagram /></a>
-            <a href="#"><FaLinkedin /></a>
+            <a href="https://www.linkedin.com/company/vindia-infrasec/posts/?feedView=all" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
           </div>
 
           <div className="footer-brand">
