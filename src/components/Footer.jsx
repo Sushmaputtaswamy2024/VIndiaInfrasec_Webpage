@@ -119,6 +119,7 @@ export default function Footer() {
               </button>
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   {/* CAREER DROPDOWN */}
   <li className="footer-dropdown">
   <button className="footer-dropbtn" onClick={toggleDropdown}>
@@ -139,12 +140,17 @@ export default function Footer() {
   <li><a href="/contact.html">Contact</a></li>
 </ul>
 =======
+=======
+>>>>>>> Stashed changes
               <ul className="footer-submenu">
                 <li><a href="/careers/we-work.html">We Work</a></li>
                 <li><a href="/careers/openings.html">Open Positions</a></li>
                 <li><a href="/careers/submit-cv.html">Submit Your CV</a></li>
               </ul>
             </li>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
             <li><a href="/services">Services</a></li>
