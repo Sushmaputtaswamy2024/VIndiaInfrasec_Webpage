@@ -22,12 +22,8 @@ export default function Footer() {
         "https://www.google.com/maps?q=Trivandrum,Kerala&output=embed",
         "https://www.google.com/maps?q=Kannur,Kerala&output=embed",
       ],
-      addresses: [
-    "VIndia Infrasec, Kochi, Kerala",
-    "VIndia Infrasec, Trivandrum, Kerala",
-    "VIndia Infrasec, VIndia Arcade, CP XI 433 B, P O Alavil, Kannur, Kerala 670008"
-  ]
     },
+
     {
       title: "Karnataka",
       districts: ["Mysore", "Bengaluru"],
@@ -35,11 +31,8 @@ export default function Footer() {
         "https://www.google.com/maps?q=Mysore,Karnataka&output=embed",
         "https://www.google.com/maps?q=Bengaluru,Karnataka&output=embed",
       ],
-       addresses: [
-    "VIndia Infrasec, No:03, First Floor, Gokulam Main Road, Jayalakshmipuram, Mysuru City - 570012, Mysore, Karnataka",
-    "VIndia Infrasec | Construction | Real Estate Developer | Interior Design, Brigade Arcade, E104, Brigade Metropolis, Mahadevapura, Bengaluru, Karnataka 560048"
-  ]
     },
+
     {
       title: "Tamil Nadu",
       districts: ["Coimbatore", "Chennai", "Madurai"],
@@ -51,7 +44,7 @@ export default function Footer() {
     },
   ];
 
-  /* AUTO-SLIDE STATES */
+  // Auto Slide States
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % states.length);
@@ -59,47 +52,21 @@ export default function Footer() {
     return () => clearInterval(interval);
   }, []);
 
-  /* STOP ICONS FROM OVERLAPPING THE FOOTER */
-  useEffect(() => {
-    const footer = document.querySelector(".footer");
-    const iconLeft = document.querySelector(".icon-left");
-    const iconRight = document.querySelector(".icon-right");
-
-    function adjustIcons() {
-      const footerTop = footer.getBoundingClientRect().top;
-      const winHeight = window.innerHeight;
-
-      if (footerTop < winHeight - 120) {
-        iconLeft.classList.add("icons-stop");
-        iconRight.classList.add("icons-stop");
-      } else {
-        iconLeft.classList.remove("icons-stop");
-        iconRight.classList.remove("icons-stop");
-      }
-    }
-
-    window.addEventListener("scroll", adjustIcons);
-    return () => window.removeEventListener("scroll", adjustIcons);
-  }, []);
-const toggleDropdown = () => {
-  document
-    .querySelector(".footer-dropdown")
-    .classList.toggle("show");
-};
+  const toggleDropdown = () => {
+    document.querySelector(".footer-dropdown").classList.toggle("show");
+  };
 
   return (
-    
     <>
-
-      {/* FIXED ICONS ABOVE FOOTER */}
-      <div className="icons-above-footer">
-        <a href="tel:+918592921212" className="icon-left">
+      {/* FLOATING ICONS */}
+      <div className="floating-icons">
+        <a href="tel:+918592921212" className="call-icon">
           <FaPhoneAlt />
         </a>
 
         <a
           href="https://api.whatsapp.com/send/?phone=918592921212"
-          className="icon-right"
+          className="whatsapp-icon"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -114,16 +81,28 @@ const toggleDropdown = () => {
         <div className="social-col">
           <div className="footer-social-left">
             <a href="#"><FaGoogle /></a>
-            <a href="https://youtube.com/@vindia_infrasec?si=rA3ED6kA1dz1QZlh" target="_blank" rel="noopener noreferrer"><FaYoutube /></a>
+            <a
+              href="https://youtube.com/@vindia_infrasec"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaYoutube />
+            </a>
             <a href="#"><FaInstagram /></a>
-            <a href="https://www.linkedin.com/company/vindia-infrasec/posts/?feedView=all" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
+            <a
+              href="https://www.linkedin.com/company/vindia-infrasec/posts/?feedView=all"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaLinkedin />
+            </a>
           </div>
 
           <div className="footer-brand">
             <h2 className="footer-logo">VIndia Infrasec</h2>
             <p className="footer-desc">
-              Delivering excellence in Construction, Interior Design & Structural
-              Engineering across South India.
+              Delivering excellence in Construction, Interior Design &
+              Structural Engineering across South India.
             </p>
           </div>
         </div>
@@ -131,10 +110,15 @@ const toggleDropdown = () => {
         {/* QUICK LINKS */}
         <div className="col">
           <ul className="footer-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about.html">About Us</a></li>
 
-  <li><a href="/">Home</a></li>
-  <li><a href="/about.html">About Us</a></li>
+            <li className="footer-dropdown">
+              <button className="footer-dropbtn" onClick={toggleDropdown}>
+                Career ▾
+              </button>
 
+<<<<<<< Updated upstream
   {/* CAREER DROPDOWN */}
   <li className="footer-dropdown">
   <button className="footer-dropbtn" onClick={toggleDropdown}>
@@ -154,10 +138,22 @@ const toggleDropdown = () => {
   <li><a href="/projects">Projects</a></li>
   <li><a href="/contact.html">Contact</a></li>
 </ul>
+=======
+              <ul className="footer-submenu">
+                <li><a href="/careers/we-work.html">We Work</a></li>
+                <li><a href="/careers/openings.html">Open Positions</a></li>
+                <li><a href="/careers/submit-cv.html">Submit Your CV</a></li>
+              </ul>
+            </li>
+>>>>>>> Stashed changes
 
+            <li><a href="/services">Services</a></li>
+            <li><a href="/projects">Projects</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+          </ul>
         </div>
 
-        {/* CONTACT NUMBERS */}
+        {/* CONTACT */}
         <div className="col contact-col">
           <h3 className="contact-title">Call Us</h3>
           <ul className="contact-list">
@@ -188,10 +184,16 @@ const toggleDropdown = () => {
                     className="map-frame"
                   ></iframe>
                 </div>
-                {/* ADDRESS BELOW MAP */}
-<p className="district-address">
-  {states[index].addresses?.[i]}
-</p>
+
+                {/* ONLY SHOW “LOCATION” */}
+                <a
+                  className="district-location"
+                  href={states[index].maps[i].replace("&output=embed", "")}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Location
+                </a>
               </div>
             ))}
           </div>

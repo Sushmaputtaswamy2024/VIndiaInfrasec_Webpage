@@ -1,57 +1,73 @@
-/* ===========================================
-   FIXED / STICKY ICONS ABOVE FOOTER
-=========================================== */
-.icons-above-footer {
-  width: 100%;
-}
-
-/* BASE FIXED ICON STYLE */
-.icon-left,
-.icon-right {
+/* ============================
+   FIXED FLOATING ICONS
+============================= */
+.floating-icons {
   position: fixed;
-  z-index: 3000;
-  padding: 16px;
-  border-radius: 50%;
-  transition: 0.3s;
+  bottom: 30px;
+  right: 50px;   /* moved left so it doesn’t touch maps */
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  z-index: 5000;
 }
 
-/* LEFT CALL ICON */
-.icon-left {
-  left: 20px;
-  bottom: 200px; /* moved a bit higher as requested */
+/* Call icon */
+.call-icon {
+  width: 55px;
+  height: 55px;
   background: #007bff;
-  color: white;
-  font-size: 24px;
-}
-
-.icon-left:hover {
-  transform: scale(1.18);
-}
-
-/* RIGHT WHATSAPP ICON */
-.icon-right {
-  right: 20px;
-  bottom: 200px; /* moved a bit higher as requested */
-  background: #25d366;
-  color: white;
-  padding: 16px;
   border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 26px;
+  color: white;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.28);
+  animation: iconBounce 1.6s ease-in-out infinite;
+  animation-delay: 0.2s;
 }
 
-.icon-right:hover {
-  transform: scale(1.18);
+.call-icon:hover {
+  transform: scale(1.2);
+  animation-play-state: paused;
 }
 
-/* WHEN FOOTER GETS CLOSE → LIFT ICONS UP MORE */
-.icons-stop {
-  bottom: 280px !important; /* lifted higher so footer never touches */
+/* WhatsApp icon */
+.whatsapp-icon {
+  width: 55px;
+  height: 55px;
+  background: #25d366;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  color: white;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.28);
+  animation: iconBounce 1.6s ease-in-out infinite;
+  animation-delay: 0.5s;
 }
 
+.whatsapp-icon:hover {
+  transform: scale(1.2);
+  animation-play-state: paused;
+}
 
-/* ===========================================
+/* Bounce animation */
+@keyframes iconBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* ============================
    MAIN FOOTER
-=========================================== */
+============================= */
 .footer {
   width: 100%;
   padding: 60px 40px;
@@ -64,10 +80,7 @@
   border-top: 1px solid #d3d3d3;
 }
 
-
-/* ===========================================
-   SOCIAL + BRAND BLOCK
-=========================================== */
+/* SOCIAL + BRAND */
 .social-col {
   width: 30%;
   min-width: 260px;
@@ -108,14 +121,11 @@
   color: #444;
 }
 
-
-/* ===========================================
-   QUICK LINKS
-=========================================== */
+/* QUICK LINKS */
 .footer-links {
   list-style: none;
-  min-width: 160px;
   padding: 0;
+  min-width: 160px;
 }
 
 .footer-links li {
@@ -131,24 +141,22 @@
   color: #007bff;
   margin-left: 4px;
 }
-/* Dropdown wrapper */
+
+/* Dropdown */
 .footer-dropdown {
   position: relative;
-  list-style: none;
 }
 
-/* Dropdown button */
 .footer-dropbtn {
   background: none;
   border: none;
-  color: black;        /* <-- Title color */
+  color: black;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
   padding: 0;
 }
 
-/* Dropdown menu (hidden by default) */
 .footer-submenu {
   display: none;
   position: absolute;
@@ -158,34 +166,13 @@
   padding: 10px 12px;
   border-radius: 6px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  z-index: 50;
 }
 
-/* Dropdown items */
-.footer-submenu li {
-  list-style: none;
-  margin: 6px 0;
-}
-
-.footer-submenu li a {
-  color: black;
-  font-size: 15px;
-  text-decoration: none;
-}
-
-.footer-submenu li a:hover {
-  text-decoration: underline;
-}
-
-/* Show menu when active */
 .footer-dropdown.show .footer-submenu {
   display: block;
 }
 
-
-/* ===========================================
-   CONTACT NUMBERS
-=========================================== */
+/* CONTACT */
 .contact-col {
   min-width: 180px;
 }
@@ -204,14 +191,9 @@
 
 .contact-list li {
   margin: 6px 0;
-  color: #333;
-  font-size: 15px;
 }
 
-
-/* ===========================================
-   MAPS
-=========================================== */
+/* MAPS */
 .col-maps {
   flex: 1.1;
   min-width: 350px;
@@ -225,14 +207,13 @@
   margin-bottom: 12px;
   color: #007bff;
   font-weight: 600;
-  margin-left: -40px;
 }
 
 .district-row {
   display: flex;
   gap: 16px;
-  justify-content: flex-end;
   width: 100%;
+  justify-content: flex-end;
 }
 
 .district-card {
@@ -245,7 +226,6 @@
 
 .district-name {
   font-size: 13px;
-  color: #222;
   margin-bottom: 6px;
 }
 
@@ -259,7 +239,6 @@
   left: 6px;
   font-size: 22px;
   color: red;
-  z-index: 20;
 }
 
 .map-frame {
@@ -268,33 +247,22 @@
   border: none;
   border-radius: 8px;
 }
-.district-address {
-  font-size: 12px;
-  margin-top: 6px;
-  color: #333;
-  line-height: 1.4;
-}
 
-.sub-links {
-  list-style: none;
-  margin-left: 15px;
-  margin-top: 6px;
-}
-
-.sub-links li a {
+/* LOCATION LINK */
+.district-location {
+  display: block;
+  margin-top: 8px;
+  color: #007bff;
+  font-weight: 600;
+  text-decoration: none;
   font-size: 14px;
-  opacity: 0.85;
 }
 
-.sub-links li a:hover {
-  opacity: 1;
-  color: #00bce8;
+.district-location:hover {
+  text-decoration: underline;
 }
 
-
-/* ===========================================
-   MOBILE RESPONSIVE
-=========================================== */
+/* MOBILE */
 @media (max-width: 900px) {
   .footer {
     flex-direction: column;
@@ -311,14 +279,8 @@
     flex-wrap: wrap;
   }
 
-  /* Higher on mobile too */
-  .icon-left {
-    left: 10px;
-    bottom: 180px;
-  }
-
-  .icon-right {
-    right: 10px;
-    bottom: 180px;
+  .floating-icons {
+    right: 20px;
+    bottom: 20px;
   }
 }
