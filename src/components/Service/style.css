@@ -8,6 +8,7 @@
 }
 
 body {
+  margin-top: 30px;
   font-family: "Inter", sans-serif;
   background: #ffffff;
   overflow-x: hidden;
@@ -21,16 +22,18 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 80px;
-  padding: 100px 0;
+
+  /* FIX: Remove gap & padding causing animation break */
+  gap: 0;
+  padding: 0;
 }
 
-/* GSAP PIN WRAPPER */
+/* FIX: Each card should occupy full viewport for pinning */
 .card-wrapper {
   width: 100%;
+  height: 100vh;
   display: flex;
   justify-content: center;
-  height: 420px;
   position: relative;
   overflow: visible;
 }
@@ -41,30 +44,20 @@ body {
 .service-card {
   width: 85%;
   max-width: 1150px;
-  height: 100%;
+  height: 80vh;           /* FIX: Proportional height */
   display: flex;
   overflow: hidden;
   border-radius: 26px;
 
-  /* Clean gradient background */
   background: linear-gradient(135deg, #2d2f88 0%, #111437 60%, #0a0b1f 100%);
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
 
   position: relative;
-
-  /* No hover animations */
-  transition: none;
 }
 
-/* Remove hover movement */
+/* No hover animations */
 .service-card:hover {
   transform: none;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-}
-
-/* Remove shine sweep */
-.service-card::before {
-  content: none;
 }
 
 /* ================================== */
@@ -77,17 +70,10 @@ body {
   object-fit: cover;
   filter: brightness(0.95) contrast(1.05);
   display: block;
-
-  /* No zoom on hover */
-  transition: none;
-}
-
-.service-card:hover img {
-  transform: none;
 }
 
 /* ================================== */
-/* CONTENT (NO BLUR, CLEAN) */
+/* CONTENT */
 /* ================================== */
 .content {
   flex: 1;
@@ -96,17 +82,8 @@ body {
   flex-direction: column;
   justify-content: center;
 
-  /* No blur — clean soft overlay */
   background: rgba(0, 0, 0, 0.15);
-  backdrop-filter: none;
-
   color: white;
-  position: relative;
-}
-
-/* Remove glowing border */
-.content::before {
-  content: none;
 }
 
 .content h2 {
@@ -139,24 +116,19 @@ body {
   font-weight: 600;
   color: #9bc9ff;
   border: 1px solid rgba(255, 255, 255, 0.25);
-
-  /* No hover animations */
-  transition: none;
 }
+
+/* ================================== */
+/* ACCESSIBILITY */
+/* ================================== */
 .sr-only {
   position: absolute;
   width: 1px;
   height: 1px;
-  padding: 0;
   margin: -1px;
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
-}
-
-.pill:hover {
-  background: rgba(255, 255, 255, 0.25);
-  transform: none;
 }
 
 /* ================================== */
@@ -164,7 +136,8 @@ body {
 /* ================================== */
 @media (max-width: 900px) {
   .card-wrapper {
-    height: auto;
+    height: auto; /* FIX for mobile scroll */
+    padding: 60px 0;
   }
 
   .service-card {
@@ -186,11 +159,9 @@ body {
   .content h2 {
     font-size: 1.7rem;
   }
-
   .content p {
     font-size: 0.95rem;
   }
-
   .pill {
     font-size: 0.75rem;
     padding: 6px 14px;
