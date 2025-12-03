@@ -9,13 +9,10 @@
   <link rel="icon" type="image/png" href="logo.png" />
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
 
   <style>
     body {
@@ -25,209 +22,274 @@
       color: #333;
     }
 
-    /* HEADER */
-    .header {
-      background: #fff;
-      padding: 20px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    /* ========================= HEADER ========================= */
+
+    .main-header {
+      width: 100%;
+      background: #ffffff;
+      border-bottom: 1px solid #efefef;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
       position: sticky;
       top: 0;
-      z-index: 1000;
+      z-index: 999;
     }
 
-    .logo img {
-      height: 60px;
+    .header-container {
+      max-width: 1400px;
+      margin: auto;
+      padding: 12px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
-    .nav a {
-      margin: 0 18px;
-      text-decoration: none;
-      color: #222;
-      font-weight: 500;
-      font-size: 16px;
+    /* LEFT */
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
     }
 
-    .nav a:hover,
-    .nav .active {
-      color: #63b3d8;
+    .logo-box {
+      width: 58px;
+      height: 58px;
+      border-radius: 16px;
+      background: #fafafa;
+      border: 1px solid #dcdcdc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
-    /* ABOUT CONTENT */
-    .about-section {
-      width: 90%;
-      max-width: 1200px;
-      margin: 60px auto;
+    .logo-box img {
+      width: 45px;
     }
 
-    .about-section h1 {
-      font-size: 38px;
+    .brand-title {
+      font-size: 1.35rem;
       font-weight: 700;
-      color: #63b3d8;
+      letter-spacing: 0.03em;
+      color: #111;
     }
 
-    .about-section p {
-      font-size: 18px;
-      line-height: 1.7;
-      margin-top: 18px;
+    .brand-sub {
+      font-size: 0.78rem;
+      color: #7d7d7d;
+      letter-spacing: 0.24em;
+      margin-top: 2px;
     }
 
-    /* BANNER */
-    .banner-img {
-      width: 100%;
-      height: auto;
-      margin-top: 20px;
-      border-radius: 10px;
+    /* NAV */
+    .header-nav {
+      display: flex;
+      gap: 32px;
+      font-size: 1rem;
+      font-weight: 500;
     }
 
-    /* FOOTER */
-    .footer {
-      width: 100%;
-      padding: 60px 40px;
-      background: #f1f1f1;
+    .header-nav a {
       color: #222;
+      text-decoration: none;
+      position: relative;
+    }
+
+    .header-nav a:hover,
+    .header-nav a.active {
+      color: #55aee0;
+    }
+
+    .header-nav a:hover::after,
+    .header-nav a.active::after {
+      content: "";
+      position: absolute;
+      width: 22px;
+      height: 2px;
+      background: #55aee0;
+      bottom: -5px;
+      left: 0;
+      border-radius: 3px;
+    }
+
+    /* RIGHT */
+    .header-right {
       display: flex;
-      justify-content: flex-start;
-      gap: 40px;
-      flex-wrap: wrap;
-      border-top: 1px solid #d3d3d3;
+      align-items: center;
+      gap: 18px;
     }
 
-    .social-col {
-      width: 30%;
-      min-width: 260px;
-      display: flex;
-      gap: 40px;
+    .header-phone {
+      font-size: 1rem;
+      font-weight: 600;
     }
 
-    .footer-social-left {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
+    .call-btn {
+      background: #63b3d8;
+      color: white;
+      padding: 14px 26px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-decoration: none;
+      line-height: 1.1;
+      text-align: center;
+      letter-spacing: 0.05em;
     }
 
-    .footer-social-left a {
-      color: #007bff;
-      font-size: 34px;
-      transition: 0.3s;
+    /* ========================= BANNER ========================= */
+
+    .about-banner {
+      width: 100%;
+      margin-top: 10px;
     }
 
-    .footer-social-left a:hover {
-      transform: scale(1.25);
+    .about-banner img {
+      width: 100%;
+      border-radius: 10px;
+      display: block;
     }
 
-    .footer-brand {
-      max-width: 260px;
-    }
+    /* ========================= ABOUT HERO ========================= */
 
-    .footer-logo {
-      font-size: 26px;
-      font-weight: bold;
-      color: #000;
-    }
-
-    .footer-links li {
-      margin: 8px 0;
-    }
-
-    .footer-links a {
-      color: #333;
-    }
-
-    .footer-links a:hover {
-      color: #007bff;
-    }
-
-    .contact-col ul li {
-      margin: 6px 0;
-    }
-
-    .col-maps {
-      flex: 1;
-      min-width: 350px;
-    }
-
-    .district-card {
-      width: 150px;
-      background: rgba(0, 0, 0, 0.08);
-      border-radius: 12px;
-      padding: 8px;
+    .about-hero {
+      max-width: 1200px;
+      margin: 50px auto 20px;
+      padding: 0 20px;
       text-align: center;
     }
 
-    .map-frame {
-      width: 100%;
-      height: 110px;
-      border-radius: 8px;
+    .about-hero h1 {
+      font-size: 40px;
+      font-weight: 700;
+      color: #63b3d8;
+      margin-bottom: 10px;
     }
 
-    /* MOBILE */
-    @media (max-width: 900px) {
-      .footer {
-        flex-direction: column;
-        text-align: center;
-        align-items: center;
-      }
-
-      .nav a {
-        margin: 0 10px;
-      }
+    .about-hero p {
+      max-width: 900px;
+      margin: auto;
+      font-size: 18px;
+      color: #555;
     }
+
   </style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
-  <header class="header">
-    <div class="logo">
-      <a href="index.html">
-        <img src="logo.png" alt="VIndia Infrasec Logo">
-      </a>
+<!-- ========================= HEADER ========================= -->
+
+<header class="main-header">
+  <div class="header-container">
+
+    <div class="header-left">
+      <div class="logo-box">
+        <img src="logo.png" alt="VIndia Logo">
+      </div>
+
+      <div>
+        <div class="brand-title">VINDIA INFRASEC</div>
+        <div class="brand-sub">CONSTRUCTION • INTERIORS • ENGINEERING</div>
+      </div>
     </div>
 
-    <nav class="nav">
+    <nav class="header-nav">
       <a href="index.html">Home</a>
       <a href="about.html" class="active">About Us</a>
       <a href="services.html">Services</a>
       <a href="projects.html">Projects</a>
-      <a href="\careers\we-work.html">Career</a>
+      <a href="careers/we-work.html">Careers</a>
       <a href="contact.html">Contact</a>
     </nav>
-  </header>
 
-  <!-- BANNER -->
-  <img src="img/Vindia - Web Banner-4.jpg" class="banner-img">
+    <div class="header-right">
+      <div class="header-phone">+91-85929 21212</div>
+      <a href="tel:+918592921212" class="call-btn">CALL<br>NOW</a>
+    </div>
 
-  <!-- ABOUT CONTENT -->
-  <section class="about-section">
-    <h1>About VIndia Infrasec</h1>
+  </div>
+</header>
+
+<!-- ========================= BANNER ========================= -->
+
+<div class="about-banner">
+  <img src="img/Vindia - Web Banner-4.jpg" alt="About Banner">
+</div>
+
+<!-- ========================= ABOUT HERO ========================= -->
+
+<section class="about-hero">
+  <h1>About VIndia Infrasec</h1>
+  <p>
+    Building trust, quality, and innovation since 2010 — delivering civil construction, interiors, MEP,
+    structural design, and project management services across South India.
+  </p>
+</section>
+
+<!-- ========================= ABOUT CONTENT ========================= -->
+
+<section class="about-content">
+  <div class="about-container">
 
     <p>
-      VIndia, which started off as a small villa project in 2010, has today defied all odds to be recognized as a spearheading force of engineering construction in South India. It started its operations in the form of a partnership firm in the year 2010. In the year 2020, it got incorporated as a Private Limited Company.
+      VIndia, which started as a small villa project in 2010, has today grown into one of South India’s
+      most trusted engineering & construction companies. What began as a partnership firm has now
+      transformed into a strong and dynamic Private Limited Company (since 2020).
     </p>
 
     <p>
-      It is now one of the fastest-growing construction and manpower-sourcing companies including construction management, consulting services, and other related services, with modern information technology systems and equipment for effective planning, budgeting, estimating, execution, and monitoring of all projects.
+      We specialise in turnkey construction, interior execution, project management, manpower solutions,
+      and technical consulting — supported by modern systems for planning, budgeting, estimation,
+      scheduling, and progress monitoring.
     </p>
 
     <p>
-      We believe in adopting innovative technologies, benchmark quality, robust design/engineering, and uncompromising business ethics. With high levels of dynamism and perseverance, the company has developed expertise in implementing challenging and complex infrastructure projects.
+      Our philosophy is built on innovation, attention to detail, quality craftsmanship, and ethical
+      execution. With experienced architects, engineers, designers, and on-site teams, we deliver projects
+      that are robust, functional, and aesthetically refined.
     </p>
 
     <p>
-      With a reputation for being a company that settles for nothing but the best, VIndia has carved a niche for itself as one of the major players in the industry. VIndia, headquartered in Bangalore, has a strong presence across South India and is rapidly expanding in key locations.
+      Headquartered in Bangalore, VIndia has established a strong presence across Karnataka, Kerala,
+      Tamil Nadu & other key regions — with a growing portfolio of residential, commercial, and industrial
+      projects delivered with precision and commitment.
     </p>
-  </section>
 
-  <!-- FOOTER -->
-  <footer class="footer">
+  </div>
+</section>
 
-    <!-- SOCIAL + BRAND -->
-    <div class="social-col">
-      <div class="footer-social-left">
+<style>
+  /* ========================= ABOUT CONTENT STYLES ========================= */
+
+  .about-content {
+    padding: 40px 0 70px;
+  }
+
+  .about-container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 20px;
+  }
+
+  .about-container p {
+    font-size: 18px;
+    line-height: 1.78;
+    margin-bottom: 26px;
+    color: #444;
+  }
+
+  .about-container p:last-child {
+    margin-bottom: 0;
+  }
+</style>
+<!-- ========================= FOOTER (VERSION A) ========================= -->
+
+<footer class="footer">
+
+  <div class="footer-row">
+
+    <!-- LEFT SOCIAL + BRAND -->
+    <div class="footer-left">
+      <div class="footer-social-vertical">
         <a href="#"><i class="fab fa-google"></i></a>
         <a href="#"><i class="fab fa-youtube"></i></a>
         <a href="#"><i class="fab fa-instagram"></i></a>
@@ -236,85 +298,286 @@
 
       <div class="footer-brand">
         <h2 class="footer-logo">VIndia Infrasec</h2>
-        <p>
-          Delivering excellence in construction, interior design & structural engineering across South India.
+        <p class="footer-desc">
+          Delivering excellence in Construction, Interior Design & Structural Engineering across South India.
         </p>
       </div>
     </div>
 
     <!-- QUICK LINKS -->
-    <div class="col">
+    <div class="footer-col footer-links-col">
       <ul class="footer-links">
         <li><a href="/">Home</a></li>
         <li><a href="/about.html">About Us</a></li>
+
+        <li class="footer-dropdown" id="careerDropdownFooter">
+          <button class="footer-dropbtn" onclick="toggleCareerFooter()">Career ▾</button>
+          <ul class="footer-submenu">
+            <li><a href="/careers/we-work.html">We Work</a></li>
+            <li><a href="/careers/openings.html">Open Positions</a></li>
+            <li><a href="/careers/submit-cv.html">Submit Your CV</a></li>
+          </ul>
+        </li>
+
         <li><a href="/services.html">Services</a></li>
         <li><a href="/projects.html">Projects</a></li>
         <li><a href="/contact.html">Contact</a></li>
       </ul>
     </div>
 
-    <!-- CONTACT NUMBERS -->
-    <div class="col contact-col">
+    <!-- CALL US -->
+    <div class="footer-col contact-col">
       <h3 class="contact-title">Call Us</h3>
       <ul class="contact-list">
         <li>+91 85929 11212</li>
         <li>+91 85929 21212</li>
         <li>+91 85929 31212</li>
         <li>+91 85929 41212</li>
+        <li>+91 85929 51212</li>
+        <li>+91 85929 61212</li>
       </ul>
     </div>
 
-    <!-- MAP ROTATION -->
-    <div class="col col-maps">
+    <!-- MAP SECTION -->
+    <div class="footer-col col-maps">
       <h3 class="state-title" id="stateTitle">Kerala</h3>
       <div class="district-row" id="districtContainer"></div>
     </div>
 
-  </footer>
+  </div>
+</footer>
 
-  <script>
-    const states = [
-      {
-        title: "Kerala",
-        districts: ["Kochi", "Trivandrum", "Kannur"],
-        maps: [
-          "https://www.google.com/maps?q=Kochi,Kerala&output=embed",
-          "https://www.google.com/maps?q=Trivandrum,Kerala&output=embed",
-          "https://www.google.com/maps?q=Kannur,Kerala&output=embed"
-        ]
-      },
-      {
-        title: "Karnataka",
-        districts: ["Mysore", "Bengaluru"],
-        maps: [
-          "https://www.google.com/maps?q=Mysore,Karnataka&output=embed",
-          "https://www.google.com/maps?q=Bengaluru,Karnataka&output=embed"
-        ]
-      }
-    ];
+<!-- ========================= FOOTER CSS ========================= -->
 
-    let index = 0;
-    const stateTitle = document.getElementById("stateTitle");
-    const districtContainer = document.getElementById("districtContainer");
+<style>
+.footer {
+  background: #f2f2f2;
+  padding: 50px 5%;
+}
 
-    function updateMaps() {
-      const state = states[index];
-      stateTitle.textContent = state.title;
+.footer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+}
 
-      districtContainer.innerHTML = state.districts.map((d, i) => `
-        <div class="district-card">
-          <h4 class="district-name">${d}</h4>
-          <iframe src="${state.maps[i]}" class="map-frame"></iframe>
-        </div>
-      `).join("");
+/* LEFT COLUMN */
+.footer-left {
+  display: flex;
+  gap: 20px;
+  width: 28%;
+  align-items: flex-start;
+}
+
+/* SOCIAL ICONS VERTICAL */
+.footer-social-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.footer-social-vertical i {
+  font-size: 30px;
+  color: #1a73e8;
+  transition: 0.3s;
+}
+
+.footer-social-vertical i:hover {
+  opacity: 0.7;
+}
+
+/* BRAND */
+.footer-brand {
+  max-width: 320px;
+}
+
+.footer-logo {
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.footer-desc {
+  margin-top: 8px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* QUICK LINKS */
+.footer-links-col {
+  width: 18%;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: #222;
+  font-size: 16px;
+  text-decoration: underline;
+}
+
+.footer-links a:hover {
+  color: #1a73e8;
+}
+
+/* FOOTER DROPDOWN */
+.footer-dropdown {
+  position: relative;
+}
+
+.footer-dropbtn {
+  background: none;
+  border: none;
+  font-size: 16px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.footer-submenu {
+  display: none;
+  position: absolute;
+  top: 28px;
+  background: #fff;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  border-radius: 8px;
+  width: 180px;
+  padding: 0;
+  z-index: 1000;
+}
+
+.footer-submenu li a {
+  display: block;
+  padding: 10px 14px;
+  color: #333;
+  text-decoration: none;
+}
+
+.footer-submenu li a:hover {
+  background: #eee;
+}
+
+.footer-dropdown.show .footer-submenu {
+  display: block;
+}
+
+/* CALL US */
+.contact-col {
+  width: 18%;
+}
+
+.contact-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #1a73e8;
+  font-weight: 700;
+}
+
+.contact-list li {
+  margin-bottom: 6px;
+  font-size: 16px;
+  color: #222;
+}
+
+/* MAPS */
+.col-maps {
+  width: 30%;
+  text-align: center;
+}
+
+.state-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a73e8;
+  margin-bottom: 15px;
+}
+
+.district-row {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+}
+
+.district-card {
+  width: 33%;
+  background: #fff;
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+.district-name {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.map-frame {
+  width: 100%;
+  height: 150px;
+  border: none;
+  border-radius: 8px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .footer-row {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+</style>
+
+<!-- ========================= FOOTER JS ========================= -->
+
+<script>
+  const states = [
+    {
+      title: "Kerala",
+      districts: ["Kochi", "Trivandrum", "Kannur"],
+      maps: [
+        "https://www.google.com/maps?q=Kochi,Kerala&output=embed",
+        "https://www.google.com/maps?q=Trivandrum,Kerala&output=embed",
+        "https://www.google.com/maps?q=Kannur,Kerala&output=embed"
+      ]
+    },
+    {
+      title: "Karnataka",
+      districts: ["Mysore", "Bengaluru"],
+      maps: [
+        "https://www.google.com/maps?q=Mysore,Karnataka&output=embed",
+        "https://www.google.com/maps?q=Bengaluru,Karnataka&output=embed"
+      ]
     }
+  ];
 
+  let index = 0;
+  const stateTitle = document.getElementById("stateTitle");
+  const districtContainer = document.getElementById("districtContainer");
+
+  function updateMaps() {
+    const state = states[index];
+    stateTitle.textContent = state.title;
+
+    districtContainer.innerHTML = state.districts.map((d, i) => `
+      <div class="district-card">
+        <h4 class="district-name">${d}</h4>
+        <iframe src="${state.maps[i]}" class="map-frame"></iframe>
+      </div>
+    `).join("");
+  }
+
+  updateMaps();
+  setInterval(() => {
+    index = (index + 1) % states.length;
     updateMaps();
-    setInterval(() => {
-      index = (index + 1) % states.length;
-      updateMaps();
-    }, 3000);
-  </script>
+  }, 3000);
+
+  function toggleCareerFooter() {
+    document.getElementById("careerDropdownFooter").classList.toggle("show");
+  }
+</script>
 
 </body>
 </html>

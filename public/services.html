@@ -3,711 +3,2449 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>VIndia Infrasec | Services</title>
+  <title>Our Services | VIndia Infrasec</title>
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="logo.png" />
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;600;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
 
-  <!-- AOS -->
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+  <!-- AOS CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
 
   <style>
+    /* =========================
+       ROOT + RESET
+    ========================== */
+    :root {
+      --primary: #63b3d8;
+      --primary-dark: #3b8fb5;
+      --accent: #f9a826;
+      --bg: #f7f7f7;
+      --text-dark: #222222;
+      --text-muted: #666666;
+      --white: #ffffff;
+      --border: #e3e3e3;
+      --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.08);
+      --radius-lg: 12px;
+      --radius-xl: 16px;
+      --radius-pill: 999px;
+      --transition-fast: 0.2s ease;
+      --transition-med: 0.3s ease;
+      --max-width: 1200px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: "Work Sans", sans-serif;
-      background: #f7f7f7;
-      color: #333;
-    }
-
-    /* ===========================================
-       HEADER  (same as contact, but Services active)
-    ========================================== */
-    .header {
-      background: #fff;
-      padding: 20px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .logo img {
-      height: 60px;
-    }
-
-    .nav a {
-      margin: 0 18px;
-      text-decoration: none;
-      color: #222;
-      font-weight: 500;
-      font-size: 16px;
-    }
-
-    .nav a:hover {
-      color: #63b3d8;
-    }
-
-    .nav a.active-link {
-      color: #63b3d8;
-    }
-
-    /* ===========================================
-       SERVICES PAGE – LAYOUT
-    ========================================== */
-    .services-container {
-      width: 90%;
-      max-width: 1200px;
-      margin: 40px auto 60px;
-    }
-
-    .page-heading {
-      font-family: 'Dancing Script', cursive;
-      font-size: 46px;
-      color: #63b3d8;
-      text-align: center;
-      margin-bottom: 15px;
-    }
-
-    .page-subtext {
-      text-align: center;
-      max-width: 750px;
-      margin: 0 auto 40px;
-      font-size: 15px;
-      color: #555;
-    }
-
-    .service-box {
-      background: #fff;
-      border-radius: 12px;
-      padding: 25px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-      margin-bottom: 40px;
-    }
-
-    .service-title {
-      font-family: 'Dancing Script', cursive;
-      font-size: 34px;
-      color: #63b3d8;
-      margin-bottom: 12px;
-    }
-
-    .service-img {
-      max-height: 160px;
-      object-fit: contain;
-      width: 100%;
-    }
-
-    .service-box p {
-      font-size: 15px;
-      line-height: 1.8;
-      color: #555;
-    }
-
-    .btn-primary {
-      background-color: #63b3d8;
-      border-color: #63b3d8;
-      border-radius: 30px;
-      padding: 8px 24px;
-      font-size: 14px;
-    }
-
-    .btn-primary:hover {
-      background-color: #4ba0c6;
-      border-color: #4ba0c6;
-    }
-
-    /* ===========================================
-       FLOATING ICONS (same style as contact)
-    ========================================== */
-    .icons-above-footer {
-      width: 100%;
-    }
-
-    .icon-left,
-    .icon-right {
-      position: fixed;
-      z-index: 3000;
-      padding: 16px;
-      border-radius: 50%;
-      transition: 0.3s ease;
-    }
-
-    .icon-left {
-      left: 20px;
-      bottom: 200px;
-      background: #007bff;
-      color: white;
-      font-size: 24px;
-    }
-
-    .icon-left:hover {
-      transform: scale(1.18);
-    }
-
-    .icon-right {
-      right: 20px;
-      bottom: 200px;
-      background: #25d366;
-      color: white;
-      font-size: 26px;
-    }
-
-    .icon-right:hover {
-      transform: scale(1.18);
-    }
-
-    .icons-stop {
-      bottom: 280px !important;
-    }
-
-    /* ===========================================
-       FOOTER  (exact same as contact.html)
-    ========================================== */
-    .footer {
-      width: 100%;
-      padding: 60px 40px;
-      background: #f1f1f1;
-      color: #222;
-      display: flex;
-      justify-content: flex-start;
-      gap: 40px;
-      flex-wrap: wrap;
-      border-top: 1px solid #d3d3d3;
-    }
-
-    /* SOCIAL + BRAND BLOCK */
-    .social-col {
-      width: 30%;
-      min-width: 260px;
-      display: flex;
-      gap: 55px;
-    }
-
-    .footer-social-left {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .footer-social-left a {
-      color: #007bff;
-      font-size: 34px;
-      transition: 0.3s;
-    }
-
-    .footer-social-left a:hover {
-      transform: scale(1.25);
-      color: #0056d6;
-    }
-
-    .footer-brand {
-      max-width: 300px;
-    }
-
-    .footer-logo {
-      font-size: 26px;
-      font-weight: bold;
-      color: #000;
-    }
-
-    .footer-desc {
-      margin-top: 8px;
+      background: var(--bg);
+      color: var(--text-dark);
       line-height: 1.6;
-      color: #444;
     }
 
-    /* QUICK LINKS */
-    .footer-links {
-      list-style: none;
-      min-width: 160px;
-      padding: 0;
-    }
-
-    .footer-links li {
-      margin: 8px 0;
-    }
-
-    .footer-links a {
-      color: #333;
-      transition: 0.3s;
-      text-decoration: none;
-    }
-
-    .footer-links a:hover {
-      color: #007bff;
-      margin-left: 4px;
-    }
-
-    .footer-dropdown {
-      position: relative;
-      list-style: none;
-    }
-
-    .footer-dropbtn {
-      background: none;
-      border: none;
-      color: black;
-      font-size: 16px;
-      font-weight: 600;
-      cursor: pointer;
-      padding: 0;
-    }
-
-    .footer-submenu {
-      display: none;
-      position: absolute;
-      left: 0;
-      margin-top: 6px;
-      background: white;
-      padding: 10px 12px;
-      border-radius: 6px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      z-index: 50;
-    }
-
-    .footer-submenu li {
-      list-style: none;
-      margin: 6px 0;
-    }
-
-    .footer-submenu li a {
-      color: black;
-      font-size: 15px;
-      text-decoration: none;
-    }
-
-    .footer-submenu li a:hover {
-      text-decoration: underline;
-    }
-
-    .footer-dropdown.show .footer-submenu {
+    img {
+      max-width: 100%;
       display: block;
     }
 
-    /* CONTACT NUMBERS */
-    .contact-col {
-      min-width: 180px;
+    a {
+      text-decoration: none;
+      color: inherit;
     }
 
-    .contact-title {
-      color: #007bff;
-      font-size: 18px;
-      margin-bottom: 10px;
-      font-weight: 600;
-    }
-
-    .contact-list {
+    ul {
       list-style: none;
-      padding: 0;
     }
 
-    .contact-list li {
-      margin: 6px 0;
-      color: #333;
-      font-size: 15px;
+    button {
+      font-family: inherit;
+      border: none;
+      background: none;
+      cursor: pointer;
     }
 
-    /* MAPS */
-    .col-maps {
-      flex: 1;
-      min-width: 350px;
+    /* =========================
+       GLOBAL LAYOUT HELPERS
+    ========================== */
+    .page-wrapper {
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      align-items: center;
     }
 
-    .state-title {
-      font-size: 20px;
-      margin-bottom: 12px;
-      color: #007bff;
-      font-weight: 600;
-      margin-left: -40px;
-    }
-
-    .district-row {
-      display: flex;
-      gap: 10px;
-      justify-content: flex-end;
+    .container {
       width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
     }
 
-    .district-card {
-      width: 150px;
-      background: rgba(0,0,0,0.08);
-      border-radius: 12px;
-      padding: 8px;
+    .section {
+      padding: 3.5rem 0;
+    }
+
+    .section-heading {
       text-align: center;
+      margin-bottom: 2.5rem;
     }
 
-    .district-name {
-      font-size: 13px;
+    .section-kicker {
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--primary-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.9rem, 3vw, 2.4rem);
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      color: var(--primary-dark);
+    }
+
+    .section-subtitle {
+      max-width: 620px;
+      margin: 0.25rem auto 0;
+      font-size: 0.96rem;
+      color: var(--text-muted);
+    }
+
+    /* =========================
+       HEADER (Services layout, About style)
+    ========================== */
+    header {
+      background: #ffffff;
+      padding: 14px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    }
+
+    .nav-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .nav-logo-wrap {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+      border: 1px solid #e3e3e3;
+    }
+
+    .nav-logo-wrap img {
+      height: 48px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .nav-brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .nav-brand-main {
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #000;
+    }
+
+    .nav-brand-sub {
+      font-size: 0.72rem;
+      color: #777;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .nav-link {
+      position: relative;
+      padding-bottom: 2px;
       color: #222;
-      margin-bottom: 6px;
     }
 
-    .map-wrapper {
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--primary);
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--primary);
+      transition: width var(--transition-fast);
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 18px;
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .nav-phone {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.9rem;
+      color: #444;
+    }
+
+    .nav-phone span {
+      font-weight: 600;
+      color: #222;
+    }
+
+    .btn-primary {
+      padding: 0.55rem 1.2rem;
+      border-radius: var(--radius-pill);
+      background: var(--primary);
+      color: var(--white);
+      font-size: 0.86rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      box-shadow: var(--shadow-soft);
+      border: none;
+      transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .nav-toggle {
+      display: none;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 1px solid #ccc;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+    }
+
+    .nav-toggle span,
+    .nav-toggle span::before,
+    .nav-toggle span::after {
+      content: "";
+      display: block;
+      width: 16px;
+      height: 2px;
+      border-radius: 999px;
+      background: #111827;
+      transition: var(--transition-fast);
       position: relative;
     }
 
-    .map-icon {
+    .nav-toggle span::before {
+      top: -5px;
       position: absolute;
-      top: 6px;
-      left: 6px;
-      font-size: 22px;
-      color: red;
-      z-index: 20;
     }
 
-    .map-frame {
+    .nav-toggle span::after {
+      top: 5px;
+      position: absolute;
+    }
+
+    .nav-toggle.active span {
+      background: transparent;
+    }
+
+    .nav-toggle.active span::before {
+      transform: translateY(5px) rotate(45deg);
+    }
+
+    .nav-toggle.active span::after {
+      transform: translateY(-5px) rotate(-45deg);
+    }
+
+    .nav-links-mobile {
+      display: none;
+    }
+
+    /* =========================
+       HERO / TOP BANNER
+    ========================== */
+    .hero-services {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+      padding: 3rem 0 2.6rem;
+    }
+
+    .hero-badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-badge {
+      padding: 0.28rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: #eef7fb;
+      color: var(--primary-dark);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .hero-badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #22c55e;
+    }
+
+    .hero-title {
+      font-size: clamp(2.1rem, 3.4vw, 2.6rem);
+      line-height: 1.18;
+      margin-bottom: 0.8rem;
+      color: #222;
+    }
+
+    .hero-title span {
+      color: var(--primary-dark);
+    }
+
+    .hero-subtitle {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.1rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .hero-meta-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.55rem 0.95rem;
+      border-radius: 999px;
+      background: #f1f1f1;
+      font-size: 0.82rem;
+      color: #444;
+    }
+
+    .hero-meta-badge {
+      font-size: 0.7rem;
+      padding: 0.18rem 0.55rem;
+      border-radius: 999px;
+      background: #e3f6ea;
+      color: #15803d;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      align-items: center;
+    }
+
+    .btn-outline {
+      padding: 0.55rem 1.2rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid #cfd4da;
+      font-size: 0.86rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: #ffffff;
+      transition: border var(--transition-fast), background var(--transition-fast), transform var(--transition-fast);
+      color: #333;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--primary);
+      transform: translateY(-1px);
+      text-decoration: none;
+      color: #333;
+    }
+
+    .hero-trust-row {
+      margin-top: 1.6rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      align-items: center;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .hero-avatars {
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-avatar {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      border: 2px solid #fff;
+      background: #63b3d8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #fff;
+      margin-right: -8px;
+    }
+
+    .hero-right {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-card {
       width: 100%;
-      height: 110px;
-      border: none;
-      border-radius: 8px;
+      max-width: 370px;
+      border-radius: var(--radius-xl);
+      background: #ffffff;
+      padding: 1.6rem 1.4rem;
+      color: #333;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      border: 1px solid #e3e3e3;
     }
 
-    /* ===========================================
-       MOBILE RESPONSIVE
-    ========================================== */
+    .hero-card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .hero-chip {
+      padding: 0.26rem 0.6rem;
+      border-radius: 999px;
+      background: #f1f1f1;
+      border: 1px solid #dddddd;
+      font-size: 0.7rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .hero-chip-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
+    }
+
+    .hero-card-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+
+    .hero-card-sub {
+      font-size: 0.76rem;
+      color: #777;
+    }
+
+    .hero-card-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 1.1rem;
+    }
+
+    .metric-pill {
+      padding: 0.55rem 0.6rem;
+      border-radius: 0.9rem;
+      background: #f7f7f7;
+      border: 1px solid #e3e3e3;
+    }
+
+    .metric-label {
+      font-size: 0.68rem;
+      color: #777;
+      margin-bottom: 0.1rem;
+    }
+
+    .metric-value {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #222;
+    }
+
+    .hero-card-footer {
+      margin-top: 1.3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .hero-card-note {
+      font-size: 0.7rem;
+      color: #777;
+      max-width: 70%;
+    }
+
+    .hero-card-tag {
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: #e7f2fb;
+      border: 1px solid #c4ddf4;
+      font-size: 0.7rem;
+      color: #225b87;
+    }
+
+    /* =========================
+       SERVICES GRID
+    ========================== */
+    .services-section {
+      background: var(--bg);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.8rem;
+    }
+
+    .service-card {
+      position: relative;
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      padding: 1.3rem 1.35rem 1.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      border: 1px solid #e3e3e3;
+      transition: transform var(--transition-med), box-shadow var(--transition-med), border-color var(--transition-med);
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+      border-color: var(--primary);
+    }
+
+    .service-tag-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .service-tag {
+      font-size: 0.7rem;
+      padding: 0.18rem 0.6rem;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-weight: 600;
+      background: #f3f3f3;
+      color: #555;
+    }
+
+    .service-id {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .service-title {
+      font-size: 1.02rem;
+      font-weight: 600;
+      margin-top: 0.1rem;
+    }
+
+    .service-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin-top: 0.35rem;
+    }
+
+    .service-meta-pill {
+      font-size: 0.76rem;
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      background: #eef2f7;
+      color: #4b5563;
+    }
+
+    .service-desc {
+      font-size: 0.87rem;
+      color: var(--text-muted);
+      margin-top: 0.45rem;
+      flex: 1;
+    }
+
+    .service-footer {
+      margin-top: 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .service-badge-row {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-size: 0.78rem;
+      color: #6b7280;
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #22c55e;
+    }
+
+    .service-cta-btn {
+      font-size: 0.8rem;
+      padding: 0.45rem 0.95rem;
+      border-radius: 999px;
+      border: 1px solid #cfd4da;
+      background: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-weight: 500;
+      transition: background var(--transition-fast), border var(--transition-fast), transform var(--transition-fast);
+      color: #333;
+    }
+
+    .service-cta-btn:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    .service-cta-btn span.icon {
+      font-size: 0.9rem;
+      transform: translateY(1px);
+    }
+
+    /* =========================
+       MODAL STYLES (light UI)
+    ========================== */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25rem;
+      z-index: 2000;
+    }
+    .modal-backdrop.active .modal {
+  display: block !important;
+}
+
+
+    .modal-backdrop.active {
+      display: flex;
+    }
+
+    .modal {
+      width: 100%;
+      max-width: 650px;
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      position: relative;
+      overflow-y: auto;
+      animation: modalIn 0.25s ease-out;
+      border: 1px solid #e3e3e3;
+    }
+
+    @keyframes modalIn {
+      from {
+        transform: translateY(12px) scale(0.96);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+    }
+
+    .modal-header {
+      padding: 1.25rem 1.4rem 0.4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .modal-kicker {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--primary-dark);
+      margin-bottom: 0.25rem;
+    }
+
+    .modal-title {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 0.15rem;
+      color: #222;
+    }
+
+    .modal-subtitle {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .modal-label-pill {
+      padding: 0.24rem 0.65rem;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      background: #eef7fb;
+      color: var(--primary-dark);
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .modal-close-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      border: 1px solid #d0d7de;
+      background: #f9fafb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .modal-close-btn:hover {
+      background: #222;
+      color: #f9fafb;
+      transform: translateY(-1px);
+    }
+
+    .modal-body {
+      padding: 0.75rem 1.4rem 1.2rem;
+      border-top: 1px solid #ececec;
+    }
+
+    .modal-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 1.3rem;
+      align-items: flex-start;
+      margin-top: 0.8rem;
+    }
+
+    .modal-text-block p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 0.55rem;
+    }
+
+    .modal-list {
+      margin-top: 0.2rem;
+      padding-left: 0.95rem;
+      font-size: 0.86rem;
+    }
+
+    .modal-list li {
+      margin-bottom: 0.32rem;
+      color: #4b5563;
+      list-style: disc;
+    }
+
+    .modal-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.5rem;
+      margin-top: 0.7rem;
+      font-size: 0.78rem;
+    }
+
+    .modal-meta-pill {
+      padding: 0.35rem 0.55rem;
+      border-radius: 0.9rem;
+      background: #f3f4f6;
+      color: #4b5563;
+    }
+
+    .modal-cta-row {
+      margin-top: 0.9rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      align-items: center;
+    }
+
+    .btn-modal-primary {
+      padding: 0.55rem 1.2rem;
+      border-radius: var(--radius-pill);
+      background: var(--primary);
+      color: #ffffff;
+      font-size: 0.86rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      box-shadow: var(--shadow-soft);
+      border: none;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+    }
+
+    .btn-modal-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .btn-modal-secondary {
+      padding: 0.55rem 1.05rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid #cfd4da;
+      font-size: 0.84rem;
+      background: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      color: #333;
+    }
+
+    .btn-modal-secondary:hover {
+      border-color: var(--primary);
+      text-decoration: none;
+      color: #333;
+    }
+
+    .modal-side-card {
+      border-radius: 1.1rem;
+      background: #f7f7f7;
+      padding: 0.95rem 0.9rem;
+      color: #333;
+      position: relative;
+      border: 1px solid #e3e3e3;
+    }
+
+    .modal-side-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .modal-side-title {
+      font-size: 0.86rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      color: #222;
+    }
+
+    .modal-side-sub {
+      font-size: 0.75rem;
+      color: #777;
+      margin-bottom: 0.55rem;
+    }
+
+    .modal-side-highlight {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      margin-bottom: 0.6rem;
+      color: #444;
+    }
+
+    .modal-side-highlight strong {
+      font-size: 0.95rem;
+      color: #222;
+    }
+
+    .modal-side-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      font-size: 0.7rem;
+    }
+
+    .modal-side-badge {
+      padding: 0.18rem 0.55rem;
+      border-radius: 999px;
+      background: #ffffff;
+      border: 1px solid #d0d7de;
+      color: #555;
+    }
+
+    /* =========================
+       FOOTER (from About page)
+    ========================== */
+    /* FOOTER BASE */
+.footer {
+  background: #f2f2f2;
+  padding: 50px 5%;
+}
+
+.footer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+/* LEFT COLUMN */
+.footer-left {
+  display: flex;
+  gap: 20px;
+  width: 28%;
+  align-items: flex-start;
+}
+
+/* SOCIAL ICONS VERTICAL */
+.footer-social-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.footer-social-vertical i {
+  font-size: 30px;
+  color: #1a73e8;
+  transition: 0.3s;
+}
+
+.footer-social-vertical i:hover {
+  opacity: 0.7;
+}
+
+/* BRAND */
+.footer-brand {
+  max-width: 320px;
+}
+
+.footer-logo {
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.footer-desc {
+  margin-top: 8px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* QUICK LINKS */
+.footer-links-col {
+  width: 18%;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: #222;
+  font-size: 16px;
+  text-decoration: underline;
+}
+
+.footer-links a:hover {
+  color: #1a73e8;
+}
+
+/* FOOTER DROPDOWN */
+.footer-dropdown {
+  position: relative;
+}
+
+.footer-dropbtn {
+  background: none;
+  border: none;
+  font-size: 16px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.footer-submenu {
+  display: none;
+  position: absolute;
+  top: 28px;
+  background: #fff;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  border-radius: 8px;
+  width: 180px;
+  padding: 0;
+}
+
+.footer-submenu li a {
+  display: block;
+  padding: 10px 14px;
+  color: #333;
+  text-decoration: none;
+}
+
+.footer-submenu li a:hover {
+  background: #eee;
+}
+
+.footer-dropdown.show .footer-submenu {
+  display: block;
+}
+
+/* CALL US */
+.contact-col {
+  width: 18%;
+}
+
+.contact-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #1a73e8;
+  font-weight: 700;
+}
+
+.contact-list li {
+  margin-bottom: 6px;
+  font-size: 16px;
+  color: #222;
+}
+
+/* MAPS */
+.col-maps {
+  width: 30%;
+  text-align: center;
+}
+
+.state-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a73e8;
+  margin-bottom: 15px;
+}
+
+.district-row {
+  display: flex;
+  gap: 14px;
+}
+
+.district-card {
+  width: 33%;
+  background: #fff;
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+.district-name {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.map-frame {
+  width: 100%;
+  height: 150px;
+  border: none;
+  border-radius: 8px;
+}
+
+    /* =========================
+       RESPONSIVE
+    ========================== */
+    @media (max-width: 992px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        padding-top: 2.5rem;
+      }
+      .hero-right {
+        order: -1;
+      }
+      .hero-card {
+        margin: 0 auto;
+      }
+      .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
     @media (max-width: 900px) {
-      .header {
-        padding: 16px 20px;
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .nav {
-        margin-top: 10px;
-      }
-
-      .nav a {
-        margin: 0 10px 5px 0;
-        font-size: 14px;
-      }
-
-      .services-container {
-        width: 94%;
-      }
-
       .footer {
         flex-direction: column;
         text-align: center;
         align-items: center;
       }
-
-      .social-col {
-        justify-content: center;
-      }
-
-      .district-row {
-        justify-content: center;
-        flex-wrap: wrap;
-      }
-
-      .icon-left {
-        left: 10px;
-        bottom: 180px;
-      }
-
-      .icon-right {
-        right: 10px;
-        bottom: 180px;
-      }
     }
 
     @media (max-width: 768px) {
-      .service-title {
-        text-align: center;
-        margin-top: 15px;
+      .nav-links,
+      .nav-cta {
+        display: none;
       }
 
-      .page-heading {
-        font-size: 36px;
+      .nav-toggle {
+        display: inline-flex;
+      }
+
+      .nav-links-mobile {
+        display: none;
+        flex-direction: column;
+        padding: 0.4rem 1.5rem 0.9rem;
+        border-top: 1px solid #e3e3e3;
+        background: #ffffff;
+      }
+
+      .nav-links-mobile.open {
+        display: flex;
+      }
+
+      .nav-links-mobile a {
+        padding: 0.35rem 0;
+        font-size: 0.9rem;
+      }
+
+      .nav-links-mobile .mobile-cta {
+        margin-top: 0.4rem;
+      }
+
+      .hero-inner {
+        padding-top: 2.2rem;
+        padding-bottom: 2.4rem;
+      }
+
+      .hero-meta-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero-cta-row {
+        gap: 0.65rem;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .modal {
+        max-height: 90vh;
+        overflow-y: auto;
+      }
+
+      .modal-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav-bar {
+        padding-inline: 1rem;
+      }
+      .container {
+        padding-inline: 1rem;
+      }
+      .service-card {
+        padding-inline: 1.1rem;
+      }
+      .hero-card {
+        padding-inline: 1.1rem;
       }
     }
   </style>
 </head>
-
 <body>
+  <div class="page-wrapper">
 
-  <!-- HEADER (same as contact, Services highlighted) -->
-  <header class="header">
-    <div class="logo">
-      <a href="index.html">
-        <img src="logo.png" alt="VIndia Infrasec logo">
-      </a>
+    <!-- ============ HEADER ============ -->
+    <header>
+      <nav class="nav-bar">
+        <div class="nav-left">
+          <div class="nav-logo-wrap">
+            <a href="index.html">
+              <img src="logo.png" alt="VIndia Infrasec Logo">
+            </a>
+          </div>
+          <div class="nav-brand-text">
+            <div class="nav-brand-main">VIndia Infrasec</div>
+            <div class="nav-brand-sub">Construction • Interiors • Engineering</div>
+          </div>
+        </div>
+
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About Us</a></li>
+          <li><a href="services.html" class="nav-link active">Services</a></li>
+          <li><a href="projects.html" class="nav-link">Projects</a></li>
+          <li><a href="careers\we-work.html" class="nav-link">Careers</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+
+        <div class="nav-cta">
+          <div class="nav-phone">
+            <span>+91-85929 21212</span>
+          </div>
+          <a href="tel:+918592921212" class="btn-primary">
+            Call Now
+          </a>
+        </div>
+
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+          <span></span>
+        </button>
+      </nav>
+
+      <div class="nav-links-mobile" id="navMobile">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About Us</a>
+        <a href="services.html" class="nav-link active">Services</a>
+        <a href="projects.html" class="nav-link">Projects</a>
+        <a href="careers\we-work.html" class="nav-link">Careers</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <div class="mobile-cta">
+          <a href="tel:+918592921212" class="btn-primary" style="margin-top:0.6rem;">Call Now</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ============ HERO / TOP BANNER ============ -->
+    <section class="hero-services">
+      <div class="container">
+        <div class="hero-inner">
+          <div class="hero-left" data-aos="fade-right">
+            <div class="hero-badge-row">
+              <div class="hero-badge">
+                <span class="hero-badge-dot"></span>
+                End-to-end Civil & Interior Execution
+              </div>
+            </div>
+            <h1 class="hero-title">
+              Turnkey <span>Construction & Interior</span> services under one roof.
+            </h1>
+            <p class="hero-subtitle">
+              From architectural planning and structural design to on-site execution, interiors, and MEP —
+              VIndia Infrasec delivers complete solutions for residential, commercial, and industrial projects.
+            </p>
+
+            <div class="hero-meta-row">
+              <div class="hero-meta-pill">
+                <span class="hero-meta-badge">12+ Services</span>
+                Specialised teams for every stage
+              </div>
+              <div class="hero-meta-pill">
+                100% on-site coordination • Clear BOQ & timelines
+              </div>
+            </div>
+
+            <div class="hero-cta-row">
+              <a href="#services" class="btn-primary">
+                View All Services
+              </a>
+              <a href="contact.html" class="btn-outline">
+                Get a Detailed Quote →
+              </a>
+            </div>
+
+            <div class="hero-trust-row">
+              <div class="hero-avatars">
+                <div class="hero-avatar">KA</div>
+                <div class="hero-avatar">BLR</div>
+                <div class="hero-avatar">MYS</div>
+              </div>
+              <span>Trusted by homeowners, architects & builders across Karnataka.</span>
+            </div>
+          </div>
+
+          <div class="hero-right" data-aos="fade-left">
+            <div class="hero-card">
+              <div class="hero-card-inner">
+                <div class="hero-card-header">
+                  <div>
+                    <div class="hero-card-title">Ongoing Project Snapshot</div>
+                    <div class="hero-card-sub">G+3 Residential | Mysuru</div>
+                  </div>
+                  <div class="hero-chip">
+                    <span class="hero-chip-dot"></span>
+                    Live Site
+                  </div>
+                </div>
+
+                <div class="hero-card-metrics">
+                  <div class="metric-pill">
+                    <div class="metric-label">Current Stage</div>
+                    <div class="metric-value">Slab Casting</div>
+                  </div>
+                  <div class="metric-pill">
+                    <div class="metric-label">Timeline</div>
+                    <div class="metric-value">On Track</div>
+                  </div>
+                  <div class="metric-pill">
+                    <div class="metric-label">Quality Checks</div>
+                    <div class="metric-value">18+ Points</div>
+                  </div>
+                </div>
+
+                <div class="hero-card-footer">
+                  <p class="hero-card-note">
+                    Dedicated site engineer, daily progress updates & material tracking handled by our team.
+                  </p>
+                  <span class="hero-card-tag">
+                    Turnkey Execution
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES SECTION ============ -->
+    <section class="section services-section" id="services">
+      <div class="container">
+        <div class="section-heading" data-aos="fade-up">
+          <div class="section-kicker">Our Core Capabilities</div>
+          <h2 class="section-title">One team for structure, interiors, and services.</h2>
+          <p class="section-subtitle">
+            Choose individual services or opt for a complete turnkey package.
+            Every project gets engineered drawings, quality checks, and clear communication.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <!-- 1. TURNKEY CONSTRUCTION -->
+          <article class="service-card" data-modal-target="#modal1" data-aos="fade-up">
+            <div class="service-tag-row">
+              <span class="service-tag">Civil Execution</span>
+              <span class="service-id">S01</span>
+            </div>
+            <h3 class="service-title">Turnkey Building Construction</h3>
+            <div class="service-meta">
+              <span class="service-meta-pill">Residential</span>
+              <span class="service-meta-pill">Commercial</span>
+              <span class="service-meta-pill">G+4 / Villa</span>
+            </div>
+            <p class="service-desc">
+              End-to-end construction from excavation to finishing, including material, labour,
+              project planning, and quality monitoring with scheduled milestones.
+            </p>
+            <div class="service-footer">
+              <div class="service-badge-row">
+                <span class="badge-dot"></span>
+                <span>Site engineer + weekly progress reports</span>
+              </div>
+              <button class="service-cta-btn" data-modal-target="#modal1">
+                View Details <span class="icon">↗</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- 2. ARCHITECTURAL DESIGN -->
+          <article class="service-card" data-modal-target="#modal2" data-aos="fade-up" data-aos-delay="80">
+            <div class="service-tag-row">
+              <span class="service-tag">Design Studio</span>
+              <span class="service-id">S02</span>
+            </div>
+            <h3 class="service-title">Architectural Planning & Elevations</h3>
+            <div class="service-meta">
+              <span class="service-meta-pill">2D Layout</span>
+              <span class="service-meta-pill">3D Elevation</span>
+              <span class="service-meta-pill">Approval Drawings</span>
+            </div>
+            <p class="service-desc">
+              Space-efficient floor plans, 3D views, and submission drawings aligned with local by-laws,
+              vastu preferences, and your lifestyle needs.
+            </p>
+            <div class="service-footer">
+              <div class="service-badge-row">
+                <span class="badge-dot"></span>
+                <span>Concept to final drawings covered</span>
+              </div>
+              <button class="service-cta-btn" data-modal-target="#modal2">
+                View Details <span class="icon">↗</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- 3. STRUCTURAL DESIGN -->
+          <article class="service-card" data-modal-target="#modal3" data-aos="fade-up" data-aos-delay="140">
+            <div class="service-tag-row">
+              <span class="service-tag">Engineering</span>
+              <span class="service-id">S03</span>
+            </div>
+            <h3 class="service-title">Structural Design & Consultancy</h3>
+            <div class="service-meta">
+              <span class="service-meta-pill">RCC Design</span>
+              <span class="service-meta-pill">Load Analysis</span>
+              <span class="service-meta-pill">Retrofit</span>
+            </div>
+            <p class="service-desc">
+              Safe and efficient structural solutions for new builds and strengthening of old structures,
+              with detailed drawings and reinforcement schedules.
+            </p>
+            <div class="service-footer">
+              <div class="service-badge-row">
+                <span class="badge-dot"></span>
+                <span>Handled by licensed structural engineers</span>
+              </div>
+              <button class="service-cta-btn" data-modal-target="#modal3">
+                View Details <span class="icon">↗</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- 4. INTERIOR DESIGN & EXECUTION -->
+          <article class="service-card" data-modal-target="#modal4" data-aos="fade-up">
+            <div class="service-tag-row">
+              <span class="service-tag">Interiors</span>
+              <span class="service-id">S04</span>
+            </div>
+            <h3 class="service-title">Interior Design & Execution</h3>
+            <div class="service-meta">
+              <span class="service-meta-pill">Modular Kitchen</span>
+              <span class="service-meta-pill">Wardrobes</span>
+              <span class="service-meta-pill">False Ceiling</span>
+            </div>
+            <p class="service-desc">
+              Concept designs, 3D renders, and complete site execution including carpentry, POP,
+              painting, lighting, and soft furnishings.
+            </p>
+            <div class="service-footer">
+              <div class="service-badge-row">
+                <span class="badge-dot"></span>
+                <span>Material options for every budget</span>
+              </div>
+              <button class="service-cta-btn" data-modal-target="#modal4">
+                View Details <span class="icon">↗</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- 5. RENOVATION & RETROFIT -->
+          <article class="service-card" data-modal-target="#modal5" data-aos="fade-up" data-aos-delay="80">
+            <div class="service-tag-row">
+              <span class="service-tag">Renovation</span>
+              <span class="service-id">S05</span>
+            </div>
+            <h3 class="service-title">Renovation & Remodeling</h3>
+            <div class="service-meta">
+              <span class="service-meta-pill">Old House Makeover</span>
+              <span class="service-meta-pill">Structural Retrofit</span>
+            </div>
+            <p class="service-desc">
+              Upgrade existing homes with new layouts, structural strengthening, updated electrical,
+              plumbing, tiles, and finishes while you stay informed at every step.
+            </p>
+            <div class="service-footer">
+              <div class="service-badge-row">
+                <span class="badge-dot"></span>
+                <span>Careful planning for occupied homes</span>
+              </div>
+              <button class="service-cta-btn" data-modal-target="#modal5">
+                View Details <span class="icon">↗</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- 6. MEP SERVICES -->
+          <article class="service-card" data-modal-target="#modal6" data-aos="fade-up" data-aos-delay="140">
+            <div class="service-tag-row">
+              <span class="service-tag">Services</span>
+              <span class="service-id">S06</span>
+            </div>
+            <h3 class="service-title">Electrical, Plumbing & Drainage</h3>
+            <div class="service-meta">
+              <span class="service-meta-pill">Concealed Wiring</span>
+              <span class="service-meta-pill">CP & Sanitary</span>
+              <span class="service-meta-pill">Sump & STP</span>
+            </div>
+            <p class="service-desc">
+              Complete MEP layout, execution, and testing to ensure safe, leak-free, and maintenance-friendly
+              installations for your project.
+            </p>
+            <div class="service-footer">
+              <div class="service-badge-row">
+                <span class="badge-dot"></span>
+                <span>As-built drawings & marking</span>
+              </div>
+              <button class="service-cta-btn" data-modal-target="#modal6">
+                View Details <span class="icon">↗</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- 7. LANDSCAPING -->
+          <article class="service-card" data-modal-target="#modal7" data-aos="fade-up">
+            <div class="service-tag-row">
+              <span class="service-tag">Outdoor</span>
+              <span class="service-id">S07</span>
+            </div>
+            <h3 class="service-title">Landscaping & Terrace Development</h3>
+            <div class="service-meta">
+              <span class="service-meta-pill">Garden Design</span>
+              <span class="service-meta-pill">Pergola</span>
+              <span class="service-meta-pill">Decking</span>
+            </div>
+            <p class="service-desc">
+              Softscaping and hardscaping solutions for villas, terraces, and commercial spaces with irrigation,
+              lighting, and seating integrated.
+            </p>
+            <div class="service-footer">
+              <div class="service-badge-row">
+                <span class="badge-dot"></span>
+                <span>Low maintenance plant palette options</span>
+              </div>
+              <button class="service-cta-btn" data-modal-target="#modal7">
+                View Details <span class="icon">↗</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- 8. PROJECT MANAGEMENT -->
+          <article class="service-card" data-modal-target="#modal8" data-aos="fade-up" data-aos-delay="80">
+            <div class="service-tag-row">
+              <span class="service-tag">Coordination</span>
+              <span class="service-id">S08</span>
+            </div>
+            <h3 class="service-title">Project Management & Quality Audit</h3>
+            <div class="service-meta">
+              <span class="service-meta-pill">BOQ & Estimation</span>
+              <span class="service-meta-pill">Vendor Coordination</span>
+            </div>
+            <p class="service-desc">
+              Dedicated project managers to coordinate contractors, schedule work, monitor quality, and keep
+              your project on-time and within budget.
+            </p>
+            <div class="service-footer">
+              <div class="service-badge-row">
+                <span class="badge-dot"></span>
+                <span>Weekly reports & site photos</span>
+              </div>
+              <button class="service-cta-btn" data-modal-target="#modal8">
+                View Details <span class="icon">↗</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- 9. VASTU & PLANNING -->
+          <article class="service-card" data-modal-target="#modal9" data-aos="fade-up" data-aos-delay="140">
+            <div class="service-tag-row">
+              <span class="service-tag">Planning</span>
+              <span class="service-id">S09</span>
+            </div>
+            <h3 class="service-title">Vastu-Aligned Planning Support</h3>
+            <div class="service-meta">
+              <span class="service-meta-pill">Layout Corrections</span>
+              <span class="service-meta-pill">Remedial Planning</span>
+            </div>
+            <p class="service-desc">
+              Practical design support to integrate vastu guidelines into architecture,
+              without compromising on functionality or aesthetics.
+            </p>
+            <div class="service-footer">
+              <div class="service-badge-row">
+                <span class="badge-dot"></span>
+                <span>Works with your architect’s design</span>
+              </div>
+              <button class="service-cta-btn" data-modal-target="#modal9">
+                View Details <span class="icon">↗</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- 10. SMART HOME & SECURITY -->
+          <article class="service-card" data-modal-target="#modal10" data-aos="fade-up">
+            <div class="service-tag-row">
+              <span class="service-tag">Technology</span>
+              <span class="service-id">S10</span>
+            </div>
+            <h3 class="service-title">Smart Home, CCTV & Networking</h3>
+            <div class="service-meta">
+              <span class="service-meta-pill">Automation</span>
+              <span class="service-meta-pill">Security</span>
+              <span class="service-meta-pill">Wi-Fi</span>
+            </div>
+            <p class="service-desc">
+              Planning and installation of smart locks, lighting, CCTV, access control,
+              and structured cabling integrated neatly with interiors.
+            </p>
+            <div class="service-footer">
+              <div class="service-badge-row">
+                <span class="badge-dot"></span>
+                <span>Partnered with leading OEMs</span>
+              </div>
+              <button class="service-cta-btn" data-modal-target="#modal10">
+                View Details <span class="icon">↗</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- 11. ESTIMATION & BOQ -->
+          <article class="service-card" data-modal-target="#modal11" data-aos="fade-up" data-aos-delay="80">
+            <div class="service-tag-row">
+              <span class="service-tag">Pre-Construction</span>
+              <span class="service-id">S11</span>
+            </div>
+            <h3 class="service-title">Cost Estimation & BOQ</h3>
+            <div class="service-meta">
+              <span class="service-meta-pill">Material BOQ</span>
+              <span class="service-meta-pill">Rate Analysis</span>
+            </div>
+            <p class="service-desc">
+              Detailed bill of quantities, material specifications, and rate analysis to help you
+              compare quotes and plan budgets confidently.
+            </p>
+            <div class="service-footer">
+              <div class="service-badge-row">
+                <span class="badge-dot"></span>
+                <span>Transparent, item-wise costing</span>
+              </div>
+              <button class="service-cta-btn" data-modal-target="#modal11">
+                View Details <span class="icon">↗</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- 12. CONSULTING -->
+          <article class="service-card" data-modal-target="#modal12" data-aos="fade-up" data-aos-delay="140">
+            <div class="service-tag-row">
+              <span class="service-tag">Consulting</span>
+              <span class="service-id">S12</span>
+            </div>
+            <h3 class="service-title">Site Visit & Technical Consultation</h3>
+            <div class="service-meta">
+              <span class="service-meta-pill">Pre-purchase</span>
+              <span class="service-meta-pill">Technical Audit</span>
+            </div>
+            <p class="service-desc">
+              On-site inspection, feasibility checks, and technical advice before you start work
+              or purchase a property / plot for construction.
+            </p>
+            <div class="service-footer">
+              <div class="service-badge-row">
+                <span class="badge-dot"></span>
+                <span>Actionable recommendations & report</span>
+              </div>
+              <button class="service-cta-btn" data-modal-target="#modal12">
+                View Details <span class="icon">↗</span>
+              </button>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MODALS ============ -->
+
+    <!-- Modal 1: Turnkey Construction -->
+    <div class="modal-backdrop" id="modal1">
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal1Title">
+        <div class="modal-header">
+          <div>
+            <div class="modal-kicker">Service S01</div>
+            <h3 class="modal-title" id="modal1Title">Turnkey Building Construction</h3>
+            <p class="modal-subtitle">
+              We take complete responsibility from drawings to handover —
+              including material, labour, supervision, and quality checks.
+            </p>
+          </div>
+          <div class="modal-label-pill">Civil Execution</div>
+          <button class="modal-close-btn" data-modal-close>&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-grid">
+            <div class="modal-text-block">
+              <p>
+                Ideal for clients who want one dedicated team to handle all construction activities with
+                clear timelines and cost control.
+              </p>
+              <ul class="modal-list">
+                <li>Excavation, foundation, RCC, brickwork, plastering, waterproofing, and finishing.</li>
+                <li>Material procurement with quality brands and timely delivery.</li>
+                <li>Site engineer deployment for day-to-day supervision.</li>
+                <li>Quality checks at critical stages: footing, plinth, slabs, and finishing.</li>
+              </ul>
+              <div class="modal-meta-grid">
+                <div class="modal-meta-pill">Project Types: Residential, Commercial, Villa, Rental Units</div>
+                <div class="modal-meta-pill">Engagement: BOQ-based turnkey or labour + material support</div>
+              </div>
+              <div class="modal-cta-row">
+                <a href="contact.html" class="btn-modal-primary">
+                  Share My Floor Plan →
+                </a>
+                <a href="tel:+918592921212" class="btn-modal-secondary">
+                  Talk to Construction Team
+                </a>
+              </div>
+            </div>
+            <aside class="modal-side-card">
+              <div class="modal-side-inner">
+                <div class="modal-side-title">What you can expect</div>
+                <div class="modal-side-sub">
+                  Weekly progress updates, photographs, and transparent billing after each stage.
+                </div>
+                <div class="modal-side-highlight">
+                  <div>Average delivery for G+2</div>
+                  <strong>10–14 months*</strong>
+                </div>
+                <div class="modal-side-badges">
+                  <span class="modal-side-badge">Stage-wise Payment Schedule</span>
+                  <span class="modal-side-badge">Quality Checklists</span>
+                  <span class="modal-side-badge">Site Safety Practices</span>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <nav class="nav">
-      <a href="index.html">Home</a>
-      <a href="about.html">About Us</a>
-      <a href="services.html" class="active-link">Services</a>
-      <a href="projects.html">Projects</a>
-      <a href="careers/we-work.html">Career</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
-
-  <!-- MAIN SERVICES CONTENT -->
-  <main class="services-container">
-
-    <h1 class="page-heading">Our Services</h1>
-    <p class="page-subtext">
-      From construction consulting to pest management and security services, VIndia Infrasec delivers
-      a complete range of solutions for residential, commercial and industrial projects.
-    </p>
-
-    <!-- SERVICE 1: Construction Consultant -->
-    <section class="service-box" data-aos="fade-up">
-      <div class="row">
-        <div class="col-md-4 text-center">
-          <img src="img/svg/vindia12.png" class="service-img" alt="Construction Consultant">
+    <!-- Modal 2: Architectural Planning -->
+    <div class="modal-backdrop" id="modal2">
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal2Title">
+        <div class="modal-header">
+          <div>
+            <div class="modal-kicker">Service S02</div>
+            <h3 class="modal-title" id="modal2Title">Architectural Planning & Elevations</h3>
+            <p class="modal-subtitle">
+              Space planning that respects vastu, site conditions, and your functional needs.
+            </p>
+          </div>
+          <div class="modal-label-pill">Design Studio</div>
+          <button class="modal-close-btn" data-modal-close>&times;</button>
         </div>
-        <div class="col-md-8">
-          <h2 class="service-title">Construction Consultant</h2>
-          <p>
-            VIndia Infrasec ensures the best outcome for your project with experienced construction professionals
-            providing leadership, effective planning, budgeting, execution and monitoring. From site analysis to
-            seismic zone considerations, groundwater information, sewage and future development studies, we guide you
-            at every stage of the project lifecycle.
-          </p>
-          <button class="btn btn-primary" data-toggle="modal" data-target="#ModalCC">Book Service</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- SERVICE 2: Manpower Services -->
-    <section class="service-box" data-aos="fade-up">
-      <div class="row">
-        <div class="col-md-4 text-center">
-          <img src="img/svg/12491240831579762104.svg" class="service-img" alt="Manpower Services">
-        </div>
-        <div class="col-md-8">
-          <h2 class="service-title">Manpower Services</h2>
-          <p>
-            We provide reliable manpower services including skilled and unskilled labour for various construction and
-            facility operations. Our manpower is trained to deliver productivity, quality workmanship and to maintain
-            a cooperative and safe work environment at your sites.
-          </p>
-          <button class="btn btn-primary" data-toggle="modal" data-target="#ModalMS">Book Service</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- SERVICE 3: General Contracting -->
-    <section class="service-box" data-aos="fade-up">
-      <div class="row">
-        <div class="col-md-4 text-center">
-          <img src="img/svg/16997116491579762120.svg" class="service-img" alt="General Contracting">
-        </div>
-        <div class="col-md-8">
-          <h2 class="service-title">General Contracting</h2>
-          <p>
-            As a Class-A general contractor, VIndia Infrasec offers end-to-end construction services.
-            Our approach combines the attention to detail of high-end residential work with the systems and
-            professionalism of commercial construction, delivering superior quality, cost control and on-time
-            execution for projects of all sizes.
-          </p>
-          <button class="btn btn-primary" data-toggle="modal" data-target="#ModalGC">Book Service</button>
+        <div class="modal-body">
+          <div class="modal-grid">
+            <div class="modal-text-block">
+              <p>
+                From plotting your site dimensions to final working drawings, our design team ensures
+                every sq.ft is used efficiently.
+              </p>
+              <ul class="modal-list">
+                <li>2–3 layout options with iterations based on feedback.</li>
+                <li>3D elevation concepts to visualise the final look.</li>
+                <li>Door-window schedule and basic electrical points planning.</li>
+                <li>Drawings formatted for plan approvals (where applicable).</li>
+              </ul>
+              <div class="modal-meta-grid">
+                <div class="modal-meta-pill">Deliverables: PDF + soft copy CAD</div>
+                <div class="modal-meta-pill">Support: WhatsApp/online review calls</div>
+              </div>
+              <div class="modal-cta-row">
+                <a href="contact.html" class="btn-modal-primary">
+                  Book Design Consultation
+                </a>
+                <a href="mailto:info@vindiainfrasec.com" class="btn-modal-secondary">
+                  Email My Site Details
+                </a>
+              </div>
+            </div>
+            <aside class="modal-side-card">
+              <div class="modal-side-inner">
+                <div class="modal-side-title">Best suited for</div>
+                <div class="modal-side-sub">
+                  Plot owners starting fresh construction or planning a major extension.
+                </div>
+                <div class="modal-side-badges">
+                  <span class="modal-side-badge">Concept to GFC Drawings</span>
+                  <span class="modal-side-badge">Vastu-Friendly Layout</span>
+                  <span class="modal-side-badge">3D Elevation Options</span>
+                </div>
+              </div>
+            </aside>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- SERVICE 4: Construction Cost Consultant -->
-    <section class="service-box" data-aos="fade-up">
-      <div class="row">
-        <div class="col-md-4 text-center">
-          <img src="img/svg/vindia2.png" class="service-img" alt="Construction Cost Consultant">
+    <!-- Modal 3: Structural Design -->
+    <div class="modal-backdrop" id="modal3">
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal3Title">
+        <div class="modal-header">
+          <div>
+            <div class="modal-kicker">Service S03</div>
+            <h3 class="modal-title" id="modal3Title">Structural Design & Consultancy</h3>
+            <p class="modal-subtitle">
+              Safe structures designed as per IS codes, with clear drawings for execution on-site.
+            </p>
+          </div>
+          <div class="modal-label-pill">Engineering</div>
+          <button class="modal-close-btn" data-modal-close>&times;</button>
         </div>
-        <div class="col-md-8">
-          <h2 class="service-title">Construction Cost Consultant</h2>
-          <p>
-            We provide detailed cost management and quantity surveying services: BOQ preparation, estimates, cost
-            planning, value engineering, budget monitoring and more. Our experts help you control cost without
-            compromising quality across civil, finishing, MEP and infrastructure works.
-          </p>
-          <button class="btn btn-primary" data-toggle="modal" data-target="#ModalCCC">Book Service</button>
+        <div class="modal-body">
+          <div class="modal-grid">
+            <div class="modal-text-block">
+              <p>
+                Our structural engineers provide designs and checks suited for site soil conditions,
+                building usage, and future expansion plans.
+              </p>
+              <ul class="modal-list">
+                <li>Detailed column, beam, slab, and footing design.</li>
+                <li>Reinforcement detailing with bar bending schedule.</li>
+                <li>Review of existing structures for additional floors.</li>
+                <li>Site visits for critical stages, if required.</li>
+              </ul>
+              <div class="modal-meta-grid">
+                <div class="modal-meta-pill">Compliance: Relevant IS codes & standards</div>
+                <div class="modal-meta-pill">Ideal for: New builds & retrofitting projects</div>
+              </div>
+              <div class="modal-cta-row">
+                <a href="contact.html" class="btn-modal-primary">
+                  Share My Architectural Plan
+                </a>
+                <a href="tel:+918592921212" class="btn-modal-secondary">
+                  Talk to Structural Team
+                </a>
+              </div>
+            </div>
+            <aside class="modal-side-card">
+              <div class="modal-side-inner">
+                <div class="modal-side-title">Why it matters</div>
+                <div class="modal-side-sub">
+                  A good structural design can reduce cost, increase safety, and simplify execution.
+                </div>
+                <div class="modal-side-badges">
+                  <span class="modal-side-badge">Optimised Steel Usage</span>
+                  <span class="modal-side-badge">Safety First Approach</span>
+                  <span class="modal-side-badge">Site Support Available</span>
+                </div>
+              </div>
+            </aside>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- SERVICE 5: Water Pipeline Work -->
-    <section class="service-box" data-aos="fade-up">
-      <div class="row">
-        <div class="col-md-4 text-center">
-          <img src="img/svg/2050454111578629627.svg" class="service-img" alt="Water Pipeline Work">
+    <!-- Modal 4: Interior Design -->
+    <div class="modal-backdrop" id="modal4">
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal4Title">
+        <div class="modal-header">
+          <div>
+            <div class="modal-kicker">Service S04</div>
+            <h3 class="modal-title" id="modal4Title">Interior Design & Execution</h3>
+            <p class="modal-subtitle">
+              Functional, aesthetic spaces customised for your lifestyle and budget.
+            </p>
+          </div>
+          <div class="modal-label-pill">Interiors</div>
+          <button class="modal-close-btn" data-modal-close>&times;</button>
         </div>
-        <div class="col-md-8">
-          <h2 class="service-title">Water Pipeline Work</h2>
-          <p>
-            We execute water pipeline projects including excavation, trenchless laying, duct installation and
-            water/wastewater connections. Our team plans and implements pipeline solutions considering terrain,
-            regulatory norms, environmental aspects and long-term performance.
-          </p>
-          <button class="btn btn-primary" data-toggle="modal" data-target="#ModalWPW">Book Service</button>
+        <div class="modal-body">
+          <div class="modal-grid">
+            <div class="modal-text-block">
+              <p>
+                We handle everything from mood boards and 3D views to on-site execution of
+                woodwork, finishes, and lighting.
+              </p>
+              <ul class="modal-list">
+                <li>Design for living room, bedrooms, kitchen, toilets, and common spaces.</li>
+                <li>Material selection guidance – laminates, veneers, hardware, tiles, and fittings.</li>
+                <li>Site execution with trained carpenters and finishing teams.</li>
+                <li>Coordination of electrical & false ceiling with final interior design.</li>
+              </ul>
+              <div class="modal-meta-grid">
+                <div class="modal-meta-pill">Engagement: Design-only / Design + Execution</div>
+                <div class="modal-meta-pill">Suitable for: New homes, renovations, rentals</div>
+              </div>
+              <div class="modal-cta-row">
+                <a href="contact.html" class="btn-modal-primary">
+                  Book Interior Discussion
+                </a>
+                <a href="mailto:info@vindiainfrasec.com" class="btn-modal-secondary">
+                  Share Floor Plan & Photos
+                </a>
+              </div>
+            </div>
+            <aside class="modal-side-card">
+              <div class="modal-side-inner">
+                <div class="modal-side-title">Deliverables</div>
+                <div class="modal-side-sub">
+                  Concept boards, 2D drawings, 3D renders, and final working drawings.
+                </div>
+                <div class="modal-side-badges">
+                  <span class="modal-side-badge">Custom Storage Solutions</span>
+                  <span class="modal-side-badge">Site Supervision</span>
+                  <span class="modal-side-badge">Snag List Before Handover</span>
+                </div>
+              </div>
+            </aside>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- SERVICE 6: Hospitality Services -->
-    <section class="service-box" data-aos="fade-up">
-      <div class="row">
-        <div class="col-md-4 text-center">
-          <img src="img/svg/20835078991584409089.svg" class="service-img" alt="Hospitality Services">
+    <!-- Modal 5: Renovation -->
+    <div class="modal-backdrop" id="modal5">
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal5Title">
+        <div class="modal-header">
+          <div>
+            <div class="modal-kicker">Service S05</div>
+            <h3 class="modal-title" id="modal5Title">Renovation & Remodeling</h3>
+            <p class="modal-subtitle">
+              Give your old home a fresh, structural and aesthetic upgrade.
+            </p>
+          </div>
+          <div class="modal-label-pill">Renovation</div>
+          <button class="modal-close-btn" data-modal-close>&times;</button>
         </div>
-        <div class="col-md-8">
-          <h2 class="service-title">Hospitality Services</h2>
-          <p>
-            We offer comprehensive hospitality services including cleaning, floor treatment, carpet and upholstery
-            shampooing and solution-based maintenance for hotels, offices and commercial spaces, ensuring a hygienic,
-            presentable environment.
-          </p>
-          <button class="btn btn-primary" data-toggle="modal" data-target="#ModalHS">Book Service</button>
+        <div class="modal-body">
+          <div class="modal-grid">
+            <div class="modal-text-block">
+              <p>
+                We sequence renovation in phases to minimise disturbance and ensure your home
+                remains safe and functional throughout.
+              </p>
+              <ul class="modal-list">
+                <li>Condition assessment and scope definition before starting work.</li>
+                <li>Structural strengthening where needed.</li>
+                <li>Tile, bathroom, kitchen, and paint upgrades.</li>
+                <li>Replacement of old wiring, plumbing, and fixtures.</li>
+              </ul>
+              <div class="modal-meta-grid">
+                <div class="modal-meta-pill">Ideal for: 10+ year old homes & apartments</div>
+                <div class="modal-meta-pill">Execution: Planned room-by-room or zone-wise</div>
+              </div>
+              <div class="modal-cta-row">
+                <a href="contact.html" class="btn-modal-primary">
+                  Schedule Site Visit
+                </a>
+                <a href="tel:+918592921212" class="btn-modal-secondary">
+                  Discuss Renovation Budget
+                </a>
+              </div>
+            </div>
+            <aside class="modal-side-card">
+              <div class="modal-side-inner">
+                <div class="modal-side-title">Key focus areas</div>
+                <div class="modal-side-sub">
+                  Safety, waterproofing, functionality, and modern finishes.
+                </div>
+                <div class="modal-side-badges">
+                  <span class="modal-side-badge">Minimal Disturbance</span>
+                  <span class="modal-side-badge">Phased Execution</span>
+                  <span class="modal-side-badge">Clear Timelines</span>
+                </div>
+              </div>
+            </aside>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- SERVICE 7: Pest Management Services -->
-    <section class="service-box" data-aos="fade-up">
-      <div class="row">
-        <div class="col-md-4 text-center">
-          <img src="img/svg/17362998621585385488.svg" class="service-img" alt="Pest Management Services">
+    <!-- Modal 6: MEP -->
+    <div class="modal-backdrop" id="modal6">
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal6Title">
+        <div class="modal-header">
+          <div>
+            <div class="modal-kicker">Service S06</div>
+            <h3 class="modal-title" id="modal6Title">Electrical, Plumbing & Drainage</h3>
+            <p class="modal-subtitle">
+              Planned MEP ensures safety, future maintenance ease, and neat finishes.
+            </p>
+          </div>
+          <div class="modal-label-pill">Services</div>
+          <button class="modal-close-btn" data-modal-close>&times;</button>
         </div>
-        <div class="col-md-8">
-          <h2 class="service-title">Pest Management Services</h2>
-          <p>
-            Our pest control solutions cover general pests, termites and rodents with tailored treatment plans
-            for homes, apartments, offices and industrial spaces. We focus on long-term prevention and safe
-            application practices.
-          </p>
-          <button class="btn btn-primary" data-toggle="modal" data-target="#ModalPMS">Book Service</button>
+        <div class="modal-body">
+          <div class="modal-grid">
+            <div class="modal-text-block">
+              <p>
+                We prepare layouts before chasing and cutting, to avoid last-minute changes
+                and leaks after occupancy.
+              </p>
+              <ul class="modal-list">
+                <li>Complete electrical wiring, DB design, and earthing.</li>
+                <li>Plumbing lines for water supply, drainage, and venting.</li>
+                <li>Bathroom, kitchen, and utility point planning.</li>
+                <li>Pressure testing and final checks before tiling.</li>
+              </ul>
+              <div class="modal-meta-grid">
+                <div class="modal-meta-pill">Deliverables: Marked drawings & as-built plans</div>
+                <div class="modal-meta-pill">Suitable for: New builds & heavy renovations</div>
+              </div>
+              <div class="modal-cta-row">
+                <a href="contact.html" class="btn-modal-primary">
+                  Share My Floor Plan
+                </a>
+                <a href="tel:+918592921212" class="btn-modal-secondary">
+                  Talk to MEP Team
+                </a>
+              </div>
+            </div>
+            <aside class="modal-side-card">
+              <div class="modal-side-inner">
+                <div class="modal-side-title">Brands we prefer</div>
+                <div class="modal-side-sub">
+                  ISI-marked pipes, cables, and reliable fixtures for long-term performance.
+                </div>
+                <div class="modal-side-badges">
+                  <span class="modal-side-badge">Leak-Tested Lines</span>
+                  <span class="modal-side-badge">Load-Calculated Wiring</span>
+                  <span class="modal-side-badge">Maintenance Friendly</span>
+                </div>
+              </div>
+            </aside>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- SERVICE 8: Remodeling Services -->
-    <section class="service-box" data-aos="fade-up">
-      <div class="row">
-        <div class="col-md-4 text-center">
-          <img src="img/svg/vindia3.png" class="service-img" alt="Remodeling Services">
+    <!-- Modal 7: Landscaping -->
+    <div class="modal-backdrop" id="modal7">
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal7Title">
+        <div class="modal-header">
+          <div>
+            <div class="modal-kicker">Service S07</div>
+            <h3 class="modal-title" id="modal7Title">Landscaping & Terrace Development</h3>
+            <p class="modal-subtitle">
+              Create usable, relaxing outdoor spaces with low-maintenance designs.
+            </p>
+          </div>
+          <div class="modal-label-pill">Outdoor</div>
+          <button class="modal-close-btn" data-modal-close>&times;</button>
         </div>
-        <div class="col-md-8">
-          <h2 class="service-title">Remodeling Services</h2>
-          <p>
-            From concept to completion, our remodeling team handles layout changes, interior upgrades,
-            finishes and services to transform existing homes or commercial spaces into modern, efficient
-            and aesthetically pleasing environments.
-          </p>
-          <button class="btn btn-primary" data-toggle="modal" data-target="#ModalRM">Book Service</button>
+        <div class="modal-body">
+          <div class="modal-grid">
+            <div class="modal-text-block">
+              <p>
+                From villa gardens to apartment terraces, we help design and execute green and
+                semi-open spaces that match your lifestyle.
+              </p>
+              <ul class="modal-list">
+                <li>Concept layout for plants, paving, and seating.</li>
+                <li>Pergolas, deck flooring, and outdoor lighting.</li>
+                <li>Drip irrigation and drainage planning.</li>
+                <li>Plant selection suited for local climate and care levels.</li>
+              </ul>
+              <div class="modal-meta-grid">
+                <div class="modal-meta-pill">Suitable for: Villas, farmhouses, terraces</div>
+                <div class="modal-meta-pill">Engagement: Design-only / Design + Execution</div>
+              </div>
+              <div class="modal-cta-row">
+                <a href="contact.html" class="btn-modal-primary">
+                  Plan My Outdoor Space
+                </a>
+                <a href="mailto:info@vindiainfrasec.com" class="btn-modal-secondary">
+                  Share Photos & Dimensions
+                </a>
+              </div>
+            </div>
+            <aside class="modal-side-card">
+              <div class="modal-side-inner">
+                <div class="modal-side-title">Highlights</div>
+                <div class="modal-side-sub">
+                  Focus on longevity, drainage, and easy maintenance from day one.
+                </div>
+                <div class="modal-side-badges">
+                  <span class="modal-side-badge">Climate-Responsive</span>
+                  <span class="modal-side-badge">Low Maintenance</span>
+                  <span class="modal-side-badge">Custom Seating</span>
+                </div>
+              </div>
+            </aside>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- SERVICE 9: Painting -->
-    <section class="service-box" data-aos="fade-up">
-      <div class="row">
-        <div class="col-md-4 text-center">
-          <img src="img/svg/4051778541579103447.svg" class="service-img" alt="Painting Services">
+    <!-- Modal 8: Project Management -->
+    <div class="modal-backdrop" id="modal8">
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal8Title">
+        <div class="modal-header">
+          <div>
+            <div class="modal-kicker">Service S08</div>
+            <h3 class="modal-title" id="modal8Title">Project Management & Quality Audit</h3>
+            <p class="modal-subtitle">
+              Ideal if you already have contractors, but need a professional team to supervise and coordinate.
+            </p>
+          </div>
+          <div class="modal-label-pill">Coordination</div>
+          <button class="modal-close-btn" data-modal-close>&times;</button>
         </div>
-        <div class="col-md-8">
-          <h2 class="service-title">Painting</h2>
-          <p>
-            We provide quality painting services for residential and commercial properties using proper
-            surface preparation, material selection and application techniques for durable, clean finishes.
-          </p>
-          <button class="btn btn-primary" data-toggle="modal" data-target="#ModalPG">Book Service</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- SERVICE 10: Landscaping -->
-    <section class="service-box" data-aos="fade-up">
-      <div class="row">
-        <div class="col-md-4 text-center">
-          <img src="img/svg/8373349721558096332.svg" class="service-img" alt="Landscaping">
-        </div>
-        <div class="col-md-8">
-          <h2 class="service-title">Landscaping</h2>
-          <p>
-            We design and develop outdoor spaces including softscapes, hardscapes and garden features to
-            create functional, sustainable and beautiful landscapes for villas, apartments and commercial campuses.
-          </p>
-          <button class="btn btn-primary" data-toggle="modal" data-target="#ModalLS">Book Service</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- SERVICE 11: Security Service -->
-    <section class="service-box" data-aos="fade-up">
-      <div class="row">
-        <div class="col-md-4 text-center">
-          <img src="img/svg/5048252381595501399.svg" class="service-img" alt="Security Service">
-        </div>
-        <div class="col-md-8">
-          <h2 class="service-title">Security Service</h2>
-          <p>
-            VIndia Infrasec provides trained security personnel and security management services for
-            residential communities, commercial complexes and industrial premises, focusing on safety,
-            vigilance and professional conduct.
-          </p>
-          <button class="btn btn-primary" data-toggle="modal" data-target="#ModalSAS">Book Service</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- SERVICE 12: Corona Care & Sanitization -->
-    <section class="service-box" data-aos="fade-up">
-      <div class="row">
-        <div class="col-md-4 text-center">
-          <img src="img/svg/6279431221585991264.svg" class="service-img" alt="Corona Care">
-        </div>
-        <div class="col-md-8">
-          <h2 class="service-title">Corona Care & Sanitization</h2>
-          <p>
-            We offer professional disinfection and sanitization services for homes, offices, schools and
-            commercial spaces using appropriate disinfectants and protocols as per government guidelines,
-            with trained staff and PPE.
-          </p>
-          <button class="btn btn-primary" data-toggle="modal" data-target="#ModalCCARE">Book Service</button>
+        <div class="modal-body">
+          <div class="modal-grid">
+            <div class="modal-text-block">
+              <p>
+                Our PM team monitors multiple agencies, checks quality, and updates you with clear
+                timelines and next steps.
+              </p>
+              <ul class="modal-list">
+                <li>BOQ and schedule preparation.</li>
+                <li>Vendor coordination and sequence planning.</li>
+                <li>Quality audits at key stages with checklists.</li>
+                <li>Weekly summary reports, photos, and action items.</li>
+              </ul>
+              <div class="modal-meta-grid">
+                <div class="modal-meta-pill">Best for: Busy owners & outstation clients</div>
+                <div class="modal-meta-pill">Engagement: Monthly / stage-wise supervision</div>
+              </div>
+              <div class="modal-cta-row">
+                <a href="contact.html" class="btn-modal-primary">
+                  Request PM Proposal
+                </a>
+                <a href="tel:+918592921212" class="btn-modal-secondary">
+                  Speak with Project Manager
+                </a>
+              </div>
+            </div>
+            <aside class="modal-side-card">
+              <div class="modal-side-inner">
+                <div class="modal-side-title">Outcome</div>
+                <div class="modal-side-sub">
+                  Fewer delays, less rework, and clearer accountability across vendors.
+                </div>
+                <div class="modal-side-badges">
+                  <span class="modal-side-badge">Transparent Reporting</span>
+                  <span class="modal-side-badge">Quality Checklists</span>
+                  <span class="modal-side-badge">Budget Tracking</span>
+                </div>
+              </div>
+            </aside>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
 
-  </main>
+    <!-- Modal 9: Vastu Planning -->
+    <div class="modal-backdrop" id="modal9">
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal9Title">
+        <div class="modal-header">
+          <div>
+            <div class="modal-kicker">Service S09</div>
+            <h3 class="modal-title" id="modal9Title">Vastu-Aligned Planning Support</h3>
+            <p class="modal-subtitle">
+              Practical recommendations that improve flow without overcomplicating the design.
+            </p>
+          </div>
+          <div class="modal-label-pill">Planning</div>
+          <button class="modal-close-btn" data-modal-close>&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-grid">
+            <div class="modal-text-block">
+              <p>
+                We review your existing or proposed plans and mark vastu-friendly changes wherever
+                practically possible.
+              </p>
+              <ul class="modal-list">
+                <li>Entry, kitchen, bedroom, and toilet placement suggestions.</li>
+                <li>Room usage and positioning tweaks without major structural change.</li>
+                <li>Simple, practical remedies if major changes are not possible.</li>
+                <li>Coordination with your architect / designer on final layout.</li>
+              </ul>
+              <div class="modal-meta-grid">
+                <div class="modal-meta-pill">Input: Site direction, surroundings, existing plan</div>
+                <div class="modal-meta-pill">Output: Marked-up plan with notes</div>
+              </div>
+              <div class="modal-cta-row">
+                <a href="contact.html" class="btn-modal-primary">
+                  Share My Floor Plan
+                </a>
+                <a href="mailto:info@vindiainfrasec.com" class="btn-modal-secondary">
+                  Send Existing Layout
+                </a>
+              </div>
+            </div>
+            <aside class="modal-side-card">
+              <div class="modal-side-inner">
+                <div class="modal-side-title">Approach</div>
+                <div class="modal-side-sub">
+                  Balanced between vastu, local by-laws, and practical comfort.
+                </div>
+                <div class="modal-side-badges">
+                  <span class="modal-side-badge">Realistic Suggestions</span>
+                  <span class="modal-side-badge">No Fear-Based Advice</span>
+                  <span class="modal-side-badge">Works with Existing Plans</span>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <!-- FLOATING WHATSAPP (same as contact) -->
-  <div class="icons-above-footer">
-    <a href="https://api.whatsapp.com/send/?phone=918592921212"
-       class="icon-right"
-       target="_blank"
-       rel="noopener noreferrer"
-       aria-label="WhatsApp Chat">
-       <i class="fab fa-whatsapp"></i>
-    </a>
-  </div>
+    <!-- Modal 10: Smart Home -->
+    <div class="modal-backdrop" id="modal10">
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal10Title">
+        <div class="modal-header">
+          <div>
+            <div class="modal-kicker">Service S10</div>
+            <h3 class="modal-title" id="modal10Title">Smart Home, CCTV & Networking</h3>
+            <p class="modal-subtitle">
+              Plan your smart devices and cabling before interior and finishing works.
+            </p>
+          </div>
+          <div class="modal-label-pill">Technology</div>
+          <button class="modal-close-btn" data-modal-close>&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-grid">
+            <div class="modal-text-block">
+              <p>
+                We design and execute automation, security, and networking with clean concealed wiring
+                and future scalability in mind.
+              </p>
+              <ul class="modal-list">
+                <li>Smart lighting, curtain, and fan controls.</li>
+                <li>IP CCTV, video door phones, and access control.</li>
+                <li>Wi-Fi and LAN planning for full coverage.</li>
+                <li>Integration with Alexa/Google/HomeKit where possible.</li>
+              </ul>
+              <div class="modal-meta-grid">
+                <div class="modal-meta-pill">Phase: Best done during electrical stage</div>
+                <div class="modal-meta-pill">Support: OEM selection & configuration</div>
+              </div>
+              <div class="modal-cta-row">
+                <a href="contact.html" class="btn-modal-primary">
+                  Plan My Smart Home
+                </a>
+                <a href="tel:+918592921212" class="btn-modal-secondary">
+                  Discuss Options & Budget
+                </a>
+              </div>
+            </div>
+            <aside class="modal-side-card">
+              <div class="modal-side-inner">
+                <div class="modal-side-title">Benefits</div>
+                <div class="modal-side-sub">
+                  Convenience, security, and neat integration with interiors.
+                </div>
+                <div class="modal-side-badges">
+                  <span class="modal-side-badge">Future Ready</span>
+                  <span class="modal-side-badge">Neat Wiring</span>
+                  <span class="modal-side-badge">OEM Partnerships</span>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <!-- FOOTER (exactly same as contact page) -->
-  <footer class="footer">
+    <!-- Modal 11: Estimation & BOQ -->
+    <div class="modal-backdrop" id="modal11">
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal11Title">
+        <div class="modal-header">
+          <div>
+            <div class="modal-kicker">Service S11</div>
+            <h3 class="modal-title" id="modal11Title">Cost Estimation & BOQ</h3>
+            <p class="modal-subtitle">
+              Get a clear picture of material and labour costs before you start.
+            </p>
+          </div>
+          <div class="modal-label-pill">Pre-Construction</div>
+          <button class="modal-close-btn" data-modal-close>&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-grid">
+            <div class="modal-text-block">
+              <p>
+                Our BOQ includes item-wise quantities and estimated rates, so you can compare
+                contractor quotes more confidently.
+              </p>
+              <ul class="modal-list">
+                <li>Itemised list of civil, finishing, and services work.</li>
+                <li>Material quantity estimation based on drawings.</li>
+                <li>Basic rate analysis and budget summary.</li>
+                <li>Scope split for labour-only vs turnkey quotes.</li>
+              </ul>
+              <div class="modal-meta-grid">
+                <div class="modal-meta-pill">Input: Finalised drawings & scope notes</div>
+                <div class="modal-meta-pill">Output: Excel/PDF BOQ with summary</div>
+              </div>
+              <div class="modal-cta-row">
+                <a href="contact.html" class="btn-modal-primary">
+                  Request BOQ for My Project
+                </a>
+                <a href="mailto:info@vindiainfrasec.com" class="btn-modal-secondary">
+                  Share Drawings & Scope
+                </a>
+              </div>
+            </div>
+            <aside class="modal-side-card">
+              <div class="modal-side-inner">
+                <div class="modal-side-title">Why it helps</div>
+                <div class="modal-side-sub">
+                  Avoid surprises and negotiate better with contractors.
+                </div>
+                <div class="modal-side-badges">
+                  <span class="modal-side-badge">Transparent Costing</span>
+                  <span class="modal-side-badge">Scope Clarity</span>
+                  <span class="modal-side-badge">Better Negotiation</span>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <!-- SOCIAL -->
-    <div class="social-col">
-      <div class="footer-social-left">
-        <a href="#" title="Google"><i class="fab fa-google"></i></a>
-        <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
-        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    <!-- Modal 12: Site Visit & Consulting -->
+    <div class="modal-backdrop" id="modal12">
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal12Title">
+        <div class="modal-header">
+          <div>
+            <div class="modal-kicker">Service S12</div>
+            <h3 class="modal-title" id="modal12Title">Site Visit & Technical Consultation</h3>
+            <p class="modal-subtitle">
+              Get expert eyes on your site or drawings before you make big decisions.
+            </p>
+          </div>
+          <div class="modal-label-pill">Consulting</div>
+          <button class="modal-close-btn" data-modal-close>&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-grid">
+            <div class="modal-text-block">
+              <p>
+                Ideal when you need an independent opinion on structure, quality of work done,
+                or feasibility before purchase.
+              </p>
+              <ul class="modal-list">
+                <li>On-site review of structure, workmanship, and overall planning.</li>
+                <li>Feasibility check for adding floors or extensions.</li>
+                <li>Technical due diligence before buying a ready property.</li>
+                <li>Actionable list of recommendations shared after visit.</li>
+              </ul>
+              <div class="modal-meta-grid">
+                <div class="modal-meta-pill">Location: Within our service limits only</div>
+                <div class="modal-meta-pill">Deliverable: Verbal review + written summary</div>
+              </div>
+              <div class="modal-cta-row">
+                <a href="contact.html" class="btn-modal-primary">
+                  Book a Site Visit
+                </a>
+                <a href="tel:+918592921212" class="btn-modal-secondary">
+                  Check Service Availability
+                </a>
+              </div>
+            </div>
+            <aside class="modal-side-card">
+              <div class="modal-side-inner">
+                <div class="modal-side-title">Best time to call us</div>
+                <div class="modal-side-sub">
+                  Before finalising contractors, BOQs, or property purchase.
+                </div>
+                <div class="modal-side-badges">
+                  <span class="modal-side-badge">Independent Opinion</span>
+                  <span class="modal-side-badge">On-Site Observations</span>
+                  <span class="modal-side-badge">Clear Next Steps</span>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ FOOTER (About page style) ============ -->
+    <footer class="footer">
+
+  <div class="footer-row">
+
+    <!-- LEFT SOCIAL + BRAND -->
+    <div class="footer-left">
+      <div class="footer-social-vertical">
+        <a href="#"><i class="fab fa-google"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
       </div>
 
       <div class="footer-brand">
@@ -719,14 +2457,13 @@
     </div>
 
     <!-- QUICK LINKS -->
-    <div class="col">
+    <div class="footer-col footer-links-col">
       <ul class="footer-links">
         <li><a href="/">Home</a></li>
         <li><a href="/about.html">About Us</a></li>
 
-        <li class="footer-dropdown" id="careerDropdown">
-          <button class="footer-dropbtn" onclick="toggleCareer()">Career ▾</button>
-
+        <li class="footer-dropdown" id="careerDropdownFooter">
+          <button class="footer-dropbtn" onclick="toggleCareerFooter()">Career ▾</button>
           <ul class="footer-submenu">
             <li><a href="/careers/we-work.html">We Work</a></li>
             <li><a href="/careers/openings.html">Open Positions</a></li>
@@ -740,8 +2477,8 @@
       </ul>
     </div>
 
-    <!-- CONTACT -->
-    <div class="col contact-col">
+    <!-- CALL US -->
+    <div class="footer-col contact-col">
       <h3 class="contact-title">Call Us</h3>
       <ul class="contact-list">
         <li>+91 85929 11212</li>
@@ -753,376 +2490,136 @@
       </ul>
     </div>
 
-    <!-- MAPS -->
-    <div class="col col-maps">
-      <h3 class="state-title" id="stateTitle">Kerala</h3>
+    <!-- MAP SECTION -->
+    <div class="footer-col col-maps">
+      <h3 class="state-title" id="stateTitle">Tamil Nadu</h3>
       <div class="district-row" id="districtContainer"></div>
     </div>
 
-  </footer>
-
-  <!-- ==========================
-       MODALS FOR ALL SERVICES
-  =========================== -->
-
-  <!-- Construction Consultant -->
-  <div class="modal fade" id="ModalCC" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog">
-      <form class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Construction Consultant – Book Service</h5>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        <div class="modal-body">
-          <div class="form-group"><label>Name</label><input class="form-control" required></div>
-          <div class="form-group"><label>Email</label><input class="form-control" type="email" required></div>
-          <div class="form-group"><label>Phone</label><input class="form-control" required></div>
-          <div class="form-group"><label>Planned Start Date</label><input class="form-control" type="date"></div>
-          <input type="hidden" value="Construction Consultant">
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
-          <button class="btn btn-primary" type="submit">Submit</button>
-        </div>
-      </form>
-    </div>
   </div>
+</footer>
 
-  <!-- Manpower Services -->
-  <div class="modal fade" id="ModalMS" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog">
-      <form class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Manpower Services – Book Service</h5>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        <div class="modal-body">
-          <div class="form-group"><label>Name</label><input class="form-control" required></div>
-          <div class="form-group"><label>Email</label><input class="form-control" type="email" required></div>
-          <div class="form-group"><label>Phone</label><input class="form-control" required></div>
-          <div class="form-group"><label>Planned Start Date</label><input class="form-control" type="date"></div>
-          <input type="hidden" value="Manpower Services">
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
-          <button class="btn btn-primary" type="submit">Submit</button>
-        </div>
-      </form>
-    </div>
-  </div>
 
-  <!-- General Contracting -->
-  <div class="modal fade" id="ModalGC" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog">
-      <form class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">General Contracting – Book Service</h5>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        <div class="modal-body">
-          <div class="form-group"><label>Name</label><input class="form-control" required></div>
-          <div class="form-group"><label>Email</label><input class="form-control" type="email" required></div>
-          <div class="form-group"><label>Phone</label><input class="form-control" required></div>
-          <div class="form-group"><label>Planned Start Date</label><input class="form-control" type="date"></div>
-          <input type="hidden" value="General Contracting">
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
-          <button class="btn btn-primary" type="submit">Submit</button>
-        </div>
-      </form>
-    </div>
-  </div>
+  </div> <!-- /.page-wrapper -->
 
-  <!-- Construction Cost Consultant -->
-  <div class="modal fade" id="ModalCCC" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog">
-      <form class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Construction Cost Consultant – Book Service</h5>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        <div class="modal-body">
-          <div class="form-group"><label>Name</label><input class="form-control" required></div>
-          <div class="form-group"><label>Email</label><input class="form-control" type="email" required></div>
-          <div class="form-group"><label>Phone</label><input class="form-control" required></div>
-          <div class="form-group"><label>Planned Start Date</label><input class="form-control" type="date"></div>
-          <input type="hidden" value="Construction Cost Consultant">
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
-          <button class="btn btn-primary" type="submit">Submit</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- Water Pipeline Work -->
-  <div class="modal fade" id="ModalWPW" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog">
-      <form class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Water Pipeline Work – Book Service</h5>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        <div class="modal-body">
-          <div class="form-group"><label>Name</label><input class="form-control" required></div>
-          <div class="form-group"><label>Email</label><input class="form-control" type="email" required></div>
-          <div class="form-group"><label>Phone</label><input class="form-control" required></div>
-          <div class="form-group"><label>Planned Start Date</label><input class="form-control" type="date"></div>
-          <input type="hidden" value="Water Pipeline Work">
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
-          <button class="btn btn-primary" type="submit">Submit</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- Hospitality Services -->
-  <div class="modal fade" id="ModalHS" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog">
-      <form class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Hospitality Services – Book Service</h5>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        <div class="modal-body">
-          <div class="form-group"><label>Name</label><input class="form-control" required></div>
-          <div class="form-group"><label>Email</label><input class="form-control" type="email" required></div>
-          <div class="form-group"><label>Phone</label><input class="form-control" required></div>
-          <div class="form-group"><label>Planned Start Date</label><input class="form-control" type="date"></div>
-          <input type="hidden" value="Hospitality Services">
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
-          <button class="btn btn-primary" type="submit">Submit</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- Pest Management Services -->
-  <div class="modal fade" id="ModalPMS" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog">
-      <form class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Pest Management Services – Book Service</h5>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        <div class="modal-body">
-          <div class="form-group"><label>Name</label><input class="form-control" required></div>
-          <div class="form-group"><label>Email</label><input class="form-control" type="email" required></div>
-          <div class="form-group"><label>Phone</label><input class="form-control" required></div>
-          <div class="form-group"><label>Planned Start Date</label><input class="form-control" type="date"></div>
-          <input type="hidden" value="Pest Management Services">
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
-          <button class="btn btn-primary" type="submit">Submit</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- Remodeling Services -->
-  <div class="modal fade" id="ModalRM" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog">
-      <form class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Remodeling Services – Book Service</h5>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        <div class="modal-body">
-          <div class="form-group"><label>Name</label><input class="form-control" required></div>
-          <div class="form-group"><label>Email</label><input class="form-control" type="email" required></div>
-          <div class="form-group"><label>Phone</label><input class="form-control" required></div>
-          <div class="form-group"><label>Planned Start Date</label><input class="form-control" type="date"></div>
-          <input type="hidden" value="Remodeling Services">
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
-          <button class="btn btn-primary" type="submit">Submit</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- Painting -->
-  <div class="modal fade" id="ModalPG" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog">
-      <form class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Painting – Book Service</h5>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        <div class="modal-body">
-          <div class="form-group"><label>Name</label><input class="form-control" required></div>
-          <div class="form-group"><label>Email</label><input class="form-control" type="email" required></div>
-          <div class="form-group"><label>Phone</label><input class="form-control" required></div>
-          <div class="form-group"><label>Planned Start Date</label><input class="form-control" type="date"></div>
-          <input type="hidden" value="Painting">
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
-          <button class="btn btn-primary" type="submit">Submit</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- Landscaping -->
-  <div class="modal fade" id="ModalLS" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog">
-      <form class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Landscaping – Book Service</h5>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        <div class="modal-body">
-          <div class="form-group"><label>Name</label><input class="form-control" required></div>
-          <div class="form-group"><label>Email</label><input class="form-control" type="email" required></div>
-          <div class="form-group"><label>Phone</label><input class="form-control" required></div>
-          <div class="form-group"><label>Planned Start Date</label><input class="form-control" type="date"></div>
-          <input type="hidden" value="Landscaping">
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
-          <button class="btn btn-primary" type="submit">Submit</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- Security Service -->
-  <div class="modal fade" id="ModalSAS" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog">
-      <form class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Security Service – Book Service</h5>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        <div class="modal-body">
-          <div class="form-group"><label>Name</label><input class="form-control" required></div>
-          <div class="form-group"><label>Email</label><input class="form-control" type="email" required></div>
-          <div class="form-group"><label>Phone</label><input class="form-control" required></div>
-          <div class="form-group"><label>Planned Start Date</label><input class="form-control" type="date"></div>
-          <input type="hidden" value="Security Service">
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
-          <button class="btn btn-primary" type="submit">Submit</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- Corona Care -->
-  <div class="modal fade" id="ModalCCARE" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog">
-      <form class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Corona Care & Sanitization – Book Service</h5>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        <div class="modal-body">
-          <div class="form-group"><label>Name</label><input class="form-control" required></div>
-          <div class="form-group"><label>Email</label><input class="form-control" type="email" required></div>
-          <div class="form-group"><label>Phone</label><input class="form-control" required></div>
-          <div class="form-group"><label>Planned Start Date</label><input class="form-control" type="date"></div>
-          <input type="hidden" value="Corona Care & Sanitization">
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
-          <button class="btn btn-primary" type="submit">Submit</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- SCRIPTS -->
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- AOS JS -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
+  <!-- MAIN JS -->
   <script>
-    AOS.init();
+    document.addEventListener("DOMContentLoaded", () => {
+      // Init AOS
+      AOS.init({
+        duration: 600,
+        once: true,
+        offset: 80
+      });
 
-    // FOOTER: Career dropdown
-    function toggleCareer() {
-      document.getElementById("careerDropdown").classList.toggle("show");
-    }
+      // Mobile nav toggle
+      const navToggle = document.getElementById("navToggle");
+      const navMobile = document.getElementById("navMobile");
 
-    document.addEventListener("click", function (event) {
-      const dropdown = document.getElementById("careerDropdown");
-      if (dropdown && !dropdown.contains(event.target)) {
-        dropdown.classList.remove("show");
+      if (navToggle && navMobile) {
+        navToggle.addEventListener("click", () => {
+          navToggle.classList.toggle("active");
+          navMobile.classList.toggle("open");
+        });
       }
-    });
 
-    // FOOTER: Rotating mini-maps (same logic as contact page)
-    const states = [
-      {
-        title: "Kerala",
-        districts: ["Kochi", "Trivandrum", "Kannur"],
-        maps: [
-          "https://www.google.com/maps?q=Kochi,Kerala&output=embed",
-          "https://www.google.com/maps?q=Trivandrum,Kerala&output=embed",
-          "https://www.google.com/maps?q=Kannur,Kerala&output=embed"
-        ]
-      },
-      {
-        title: "Karnataka",
-        districts: ["Mysore", "Bengaluru"],
-        maps: [
-          "https://www.google.com/maps?q=Mysore,Karnataka&output=embed",
-          "https://www.google.com/maps?q=Bengaluru,Karnataka&output=embed"
-        ]
-      },
-      {
-        title: "Tamil Nadu",
-        districts: ["Coimbatore", "Chennai", "Madurai"],
-        maps: [
-          "https://www.google.com/maps?q=Coimbatore,Tamil+Nadu&output=embed",
-          "https://www.google.com/maps?q=Chennai,Tamil+Nadu&output=embed",
-          "https://www.google.com/maps?q=Madurai,Tamil+Nadu&output=embed"
-        ]
+      // MODAL LOGIC
+      const openButtons = document.querySelectorAll("[data-modal-target]");
+      const closeButtons = document.querySelectorAll("[data-modal-close]");
+
+      function openModal(id) {
+        const modal = document.querySelector(id);
+        if (!modal) return;
+        modal.classList.add("active");
+        document.body.style.overflow = "hidden";
       }
-    ];
 
-    let indexState = 0;
-    const stateTitle = document.getElementById("stateTitle");
-    const districtContainer = document.getElementById("districtContainer");
+      function closeModal(modal) {
+        modal.classList.remove("active");
+        document.body.style.overflow = "";
+      }
 
-    function renderMaps() {
-      const state = states[indexState];
-      if (!stateTitle || !districtContainer) return;
+      openButtons.forEach(btn => {
+        btn.addEventListener("click", (e) => {
+          const target = btn.getAttribute("data-modal-target");
+          if (target) {
+            e.preventDefault();
+            openModal(target);
+          }
+        });
+      });
 
-      stateTitle.textContent = state.title;
+      closeButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+          const backdrop = btn.closest(".modal-backdrop");
+          if (backdrop) closeModal(backdrop);
+        });
+      });
 
-      districtContainer.innerHTML = state.districts
-        .map(
-          (d, i) => `
+      document.querySelectorAll(".modal-backdrop").forEach(backdrop => {
+        backdrop.addEventListener("click", (e) => {
+          if (e.target === backdrop) {
+            closeModal(backdrop);
+          }
+        });
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          document.querySelectorAll(".modal-backdrop.active").forEach(m => closeModal(m));
+        }
+      });
+
+      // Footer maps rotation
+      const states = [
+        {
+          title: "Kerala",
+          districts: ["Kochi", "Trivandrum", "Kannur"],
+          maps: [
+            "https://www.google.com/maps?q=Kochi,Kerala&output=embed",
+            "https://www.google.com/maps?q=Trivandrum,Kerala&output=embed",
+            "https://www.google.com/maps?q=Kannur,Kerala&output=embed"
+          ]
+        },
+        {
+          title: "Karnataka",
+          districts: ["Mysore", "Bengaluru"],
+          maps: [
+            "https://www.google.com/maps?q=Mysore,Karnataka&output=embed",
+            "https://www.google.com/maps?q=Bengaluru,Karnataka&output=embed"
+          ]
+        }
+      ];
+
+      let index = 0;
+      const stateTitle = document.getElementById("stateTitle");
+      const districtContainer = document.getElementById("districtContainer");
+
+      function updateMaps() {
+        const state = states[index];
+        stateTitle.textContent = state.title;
+
+        districtContainer.innerHTML = state.districts.map((d, i) => `
           <div class="district-card">
             <h4 class="district-name">${d}</h4>
-            <div class="map-wrapper">
-              <span class="map-icon">📍</span>
-              <iframe src="${state.maps[i] || state.maps[0]}" class="map-frame" loading="lazy"></iframe>
-            </div>
+            <iframe src="${state.maps[i]}" class="map-frame"></iframe>
           </div>
-        `
-        )
-        .join("");
-    }
+        `).join("");
+      }
 
-    renderMaps();
-    setInterval(() => {
-      indexState = (indexState + 1) % states.length;
-      renderMaps();
-    }, 3000);
+      updateMaps();
+      setInterval(() => {
+        index = (index + 1) % states.length;
+        updateMaps();
+      }, 3000);
+    });
   </script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
 </body>
 </html>
