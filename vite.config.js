@@ -3,5 +3,5 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/VIndiaInfrasec_Webpage/", // <-- REQUIRED for GitHub deployment
+  base: "/", // <-- REQUIRED for GitHub deployment
 });

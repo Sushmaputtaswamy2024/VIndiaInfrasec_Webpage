@@ -60,7 +60,7 @@ export default function ScrollVideo() {
         </p>
 
         <video
-          src="/VIndiaInfrasec_Webpage/intro.mp4"
+          src="/intro.mp4"
           autoPlay
           muted
           loop

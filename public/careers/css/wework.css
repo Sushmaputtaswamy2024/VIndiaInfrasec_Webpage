@@ -18,7 +18,7 @@
 /* LEFT CALL ICON */
 .icon-left {
   left: 20px;
-  bottom: 200px; /* moved a bit higher as requested */
+  bottom: 200px;
   background: #007bff;
   color: white;
   font-size: 24px;
@@ -31,7 +31,7 @@
 /* RIGHT WHATSAPP ICON */
 .icon-right {
   right: 20px;
-  bottom: 200px; /* moved a bit higher as requested */
+  bottom: 200px;
   background: #25d366;
   color: white;
   padding: 16px;
@@ -43,9 +43,9 @@
   transform: scale(1.18);
 }
 
-/* WHEN FOOTER GETS CLOSE → LIFT ICONS UP MORE */
+/* FOOTER REACH STOP */
 .icons-stop {
-  bottom: 280px !important; /* lifted higher so footer never touches */
+  bottom: 280px !important;
 }
 
 
@@ -131,6 +131,7 @@
   color: #007bff;
   margin-left: 4px;
 }
+
 /* Dropdown wrapper */
 .footer-dropdown {
   position: relative;
@@ -141,14 +142,14 @@
 .footer-dropbtn {
   background: none;
   border: none;
-  color: black;        /* <-- Title color */
+  color: black;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
   padding: 0;
 }
 
-/* Dropdown menu (hidden by default) */
+/* Dropdown menu */
 .footer-submenu {
   display: none;
   position: absolute;
@@ -161,7 +162,6 @@
   z-index: 50;
 }
 
-/* Dropdown items */
 .footer-submenu li {
   list-style: none;
   margin: 6px 0;
@@ -177,7 +177,6 @@
   text-decoration: underline;
 }
 
-/* Show menu when active */
 .footer-dropdown.show .footer-submenu {
   display: block;
 }
@@ -208,12 +207,29 @@
   font-size: 15px;
 }
 
+/* Sub-links */
+.sub-links {
+  list-style: none;
+  margin-left: 15px;
+  margin-top: 6px;
+}
+
+.sub-links li a {
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+.sub-links li a:hover {
+  opacity: 1;
+  color: #00bce8;
+}
+
 
 /* ===========================================
-   MAPS
+   MAPS (YOUR SAME ORIGINAL MAP CSS)
 =========================================== */
 .col-maps {
-  flex: 1.1;
+  flex: 1;
   min-width: 350px;
   display: flex;
   flex-direction: column;
@@ -230,7 +246,7 @@
 
 .district-row {
   display: flex;
-  gap: 16px;
+  gap: 10px;
   justify-content: flex-end;
   width: 100%;
 }
@@ -268,21 +284,6 @@
   border: none;
   border-radius: 8px;
 }
-.sub-links {
-  list-style: none;
-  margin-left: 15px;
-  margin-top: 6px;
-}
-
-.sub-links li a {
-  font-size: 14px;
-  opacity: 0.85;
-}
-
-.sub-links li a:hover {
-  opacity: 1;
-  color: #00bce8;
-}
 
 
 /* ===========================================
@@ -304,7 +305,6 @@
     flex-wrap: wrap;
   }
 
-  /* Higher on mobile too */
   .icon-left {
     left: 10px;
     bottom: 180px;
