@@ -22,6 +22,11 @@ export default function Footer() {
         "https://www.google.com/maps?q=Trivandrum,Kerala&output=embed",
         "https://www.google.com/maps?q=Kannur,Kerala&output=embed",
       ],
+      addresses: [
+    "VIndia Infrasec, Kochi, Kerala",
+    "VIndia Infrasec, Trivandrum, Kerala",
+    "VIndia Infrasec, VIndia Arcade, CP XI 433 B, P O Alavil, Kannur, Kerala 670008"
+  ]
     },
     {
       title: "Karnataka",
@@ -30,6 +35,10 @@ export default function Footer() {
         "https://www.google.com/maps?q=Mysore,Karnataka&output=embed",
         "https://www.google.com/maps?q=Bengaluru,Karnataka&output=embed",
       ],
+       addresses: [
+    "VIndia Infrasec, No:03, First Floor, Gokulam Main Road, Jayalakshmipuram, Mysuru City - 570012, Mysore, Karnataka",
+    "VIndia Infrasec | Construction | Real Estate Developer | Interior Design, Brigade Arcade, E104, Brigade Metropolis, Mahadevapura, Bengaluru, Karnataka 560048"
+  ]
     },
     {
       title: "Tamil Nadu",
@@ -179,6 +188,10 @@ const toggleDropdown = () => {
                     className="map-frame"
                   ></iframe>
                 </div>
+                {/* ADDRESS BELOW MAP */}
+<p className="district-address">
+  {states[index].addresses?.[i]}
+</p>
               </div>
             ))}
           </div>
