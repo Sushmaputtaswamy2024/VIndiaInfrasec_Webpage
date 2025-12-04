@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Our Completed Works | VIndia Infrasec</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | VIndia Infrasec</title>
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="icon" type="image/png" href="logo.png" />
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -14,815 +14,1627 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
-  <!-- Slick Slider CSS -->
-  <link rel="stylesheet" href="js/fresco/slick.css">
-  <link rel="stylesheet" href="js/fresco/slicknav.min.css">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
 
-  <!-- Fresco Lightbox -->
-  <link rel="stylesheet" type="text/css" href="js/fresco/dist/css/fresco.css">
+  <!-- AOS CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
 
   <style>
+    /* =========================
+       ROOT + RESET
+    ========================== */
+    :root {
+      --primary: #63b3d8;
+      --primary-dark: #3b8fb5;
+      --accent: #f9a826;
+      --bg: #f7f7f7;
+      --text-dark: #222222;
+      --text-muted: #666666;
+      --white: #ffffff;
+      --border: #e3e3e3;
+      --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.08);
+      --radius-lg: 12px;
+      --radius-xl: 16px;
+      --radius-pill: 999px;
+      --transition-fast: 0.2s ease;
+      --transition-med: 0.3s ease;
+      --max-width: 1200px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
       font-family: "Work Sans", sans-serif;
-      background: #f7f7f7;
-      color: #333;
+      background: var(--bg);
+      color: var(--text-dark);
+      line-height: 1.6;
     }
 
-    /* ========================= HEADER ========================= */
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
-    .main-header {
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    button {
+      font-family: inherit;
+      border: none;
+      background: none;
+      cursor: pointer;
+    }
+
+    .page-wrapper {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container-custom {
       width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .section {
+      padding: 3.5rem 0;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .section-kicker {
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--primary-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.9rem, 3vw, 2.4rem);
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      color: var(--primary-dark);
+    }
+
+    .section-subtitle {
+      max-width: 620px;
+      margin: 0.25rem auto 0;
+      font-size: 0.96rem;
+      color: var(--text-muted);
+    }
+
+    /* =========================
+       HEADER (same as Services)
+    ========================== */
+    header {
       background: #ffffff;
-      border-bottom: 1px solid #efefef;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+      padding: 14px 0;
       position: sticky;
       top: 0;
-      z-index: 999;
+      z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
     }
 
-    .header-container {
-      max-width: 1400px;
-      margin: auto;
-      padding: 12px 30px;
+    .nav-bar {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      padding: 0 1.5rem;
+      max-width: var(--max-width);
+      margin: 0 auto;
     }
 
-    /* LEFT */
-    .header-left {
+    .nav-left {
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 0.75rem;
     }
 
-    .logo-box {
-      width: 58px;
-      height: 58px;
-      border-radius: 16px;
-      background: #fafafa;
-      border: 1px solid #dcdcdc;
+    .nav-logo-wrap {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      overflow: hidden;
       display: flex;
+      align-items: center;
       justify-content: center;
-      align-items: center;
+      background: #ffffff;
+      border: 1px solid #e3e3e3;
     }
 
-    .logo-box img {
-      width: 45px;
+    .nav-logo-wrap img {
+      height: 48px;
+      width: auto;
+      object-fit: contain;
     }
 
-    .brand-title {
-      font-size: 1.35rem;
-      font-weight: 700;
-      letter-spacing: 0.03em;
-      color: #111;
-    }
-
-    .brand-sub {
-      font-size: 0.78rem;
-      color: #7d7d7d;
-      letter-spacing: 0.24em;
-      margin-top: 2px;
-    }
-
-    /* NAVIGATION */
-    .header-nav {
+    .nav-brand-text {
       display: flex;
-      gap: 32px;
-      font-size: 1rem;
-      font-weight: 500;
+      flex-direction: column;
+      gap: 2px;
     }
 
-    .header-nav a {
-      color: #222;
-      text-decoration: none;
-      position: relative;
+    .nav-brand-main {
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #000;
     }
 
-    .header-nav a:hover,
-    .header-nav a.active {
-      color: #55aee0;
+    .nav-brand-sub {
+      font-size: 0.72rem;
+      color: #777;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
     }
 
-    .header-nav a.active::after,
-    .header-nav a:hover::after {
-      content: "";
-      position: absolute;
-      width: 22px;
-      height: 2px;
-      background: #55aee0;
-      bottom: -5px;
-      left: 0;
-      border-radius: 3px;
-    }
-
-    /* RIGHT */
-    .header-right {
+    .nav-links {
       display: flex;
       align-items: center;
       gap: 18px;
+      font-size: 0.95rem;
+      font-weight: 500;
     }
 
-    .header-phone {
+    .nav-link {
+      position: relative;
+      padding-bottom: 2px;
+      color: #222;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--primary);
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--primary);
+      transition: width var(--transition-fast);
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 18px;
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .nav-phone {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.9rem;
+      color: #444;
+    }
+
+    .nav-phone span {
+      font-weight: 600;
+      color: #222;
+    }
+
+    .btn-primary {
+      padding: 0.55rem 1.2rem;
+      border-radius: var(--radius-pill);
+      background: var(--primary);
+      color: var(--white);
+      font-size: 0.86rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      box-shadow: var(--shadow-soft);
+      border: none;
+      transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn-outline {
+      padding: 0.55rem 1.2rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid #cfd4da;
+      font-size: 0.86rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: #ffffff;
+      transition: border var(--transition-fast), background var(--transition-fast), transform var(--transition-fast);
+      color: #333;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--primary);
+      transform: translateY(-1px);
+      text-decoration: none;
+      color: #333;
+    }
+
+    .nav-toggle {
+      display: none;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 1px solid #ccc;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+    }
+
+    .nav-toggle span,
+    .nav-toggle span::before,
+    .nav-toggle span::after {
+      content: "";
+      display: block;
+      width: 16px;
+      height: 2px;
+      border-radius: 999px;
+      background: #111827;
+      transition: var(--transition-fast);
+      position: relative;
+    }
+
+    .nav-toggle span::before {
+      top: -5px;
+      position: absolute;
+    }
+
+    .nav-toggle span::after {
+      top: 5px;
+      position: absolute;
+    }
+
+    .nav-toggle.active span {
+      background: transparent;
+    }
+
+    .nav-toggle.active span::before {
+      transform: translateY(5px) rotate(45deg);
+    }
+
+    .nav-toggle.active span::after {
+      transform: translateY(-5px) rotate(-45deg);
+    }
+
+    .nav-links-mobile {
+      display: none;
+    }
+
+    .nav-links-mobile {
+      display: none;
+      flex-direction: column;
+      padding: 0.4rem 1.5rem 0.9rem;
+      border-top: 1px solid #e3e3e3;
+      background: #ffffff;
+    }
+
+    .nav-links-mobile.open {
+      display: flex;
+    }
+
+    .nav-links-mobile a {
+      padding: 0.35rem 0;
+      font-size: 0.9rem;
+    }
+
+    .nav-links-mobile .mobile-cta {
+      margin-top: 0.4rem;
+    }
+
+    /* =========================
+       HERO / TOP BANNER
+    ========================== */
+    .hero-projects {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+      padding: 3rem 0 2.6rem;
+    }
+
+    .hero-badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-badge {
+      padding: 0.28rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: #eef7fb;
+      color: var(--primary-dark);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .hero-badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #22c55e;
+    }
+
+    .hero-title {
+      font-size: clamp(2.1rem, 3.4vw, 2.6rem);
+      line-height: 1.18;
+      margin-bottom: 0.8rem;
+      color: #222;
+    }
+
+    .hero-title span {
+      color: var(--primary-dark);
+    }
+
+    .hero-subtitle {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.1rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .hero-meta-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.55rem 0.95rem;
+      border-radius: 999px;
+      background: #f1f1f1;
+      font-size: 0.82rem;
+      color: #444;
+    }
+
+    .hero-meta-badge {
+      font-size: 0.7rem;
+      padding: 0.18rem 0.55rem;
+      border-radius: 999px;
+      background: #e3f6ea;
+      color: #15803d;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .hero-trust-row {
+      margin-top: 1.6rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      align-items: center;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .hero-avatars {
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-avatar {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      border: 2px solid #fff;
+      background: #63b3d8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #fff;
+      margin-right: -8px;
+    }
+
+    .hero-right {
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-metric-card {
+      width: 100%;
+      max-width: 360px;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(135deg, #63b3d8, #3b8fb5);
+      padding: 1.6rem 1.4rem;
+      color: #fff;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-metric-card::before {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      top: -40px;
+      right: -60px;
+    }
+
+    .hero-metric-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .hero-metric-sub {
+      font-size: 0.8rem;
+      opacity: 0.9;
+      margin-bottom: 1rem;
+    }
+
+    .hero-metric-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+
+    .hero-metric-pill {
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 0.9rem;
+      padding: 0.55rem 0.6rem;
+      font-size: 0.78rem;
+    }
+
+    .hero-metric-pill strong {
+      display: block;
       font-size: 1rem;
+      margin-bottom: 0.1rem;
+    }
+
+    /* =========================
+       FEATURED SLIDER (Animated)
+    ========================== */
+    .projects-featured {
+      background: var(--bg);
+      padding-top: 2.5rem;
+      padding-bottom: 3.2rem;
+    }
+
+    .projects-showcase {
+      background: #ffffff;
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-soft);
+      padding: 1.8rem 1.6rem;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 1.7rem;
+      border: 1px solid #e3e3e3;
+      align-items: center;
+    }
+
+    .projects-showcase-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+
+    .projects-showcase-title {
+      font-size: 1.05rem;
       font-weight: 600;
     }
 
-    .call-btn {
-      background: #63b3d8;
-      color: white;
-      padding: 14px 26px;
-      border-radius: 50px;
-      font-size: 0.85rem;
+    .projects-showcase-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--primary-dark);
+      background: #eef7fb;
+      padding: 0.26rem 0.65rem;
+      border-radius: 999px;
+    }
+
+    .project-slider {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 230px;
+      gap: 1.2rem;
+      align-items: center;
+    }
+
+    .project-main {
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+      background: #000;
+    }
+
+    .project-main img {
+      width: 100%;
+      height: 100%;
+      max-height: 360px;
+      object-fit: cover;
+      transform: scale(1.02);
+      transition: transform 0.6s ease, opacity 0.6s ease;
+    }
+
+    .project-main.is-animating img {
+      transform: scale(1.06);
+      opacity: 0.92;
+    }
+
+    .project-main-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.65), transparent 55%);
+      pointer-events: none;
+    }
+
+    .project-main-caption {
+      position: absolute;
+      left: 16px;
+      bottom: 16px;
+      right: 16px;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 0.75rem;
+    }
+
+    .project-main-text h3 {
+      font-size: 1.02rem;
+      margin: 0 0 0.1rem;
+    }
+
+    .project-main-text p {
+      font-size: 0.8rem;
+      opacity: 0.9;
+      margin: 0;
+    }
+
+    .project-main-meta {
+      text-align: right;
+      font-size: 0.78rem;
+      opacity: 0.9;
+    }
+
+    .project-main-meta strong {
+      display: block;
+      font-size: 0.9rem;
+    }
+
+    .project-thumbs {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .project-thumb {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      cursor: pointer;
+      transform-origin: center;
+      transform: translateX(0) scale(0.96);
+      opacity: 0.75;
+      transition: transform 0.35s ease, opacity 0.35s ease, box-shadow 0.35s ease;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+      background: #000;
+    }
+
+    .project-thumb img {
+      width: 100%;
+      height: 78px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .project-thumb::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent 60%);
+      opacity: 1;
+      transition: opacity 0.35s ease;
+    }
+
+    .project-thumb-label {
+      position: absolute;
+      left: 10px;
+      bottom: 8px;
+      right: 10px;
+      font-size: 0.7rem;
+      color: #fff;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .project-thumb-label span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .project-thumb-label .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
+    }
+
+    .project-thumb.is-active {
+      transform: translateX(-4px) scale(1);
+      opacity: 1;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.24);
+    }
+
+    .project-thumb.is-active::after {
+      opacity: 0.3;
+    }
+
+    .project-slider-controls {
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.5rem;
+      margin-top: 0.2rem;
+      font-size: 0.76rem;
+      color: #6b7280;
+    }
+
+    .project-slider-controls button {
+      padding: 0.25rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid #d1d5db;
+      background: #f9fafb;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.15rem;
+      font-size: 0.76rem;
+    }
+
+    .project-slider-controls button:hover {
+      border-color: var(--primary);
+    }
+
+    /* =========================
+       PROJECTS GRID
+    ========================== */
+    .projects-grid-section {
+      background: var(--bg);
+      padding-bottom: 4rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.6rem;
+    }
+
+    .project-card {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: #111827;
+      box-shadow: var(--shadow-soft);
+      cursor: pointer;
+      transform-origin: center;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .project-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(99, 179, 216, 0.35), transparent 40%), linear-gradient(to top, rgba(0, 0, 0, 0.72), transparent 55%);
+      opacity: 0.9;
+      transition: opacity 0.4s ease;
+    }
+
+    .project-card-content {
+      position: absolute;
+      left: 14px;
+      right: 14px;
+      bottom: 14px;
+      color: #fff;
+      z-index: 2;
+    }
+
+    .project-card-kicker {
+      font-size: 0.7rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      opacity: 0.85;
+      margin-bottom: 0.2rem;
+    }
+
+    .project-card-title {
+      font-size: 0.98rem;
+      font-weight: 600;
+      margin-bottom: 0.15rem;
+    }
+
+    .project-card-meta {
+      font-size: 0.78rem;
+      opacity: 0.9;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .project-card-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .project-card-meta i {
+      font-size: 0.75rem;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.18);
+    }
+
+    .project-card:hover img {
+      transform: scale(1.07);
+    }
+
+    .project-card:hover .project-card-overlay {
+      opacity: 1;
+    }
+
+    /* =========================
+       FOOTER (same style as Services)
+    ========================== */
+    .footer {
+      background: #f2f2f2;
+      padding: 50px 5%;
+      margin-top: auto;
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .footer-left {
+      display: flex;
+      gap: 20px;
+      width: 28%;
+      min-width: 260px;
+      align-items: flex-start;
+    }
+
+    .footer-social-vertical {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .footer-social-vertical i {
+      font-size: 30px;
+      color: #1a73e8;
+      transition: 0.3s;
+    }
+
+    .footer-social-vertical i:hover {
+      opacity: 0.7;
+    }
+
+    .footer-brand {
+      max-width: 320px;
+    }
+
+    .footer-logo {
+      font-size: 26px;
       font-weight: 700;
+    }
+
+    .footer-desc {
+      margin-top: 8px;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .footer-links-col {
+      width: 18%;
+      min-width: 170px;
+    }
+
+    .footer-links {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      color: #222;
+      font-size: 16px;
+      text-decoration: underline;
+    }
+
+    .footer-links a:hover {
+      color: #1a73e8;
+    }
+
+    .footer-dropdown {
+      position: relative;
+    }
+
+    .footer-dropbtn {
+      background: none;
+      border: none;
+      font-size: 16px;
+      text-decoration: underline;
+      cursor: pointer;
+      padding: 0;
+      color: #222;
+    }
+
+    .footer-submenu {
+      display: none;
+      position: absolute;
+      top: 28px;
+      background: #fff;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+      border-radius: 8px;
+      width: 180px;
+      padding: 0;
+      z-index: 50;
+    }
+
+    .footer-submenu li a {
+      display: block;
+      padding: 10px 14px;
+      color: #333;
       text-decoration: none;
-      line-height: 1.1;
-      text-align: center;
-      letter-spacing: 0.05em;
     }
 
-    /* ========================= PAGE TITLE ========================= */
-
-    .page-heading {
-      max-width: 1200px;
-      margin: 40px auto 20px;
-      text-align: center;
-      padding: 0 20px;
+    .footer-submenu li a:hover {
+      background: #eee;
     }
 
-    .page-heading h1 {
-      font-size: 42px;
+    .footer-dropdown.show .footer-submenu {
+      display: block;
+    }
+
+    .contact-col {
+      width: 18%;
+      min-width: 170px;
+    }
+
+    .contact-title {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #1a73e8;
       font-weight: 700;
-      color: #63b3d8;
-      font-family: 'Pacifico', cursive;
     }
 
-    /* ========================= SLIDER WRAPPER ========================= */
-    .slider-wrapper {
-      max-width: 1300px;
-      margin: 20px auto;
-      background: #63b3d8;
-      padding: 30px 0;
-      border-radius: 10px;
+    .contact-list {
+      list-style: none;
+      padding: 0;
     }
 
+    .contact-list li {
+      margin-bottom: 6px;
+      font-size: 16px;
+      color: #222;
+    }
+
+    .col-maps {
+      width: 30%;
+      min-width: 280px;
+      text-align: center;
+    }
+
+    .state-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: #1a73e8;
+      margin-bottom: 15px;
+    }
+
+    .district-row {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .district-card {
+      width: 150px;
+      background: #fff;
+      padding: 10px;
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    }
+
+    .district-name {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .map-frame {
+      width: 100%;
+      height: 150px;
+      border: none;
+      border-radius: 8px;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================== */
+    @media (max-width: 992px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        padding-top: 2.5rem;
+      }
+
+      .hero-right {
+        order: -1;
+      }
+
+      .hero-metric-card {
+        margin: 0 auto;
+      }
+
+      .projects-showcase {
+        grid-template-columns: 1fr;
+      }
+
+      .project-slider {
+        grid-template-columns: 1fr;
+      }
+
+      .project-thumbs {
+        flex-direction: row;
+        overflow-x: auto;
+      }
+
+      .project-thumb {
+        min-width: 140px;
+      }
+
+      .projects-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links,
+      .nav-cta {
+        display: none;
+      }
+
+      .nav-toggle {
+        display: inline-flex;
+      }
+
+      .container-custom {
+        padding-inline: 1rem;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+      }
+
+      .footer-row {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .footer-left,
+      .footer-links-col,
+      .contact-col,
+      .col-maps {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav-bar {
+        padding-inline: 1rem;
+      }
+
+      .hero-inner {
+        padding-bottom: 2.4rem;
+      }
+    }
   </style>
 </head>
-
 <body>
+  <div class="page-wrapper">
 
-<!-- ========================= HEADER ========================= -->
+    <!-- ============ HEADER ============ -->
+    <header>
+      <nav class="nav-bar">
+        <div class="nav-left">
+          <div class="nav-logo-wrap">
+            <a href="index.html">
+              <img src="logo.png" alt="VIndia Infrasec Logo">
+            </a>
+          </div>
+          <div class="nav-brand-text">
+            <div class="nav-brand-main">VIndia Infrasec</div>
+            <div class="nav-brand-sub">Construction • Interiors • Engineering</div>
+          </div>
+        </div>
 
-<header class="main-header">
-  <div class="header-container">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About Us</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="projects.html" class="nav-link active">Projects</a></li>
+          <li><a href="careers/we-work.html" class="nav-link">Careers</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
 
-    <div class="header-left">
-      <div class="logo-box">
-        <img src="logo.png" alt="VIndia Logo">
+        <div class="nav-cta">
+          <div class="nav-phone">
+            <span>+91-85929 21212</span>
+          </div>
+          <a href="tel:+918592921212" class="btn-primary">
+            Call Now
+          </a>
+        </div>
+
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+          <span></span>
+        </button>
+      </nav>
+
+      <div class="nav-links-mobile" id="navMobile">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About Us</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="projects.html" class="nav-link active">Projects</a>
+        <a href="careers/we-work.html" class="nav-link">Careers</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <div class="mobile-cta">
+          <a href="tel:+918592921212" class="btn-primary" style="margin-top:0.6rem;">Call Now</a>
+        </div>
       </div>
+    </header>
 
-      <div>
-        <div class="brand-title">VINDIA INFRASEC</div>
-        <div class="brand-sub">CONSTRUCTION • INTERIORS • ENGINEERING</div>
+    <!-- ============ HERO / TOP BANNER ============ -->
+    <section class="hero-projects">
+      <div class="container-custom">
+        <div class="hero-inner">
+          <div class="hero-left" data-aos="fade-right">
+            <div class="hero-badge-row">
+              <div class="hero-badge">
+                <span class="hero-badge-dot"></span>
+                Delivered Residential, Commercial & Industrial Projects
+              </div>
+            </div>
+            <h1 class="hero-title">
+              Completed <span>Projects & Sites</span> across South India.
+            </h1>
+            <p class="hero-subtitle">
+              A quick visual walkthrough of villas, apartments, commercial and infrastructure
+              works completed by VIndia Infrasec with engineered detailing and on-site execution.
+            </p>
+
+            <div class="hero-meta-row">
+              <div class="hero-meta-pill">
+                <span class="hero-meta-badge">Multi-city</span>
+                Mysuru, Bengaluru, Kochi, Kannur & more
+              </div>
+              <div class="hero-meta-pill">
+                From compact homes to G+4 buildings and industrial sheds.
+              </div>
+            </div>
+
+            <div class="hero-cta-row">
+              <a href="#featured-projects" class="btn-primary">
+                View Featured Projects
+              </a>
+              <a href="contact.html" class="btn-outline">
+                Discuss My Project →  
+              </a>
+            </div>
+
+            <div class="hero-trust-row">
+              <div class="hero-avatars">
+                <div class="hero-avatar">BLR</div>
+                <div class="hero-avatar">MYS</div>
+                <div class="hero-avatar">COK</div>
+              </div>
+              <span>Trusted by homeowners, developers & architects for execution.</span>
+            </div>
+          </div>
+
+          <div class="hero-right" data-aos="fade-left">
+            <div class="hero-metric-card">
+              <div class="hero-metric-title">Execution Snapshot</div>
+              <div class="hero-metric-sub">A quick view of the scale of works delivered.</div>
+              <div class="hero-metric-stats">
+                <div class="hero-metric-pill">
+                  <strong>60+</strong>
+                  <span>Completed Residential Projects</span>
+                </div>
+                <div class="hero-metric-pill">
+                  <strong>25+</strong>
+                  <span>Commercial & Industrial</span>
+                </div>
+                <div class="hero-metric-pill">
+                  <strong>14+</strong>
+                  <span>Cities & Towns Covered</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
-    </div>
+    </section>
 
-    <nav class="header-nav">
-      <a href="index.html">Home</a>
-      <a href="about.html">About Us</a>
-      <a href="services.html">Services</a>
-      <a href="projects.html">Projects</a>
-      <a href="careers/we-work.html">Careers</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+    <!-- ============ FEATURED PROJECTS SLIDER ============ -->
+    <section class="projects-featured" id="featured-projects">
+      <div class="container-custom">
+        <div class="projects-showcase" data-aos="fade-up">
+          <div>
+            <div class="projects-showcase-header">
+              <div>
+                <div class="projects-showcase-label">Featured Gallery</div>
+                <h2 class="projects-showcase-title">Scroll through our live & completed sites</h2>
+              </div>
+            </div>
+            <p style="font-size:0.9rem; color:#4b5563; max-width:420px; margin-bottom:1rem;">
+              Swipe through the slider to see a mix of villas, apartments, interiors and structural works.
+              Images are from real sites handled by the VIndia team.
+            </p>
+          </div>
 
-    <div class="header-right">
-      <div class="header-phone">+91-85929 21212</div>
-      <a href="tel:+918592921212" class="call-btn">CALL<br>NOW</a>
-    </div>
+          <div class="project-slider" id="projectSlider">
+            <!-- Main image -->
+            <div class="project-main" id="projectMain">
+              <img src="img/projects/project1.webp" alt="VIndia project" id="projectMainImg">
+              <div class="project-main-overlay"></div>
+              <div class="project-main-caption">
+                <div class="project-main-text">
+                  <h3 id="projectMainTitle">Project Highlight</h3>
+                  <p id="projectMainLocation">Location • Typology</p>
+                </div>
+                <div class="project-main-meta">
+                  <strong id="projectMainType">Residential</strong>
+                  <span id="projectMainSize">G+2 • Turnkey</span>
+                </div>
+              </div>
+            </div>
 
-  </div>
-</header>
+            <!-- Thumbnails -->
+            <div>
+              <div class="project-thumbs" id="projectThumbs">
+                <!-- JS will inject thumbs -->
+              </div>
+              <div class="project-slider-controls">
+                <button type="button" id="prevBtn">
+                  <i class="fas fa-chevron-left"></i> Prev
+                </button>
+                <button type="button" id="nextBtn">
+                  Next <i class="fas fa-chevron-right"></i>
+                </button>
+              </div>
+            </div>
 
-<!-- ========================= PAGE TITLE ========================= -->
-
-<div class="page-heading" data-aos="fade-up">
-  <h1>Our Completed Works</h1>
-</div>
-
-<!-- ========================= SLIDER SECTION (WRAPPER) ========================= -->
-
-<div class="slider-wrapper">
-<!-- ========================= COMPLETED WORKS SLIDER ========================= -->
-
-<div class="hero-slider">
-
-  <!-- ======= PROJECT SET 1 ======= -->
-  <div class="slide-item">
-    <a class="fresco" href="img/IMG-20200809-WA0199.jpg" data-fresco-group="cmp1">
-      <img src="img/IMG-20200809-WA0199.jpg" alt="">
-    </a>
-  </div>
-
-  <div class="slide-item">
-    <a class="fresco" href="img/IMG-20200809-WA0200.jpg" data-fresco-group="cmp1">
-      <img src="img/IMG-20200809-WA0200.jpg" alt="">
-    </a>
-  </div>
-
-  <div class="slide-item">
-    <a class="fresco" href="img/IMG-20200809-WA0202.jpg" data-fresco-group="cmp1">
-      <img src="img/IMG-20200809-WA0202.jpg" alt="">
-    </a>
-  </div>
-
-  <div class="slide-item">
-    <a class="fresco" href="img/IMG-20200809-WA0203.jpg" data-fresco-group="cmp1">
-      <img src="img/IMG-20200809-WA0203.jpg" alt="">
-    </a>
-  </div>
-
-  <div class="slide-item">
-    <a class="fresco" href="img/IMG-20200809-WA0204.jpg" data-fresco-group="cmp1">
-      <img src="img/IMG-20200809-WA0204.jpg" alt="">
-    </a>
-  </div>
-
-  <div class="slide-item">
-    <a class="fresco" href="img/IMG-20200809-WA0205.jpg" data-fresco-group="cmp1">
-      <img src="img/IMG-20200809-WA0205.jpg" alt="">
-    </a>
-  </div>
-
-  <div class="slide-item">
-    <a class="fresco" href="img/IMG-20200809-WA0206.jpg" data-fresco-group="cmp1">
-      <img src="img/IMG-20200809-WA0206.jpg" alt="">
-    </a>
-  </div>
-
-  <div class="slide-item">
-    <a class="fresco" href="img/IMG-20200809-WA0207.jpg" data-fresco-group="cmp1">
-      <img src="img/IMG-20200809-WA0207.jpg" alt="">
-    </a>
-  </div>
-
-  <div class="slide-item">
-    <a class="fresco" href="img/IMG-20200809-WA0208.jpg" data-fresco-group="cmp1">
-      <img src="img/IMG-20200809-WA0208.jpg" alt="">
-    </a>
-  </div>
-
-  <div class="slide-item">
-    <a class="fresco" href="img/IMG-20200809-WA0209.jpg" data-fresco-group="cmp1">
-      <img src="img/IMG-20200809-WA0209.jpg" alt="">
-    </a>
-  </div>
-
-  <div class="slide-item">
-    <a class="fresco" href="img/IMG-20200809-WA0210.jpg" data-fresco-group="cmp1">
-      <img src="img/IMG-20200809-WA0210.jpg" alt="">
-    </a>
-  </div>
-
-  <div class="slide-item">
-    <a class="fresco" href="img/IMG-20200809-WA0211.jpg" data-fresco-group="cmp1">
-      <img src="img/IMG-20200809-WA0211.jpg" alt="">
-    </a>
-  </div>
-
-  <div class="slide-item">
-    <a class="fresco" href="img/IMG-20200809-WA0212.jpg" data-fresco-group="cmp1">
-      <img src="img/IMG-20200809-WA0212.jpg" alt="">
-    </a>
-  </div>
-
-  <div class="slide-item">
-    <a class="fresco" href="img/IMG-20200809-WA0213.jpg" data-fresco-group="cmp1">
-      <img src="img/IMG-20200809-WA0213.jpg" alt="">
-    </a>
-  </div>
-
-
-  <!-- ======= PROJECT SET 2 ======= -->
-  <div class="slide-item">
-    <a class="fresco" href="img/completed/cmp2/IMG_20200707_165424.jpg" data-fresco-group="cmp2">
-      <img src="img/completed/cmp2/IMG_20200707_165424.jpg" alt="">
-    </a>
-  </div>
-
-  <div class="slide-item">
-    <a class="fresco" href="img/completed/cmp2/IMG_20200707_165544.jpg" data-fresco-group="cmp2">
-      <img src="img/completed/cmp2/IMG_20200707_165544.jpg" alt="">
-    </a>
-  </div>
-
-  <div class="slide-item">
-    <a class="fresco" href="img/completed/cmp2/IMG_20200707_165604.jpg" data-fresco-group="cmp2">
-      <img src="img/completed/cmp2/IMG_20200707_165604.jpg" alt="">
-    </a>
-  </div>
-
-  <div class="slide-item">
-    <a class="fresco" href="img/completed/cmp2/IMG_20200707_165623.jpg" data-fresco-group="cmp2">
-      <img src="img/completed/cmp2/IMG_20200707_165623.jpg" alt="">
-    </a>
-  </div>
-
-  <div class="slide-item">
-    <a class="fresco" href="img/completed/cmp2/IMG_20200707_165644.jpg" data-fresco-group="cmp2">
-      <img src="img/completed/cmp2/IMG_20200707_165644.jpg" alt="">
-    </a>
-  </div>
-
-  <div class="slide-item">
-    <a class="fresco" href="img/completed/cmp2/IMG_20200707_165727.jpg" data-fresco-group="cmp2">
-      <img src="img/completed/cmp2/IMG_20200707_165727.jpg" alt="">
-    </a>
-  </div>
-
-  <div class="slide-item">
-    <a class="fresco" href="img/completed/cmp2/IMG_20200707_165753.jpg" data-fresco-group="cmp2">
-      <img src="img/completed/cmp2/IMG_20200707_165753.jpg" alt="">
-    </a>
-  </div>
-
-  <div class="slide-item">
-    <a class="fresco" href="img/completed/cmp2/MVIMG_20200707_165523.jpg" data-fresco-group="cmp2">
-      <img src="img/completed/cmp2/MVIMG_20200707_165523.jpg" alt="">
-    </a>
-  </div>
-
-  <!-- ======= PROJECT SET 3 ======= -->
-
-  <div class="slide-item">
-    <a class="fresco" href="img/completed/cmp3/IMG_20200713_121400.jpg" data-fresco-group="cmp3">
-      <img src="img/completed/cmp3/IMG_20200713_121400.jpg" alt="">
-    </a>
-  </div>
-
-  <div class="slide-item">
-    <a class="fresco" href="img/completed/cmp3/IMG_20200713_121437.jpg" data-fresco-group="cmp3">
-      <img src="img/completed/cmp3/IMG_20200713_121437.jpg" alt="">
-    </a>
-  </div>
-
-  <div class="slide-item">
-    <a class="fresco" href="img/completed/cmp3/IMG_20200713_121600.jpg" data-fresco-group="cmp3">
-      <img src="img/completed/cmp3/IMG_20200713_121600.jpg" alt="">
-    </a>
-  </div>
-
-  <div class="slide-item">
-    <a class="fresco" href="img/completed/cmp3/IMG_20200713_121603.jpg" data-fresco-group="cmp3">
-      <img src="img/completed/cmp3/IMG_20200713_121603.jpg" alt="">
-    </a>
-  </div>
-
-  <div class="slide-item">
-    <a class="fresco" href="img/completed/cmp3/IMG_20200713_121619.jpg" data-fresco-group="cmp3">
-      <img src="img/completed/cmp3/IMG_20200713_121619.jpg" alt="">
-    </a>
-  </div>
-
-  <div class="slide-item">
-    <a class="fresco" href="img/completed/cmp3/IMG_20200713_121645.jpg" data-fresco-group="cmp3">
-      <img src="img/completed/cmp3/IMG_20200713_121645.jpg" alt="">
-    </a>
-  </div>
-
-  <div class="slide-item">
-    <a class="fresco" href="img/completed/cmp3/IMG_20200713_121236.jpg" data-fresco-group="cmp3">
-      <img src="img/completed/cmp3/IMG_20200713_121236.jpg" alt="">
-    </a>
-  </div>
-
-  <div class="slide-item">
-    <a class="fresco" href="img/completed/cmp3/IMG_20200713_121339.jpg" data-fresco-group="cmp3">
-      <img src="img/completed/cmp3/IMG_20200713_121339.jpg" alt="">
-    </a>
-  </div>
-
-  <div class="slide-item">
-    <a class="fresco" href="img/completed/cmp3/IMG_20200713_122324.jpg" data-fresco-group="cmp3">
-      <img src="img/completed/cmp3/IMG_20200713_122324.jpg" alt="">
-    </a>
-  </div>
-
-  <div class="slide-item">
-    <a class="fresco" href="img/completed/cmp3/IMG_20200713_122326.jpg" data-fresco-group="cmp3">
-      <img src="img/completed/cmp3/IMG_20200713_122326.jpg" alt="">
-    </a>
-  </div>
-
-  <!-- ======= PROJECT SET 4 ======= -->
-
-  <div class="slide-item">
-    <a class="fresco" href="img/completed/cmp4/IMG-20200809-WA0221.jpg" data-fresco-group="cmp4">
-      <img src="img/completed/cmp4/IMG-20200809-WA0221.jpg" alt="">
-    </a>
-  </div>
-
-  <div class="slide-item">
-    <a class="fresco" href="img/completed/cmp4/IMG-20200809-WA0222.jpg" data-fresco-group="cmp4">
-      <img src="img/completed/cmp4/IMG-20200809-WA0222.jpg" alt="">
-    </a>
-  </div>
-
-  <div class="slide-item">
-    <a class="fresco" href="img/completed/cmp4/IMG-20200809-WA0223.jpg" data-fresco-group="cmp4">
-      <img src="img/completed/cmp4/IMG-20200809-WA0223.jpg" alt="">
-    </a>
-  </div>
-
-  <div class="slide-item">
-    <a class="fresco" href="img/completed/cmp4/IMG-20200809-WA0224.jpg" data-fresco-group="cmp4">
-      <img src="img/completed/cmp4/IMG-20200809-WA0224.jpg" alt="">
-    </a>
-  </div>
-
-  <div class="slide-item">
-    <a class="fresco" href="img/completed/cmp4/IMG-20200809-WA0225.jpg" data-fresco-group="cmp4">
-      <img src="img/completed/cmp4/IMG-20200809-WA0225.jpg" alt="">
-    </a>
-  </div>
-
-  <div class="slide-item">
-    <a class="fresco" href="img/completed/cmp4/IMG-20200809-WA0226.jpg" data-fresco-group="cmp4">
-      <img src="img/completed/cmp4/IMG-20200809-WA0226.jpg" alt="">
-    </a>
-  </div>
-
-  <div class="slide-item">
-    <a class="fresco" href="img/completed/cmp4/IMG-20200809-WA0227.jpg" data-fresco-group="cmp4">
-      <img src="img/completed/cmp4/IMG-20200809-WA0227.jpg" alt="">
-    </a>
-  </div>
-
-  <!-- ======= PROJECT SET 5 ======= -->
-
-  <div class="slide-item">
-    <a class="fresco" href="img/completed/cmp5/WhatsApp Image 2020-09-29 at 7.43.50 PM.jpeg" data-fresco-group="cmp5">
-      <img src="img/completed/cmp5/WhatsApp Image 2020-09-29 at 7.43.50 PM.jpeg" alt="">
-    </a>
-  </div>
-
-  <div class="slide-item">
-    <a class="fresco" href="img/completed/cmp5/WhatsApp Image 2020-09-29 at 7.44.09 PM.jpeg" data-fresco-group="cmp5">
-      <img src="img/completed/cmp5/WhatsApp Image 2020-09-29 at 7.44.09 PM.jpeg" alt="">
-    </a>
-  </div>
-
-  <div class="slide-item">
-    <a class="fresco" href="img/completed/cmp5/WhatsApp Image 2020-09-29 at 8.57.19 PM.jpeg" data-fresco-group="cmp5">
-      <img src="img/completed/cmp5/WhatsApp Image 2020-09-29 at 8.57.19 PM.jpeg" alt="">
-    </a>
-  </div>
-
-  <div class="slide-item">
-    <a class="fresco" href="img/completed/cmp5/WhatsApp Image 2020-09-29 at 8.58.06 PM.jpeg" data-fresco-group="cmp5">
-      <img src="img/completed/cmp5/WhatsApp Image 2020-09-29 at 8.58.06 PM.jpeg" alt="">
-    </a>
-  </div>
-
-  <div class="slide-item">
-    <a class="fresco" href="img/completed/cmp5/WhatsApp Image 2020-09-29 at 8.58.39 PM.jpeg" data-fresco-group="cmp5">
-      <img src="img/completed/cmp5/WhatsApp Image 2020-09-29 at 8.58.39 PM.jpeg" alt="">
-    </a>
-  </div>
-
-  <div class="slide-item">
-    <a class="fresco" href="img/completed/cmp5/WhatsApp Image 2020-09-29 at 8.59.19 PM.jpeg" data-fresco-group="cmp5">
-      <img src="img/completed/cmp5/WhatsApp Image 2020-09-29 at 8.59.19 PM.jpeg" alt="">
-    </a>
-  </div>
-
-</div> <!-- END HERO SLIDER -->
-<!-- ========================= FOOTER (VERSION A) ========================= -->
-
-<footer class="footer">
-
-  <div class="footer-row">
-
-    <!-- LEFT SOCIAL + BRAND -->
-    <div class="footer-left">
-      <div class="footer-social-vertical">
-        <a href="#"><i class="fab fa-google"></i></a>
-        <a href="#"><i class="fab fa-youtube"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="footer-brand">
-        <h2 class="footer-logo">VIndia Infrasec</h2>
-        <p class="footer-desc">
-          Delivering excellence in Construction, Interior Design & Structural Engineering across South India.
-        </p>
+    <!-- ============ PROJECTS GRID ============ -->
+    <section class="projects-grid-section">
+      <div class="container-custom">
+        <div class="section-heading" data-aos="fade-up">
+          <div class="section-kicker">Gallery</div>
+          <h2 class="section-title">More completed works from our portfolio.</h2>
+          <p class="section-subtitle">
+            A selection of structural works, interiors and renovation projects. Each assignment is
+            backed by drawings, BOQs and on-site quality checks.
+          </p>
+        </div>
+
+        <div class="projects-grid" id="projectsGrid">
+          <!-- JS will also reuse images here -->
+        </div>
       </div>
-    </div>
+    </section>
 
-    <!-- QUICK LINKS -->
-    <div class="footer-col footer-links-col">
-      <ul class="footer-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/about.html">About Us</a></li>
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+      <div class="footer-row">
 
-        <li class="footer-dropdown" id="careerDropdownFooter">
-          <button class="footer-dropbtn" onclick="toggleCareerFooter()">Career ▾</button>
-          <ul class="footer-submenu">
-            <li><a href="/careers/we-work.html">We Work</a></li>
-            <li><a href="/careers/openings.html">Open Positions</a></li>
-            <li><a href="/careers/submit-cv.html">Submit Your CV</a></li>
+        <!-- LEFT SOCIAL + BRAND -->
+        <div class="footer-left">
+          <div class="footer-social-vertical">
+            <a href="#"><i class="fab fa-google"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+
+          <div class="footer-brand">
+            <h2 class="footer-logo">VIndia Infrasec</h2>
+            <p class="footer-desc">
+              Delivering excellence in Construction, Interior Design & Structural Engineering across South India.
+            </p>
+          </div>
+        </div>
+
+        <!-- QUICK LINKS -->
+        <div class="footer-links-col">
+          <ul class="footer-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about.html">About Us</a></li>
+
+            <li class="footer-dropdown" id="careerDropdownFooter">
+              <button class="footer-dropbtn" onclick="toggleCareerFooter()">Career ▾</button>
+              <ul class="footer-submenu">
+                <li><a href="/careers/we-work.html">We Work</a></li>
+                <li><a href="/careers/openings.html">Open Positions</a></li>
+                <li><a href="/careers/submit-cv.html">Submit Your CV</a></li>
+              </ul>
+            </li>
+
+            <li><a href="/services.html">Services</a></li>
+            <li><a href="/projects.html">Projects</a></li>
+            <li><a href="/contact.html">Contact</a></li>
           </ul>
-        </li>
+        </div>
 
-        <li><a href="/services.html">Services</a></li>
-        <li><a href="/projects.html">Projects</a></li>
-        <li><a href="/contact.html">Contact</a></li>
-      </ul>
-    </div>
+        <!-- CALL US -->
+        <div class="contact-col">
+          <h3 class="contact-title">Call Us</h3>
+          <ul class="contact-list">
+            <li>+91 85929 11212</li>
+            <li>+91 85929 21212</li>
+            <li>+91 85929 31212</li>
+            <li>+91 85929 41212</li>
+            <li>+91 85929 51212</li>
+            <li>+91 85929 61212</li>
+          </ul>
+        </div>
 
-    <!-- CALL US -->
-    <div class="footer-col contact-col">
-      <h3 class="contact-title">Call Us</h3>
-      <ul class="contact-list">
-        <li>+91 85929 11212</li>
-        <li>+91 85929 21212</li>
-        <li>+91 85929 31212</li>
-        <li>+91 85929 41212</li>
-        <li>+91 85929 51212</li>
-        <li>+91 85929 61212</li>
-      </ul>
-    </div>
+        <!-- MAP SECTION -->
+        <div class="col-maps">
+          <h3 class="state-title" id="stateTitle">Tamil Nadu</h3>
+          <div class="district-row" id="districtContainer"></div>
+        </div>
 
-    <!-- MAP SECTION -->
-    <div class="footer-col col-maps">
-      <h3 class="state-title" id="stateTitle">Kerala</h3>
-      <div class="district-row" id="districtContainer"></div>
-    </div>
-
-  </div>
-</footer>
-
-<!-- ========================= FOOTER CSS ========================= -->
-
-<style>
-.footer {
-  background: #f2f2f2;
-  padding: 50px 5%;
-}
-
-.footer-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 40px;
-}
-
-/* LEFT COLUMN */
-.footer-left {
-  display: flex;
-  gap: 20px;
-  width: 28%;
-  align-items: flex-start;
-}
-
-/* SOCIAL ICONS VERTICAL */
-.footer-social-vertical {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-.footer-social-vertical i {
-  font-size: 30px;
-  color: #1a73e8;
-  transition: 0.3s;
-}
-
-.footer-social-vertical i:hover {
-  opacity: 0.7;
-}
-
-/* BRAND */
-.footer-brand {
-  max-width: 320px;
-}
-
-.footer-logo {
-  font-size: 26px;
-  font-weight: 700;
-}
-
-.footer-desc {
-  margin-top: 8px;
-  color: #555;
-  line-height: 1.6;
-}
-
-/* QUICK LINKS */
-.footer-links-col {
-  width: 18%;
-}
-
-.footer-links li {
-  margin-bottom: 10px;
-}
-
-.footer-links a {
-  color: #222;
-  font-size: 16px;
-  text-decoration: underline;
-}
-
-.footer-links a:hover {
-  color: #1a73e8;
-}
-
-/* FOOTER DROPDOWN */
-.footer-dropdown {
-  position: relative;
-}
-
-.footer-dropbtn {
-  background: none;
-  border: none;
-  font-size: 16px;
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-.footer-submenu {
-  display: none;
-  position: absolute;
-  top: 28px;
-  background: #fff;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-  border-radius: 8px;
-  width: 180px;
-  padding: 0;
-  z-index: 1000;
-}
-
-.footer-submenu li a {
-  display: block;
-  padding: 10px 14px;
-  color: #333;
-  text-decoration: none;
-}
-
-.footer-submenu li a:hover {
-  background: #eee;
-}
-
-.footer-dropdown.show .footer-submenu {
-  display: block;
-}
-
-/* CALL US */
-.contact-col {
-  width: 18%;
-}
-
-.contact-title {
-  font-size: 20px;
-  margin-bottom: 10px;
-  color: #1a73e8;
-  font-weight: 700;
-}
-
-.contact-list li {
-  margin-bottom: 6px;
-  font-size: 16px;
-  color: #222;
-}
-
-/* MAPS */
-.col-maps {
-  width: 30%;
-  text-align: center;
-}
-
-.state-title {
-  font-size: 22px;
-  font-weight: 700;
-  color: #1a73e8;
-  margin-bottom: 15px;
-}
-
-.district-row {
-  display: flex;
-  gap: 14px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.district-card {
-  width: 32%;
-  background: #fff;
-  padding: 10px;
-  border-radius: 12px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-}
-
-.district-name {
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 6px;
-}
-
-.map-frame {
-  width: 100%;
-  height: 150px;
-  border: none;
-  border-radius: 8px;
-}
-
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  .footer-row {
-    flex-direction: column;
-    text-align: center;
-  }
-}
-</style>
-
-<!-- ========================= FOOTER JS ========================= -->
-
-<script>
-  const states = [
-    {
-      title: "Kerala",
-      districts: ["Kochi", "Trivandrum", "Kannur"],
-      maps: [
-        "https://www.google.com/maps?q=Kochi,Kerala&output=embed",
-        "https://www.google.com/maps?q=Trivandrum,Kerala&output=embed",
-        "https://www.google.com/maps?q=Kannur,Kerala&output=embed"
-      ]
-    },
-    {
-      title: "Karnataka",
-      districts: ["Mysore", "Bengaluru"],
-      maps: [
-        "https://www.google.com/maps?q=Mysore,Karnataka&output=embed",
-        "https://www.google.com/maps?q=Bengaluru,Karnataka&output=embed"
-      ]
-    }
-  ];
-
-  let index = 0;
-  const stateTitle = document.getElementById("stateTitle");
-  const districtContainer = document.getElementById("districtContainer");
-
-  function updateMaps() {
-    const state = states[index];
-    stateTitle.textContent = state.title;
-
-    districtContainer.innerHTML = state.districts.map((d, i) => `
-      <div class="district-card">
-        <h4 class="district-name">${d}</h4>
-        <iframe src="${state.maps[i]}" class="map-frame"></iframe>
       </div>
-    `).join("");
-  }
+    </footer>
 
-  updateMaps();
-  setInterval(() => {
-    index = (index + 1) % states.length;
-    updateMaps();
-  }, 3000);
+  </div><!-- /.page-wrapper -->
 
-  function toggleCareerFooter() {
-    document.getElementById("careerDropdownFooter").classList.toggle("show");
-  }
-</script>
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- jQuery + Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
-<!-- ========================= SLIDER & FRESCO JS ========================= -->
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="js/fresco/slick.min.js"></script>
-<script src="js/fresco/dist/js/fresco.min.js"></script>
-
-<script>
-  $(document).ready(function() {
-
-    $('.hero-slider').slick({
-      dots: false,
-      infinite: true,
-      speed: 300,
-      slidesToShow: 1,
-      centerMode: true,
-      variableWidth: true,
-      arrows: false,
-      autoplay: true,
-      pauseOnHover: false,
-      autoplaySpeed: 3000
+  <script>
+    AOS.init({
+      duration: 600,
+      once: true,
+      offset: 80
     });
 
-  });
-</script>
+    // Mobile nav toggle
+    const navToggle = document.getElementById("navToggle");
+    const navMobile = document.getElementById("navMobile");
 
-<!-- END -->
+    if (navToggle && navMobile) {
+      navToggle.addEventListener("click", () => {
+        navToggle.classList.toggle("active");
+        navMobile.classList.toggle("open");
+      });
+    }
+
+    /* =========================
+       FOOTER MAP ROTATION
+    ========================== */
+    const states = [
+      {
+        title: "Kerala",
+        districts: ["Kochi", "Trivandrum", "Kannur"],
+        maps: [
+          "https://www.google.com/maps?q=Kochi,Kerala&output=embed",
+          "https://www.google.com/maps?q=Trivandrum,Kerala&output=embed",
+          "https://www.google.com/maps?q=Kannur,Kerala&output=embed"
+        ]
+      },
+      {
+        title: "Karnataka",
+        districts: ["Mysore", "Bengaluru"],
+        maps: [
+          "https://www.google.com/maps?q=Mysore,Karnataka&output=embed",
+          "https://www.google.com/maps?q=Bengaluru,Karnataka&output=embed"
+        ]
+      },
+      {
+        title: "Tamil Nadu",
+        districts: ["Coimbatore", "Chennai", "Madurai"],
+        maps: [
+          "https://www.google.com/maps?q=Coimbatore,Tamil+Nadu&output=embed",
+          "https://www.google.com/maps?q=Chennai,Tamil+Nadu&output=embed",
+          "https://www.google.com/maps?q=Madurai,Tamil+Nadu&output=embed"
+        ]
+      }
+    ];
+
+    let stateIndex = 0;
+    const stateTitleEl = document.getElementById("stateTitle");
+    const districtContainerEl = document.getElementById("districtContainer");
+
+    function updateMaps() {
+      const state = states[stateIndex];
+      if (!stateTitleEl || !districtContainerEl) return;
+      stateTitleEl.textContent = state.title;
+
+      districtContainerEl.innerHTML = state.districts
+        .map((d, i) => `
+          <div class="district-card">
+            <h4 class="district-name">${d}</h4>
+            <iframe src="${state.maps[i] || state.maps[0]}" class="map-frame"></iframe>
+          </div>
+        `)
+        .join("");
+    }
+
+    updateMaps();
+    setInterval(() => {
+      stateIndex = (stateIndex + 1) % states.length;
+      updateMaps();
+    }, 3000);
+
+    // Footer Career dropdown
+    function toggleCareerFooter() {
+      document.getElementById("careerDropdownFooter").classList.toggle("show");
+    }
+    window.toggleCareerFooter = toggleCareerFooter; // expose to inline onclick
+
+    document.addEventListener("click", function (event) {
+      const dropdown = document.getElementById("careerDropdownFooter");
+      if (dropdown && !dropdown.contains(event.target)) {
+        dropdown.classList.remove("show");
+      }
+    });
+
+    /* =========================
+       FEATURED PROJECT SLIDER
+       Uses .webp images in /img/projects/
+    ========================== */
+    const projectImages = [
+      "img/projects/project1.webp",
+      "img/projects/project2.webp",
+      "img/projects/project3.webp",
+      "img/projects/project4.webp",
+      "img/projects/project5.webp",
+      "img/projects/project6.webp",
+      "img/projects/project7.webp",
+      "img/projects/project8.webp",
+      "img/projects/project9.webp",
+      "img/projects/project10.webp"
+    ];
+
+    // Example meta for each image (you can edit text later)
+    const projectMeta = [
+      { title: "G+2 Villa Elevation", location: "Mysuru", type: "Residential Villa", size: "G+2 • 4BHK" },
+      { title: "Contemporary Apartment Block", location: "Bengaluru", type: "Apartments", size: "G+4 • 24 Units" },
+      { title: "Interior – Living & Dining", location: "Bengaluru", type: "Interior Fitout", size: "3BHK Premium" },
+      { title: "Industrial Shed & Office", location: "Kannur", type: "Industrial", size: "Fabrication + Office" },
+      { title: "Compact Duplex Home", location: "Kochi", type: "Residential", size: "Duplex • 3BHK" },
+      { title: "Retail + Office Block", location: "Coimbatore", type: "Commercial", size: "Ground + 3 Floors" },
+      { title: "Renovation – Facade Upgrade", location: "Mysuru", type: "Renovation", size: "Exterior & Balcony" },
+      { title: "Kitchen & Wardrobe Set", location: "Bengaluru", type: "Interiors", size: "Parallel Kitchen" },
+      { title: "Terrace Development", location: "Kannur", type: "Outdoor", size: "Pergola + Seating" },
+      { title: "Structural Frame Work", location: "Bengaluru", type: "Structural", size: "RCC • G+3" }
+    ];
+
+    // Shuffle to make order feel random each load
+    function shuffleArray(arr) {
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+
+    const indices = shuffleArray([...projectImages.keys()]);
+    let currentIndex = 0;
+
+    const mainImg = document.getElementById("projectMainImg");
+    const mainTitle = document.getElementById("projectMainTitle");
+    const mainLocation = document.getElementById("projectMainLocation");
+    const mainType = document.getElementById("projectMainType");
+    const mainSize = document.getElementById("projectMainSize");
+    const mainContainer = document.getElementById("projectMain");
+    const thumbsContainer = document.getElementById("projectThumbs");
+
+    function buildThumbs() {
+      thumbsContainer.innerHTML = "";
+      indices.forEach((idx, displayPos) => {
+        const meta = projectMeta[idx] || projectMeta[0];
+        const thumb = document.createElement("div");
+        thumb.className = "project-thumb";
+        thumb.dataset.index = idx;
+
+        thumb.innerHTML = `
+          <img src="${projectImages[idx]}" alt="${meta.title}">
+          <div class="project-thumb-label">
+            <span><span class="dot"></span>${meta.location}</span>
+            <span>${displayPos + 1}/${indices.length}</span>
+          </div>
+        `;
+
+        thumb.addEventListener("click", () => {
+          goToIndex(indices.indexOf(idx));
+        });
+
+        thumbsContainer.appendChild(thumb);
+      });
+    }
+
+    function setActiveThumb(pos) {
+      const thumbEls = thumbsContainer.querySelectorAll(".project-thumb");
+      thumbEls.forEach((el, i) => {
+        el.classList.toggle("is-active", i === pos);
+      });
+    }
+
+    function updateMain(pos, animate = true) {
+      const realIndex = indices[pos];
+      const meta = projectMeta[realIndex] || projectMeta[0];
+
+      if (animate) {
+        mainContainer.classList.add("is-animating");
+        setTimeout(() => mainContainer.classList.remove("is-animating"), 500);
+      }
+
+      mainImg.src = projectImages[realIndex];
+      mainTitle.textContent = meta.title;
+      mainLocation.textContent = meta.location;
+      mainType.textContent = meta.type;
+      mainSize.textContent = meta.size;
+
+      setActiveThumb(pos);
+    }
+
+    function goToIndex(pos) {
+      if (pos < 0) pos = indices.length - 1;
+      if (pos >= indices.length) pos = 0;
+      currentIndex = pos;
+      updateMain(currentIndex, true);
+    }
+
+    buildThumbs();
+    updateMain(currentIndex, false);
+
+    // controls
+    document.getElementById("prevBtn").addEventListener("click", () => goToIndex(currentIndex - 1));
+    document.getElementById("nextBtn").addEventListener("click", () => goToIndex(currentIndex + 1));
+
+    // auto rotate
+    let sliderInterval = setInterval(() => {
+      goToIndex(currentIndex + 1);
+    }, 4000);
+
+    const sliderEl = document.getElementById("projectSlider");
+    sliderEl.addEventListener("mouseenter", () => clearInterval(sliderInterval));
+    sliderEl.addEventListener("mouseleave", () => {
+      sliderInterval = setInterval(() => {
+        goToIndex(currentIndex + 1);
+      }, 4000);
+    });
+
+    /* =========================
+       PROJECTS GRID from same images
+    ========================== */
+    const gridEl = document.getElementById("projectsGrid");
+
+    indices.forEach((idx, i) => {
+      const meta = projectMeta[idx] || projectMeta[0];
+      const card = document.createElement("article");
+      card.className = "project-card";
+      card.innerHTML = `
+        <img src="${projectImages[idx]}" alt="${meta.title}">
+        <div class="project-card-overlay"></div>
+        <div class="project-card-content">
+          <div class="project-card-kicker">${meta.type}</div>
+          <div class="project-card-title">${meta.title}</div>
+          <div class="project-card-meta">
+            <span><i class="fas fa-location-dot"></i>${meta.location}</span>
+            <span><i class="fas fa-layer-group"></i>${meta.size}</span>
+          </div>
+        </div>
+      `;
+      gridEl.appendChild(card);
+    });
+  </script>
 </body>
 </html>

@@ -1,94 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Contact VIndia Infrasec | Construction, Interior & Engineering Services</title>
+  <title>Contact VIndia Infrasec | Construction • Interiors • Architecture</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="icon" type="image/png" href="img/logos/Vindia Branding.png">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-  <!-- Bootstrap (grid only) -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
-
-  <!-- reCAPTCHA (if you want to use it later) -->
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <!-- Bootstrap Grid Only -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
   <style>
+
     body {
       margin: 0;
       font-family: "Work Sans", sans-serif;
       background: #f7f7f7;
-      color: #333;
     }
 
-    /* ===========================================
-       HEADER
-    ========================================== */
-    .header {
+    /* ===================== HEADER (Service Page Style) ===================== */
+
+    .main-header {
+      width: 100%;
       background: #fff;
-      padding: 20px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      border-bottom: 1px solid #eee;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
       position: sticky;
       top: 0;
       z-index: 1000;
     }
 
-    .logo img {
-      height: 60px;
+    .header-container {
+      max-width: 1400px;
+      margin: auto;
+      padding: 14px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    .nav a {
-      margin: 0 18px;
-      text-decoration: none;
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo-box {
+      width: 58px;
+      height: 58px;
+      background: #fafafa;
+      border: 1px solid #ddd;
+      border-radius: 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .logo-box img {
+      width: 42px;
+    }
+
+    .brand-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #111;
+    }
+
+    .brand-sub {
+      font-size: 0.72rem;
+      color: #888;
+      letter-spacing: 0.18em;
+      margin-top: 2px;
+    }
+
+    /* NAV */
+    .header-nav {
+      display: flex;
+      gap: 32px;
+    }
+
+    .header-nav a {
       color: #222;
+      text-decoration: none;
       font-weight: 500;
-      font-size: 16px;
+      font-size: 1rem;
     }
 
-    .nav a:hover {
+    .header-nav a:hover,
+    .header-nav a.active {
       color: #63b3d8;
     }
 
-    /* ===========================================
-       CONTACT SECTION
-    ========================================== */
-    .contact-box {
-      width: 90%;
-      max-width: 1200px;
-      margin: 50px auto;
-      padding: 40px;
+    /* CALL NOW BUTTON */
+    .call-btn {
       background: #63b3d8;
-      color: #fff;
-      border-radius: 14px;
-    }
-
-    .contact-box h2 {
-      font-size: 32px;
+      color: white;
+      padding: 12px 22px;
+      border-radius: 50px;
+      font-size: 0.85rem;
       font-weight: 700;
-      margin-bottom: 10px;
+      line-height: 1.1;
+      text-decoration: none;
+      text-align: center;
     }
 
-    .contact-box p.subtitle {
-      margin-bottom: 20px;
-      font-size: 15px;
-      opacity: 0.9;
+    /* ===================== PAGE HEADING ===================== */
+
+    .page-head {
+      text-align: center;
+      padding: 40px 0 10px;
+    }
+
+    .page-head h1 {
+      font-size: 40px;
+      font-weight: 700;
+      color: #63b3d8;
+    }
+
+    /* ===================== CONTACT SECTION ===================== */
+
+    .contact-box {
+      background: #63b3d8;
+      padding: 40px;
+      width: 90%;
+      max-width: 1250px;
+      margin: 20px auto 40px;
+      border-radius: 14px;
+      color: white;
     }
 
     .contact-box iframe {
       width: 100%;
       height: 350px;
-      border-radius: 12px;
+      border-radius: 10px;
       border: none;
     }
 
@@ -99,114 +150,56 @@
 
     .form-control:focus {
       box-shadow: none;
-      outline: none;
     }
 
-    .contact-box button,
-    .contact-box input[type="submit"] {
-      margin-top: 16px;
-      border-radius: 50px;
-    }
-
-    /* Optional success message (if you later use ?success=1) */
-    .success-banner {
-      display: none;
-      width: 90%;
-      max-width: 1200px;
-      margin: 20px auto 0;
-      padding: 12px 16px;
-      border-radius: 8px;
-      background: #e3f8e6;
-      color: #146c2e;
+    .btn-submit {
+      background: #fff;
+      color: #63b3d8;
       font-size: 15px;
+      font-weight: 600;
+      border-radius: 50px;
+      padding: 10px 26px;
+      margin-top: 10px;
+      border: none;
     }
 
-    /* ===========================================
-       BRANCHES SECTION
-    ========================================== */
+    /* ===================== BRANCHES ===================== */
+
     .branches-wrapper {
       width: 90%;
-      max-width: 1200px;
-      margin: 40px auto 20px;
+      max-width: 1300px;
+      margin: 40px auto;
     }
 
-    .branch-title-row {
-      display: flex;
-      align-items: center;
-      gap: 16px;
+    .branches-wrapper h2 {
+      color: #63b3d8;
+      font-weight: 700;
       margin-bottom: 20px;
     }
 
-    .branch-title-row img {
-      max-height: 160px;
-      height: auto;
-      width: auto;
-    }
-
-    .branch-title {
-      color: #63b3d8;
-      font-size: 32px;
-      font-weight: 700;
-      margin: 0;
-    }
-
-    .branch-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 24px;
-    }
-
     .branch-card {
-      flex: 1 1 calc(50% - 24px); /* 2 per row */
-      min-width: 260px;
       background: #63b3d8;
-      color: #fff;
-      border-radius: 12px;
       padding: 20px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-      font-size: 15px;
-      line-height: 1.6;
+      border-radius: 12px;
+      color: white;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+      margin-bottom: 20px;
     }
 
     .branch-card i {
-      font-size: 20px;
-      margin-right: 6px;
+      margin-right: 8px;
     }
 
-    .branch-card strong {
-      font-size: 17px;
-    }
+    /* ===================== CONTACT INFO BLOCK ===================== */
 
-    /* ===========================================
-       CONTACT INFO BLOCK
-    ========================================== */
     .contact-info-wrapper {
       width: 90%;
-      max-width: 1200px;
-      margin: 40px auto 50px;
-    }
-
-    .contact-icon-box {
-      background: #63b3d8;
-      padding: 22px;
-      border-radius: 12px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .contact-icon-box i {
-      color: #fff;
-      font-size: 32px;
-    }
-
-    .contact-info-wrapper h5 {
-      margin-bottom: 6px;
-      font-weight: 600;
-    }
-
-    .contact-info-wrapper p {
-      margin-bottom: 10px;
+      max-width: 1300px;
+      margin: 50px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 14px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
     }
 
     .contact-info-wrapper a {
@@ -214,60 +207,35 @@
       text-decoration: none;
     }
 
-    .contact-info-wrapper a:hover {
-      text-decoration: underline;
-    }
 
-    /* ===========================================
-       FIXED / STICKY ICONS ABOVE FOOTER
-    ========================================== */
-    .icons-above-footer {
-      width: 100%;
-    }
+    /* ===================== WHATSAPP FLOAT ===================== */
 
-    .icon-left,
-    .icon-right {
+    .whatsapp-float {
       position: fixed;
-      z-index: 3000;
-      padding: 16px;
-      border-radius: 50%;
-      transition: 0.3s ease;
-    }
-
-    .icon-left {
-      left: 20px;
-      bottom: 200px;
-      background: #007bff;
-      color: white;
-      font-size: 24px;
-    }
-
-    .icon-left:hover {
-      transform: scale(1.18);
-    }
-
-    .icon-right {
-      right: 20px;
-      bottom: 200px;
+      bottom: 22px;
+      right: 22px;
       background: #25d366;
       color: white;
-      font-size: 26px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 28px;
+      z-index: 2000;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      transition: 0.3s;
     }
 
-    .icon-right:hover {
-      transform: scale(1.18);
+    .whatsapp-float:hover {
+      transform: scale(1.15);
     }
-
-    .icons-stop {
-      bottom: 280px !important;
+    /* Footer positioning */
+    footer {
+      margin-top: auto;
     }
-
-    /* ===========================================
-       FOOTER
-    ========================================== */
-    /* ===========================================
-   MAIN FOOTER
-=========================================== */
+    /* FOOTER */
 .footer {
   width: 100%;
   padding: 60px 40px;
@@ -280,15 +248,11 @@
   border-top: 1px solid #d3d3d3;
 }
 
-
-/* ===========================================
-   SOCIAL + BRAND BLOCK
-=========================================== */
 .social-col {
   width: 30%;
   min-width: 260px;
   display: flex;
-  gap: 55px;
+  gap: 20px;
 }
 
 .footer-social-left {
@@ -305,11 +269,10 @@
 
 .footer-social-left a:hover {
   transform: scale(1.25);
-  color: #0056d6;
 }
 
 .footer-brand {
-  max-width: 300px;
+  max-width: 260px;
 }
 
 .footer-logo {
@@ -319,166 +282,55 @@
 }
 
 .footer-desc {
-  margin-top: 8px;
+  margin-top: 10px;
   line-height: 1.6;
-  color: #444;
-}
-
-
-/* ===========================================
-   QUICK LINKS
-=========================================== */
-.footer-links {
-  list-style: none;
-  min-width: 160px;
-  padding: 0;
 }
 
 .footer-links li {
   margin: 8px 0;
+  list-style: none;
 }
 
 .footer-links a {
   color: #333;
-  transition: 0.3s;
+  font-size: 15px;
 }
 
 .footer-links a:hover {
   color: #007bff;
-  margin-left: 4px;
 }
 
-/* Dropdown wrapper */
-.footer-dropdown {
-  position: relative;
-  list-style: none;
-}
-
-/* Dropdown button */
-.footer-dropbtn {
-  background: none;
-  border: none;
-  color: black;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  padding: 0;
-}
-
-/* Dropdown menu */
-.footer-submenu {
-  display: none;
-  position: absolute;
-  left: 0;
-  margin-top: 6px;
-  background: white;
-  padding: 10px 12px;
-  border-radius: 6px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  z-index: 50;
-}
-
-.footer-submenu li {
-  list-style: none;
+.contact-col ul li {
   margin: 6px 0;
-}
-
-.footer-submenu li a {
-  color: black;
-  font-size: 15px;
-  text-decoration: none;
-}
-
-.footer-submenu li a:hover {
-  text-decoration: underline;
-}
-
-.footer-dropdown.show .footer-submenu {
-  display: block;
-}
-
-
-/* ===========================================
-   CONTACT NUMBERS
-=========================================== */
-.contact-col {
-  min-width: 180px;
-}
-
-.contact-title {
-  color: #007bff;
-  font-size: 18px;
-  margin-bottom: 10px;
-  font-weight: 600;
-}
-
-.contact-list {
   list-style: none;
-  padding: 0;
 }
 
-.contact-list li {
-  margin: 6px 0;
-  color: #333;
-  font-size: 15px;
-}
-
-/* Sub-links */
-.sub-links {
-  list-style: none;
-  margin-left: 15px;
-  margin-top: 6px;
-}
-
-.sub-links li a {
-  font-size: 14px;
-  opacity: 0.85;
-}
-
-.sub-links li a:hover {
-  opacity: 1;
-  color: #00bce8;
-}
-
-
-/* ===========================================
-   MAPS (YOUR SAME ORIGINAL MAP CSS)
-=========================================== */
 .col-maps {
   flex: 1;
   min-width: 350px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .state-title {
-  font-size: 20px;
-  margin-bottom: 12px;
-  color: #007bff;
-  font-weight: 600;
-  margin-left: -40px;
+  font-size: 22px;
+  margin-bottom: 10px;
 }
 
 .district-row {
   display: flex;
-  gap: 10px;
-  justify-content: flex-end;
-  width: 100%;
+  gap: 12px;
+  flex-wrap: nowrap;
 }
 
 .district-card {
   width: 150px;
-  background: rgba(0,0,0,0.08);
+  background: rgba(0, 0, 0, 0.08);
   border-radius: 12px;
   padding: 8px;
   text-align: center;
 }
-
-.district-name {
-  font-size: 13px;
-  color: #222;
-  margin-bottom: 6px;
+.district-name{
+    font-size: 15px;
+  
 }
 
 .map-wrapper {
@@ -487,24 +339,19 @@
 
 .map-icon {
   position: absolute;
-  top: 6px;
-  left: 6px;
-  font-size: 22px;
-  color: red;
-  z-index: 20;
+  top: 4px;
+  left: 4px;
+  font-size: 18px;
 }
 
 .map-frame {
   width: 100%;
   height: 110px;
-  border: none;
   border-radius: 8px;
+  border: none;
 }
 
-
-/* ===========================================
-   MOBILE RESPONSIVE
-=========================================== */
+/* MOBILE */
 @media (max-width: 900px) {
   .footer {
     flex-direction: column;
@@ -516,402 +363,417 @@
     justify-content: center;
   }
 
+  .footer-social-left {
+    flex-direction: row;
+    gap: 18px;
+  }
+}
+/* FOOTER CLEAN DROPDOWN (MATCHING OTHER LINKS) */
+.footer-dropdown {
+  position: relative;
+  list-style: none;
+}
 
-      .branches-wrapper,
-      .contact-info-wrapper {
-        width: 94%;
-      }
+.footer-dropbtn {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 15px;
+  cursor: pointer;
+  color: #333;
+  font-weight: 400;
+}
 
-      .branch-title-row {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+.footer-dropbtn:hover {
+  color: #007bff;
+}
 
-      .branch-title-row img {
-        max-height: 120px;
-      }
+.footer-dropbtn::after {
+  content: " ▾";
+  font-size: 12px;
+  margin-left: 4px;
+}
 
-      .branch-card {
-        flex: 1 1 100%;
-      }
+.footer-submenu {
+  display: none;
+  position: absolute;
+  top: 20px;
+  left: 0;
+  background: #ffffff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  border-radius: 8px;
+  padding: 10px 0;
+  list-style: none;
+  z-index: 20;
+  min-width: 180px;
+}
 
-      .footer {
-        flex-direction: column;
-        text-align: center;
-        align-items: center;
-      }
+.footer-submenu li {
+  padding: 8px 18px;
+}
 
-      .social-col {
-        justify-content: center;
-      }
+.footer-submenu li:hover {
+  background: #f2f2f2;
+}
 
-      .col-maps {
-        margin-top: 10px;
-      }
+.footer-submenu a {
+  color: #333;
+  font-size: 15px;
+  text-decoration: none;
+}
 
-      .icon-left {
-        left: 10px;
-        bottom: 180px;
-      }
+.footer-dropdown.show .footer-submenu {
+  display: block;
+}
 
-      .icon-right {
-        right: 10px;
-        bottom: 180px;
-      }
-    }
+
+
   </style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
-  <header class="header">
-    <div class="logo">
-      <a href="index.html">
-        <img src="logo.png" alt="VIndia Infrasec logo">
-      </a>
+<!-- ===================== HEADER ===================== -->
+
+<header class="main-header">
+  <div class="header-container">
+
+    <div class="header-left">
+      <div class="logo-box">
+        <img src="logo.png" alt="Logo">
+      </div>
+
+      <div>
+        <div class="brand-title">VINDIA INFRASEC</div>
+        <div class="brand-sub">CONSTRUCTION • INTERIORS • ARCHITECTURE</div>
+      </div>
     </div>
 
-    <nav class="nav">
+    <nav class="header-nav">
       <a href="index.html">Home</a>
-      <a href="about.html">About Us</a>
+      <a href="about.html">About</a>
       <a href="services.html">Services</a>
       <a href="projects.html">Projects</a>
       <a href="careers/we-work.html">Career</a>
-      <a href="contact.html" style="color:#63b3d8;">Contact</a>
+      <a href="contact.html" class="active">Contact</a>
     </nav>
-  </header>
 
-  <!-- OPTIONAL SUCCESS BANNER -->
-  <div id="successBanner" class="success-banner">
-    ✅ Thank you for contacting us. We’ve received your message and will reach out to you soon.
+    <a href="tel:+918592921212" class="call-btn">CALL<br>NOW</a>
+
   </div>
+</header>
 
-  <!-- CONTACT SECTION -->
-  <section class="contact-box">
-    <div class="row">
-      <!-- MAP -->
-      <div class="col-md-6 mb-4 mb-md-0">
-        <iframe
-          src="https://www.google.com/maps?q=Bangalore&output=embed"
-          loading="lazy">
-        </iframe>
-      </div>
+<!-- ===================== PAGE TITLE ===================== -->
 
-      <!-- FORM -->
-      <div class="col-md-6">
-        <h2>Contact Us</h2>
-        <p class="subtitle">
-          Reach out to VIndia Infrasec for any construction, interior, or engineering requirements.
-        </p>
+<div class="page-head">
+  <h1>Contact Us</h1>
+</div>
 
-        <form action="https://formsubmit.co/info@vindiainfrasec.com" method="POST"
-              onsubmit="alert('Thank you for contacting us. We will reach out to you soon.');">
+<!-- END OF PART 1 -->
+<!-- ===================== CONTACT SECTION ===================== -->
 
-          <!-- FormSubmit config -->
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_subject" value="New Website Contact">
-          <input type="hidden" name="_template" value="table">
+<section class="contact-box">
+  <div class="row">
 
-          <div class="row ml-xl-2 mt-xl-2">
-
-            <div class="col-lg-12">
-              <input type="text" class="form-control mt-2" placeholder="Name" name="name" required>
-            </div>
-
-            <div class="col-lg-12">
-              <input type="text" class="form-control mt-2" placeholder="Place" name="place" required>
-            </div>
-
-            <div class="col-lg-12">
-              <input type="email" class="form-control mt-2" placeholder="Email" name="email" required>
-            </div>
-
-            <div class="col-lg-12">
-              <input type="number" class="form-control mt-2" placeholder="Mobile" name="mobile" required>
-            </div>
-
-            <div class="col-lg-12">
-              <textarea class="form-control mt-2" placeholder="Message" rows="3" name="message" required></textarea>
-            </div>
-
-            <div class="col-lg-12 mt-3">
-              <input class="btn btn-light" type="submit" value="Submit">
-            </div>
-
-          </div>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- BRANCHES SECTION -->
-  <section class="branches-wrapper">
-    <div class="branch-title-row">
-      <img src="img/1583576661537355876.svg" alt="Branches Icon">
-      <h2 class="branch-title">Our Branches</h2>
+    <!-- MAP -->
+    <div class="col-md-6 mb-4 mb-md-0">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.6805664544113!2d77.70015670722789!3d12.992271314378774!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae114b3494ae13%3A0xbb2d4821f7df887b!2sVIndia%20Infrasec%20%7C%20Construction%20%7C%20Real%20Estate%20Developer%20%7C%20Interior%20Design!5e0!3m2!1sen!2sin!4v1764777062077!5m2!1sen!2sin" 
+        loading="lazy">
+      </iframe>
     </div>
 
-    <div class="branch-grid">
+    <!-- FORM -->
+    <div class="col-md-6">
+      <h2>Get in Touch</h2>
+      <p style="opacity:0.9;">Reach out to VIndia Infrasec for any construction, interior or engineering inquiries.</p>
+
+      <form action="https://formsubmit.co/info@vindiainfrasec.com"
+            method="POST"
+            onsubmit="alert('Thank you! We will contact you shortly.');">
+
+        <!-- FormSubmit Settings -->
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_subject" value="New Contact Request">
+        <input type="hidden" name="_template" value="table">
+
+        <input type="text" name="name" class="form-control" placeholder="Name" required>
+        <input type="text" name="place" class="form-control" placeholder="Place" required>
+        <input type="email" name="email" class="form-control" placeholder="Email" required>
+        <input type="number" name="mobile" class="form-control" placeholder="Mobile Number" required>
+        <textarea name="message" class="form-control" rows="3" placeholder="Message" required></textarea>
+
+        <button class="btn-submit" type="submit">Send Message</button>
+
+      </form>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== BRANCHES ===================== -->
+
+<section class="branches-wrapper">
+  <h2>Our Branches</h2>
+
+  <div class="row">
+
+    <div class="col-md-4">
       <div class="branch-card">
-        <i class="fas fa-map-marker-alt"></i><strong> Kannur</strong>
-        <p class="mt-3 mb-0">
-          VIndia Infrasec<br>
+        <i class="fas fa-map-marker-alt"></i>
+        <strong>Kannur</strong>
+        <p class="mt-2 mb-0">
           VIndia Arcade, P.O. Alavil<br>
           Kannur - 670008
         </p>
       </div>
+    </div>
 
+    <div class="col-md-4">
       <div class="branch-card">
-        <i class="fas fa-map-marker-alt"></i><strong> Ernakulam</strong>
-        <p class="mt-3 mb-0">
-          VIndia Infrasec<br>
+        <i class="fas fa-map-marker-alt"></i>
+        <strong>Ernakulam</strong>
+        <p class="mt-2 mb-0">
           14/453A Alembath, MLA Road<br>
-          Udayamperoor<br>
-          Ernakulam - 682307
+          Udayamperoor, Ernakulam - 682307
         </p>
       </div>
+    </div>
 
+    <div class="col-md-4">
       <div class="branch-card">
-        <i class="fas fa-map-marker-alt"></i><strong> Bhubaneswar</strong>
-        <p class="mt-3 mb-0">
-          VIndia Infrasec<br>
+        <i class="fas fa-map-marker-alt"></i>
+        <strong>Bhubaneswar</strong>
+        <p class="mt-2 mb-0">
           Chandaka Industrial Estate,<br>
-          Patia,<br>
-          Bhubaneswar, Odisha 751024
+          Patia, Bhubaneswar, Odisha 751024
         </p>
       </div>
+    </div>
 
+    <div class="col-md-4">
       <div class="branch-card">
-        <i class="fas fa-map-marker-alt"></i><strong> Pune</strong>
-        <p class="mt-3 mb-0">
-          VIndia Infrasec<br>
+        <i class="fas fa-map-marker-alt"></i>
+        <strong>Pune</strong>
+        <p class="mt-2 mb-0">
           Arunchaya, Shop No-2<br>
-          Shivaji Chowk,<br>
-          Pimple Gurav, Pune - 411061
+          Shivaji Chowk, Pimple Gurav,<br>
+          Pune - 411061
         </p>
       </div>
+    </div>
 
+    <div class="col-md-4">
       <div class="branch-card">
-        <i class="fas fa-map-marker-alt"></i><strong> Pondicherry</strong>
-        <p class="mt-3 mb-0">
-          VIndia Infrasec<br>
-          Accord Mobiles<br>
-          309 Anna Salai<br>
+        <i class="fas fa-map-marker-alt"></i>
+        <strong>Pondicherry</strong>
+        <p class="mt-2 mb-0">
+          Accord Mobiles,<br>
+          309 Anna Salai,<br>
           Pondicherry - 605001
         </p>
       </div>
+    </div>
 
+    <div class="col-md-4">
       <div class="branch-card">
-        <i class="fas fa-map-marker-alt"></i><strong> Kharagpur</strong>
-        <p class="mt-3 mb-0">
-          VIndia Infrasec<br>
+        <i class="fas fa-map-marker-alt"></i>
+        <strong>Kharagpur</strong>
+        <p class="mt-2 mb-0">
           Chandni Chowk,<br>
           Kharagpur - 721305
         </p>
       </div>
     </div>
-  </section>
 
-  <!-- CONTACT INFO + SOCIAL -->
-  <section class="contact-info-wrapper">
-    <div class="row align-items-center">
-      <div class="col-md-2 text-center mb-3 mb-md-0">
-        <div class="contact-icon-box">
-          <i class="fas fa-user"></i>
+  </div>
+</section>
+
+
+<!-- ===================== CONTACT INFO BOX ===================== -->
+
+<section class="contact-info-wrapper">
+  <div class="row align-items-center">
+
+    <div class="col-md-2 text-center mb-3 mb-md-0">
+      <div class="contact-icon-box" style="background:#63b3d8; padding:20px; border-radius:12px;">
+        <i class="fas fa-user" style="color:white; font-size:32px;"></i>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+
+      <h5>Phone Number</h5>
+      <p>
+        <i class="fas fa-phone-alt text-primary mr-2"></i>
+        <a href="tel:+918592921212">(+91) 85929 21212</a>
+      </p>
+
+      <h5>Email</h5>
+      <p>
+        <i class="fas fa-envelope text-primary mr-2"></i>
+        <a href="mailto:info@vindiainfrasec.com">info@vindiainfrasec.com</a>
+      </p>
+
+    </div>
+
+    <div class="col-md-4 text-center text-md-left mt-3 mt-md-0">
+      <a href="#" class="mx-2"><i class="fab fa-facebook-f fa-lg text-primary"></i></a>
+      <a href="#" class="mx-2"><i class="fab fa-linkedin-in fa-lg text-primary"></i></a>
+      <a href="#" class="mx-2"><i class="fab fa-twitter fa-lg text-primary"></i></a>
+      <a href="#" class="mx-2"><i class="fab fa-instagram fa-lg text-primary"></i></a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ===================== WHATSAPP FLOAT ===================== -->
+<a href="https://api.whatsapp.com/send/?phone=918592921212"
+   class="whatsapp-float"
+   target="_blank"
+   aria-label="WhatsApp Chat">
+   <i class="fab fa-whatsapp"></i>
+</a>
+<!-- FOOTER (same as your existing, styled by wework.css) -->
+    <footer class="footer">
+
+      <!-- SOCIAL -->
+      <div class="social-col">
+        <div class="footer-social-left">
+          <a href="#" title="Google"><i class="fab fa-google"></i></a>
+          <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div>
+
+        <div class="footer-brand">
+          <h2 class="footer-logo">VIndia Infrasec</h2>
+          <p class="footer-desc">
+            Delivering excellence in Construction, Interior Design & Structural Engineering across South India.
+          </p>
         </div>
       </div>
 
-      <div class="col-md-6">
-        <h5>Phone Number</h5>
-        <p>
-          <i class="fas fa-phone-alt mr-2 text-primary"></i>
-          <a href="tel:+918592921212">(+91) 85929 21212</a>
-        </p>
+      <!-- QUICK LINKS -->
+      <div class="col">
+        <ul class="footer-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about.html">About Us</a></li>
 
-        <h5>Email</h5>
-        <p>
-          <i class="fas fa-envelope mr-2 text-primary"></i>
-          <a href="mailto:info@vindiainfrasec.com">info@vindiainfrasec.com</a>
-        </p>
+          <li class="footer-dropdown" id="careerDropdown">
+            <button class="footer-dropbtn" onclick="toggleCareer()">Career ▾</button>
+
+            <ul class="footer-submenu">
+              <li><a href="/careers/we-work.html">We Work</a></li>
+              <li><a href="/careers/openings.html">Open Positions</a></li>
+              <li><a href="/careers/submit-cv.html">Submit Your CV</a></li>
+            </ul>
+          </li>
+
+          <li><a href="/services.html">Services</a></li>
+          <li><a href="/projects.html">Projects</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
       </div>
 
-      <div class="col-md-4 text-center text-md-left mt-3 mt-md-0">
-        <a href="#" class="mx-2"><i class="fab fa-facebook-f fa-lg text-primary"></i></a>
-        <a href="#" class="mx-2"><i class="fab fa-linkedin-in fa-lg text-primary"></i></a>
-        <a href="#" class="mx-2"><i class="fab fa-twitter fa-lg text-primary"></i></a>
-        <a href="#" class="mx-2"><i class="fab fa-instagram fa-lg text-primary"></i></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FLOATING WHATSAPP (add call icon if you want) -->
-  <div class="icons-above-footer">
-    <!-- Example Call Icon (uncomment if needed)
-    <a href="tel:+918592921212" class="icon-left" aria-label="Call VIndia Infrasec">
-      <i class="fas fa-phone-alt"></i>
-    </a>
-    -->
-    <a href="https://api.whatsapp.com/send/?phone=918592921212"
-       class="icon-right"
-       target="_blank"
-       rel="noopener noreferrer"
-       aria-label="WhatsApp Chat">
-       <i class="fab fa-whatsapp"></i>
-    </a>
-  </div>
-
-  <!-- FOOTER -->
-  <!-- FOOTER -->
-  <footer class="footer">
-
-    <!-- SOCIAL -->
-    <div class="social-col">
-      <div class="footer-social-left">
-        <a href="#" title="Google"><i class="fab fa-google"></i></a>
-        <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
-        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <!-- CONTACT -->
+      <div class="col contact-col">
+        <h3 class="contact-title">Call Us</h3>
+        <ul class="contact-list">
+          <li>+91 85929 11212</li>
+          <li>+91 85929 21212</li>
+          <li>+91 85929 31212</li>
+          <li>+91 85929 41212</li>
+          <li>+91 85929 51212</li>
+          <li>+91 85929 61212</li>
+        </ul>
       </div>
 
-      <div class="footer-brand">
-        <h2 class="footer-logo">VIndia Infrasec</h2>
-        <p class="footer-desc">
-          Delivering excellence in Construction, Interior Design & Structural Engineering across South India.
-        </p>
+      <!-- MAPS -->
+      <div class="col col-maps">
+        <h3 class="state-title" id="stateTitle">Kerala</h3>
+        <div class="district-row" id="districtContainer"></div>
       </div>
-    </div>
 
-    <!-- QUICK LINKS -->
-    <div class="col">
-      <ul class="footer-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/about.html">About Us</a></li>
+    </footer>
 
-        <li class="footer-dropdown" id="careerDropdown">
-          <button class="footer-dropbtn" onclick="toggleCareer()">Career ▾</button>
 
-          <ul class="footer-submenu">
-            <li><a href="/careers/we-work.html">We Work</a></li>
-            <li><a href="/careers/openings.html">Open Positions</a></li>
-            <li><a href="/careers/submit-cv.html">Submit Your CV</a></li>
-          </ul>
-        </li>
 
-        <li><a href="/services.html">Services</a></li>
-        <li><a href="/projects.html">Projects</a></li>
-        <li><a href="/contact.html">Contact</a></li>
-      </ul>
-    </div>
+<!-- ===================== FOOTER JS ===================== -->
 
-    <!-- CONTACT -->
-    <div class="col contact-col">
-      <h3 class="contact-title">Call Us</h3>
-      <ul class="contact-list">
-        <li>+91 85929 11212</li>
-        <li>+91 85929 21212</li>
-        <li>+91 85929 31212</li>
-        <li>+91 85929 41212</li>
-        <li>+91 85929 51212</li>
-        <li>+91 85929 61212</li>
-      </ul>
-    </div>
+<script>
+/* Career dropdown */
+function toggleCareer() {
+  document.getElementById("careerDropdown").classList.toggle("show");
+}
 
-    <!-- MAPS -->
-    <div class="col col-maps">
-      <h3 class="state-title" id="stateTitle">Kerala</h3>
-      <div class="district-row" id="districtContainer"></div>
-    </div>
+document.addEventListener("click", function (event) {
+  const dropdown = document.getElementById("careerDropdown");
+  if (dropdown && !dropdown.contains(event.target)) {
+    dropdown.classList.remove("show");
+  }
+});
 
-  </footer>
 
-  <!-- JS: jQuery + Bootstrap -->
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+/* Rotating mini-maps */
+const states = [
+  {
+    title: "Kerala",
+    districts: ["Kochi", "Trivandrum", "Kannur"],
+    maps: [
+      "https://www.google.com/maps?q=Kochi,Kerala&output=embed",
+      "https://www.google.com/maps?q=Trivandrum,Kerala&output=embed",
+      "https://www.google.com/maps?q=Kannur,Kerala&output=embed"
+    ]
+  },
+  {
+    title: "Karnataka",
+    districts: ["Mysore", "Bengaluru"],
+    maps: [
+      "https://www.google.com/maps?q=Mysore,Karnataka&output=embed",
+      "https://www.google.com/maps?q=Bengaluru,Karnataka&output=embed"
+    ]
+  },
+  {
+    title: "Tamil Nadu",
+    districts: ["Coimbatore", "Chennai", "Madurai"],
+    maps: [
+      "https://www.google.com/maps?q=Coimbatore,Tamil+Nadu&output=embed",
+      "https://www.google.com/maps?q=Chennai,Tamil+Nadu&output=embed",
+      "https://www.google.com/maps?q=Madurai,Tamil+Nadu&output=embed"
+    ]
+  }
+];
 
-  <!-- FOOTER JS: Dropdown + Map Rotations + Success banner -->
-  <script>
-    // Career dropdown
-    function toggleCareer() {
-      document.getElementById("careerDropdown").classList.toggle("show");
-    }
+let index = 0;
+const stateTitle = document.getElementById("stateTitle");
+const districtContainer = document.getElementById("districtContainer");
 
-    document.addEventListener("click", function (event) {
-      const dropdown = document.getElementById("careerDropdown");
-      if (dropdown && !dropdown.contains(event.target)) {
-        dropdown.classList.remove("show");
-      }
-    });
+function renderMaps() {
+  const s = states[index];
 
-    // Rotating mini maps data
-    const states = [
-      {
-        title: "Kerala",
-        districts: ["Kochi", "Trivandrum", "Kannur"],
-        maps: [
-          "https://www.google.com/maps?q=Kochi,Kerala&output=embed",
-          "https://www.google.com/maps?q=Trivandrum,Kerala&output=embed",
-          "https://www.google.com/maps?q=Kannur,Kerala&output=embed"
-        ]
-      },
-      {
-        title: "Karnataka",
-        districts: ["Mysore", "Bengaluru"],
-        maps: [
-          "https://www.google.com/maps?q=Mysore,Karnataka&output=embed",
-          "https://www.google.com/maps?q=Bengaluru,Karnataka&output=embed"
-        ]
-      },
-      {
-        title: "Tamil Nadu",
-        districts: ["Coimbatore", "Chennai", "Madurai"],
-        maps: [
-          "https://www.google.com/maps?q=Coimbatore,Tamil+Nadu&output=embed",
-          "https://www.google.com/maps?q=Chennai,Tamil+Nadu&output=embed",
-          "https://www.google.com/maps?q=Madurai,Tamil+Nadu&output=embed"
-        ]
-      }
-    ];
+  stateTitle.textContent = s.title;
 
-    let index = 0;
-    const stateTitle = document.getElementById("stateTitle");
-    const districtContainer = document.getElementById("districtContainer");
+  districtContainer.innerHTML = s.districts
+    .map((d, i) => `
+      <div class="district-card">
+        <h4 class="district-name">${d}</h4>
+        <div class="map-wrapper">
+          <span class="map-icon">📍</span>
+          <iframe src="${s.maps[i]}" class="map-frame"></iframe>
+        </div>
+      </div>
+    `)
+    .join("");
+}
 
-    function renderMaps() {
-      const state = states[index];
-      if (!stateTitle || !districtContainer) return;
-
-      stateTitle.textContent = state.title;
-
-      districtContainer.innerHTML = state.districts
-        .map(
-          (d, i) => `
-          <div class="district-card">
-            <h4 class="district-name">${d}</h4>
-            <div class="map-wrapper">
-              <span class="map-icon">📍</span>
-              <iframe src="${state.maps[i]}" class="map-frame" loading="lazy"></iframe>
-            </div>
-          </div>
-        `
-        )
-        .join("");
-    }
-
-    renderMaps();
-    setInterval(() => {
-      index = (index + 1) % states.length;
-      renderMaps();
-    }, 3000);
-
-    // Optional: show success banner if ?success=1
-    (function () {
-      if (window.location.search.includes('success=')) {
-        const banner = document.getElementById('successBanner');
-        if (banner) banner.style.display = 'block';
-      }
-    })();
-  </script>
+renderMaps();
+setInterval(() => {
+  index = (index + 1) % states.length;
+  renderMaps();
+}, 3000);
+</script>
 
 </body>
 </html>
