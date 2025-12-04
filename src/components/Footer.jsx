@@ -124,8 +124,8 @@ export default function Footer() {
                 <li><a href="/careers/we-work.html">We Work</a></li>
                 {/* <li><a href="/careers/openings.html">Open Positions</a></li>
                 <li><a href="/careers/submit-cv.html">Submit Your CV</a></li> */}
-              </ul>
-            </li> */}
+              {/* </ul>
+            </li> */} 
 
             <li><a href="/services.html">Services</a></li>
             <li><a href="/projects.html">Projects</a></li>
