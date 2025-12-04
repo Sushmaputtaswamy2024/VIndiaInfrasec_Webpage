@@ -65,6 +65,7 @@
   }
 }
 
+
 /* ============================
    MAIN FOOTER
 ============================= */
@@ -121,6 +122,7 @@
   color: #444;
 }
 
+
 /* QUICK LINKS */
 .footer-links {
   list-style: none;
@@ -141,6 +143,7 @@
   color: #007bff;
   margin-left: 4px;
 }
+
 
 /* Dropdown */
 .footer-dropdown {
@@ -172,6 +175,7 @@
   display: block;
 }
 
+
 /* CONTACT */
 .contact-col {
   min-width: 180px;
@@ -192,6 +196,7 @@
 .contact-list li {
   margin: 6px 0;
 }
+
 
 /* MAPS */
 .col-maps {
@@ -248,6 +253,7 @@
   border-radius: 8px;
 }
 
+
 /* LOCATION LINK */
 .district-location {
   display: block;
@@ -260,13 +266,12 @@
 
 .district-location:hover {
   text-decoration: underline;
-<<<<<<< Updated upstream
-}                         
-=======
 }
->>>>>>> Stashed changes
 
-/* MOBILE */
+
+/* ============================
+   MOBILE RESPONSIVE
+============================= */
 @media (max-width: 900px) {
   .footer {
     flex-direction: column;

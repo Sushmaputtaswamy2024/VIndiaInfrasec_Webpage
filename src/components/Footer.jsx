@@ -101,8 +101,8 @@ export default function Footer() {
           <div className="footer-brand">
             <h2 className="footer-logo">VIndia Infrasec</h2>
             <p className="footer-desc">
-              Delivering excellence in Construction, Interior Design &
-              Structural Engineering across South India.
+              Delivering excellence in Construction, Interior Design & Structural Engineering
+              across South India.
             </p>
           </div>
         </div>
@@ -113,69 +113,18 @@ export default function Footer() {
             <li><a href="/">Home</a></li>
             <li><a href="/about.html">About Us</a></li>
 
+            {/* CAREER DROPDOWN */}
             <li className="footer-dropdown">
               <button className="footer-dropbtn" onClick={toggleDropdown}>
                 Career ▾
               </button>
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-  {/* CAREER DROPDOWN */}
-  <li className="footer-dropdown">
-  <button className="footer-dropbtn" onClick={toggleDropdown}>
-  Career ▾
-</button>
-
-
-  <ul className="footer-submenu">
-    <li><a href="/careers/we-work.html">We Work</a></li>
-    <li><a href="/careers/openings.html">Open Positions</a></li>
-    <li><a href="/careers/submit-cv.html">Submit Your CV</a></li>
-  </ul>
-</li>
-
-
-  <li><a href="/services.html">Services</a></li>
-  <li><a href="/projects">Projects</a></li>
-  <li><a href="/contact.html">Contact</a></li>
-</ul>
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
               <ul className="footer-submenu">
                 <li><a href="/careers/we-work.html">We Work</a></li>
-                <li><a href="/careers/openings.html">Open Positions</a></li>
-                <li><a href="/careers/submit-cv.html">Submit Your CV</a></li>
+                {/* <li><a href="/careers/openings.html">Open Positions</a></li>
+                <li><a href="/careers/submit-cv.html">Submit Your CV</a></li> */}
               </ul>
             </li>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 
             <li><a href="/services">Services</a></li>
             <li><a href="/projects">Projects</a></li>
@@ -228,7 +177,6 @@ export default function Footer() {
             ))}
           </div>
         </div>
-
       </footer>
     </>
   );
