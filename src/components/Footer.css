@@ -260,7 +260,7 @@
 
 .district-location:hover {
   text-decoration: underline;
-}
+}                         
 
 /* MOBILE */
 @media (max-width: 900px) {
