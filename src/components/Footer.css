@@ -48,19 +48,6 @@
   box-shadow: 0 4px 12px rgba(0,0,0,0.28);
   animation: iconBounce 1.6s ease-in-out infinite;
   animation-delay: 0.5s;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 }
 
 .whatsapp-icon:hover {
@@ -76,48 +63,9 @@
   50% {
     transform: translateY(-8px);
   }
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
 }
 
-.whatsapp-icon:hover {
-  transform: scale(1.2);
-  animation-play-state: paused;
-}
 
-<<<<<<< Updated upstream
-=======
-/* Bounce animation */
-@keyframes iconBounce {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
-}
-
->>>>>>> Stashed changes
-=======
-}
-
->>>>>>> Stashed changes
-=======
-}
-
->>>>>>> Stashed changes
-=======
-}
-
->>>>>>> Stashed changes
-=======
-}
-
->>>>>>> Stashed changes
 /* ============================
    MAIN FOOTER
 ============================= */
@@ -174,22 +122,7 @@
   color: #444;
 }
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 /* QUICK LINKS */
 .footer-links {
   list-style: none;
@@ -211,22 +144,7 @@
   margin-left: 4px;
 }
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 /* Dropdown */
 .footer-dropdown {
   position: relative;
@@ -257,22 +175,7 @@
   display: block;
 }
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 /* CONTACT */
 .contact-col {
   min-width: 180px;
@@ -294,22 +197,7 @@
   margin: 6px 0;
 }
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 /* MAPS */
 .col-maps {
   flex: 1.1;
@@ -365,22 +253,7 @@
   border-radius: 8px;
 }
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 /* LOCATION LINK */
 .district-location {
   display: block;
@@ -395,30 +268,10 @@
   text-decoration: underline;
 }
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 
 /* ============================
    MOBILE RESPONSIVE
 ============================= */
-=======
-/* MOBILE */
->>>>>>> Stashed changes
-=======
-/* MOBILE */
->>>>>>> Stashed changes
-=======
-/* MOBILE */
->>>>>>> Stashed changes
-=======
-/* MOBILE */
->>>>>>> Stashed changes
-=======
-/* MOBILE */
->>>>>>> Stashed changes
 @media (max-width: 900px) {
   .footer {
     flex-direction: column;
