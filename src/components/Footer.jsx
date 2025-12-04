@@ -104,8 +104,13 @@ export default function Footer() {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
               Delivering excellence in Construction, Interior Design & Structural Engineering
               across South India.
+=======
+              Delivering excellence in Construction, Interior Design &
+              Structural Engineering across South India.
+>>>>>>> Stashed changes
 =======
               Delivering excellence in Construction, Interior Design &
               Structural Engineering across South India.
@@ -131,7 +136,10 @@ export default function Footer() {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             {/* CAREER DROPDOWN */}
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -148,8 +156,13 @@ export default function Footer() {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 {/* <li><a href="/careers/openings.html">Open Positions</a></li>
                 <li><a href="/careers/submit-cv.html">Submit Your CV</a></li> */}
+=======
+                <li><a href="/careers/openings.html">Open Positions</a></li>
+                <li><a href="/careers/submit-cv.html">Submit Your CV</a></li>
+>>>>>>> Stashed changes
 =======
                 <li><a href="/careers/openings.html">Open Positions</a></li>
                 <li><a href="/careers/submit-cv.html">Submit Your CV</a></li>
