@@ -101,8 +101,13 @@ export default function Footer() {
           <div className="footer-brand">
             <h2 className="footer-logo">VIndia Infrasec</h2>
             <p className="footer-desc">
+<<<<<<< Updated upstream
               Delivering excellence in Construction, Interior Design & Structural Engineering
               across South India.
+=======
+              Delivering excellence in Construction, Interior Design &
+              Structural Engineering across South India.
+>>>>>>> Stashed changes
             </p>
           </div>
         </div>
@@ -113,7 +118,10 @@ export default function Footer() {
             <li><a href="/">Home</a></li>
             <li><a href="/about.html">About Us</a></li>
 
+<<<<<<< Updated upstream
             {/* CAREER DROPDOWN */}
+=======
+>>>>>>> Stashed changes
             <li className="footer-dropdown">
               <button className="footer-dropbtn" onClick={toggleDropdown}>
                 Career ▾
@@ -121,8 +129,13 @@ export default function Footer() {
 
               <ul className="footer-submenu">
                 <li><a href="/careers/we-work.html">We Work</a></li>
+<<<<<<< Updated upstream
                 {/* <li><a href="/careers/openings.html">Open Positions</a></li>
                 <li><a href="/careers/submit-cv.html">Submit Your CV</a></li> */}
+=======
+                <li><a href="/careers/openings.html">Open Positions</a></li>
+                <li><a href="/careers/submit-cv.html">Submit Your CV</a></li>
+>>>>>>> Stashed changes
               </ul>
             </li>
 
