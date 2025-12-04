@@ -260,7 +260,11 @@
 
 .district-location:hover {
   text-decoration: underline;
+<<<<<<< Updated upstream
 }                         
+=======
+}
+>>>>>>> Stashed changes
 
 /* MOBILE */
 @media (max-width: 900px) {
