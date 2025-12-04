@@ -121,41 +121,10 @@ export default function Footer() {
 
               <ul className="footer-submenu">
                 <li><a href="/careers/we-work.html">We Work</a></li>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-                {/* <li><a href="/careers/openings.html">Open Positions</a></li>
-                <li><a href="/careers/submit-cv.html">Submit Your CV</a></li> */}
-              {/* </ul>
-            </li> */} 
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
                 <li><a href="/careers/openings.html">Open Positions</a></li>
                 <li><a href="/careers/submit-cv.html">Submit Your CV</a></li>
               </ul>
             </li>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 
             <li><a href="/services">Services</a></li>
             <li><a href="/projects">Projects</a></li>
