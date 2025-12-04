@@ -49,6 +49,9 @@
   animation: iconBounce 1.6s ease-in-out infinite;
   animation-delay: 0.5s;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
 }
 
 .whatsapp-icon:hover {
@@ -64,6 +67,7 @@
   50% {
     transform: translateY(-8px);
   }
+<<<<<<< Updated upstream
 =======
 >>>>>>> Stashed changes
 }
@@ -83,6 +87,10 @@
   50% {
     transform: translateY(-8px);
   }
+}
+
+>>>>>>> Stashed changes
+=======
 }
 
 >>>>>>> Stashed changes
@@ -143,7 +151,10 @@
 }
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 /* QUICK LINKS */
@@ -168,7 +179,10 @@
 }
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 /* Dropdown */
@@ -202,7 +216,10 @@
 }
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 /* CONTACT */
@@ -227,7 +244,10 @@
 }
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 /* MAPS */
@@ -286,7 +306,10 @@
 }
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 /* LOCATION LINK */
@@ -304,10 +327,14 @@
 }
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 /* ============================
    MOBILE RESPONSIVE
 ============================= */
+=======
+/* MOBILE */
+>>>>>>> Stashed changes
 =======
 /* MOBILE */
 >>>>>>> Stashed changes
