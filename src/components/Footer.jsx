@@ -1,4 +1,5 @@
 import "./Footer.css";
+import { Link } from "react-router-dom";
 import {
   FaGoogle,
   FaYoutube,
@@ -43,10 +44,7 @@ export default function Footer() {
     },
   ];
 
-<<<<<<< Updated upstream
-=======
   // Auto Slide States
->>>>>>> Stashed changes
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % states.length);
@@ -76,16 +74,13 @@ export default function Footer() {
         </a>
       </div>
 
+      {/* FOOTER */}
       <footer className="footer">
+
         {/* SOCIAL + BRAND */}
         <div className="social-col">
           <div className="footer-social-left">
             <a href="#"><FaGoogle /></a>
-<<<<<<< Updated upstream
-            <a href="https://youtube.com/@vindia_infrasec" target="_blank"><FaYoutube /></a>
-            <a href="#"><FaInstagram /></a>
-            <a href="https://www.linkedin.com/company/vindia-infrasec/" target="_blank"><FaLinkedin /></a>
-=======
             <a
               href="https://youtube.com/@vindia_infrasec"
               target="_blank"
@@ -101,14 +96,13 @@ export default function Footer() {
             >
               <FaLinkedin />
             </a>
->>>>>>> Stashed changes
           </div>
 
           <div className="footer-brand">
             <h2 className="footer-logo">VIndia Infrasec</h2>
             <p className="footer-desc">
-              Delivering excellence in Construction, Interior Design &
-              Structural Engineering across South India.
+              Delivering excellence in Construction, Interior Design & Structural Engineering
+              across South India.
             </p>
           </div>
         </div>
@@ -119,14 +113,12 @@ export default function Footer() {
             <li><a href="/">Home</a></li>
             <li><a href="/about.html">About Us</a></li>
 
+            {/* CAREER DROPDOWN */}
             <li className="footer-dropdown">
               <button className="footer-dropbtn" onClick={toggleDropdown}>
                 Career ▾
               </button>
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
               <ul className="footer-submenu">
                 <li><a href="/careers/we-work.html">We Work</a></li>
                 <li><a href="/careers/openings.html">Open Positions</a></li>
@@ -167,22 +159,17 @@ export default function Footer() {
                   <iframe
                     src={states[index].maps[i]}
                     loading="lazy"
+                    title={`${district} map`}
                     className="map-frame"
                   ></iframe>
                 </div>
 
-<<<<<<< Updated upstream
-=======
                 {/* ONLY SHOW “LOCATION” */}
->>>>>>> Stashed changes
                 <a
                   className="district-location"
                   href={states[index].maps[i].replace("&output=embed", "")}
                   target="_blank"
-<<<<<<< Updated upstream
-=======
                   rel="noopener noreferrer"
->>>>>>> Stashed changes
                 >
                   Location
                 </a>
