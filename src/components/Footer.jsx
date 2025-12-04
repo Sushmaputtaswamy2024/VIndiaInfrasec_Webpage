@@ -112,23 +112,29 @@ export default function Footer() {
           <ul className="footer-links">
             <li><a href="/">Home</a></li>
             <li><a href="/about.html">About Us</a></li>
-            <li><a href="careers/we-work.html">Careers</a></li>
 
             {/* CAREER DROPDOWN */}
-            {/* <li className="footer-dropdown">
+            <li className="footer-dropdown">
               <button className="footer-dropbtn" onClick={toggleDropdown}>
                 Career ▾
               </button>
 
               <ul className="footer-submenu">
                 <li><a href="/careers/we-work.html">We Work</a></li>
+<<<<<<< Updated upstream
                 {/* <li><a href="/careers/openings.html">Open Positions</a></li>
                 <li><a href="/careers/submit-cv.html">Submit Your CV</a></li> */}
               {/* </ul>
             </li> */} 
+=======
+                <li><a href="/careers/openings.html">Open Positions</a></li>
+                <li><a href="/careers/submit-cv.html">Submit Your CV</a></li>
+              </ul>
+            </li>
+>>>>>>> Stashed changes
 
-            <li><a href="/services.html">Services</a></li>
-            <li><a href="/projects.html">Projects</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/projects">Projects</a></li>
             <li><a href="/contact.html">Contact</a></li>
           </ul>
         </div>
