@@ -124,11 +124,14 @@ export default function Footer() {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 {/* <li><a href="/careers/openings.html">Open Positions</a></li>
                 <li><a href="/careers/submit-cv.html">Submit Your CV</a></li> */}
               {/* </ul>
             </li> */} 
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -139,6 +142,9 @@ export default function Footer() {
             </li>
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
