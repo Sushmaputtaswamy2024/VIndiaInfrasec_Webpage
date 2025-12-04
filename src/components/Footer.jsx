@@ -122,8 +122,8 @@ export default function Footer() {
 
               <ul className="footer-submenu">
                 <li><a href="/careers/we-work.html">We Work</a></li>
-                <li><a href="/careers/openings.html">Open Positions</a></li>
-                <li><a href="/careers/submit-cv.html">Submit Your CV</a></li>
+                {/* <li><a href="/careers/openings.html">Open Positions</a></li>
+                <li><a href="/careers/submit-cv.html">Submit Your CV</a></li> */}
               </ul>
             </li> */}
 
