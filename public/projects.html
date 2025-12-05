@@ -2,23 +2,88 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projects | VIndia Infrasec</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>Completed Construction Projects | VIndia Infrasec</title>
+
+  <!-- Basic SEO -->
+  <meta
+    name="description"
+    content="View completed residential, commercial and industrial construction projects executed by VIndia Infrasec across Mysuru, Bengaluru, Kochi, Kannur and other cities in South India."
+  />
+  <meta
+    name="keywords"
+    content="VIndia Infrasec projects, completed projects, residential construction, commercial construction, villa projects, interior projects, Mysuru, Bengaluru, Kochi"
+  />
+  <link rel="canonical" href="https://www.vindiainfrasec.com/projects.html" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.vindiainfrasec.com/projects.html" />
+  <meta property="og:title" content="Completed Projects | VIndia Infrasec" />
+  <meta
+    property="og:description"
+    content="A visual gallery of residential, commercial and industrial projects completed by VIndia Infrasec across South India."
+  />
+  <meta property="og:image" content="https://www.vindiainfrasec.com/og-projects.jpg" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:title" content="Completed Projects | VIndia Infrasec" />
+  <meta
+    property="twitter:description"
+    content="Explore completed homes, villas, apartments and commercial projects engineered by VIndia Infrasec."
+  />
+  <meta property="twitter:image" content="https://www.vindiainfrasec.com/og-projects.jpg" />
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="logo.png" />
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
 
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  />
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+  <!-- Bootstrap CSS (grid + basic) -->
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+  />
 
   <!-- AOS CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+  />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Completed Projects - VIndia Infrasec",
+    "description": "Gallery of completed residential, commercial and industrial projects delivered by VIndia Infrasec across South India.",
+    "url": "https://www.vindiainfrasec.com/projects.html",
+    "publisher": {
+      "@type": "Organization",
+      "name": "VIndia Infrasec",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.vindiainfrasec.com/logo.png"
+      }
+    }
+  }
+  </script>
 
   <style>
     /* =========================
@@ -27,7 +92,6 @@
     :root {
       --primary: #63b3d8;
       --primary-dark: #3b8fb5;
-      --accent: #f9a826;
       --bg: #f7f7f7;
       --text-dark: #222222;
       --text-muted: #666666;
@@ -38,7 +102,6 @@
       --radius-xl: 16px;
       --radius-pill: 999px;
       --transition-fast: 0.2s ease;
-      --transition-med: 0.3s ease;
       --max-width: 1200px;
     }
 
@@ -94,13 +157,9 @@
       padding: 0 1.5rem;
     }
 
-    .section {
-      padding: 3.5rem 0;
-    }
-
     .section-heading {
       text-align: center;
-      margin-bottom: 2.5rem;
+      margin-bottom: 2.3rem;
     }
 
     .section-kicker {
@@ -115,23 +174,23 @@
     .section-title {
       font-size: clamp(1.9rem, 3vw, 2.4rem);
       font-weight: 700;
-      margin-bottom: 0.8rem;
+      margin-bottom: 0.6rem;
       color: var(--primary-dark);
     }
 
     .section-subtitle {
       max-width: 620px;
-      margin: 0.25rem auto 0;
+      margin: 0 auto;
       font-size: 0.96rem;
       color: var(--text-muted);
     }
 
     /* =========================
-       HEADER (same as Services)
+       HEADER (same style as services page)
     ========================== */
     header {
       background: #ffffff;
-      padding: 14px 0;
+      padding: 12px 0;
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -150,13 +209,13 @@
     .nav-left {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.8rem;
     }
 
     .nav-logo-wrap {
-      width: 52px;
-      height: 52px;
-      border-radius: 12px;
+      width: 60px;
+      height: 60px;
+      border-radius: 16px;
       overflow: hidden;
       display: flex;
       align-items: center;
@@ -166,7 +225,7 @@
     }
 
     .nav-logo-wrap img {
-      height: 48px;
+      height: 54px;
       width: auto;
       object-fit: contain;
     }
@@ -179,7 +238,7 @@
 
     .nav-brand-main {
       font-weight: 700;
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       letter-spacing: 0.04em;
       text-transform: uppercase;
       color: #000;
@@ -195,8 +254,8 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 18px;
-      font-size: 0.95rem;
+      gap: 22px;
+      font-size: 0.96rem;
       font-weight: 500;
     }
 
@@ -248,7 +307,7 @@
     }
 
     .btn-primary {
-      padding: 0.55rem 1.2rem;
+      padding: 0.55rem 1.3rem;
       border-radius: var(--radius-pill);
       background: var(--primary);
       color: var(--white);
@@ -261,20 +320,16 @@
       gap: 0.35rem;
       box-shadow: var(--shadow-soft);
       border: none;
-      transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+      transition: background var(--transition-fast),
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast);
     }
 
     .btn-primary:hover {
       background: var(--primary-dark);
       transform: translateY(-1px);
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-      text-decoration: none;
       color: #fff;
-    }
-
-    .btn-primary:active {
-      transform: translateY(0);
-      box-shadow: var(--shadow-soft);
     }
 
     .btn-outline {
@@ -287,14 +342,15 @@
       align-items: center;
       gap: 0.45rem;
       background: #ffffff;
-      transition: border var(--transition-fast), background var(--transition-fast), transform var(--transition-fast);
+      transition: border var(--transition-fast),
+        background var(--transition-fast),
+        transform var(--transition-fast);
       color: #333;
     }
 
     .btn-outline:hover {
       border-color: var(--primary);
       transform: translateY(-1px);
-      text-decoration: none;
       color: #333;
     }
 
@@ -346,10 +402,6 @@
 
     .nav-links-mobile {
       display: none;
-    }
-
-    .nav-links-mobile {
-      display: none;
       flex-direction: column;
       padding: 0.4rem 1.5rem 0.9rem;
       border-top: 1px solid #e3e3e3;
@@ -361,8 +413,8 @@
     }
 
     .nav-links-mobile a {
-      padding: 0.35rem 0;
-      font-size: 0.9rem;
+      padding: 0.4rem 0;
+      font-size: 0.95rem;
     }
 
     .nav-links-mobile .mobile-cta {
@@ -382,14 +434,14 @@
       grid-template-columns: 1.1fr 1fr;
       gap: 2.5rem;
       align-items: center;
-      padding: 3rem 0 2.6rem;
+      padding: 2.2rem 0 2.4rem;
     }
 
     .hero-badge-row {
       display: flex;
       flex-wrap: wrap;
       gap: 0.75rem;
-      margin-bottom: 1rem;
+      margin-bottom: 0.9rem;
     }
 
     .hero-badge {
@@ -416,7 +468,7 @@
     .hero-title {
       font-size: clamp(2.1rem, 3.4vw, 2.6rem);
       line-height: 1.18;
-      margin-bottom: 0.8rem;
+      margin-bottom: 0.6rem;
       color: #222;
     }
 
@@ -428,14 +480,14 @@
       font-size: 0.98rem;
       color: var(--text-muted);
       max-width: 520px;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.3rem;
     }
 
     .hero-meta-row {
       display: flex;
       flex-wrap: wrap;
       gap: 1.1rem;
-      margin-bottom: 1.6rem;
+      margin-bottom: 1.4rem;
     }
 
     .hero-meta-pill {
@@ -460,11 +512,17 @@
       text-transform: uppercase;
     }
 
-    .hero-trust-row {
-      margin-top: 1.6rem;
+    .hero-cta-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 1.2rem;
+      gap: 0.75rem;
+    }
+
+    .hero-trust-row {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.1rem;
       align-items: center;
       font-size: 0.82rem;
       color: var(--text-muted);
@@ -550,12 +608,11 @@
     }
 
     /* =========================
-       FEATURED SLIDER (Animated)
+       FEATURED PROJECT SLIDER
     ========================== */
     .projects-featured {
       background: var(--bg);
-      padding-top: 2.5rem;
-      padding-bottom: 3.2rem;
+      padding: 2.4rem 0 3rem;
     }
 
     .projects-showcase {
@@ -571,10 +628,7 @@
     }
 
     .projects-showcase-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 0.8rem;
+      margin-bottom: 0.7rem;
     }
 
     .projects-showcase-title {
@@ -590,6 +644,8 @@
       background: #eef7fb;
       padding: 0.26rem 0.65rem;
       border-radius: 999px;
+      display: inline-block;
+      margin-bottom: 0.45rem;
     }
 
     .project-slider {
@@ -625,7 +681,11 @@
     .project-main-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.65), transparent 55%);
+      background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.65),
+        transparent 55%
+      );
       pointer-events: none;
     }
 
@@ -677,7 +737,8 @@
       transform-origin: center;
       transform: translateX(0) scale(0.96);
       opacity: 0.75;
-      transition: transform 0.35s ease, opacity 0.35s ease, box-shadow 0.35s ease;
+      transition: transform 0.35s ease, opacity 0.35s ease,
+        box-shadow 0.35s ease;
       box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
       background: #000;
     }
@@ -693,7 +754,11 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent 60%);
+      background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.5),
+        transparent 60%
+      );
       opacity: 1;
       transition: opacity 0.35s ease;
     }
@@ -793,7 +858,12 @@
     .project-card-overlay {
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at top left, rgba(99, 179, 216, 0.35), transparent 40%), linear-gradient(to top, rgba(0, 0, 0, 0.72), transparent 55%);
+      background: radial-gradient(
+          circle at top left,
+          rgba(99, 179, 216, 0.35),
+          transparent 40%
+        ),
+        linear-gradient(to top, rgba(0, 0, 0, 0.72), transparent 55%);
       opacity: 0.9;
       transition: opacity 0.4s ease;
     }
@@ -854,7 +924,7 @@
     }
 
     /* =========================
-       FOOTER (same style as Services)
+       FOOTER (same style as other new pages)
     ========================== */
     .footer {
       background: #f2f2f2;
@@ -868,6 +938,8 @@
       align-items: flex-start;
       gap: 40px;
       flex-wrap: wrap;
+      max-width: var(--max-width);
+      margin: 0 auto;
     }
 
     .footer-left {
@@ -954,7 +1026,7 @@
       background: #fff;
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
       border-radius: 8px;
-      width: 180px;
+      width: 200px;
       padding: 0;
       z-index: 50;
     }
@@ -1044,7 +1116,7 @@
     @media (max-width: 992px) {
       .hero-inner {
         grid-template-columns: 1fr;
-        padding-top: 2.5rem;
+        padding-top: 2rem;
       }
 
       .hero-right {
@@ -1091,14 +1163,12 @@
         padding-inline: 1rem;
       }
 
-      .projects-grid {
-        grid-template-columns: 1fr;
+      .hero-inner {
+        gap: 1.8rem;
       }
 
-      .footer {
-        flex-direction: column;
-        text-align: center;
-        align-items: center;
+      .projects-grid {
+        grid-template-columns: 1fr;
       }
 
       .footer-row {
@@ -1111,6 +1181,11 @@
       .contact-col,
       .col-maps {
         width: 100%;
+        text-align: center;
+      }
+
+      .footer-left {
+        justify-content: center;
       }
     }
 
@@ -1120,26 +1195,27 @@
       }
 
       .hero-inner {
-        padding-bottom: 2.4rem;
+        padding-bottom: 2.2rem;
       }
     }
   </style>
 </head>
 <body>
   <div class="page-wrapper">
-
     <!-- ============ HEADER ============ -->
     <header>
       <nav class="nav-bar">
         <div class="nav-left">
           <div class="nav-logo-wrap">
             <a href="index.html">
-              <img src="logo.png" alt="VIndia Infrasec Logo">
+              <img src="logo.png" alt="VIndia Infrasec Logo" />
             </a>
           </div>
           <div class="nav-brand-text">
-            <div class="nav-brand-main">VIndia Infrasec</div>
-            <div class="nav-brand-sub">Construction • Interiors • Engineering</div>
+            <div class="nav-brand-main">VINDIA INFRASEC</div>
+            <div class="nav-brand-sub">
+              CONSTRUCTION • INTERIORS • ARCHITECTURE
+            </div>
           </div>
         </div>
 
@@ -1154,18 +1230,22 @@
 
         <div class="nav-cta">
           <div class="nav-phone">
-            <span>+91-85929 21212</span>
+            <i class="fas fa-phone-alt"></i>
+            <span>+91 85929 21212</span>
           </div>
-          <a href="tel:+918592921212" class="btn-primary">
-            Call Now
-          </a>
+          <a href="tel:+918592921212" class="btn-primary">Call Now</a>
         </div>
 
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <button
+          class="nav-toggle"
+          id="navToggle"
+          aria-label="Toggle navigation"
+        >
           <span></span>
         </button>
       </nav>
 
+      <!-- Mobile links -->
       <div class="nav-links-mobile" id="navMobile">
         <a href="index.html" class="nav-link">Home</a>
         <a href="about.html" class="nav-link">About Us</a>
@@ -1174,7 +1254,9 @@
         <a href="careers/we-work.html" class="nav-link">Careers</a>
         <a href="contact.html" class="nav-link">Contact</a>
         <div class="mobile-cta">
-          <a href="tel:+918592921212" class="btn-primary" style="margin-top:0.6rem;">Call Now</a>
+          <a href="tel:+918592921212" class="btn-primary" style="margin-top:0.6rem;">
+            Call Now
+          </a>
         </div>
       </div>
     </header>
@@ -1187,21 +1269,23 @@
             <div class="hero-badge-row">
               <div class="hero-badge">
                 <span class="hero-badge-dot"></span>
-                Delivered Residential, Commercial & Industrial Projects
+                Delivered Residential, Commercial &amp; Industrial Projects
               </div>
             </div>
             <h1 class="hero-title">
-              Completed <span>Projects & Sites</span> across South India.
+              Delivered <span>Residential, Commercial &amp; Industrial Projects</span>
+              across South India.
             </h1>
             <p class="hero-subtitle">
-              A quick visual walkthrough of villas, apartments, commercial and infrastructure
-              works completed by VIndia Infrasec with engineered detailing and on-site execution.
+              A visual walkthrough of villas, apartments, interiors and infrastructure
+              works completed by VIndia Infrasec with engineered detailing and on-site
+              supervision.
             </p>
 
             <div class="hero-meta-row">
               <div class="hero-meta-pill">
                 <span class="hero-meta-badge">Multi-city</span>
-                Mysuru, Bengaluru, Kochi, Kannur & more
+                Mysuru, Bengaluru, Kochi, Kannur &amp; more
               </div>
               <div class="hero-meta-pill">
                 From compact homes to G+4 buildings and industrial sheds.
@@ -1213,7 +1297,7 @@
                 View Featured Projects
               </a>
               <a href="contact.html" class="btn-outline">
-                Discuss My Project →  
+                Discuss My Project →
               </a>
             </div>
 
@@ -1223,14 +1307,16 @@
                 <div class="hero-avatar">MYS</div>
                 <div class="hero-avatar">COK</div>
               </div>
-              <span>Trusted by homeowners, developers & architects for execution.</span>
+              <span>Trusted by homeowners, developers &amp; architects for execution.</span>
             </div>
           </div>
 
           <div class="hero-right" data-aos="fade-left">
             <div class="hero-metric-card">
               <div class="hero-metric-title">Execution Snapshot</div>
-              <div class="hero-metric-sub">A quick view of the scale of works delivered.</div>
+              <div class="hero-metric-sub">
+                A quick view of the scale of works delivered.
+              </div>
               <div class="hero-metric-stats">
                 <div class="hero-metric-pill">
                   <strong>60+</strong>
@@ -1238,16 +1324,15 @@
                 </div>
                 <div class="hero-metric-pill">
                   <strong>25+</strong>
-                  <span>Commercial & Industrial</span>
+                  <span>Commercial &amp; Industrial</span>
                 </div>
                 <div class="hero-metric-pill">
                   <strong>14+</strong>
-                  <span>Cities & Towns Covered</span>
+                  <span>Cities &amp; Towns Covered</span>
                 </div>
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>
@@ -1258,21 +1343,33 @@
         <div class="projects-showcase" data-aos="fade-up">
           <div>
             <div class="projects-showcase-header">
-              <div>
-                <div class="projects-showcase-label">Featured Gallery</div>
-                <h2 class="projects-showcase-title">Scroll through our live & completed sites</h2>
-              </div>
+              <div class="projects-showcase-label">Featured Gallery</div>
+              <h2 class="projects-showcase-title">
+                Scroll through our live &amp; completed sites
+              </h2>
             </div>
-            <p style="font-size:0.9rem; color:#4b5563; max-width:420px; margin-bottom:1rem;">
-              Swipe through the slider to see a mix of villas, apartments, interiors and structural works.
-              Images are from real sites handled by the VIndia team.
+            <p
+              style="
+                font-size: 0.9rem;
+                color: #4b5563;
+                max-width: 420px;
+                margin-bottom: 1rem;
+              "
+            >
+              Swipe through the slider to see a mix of villas, apartments, interiors
+              and structural works. Images are from real sites handled by the VIndia
+              Infrasec team.
             </p>
           </div>
 
           <div class="project-slider" id="projectSlider">
             <!-- Main image -->
             <div class="project-main" id="projectMain">
-              <img src="img/projects/project1.webp" alt="VIndia project" id="projectMainImg">
+              <img
+                src="/projects/project1.webp"
+                alt="VIndia project"
+                id="projectMainImg"
+              />
               <div class="project-main-overlay"></div>
               <div class="project-main-caption">
                 <div class="project-main-text">
@@ -1289,7 +1386,7 @@
             <!-- Thumbnails -->
             <div>
               <div class="project-thumbs" id="projectThumbs">
-                <!-- JS will inject thumbs -->
+                <!-- JS injects thumbnails -->
               </div>
               <div class="project-slider-controls">
                 <button type="button" id="prevBtn">
@@ -1300,7 +1397,6 @@
                 </button>
               </div>
             </div>
-
           </div>
         </div>
       </div>
@@ -1311,15 +1407,17 @@
       <div class="container-custom">
         <div class="section-heading" data-aos="fade-up">
           <div class="section-kicker">Gallery</div>
-          <h2 class="section-title">More completed works from our portfolio.</h2>
+          <h2 class="section-title">
+            More completed works from our portfolio.
+          </h2>
           <p class="section-subtitle">
-            A selection of structural works, interiors and renovation projects. Each assignment is
-            backed by drawings, BOQs and on-site quality checks.
+            A selection of structural works, interiors and renovation projects.
+            Each assignment is backed by drawings, BOQs and on-site quality checks.
           </p>
         </div>
 
         <div class="projects-grid" id="projectsGrid">
-          <!-- JS will also reuse images here -->
+          <!-- JS fills project cards using same images -->
         </div>
       </div>
     </section>
@@ -1327,7 +1425,6 @@
     <!-- ============ FOOTER ============ -->
     <footer class="footer">
       <div class="footer-row">
-
         <!-- LEFT SOCIAL + BRAND -->
         <div class="footer-left">
           <div class="footer-social-vertical">
@@ -1340,7 +1437,8 @@
           <div class="footer-brand">
             <h2 class="footer-logo">VIndia Infrasec</h2>
             <p class="footer-desc">
-              Delivering excellence in Construction, Interior Design & Structural Engineering across South India.
+              Delivering excellence in Construction, Interior Design &amp; Structural
+              Engineering across South India.
             </p>
           </div>
         </div>
@@ -1352,7 +1450,12 @@
             <li><a href="/about.html">About Us</a></li>
 
             <li class="footer-dropdown" id="careerDropdownFooter">
-              <button class="footer-dropbtn" onclick="toggleCareerFooter()">Career ▾</button>
+              <button
+                class="footer-dropbtn"
+                onclick="toggleCareerFooter()"
+              >
+                Career ▾
+              </button>
               <ul class="footer-submenu">
                 <li><a href="/careers/we-work.html">We Work</a></li>
                 <li><a href="/careers/openings.html">Open Positions</a></li>
@@ -1370,7 +1473,6 @@
         <div class="contact-col">
           <h3 class="contact-title">Call Us</h3>
           <ul class="contact-list">
-            <li>+91 85929 11212</li>
             <li>+91 85929 21212</li>
             <li>+91 85929 31212</li>
             <li>+91 85929 41212</li>
@@ -1379,16 +1481,14 @@
           </ul>
         </div>
 
-        <!-- MAP SECTION -->
+        <!-- MAPS -->
         <div class="col-maps">
           <h3 class="state-title" id="stateTitle">Tamil Nadu</h3>
           <div class="district-row" id="districtContainer"></div>
         </div>
-
       </div>
     </footer>
-
-  </div><!-- /.page-wrapper -->
+  </div>
 
   <!-- AOS JS -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -1457,12 +1557,14 @@
       stateTitleEl.textContent = state.title;
 
       districtContainerEl.innerHTML = state.districts
-        .map((d, i) => `
+        .map(
+          (d, i) => `
           <div class="district-card">
             <h4 class="district-name">${d}</h4>
             <iframe src="${state.maps[i] || state.maps[0]}" class="map-frame"></iframe>
           </div>
-        `)
+        `
+        )
         .join("");
     }
 
@@ -1474,9 +1576,11 @@
 
     // Footer Career dropdown
     function toggleCareerFooter() {
-      document.getElementById("careerDropdownFooter").classList.toggle("show");
+      document
+        .getElementById("careerDropdownFooter")
+        .classList.toggle("show");
     }
-    window.toggleCareerFooter = toggleCareerFooter; // expose to inline onclick
+    window.toggleCareerFooter = toggleCareerFooter;
 
     document.addEventListener("click", function (event) {
       const dropdown = document.getElementById("careerDropdownFooter");
@@ -1487,36 +1591,84 @@
 
     /* =========================
        FEATURED PROJECT SLIDER
-       Uses .webp images in /img/projects/
+       Uses .webp images in /projects/
     ========================== */
     const projectImages = [
-      "img/projects/project1.webp",
-      "img/projects/project2.webp",
-      "img/projects/project3.webp",
-      "img/projects/project4.webp",
-      "img/projects/project5.webp",
-      "img/projects/project6.webp",
-      "img/projects/project7.webp",
-      "img/projects/project8.webp",
-      "img/projects/project9.webp",
-      "img/projects/project10.webp"
+      "/project/project2/p21.webp",
+      "/project/project2/p22.webp",
+      "/project/project2/p23.webp",
+      "/project/project2/p24.webp",
+      "/project/project2/p25.webp",
+      "/project/project2/p26.webp",
+      "/project/project2/p27.webp",
+      "/project/project2/p28.webp",
+      "/project/project2/p29.webp",
+      "/project/project2/p30.webp"
     ];
 
-    // Example meta for each image (you can edit text later)
     const projectMeta = [
-      { title: "G+2 Villa Elevation", location: "Mysuru", type: "Residential Villa", size: "G+2 • 4BHK" },
-      { title: "Contemporary Apartment Block", location: "Bengaluru", type: "Apartments", size: "G+4 • 24 Units" },
-      { title: "Interior – Living & Dining", location: "Bengaluru", type: "Interior Fitout", size: "3BHK Premium" },
-      { title: "Industrial Shed & Office", location: "Kannur", type: "Industrial", size: "Fabrication + Office" },
-      { title: "Compact Duplex Home", location: "Kochi", type: "Residential", size: "Duplex • 3BHK" },
-      { title: "Retail + Office Block", location: "Coimbatore", type: "Commercial", size: "Ground + 3 Floors" },
-      { title: "Renovation – Facade Upgrade", location: "Mysuru", type: "Renovation", size: "Exterior & Balcony" },
-      { title: "Kitchen & Wardrobe Set", location: "Bengaluru", type: "Interiors", size: "Parallel Kitchen" },
-      { title: "Terrace Development", location: "Kannur", type: "Outdoor", size: "Pergola + Seating" },
-      { title: "Structural Frame Work", location: "Bengaluru", type: "Structural", size: "RCC • G+3" }
+      {
+        title: "G+2 Villa Elevation",
+        location: "Mysuru",
+        type: "Residential Villa",
+        size: "G+2 • 4BHK"
+      },
+      {
+        title: "Contemporary Apartment Block",
+        location: "Bengaluru",
+        type: "Apartments",
+        size: "G+4 • 24 Units"
+      },
+      {
+        title: "Interior – Living & Dining",
+        location: "Bengaluru",
+        type: "Interior Fitout",
+        size: "3BHK Premium"
+      },
+      {
+        title: "Industrial Shed & Office",
+        location: "Kannur",
+        type: "Industrial",
+        size: "Fabrication + Office"
+      },
+      {
+        title: "Compact Duplex Home",
+        location: "Kochi",
+        type: "Residential",
+        size: "Duplex • 3BHK"
+      },
+      {
+        title: "Retail + Office Block",
+        location: "Coimbatore",
+        type: "Commercial",
+        size: "Ground + 3 Floors"
+      },
+      {
+        title: "Renovation – Facade Upgrade",
+        location: "Mysuru",
+        type: "Renovation",
+        size: "Exterior & Balcony"
+      },
+      {
+        title: "Kitchen & Wardrobe Set",
+        location: "Bengaluru",
+        type: "Interiors",
+        size: "Parallel Kitchen"
+      },
+      {
+        title: "Terrace Development",
+        location: "Kannur",
+        type: "Outdoor",
+        size: "Pergola + Seating"
+      },
+      {
+        title: "Structural Frame Work",
+        location: "Bengaluru",
+        type: "Structural",
+        size: "RCC • G+3"
+      }
     ];
 
-    // Shuffle to make order feel random each load
     function shuffleArray(arr) {
       for (let i = arr.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -1573,7 +1725,10 @@
 
       if (animate) {
         mainContainer.classList.add("is-animating");
-        setTimeout(() => mainContainer.classList.remove("is-animating"), 500);
+        setTimeout(
+          () => mainContainer.classList.remove("is-animating"),
+          500
+        );
       }
 
       mainImg.src = projectImages[realIndex];
@@ -1595,17 +1750,21 @@
     buildThumbs();
     updateMain(currentIndex, false);
 
-    // controls
-    document.getElementById("prevBtn").addEventListener("click", () => goToIndex(currentIndex - 1));
-    document.getElementById("nextBtn").addEventListener("click", () => goToIndex(currentIndex + 1));
+    document
+      .getElementById("prevBtn")
+      .addEventListener("click", () => goToIndex(currentIndex - 1));
+    document
+      .getElementById("nextBtn")
+      .addEventListener("click", () => goToIndex(currentIndex + 1));
 
-    // auto rotate
     let sliderInterval = setInterval(() => {
       goToIndex(currentIndex + 1);
     }, 4000);
 
     const sliderEl = document.getElementById("projectSlider");
-    sliderEl.addEventListener("mouseenter", () => clearInterval(sliderInterval));
+    sliderEl.addEventListener("mouseenter", () =>
+      clearInterval(sliderInterval)
+    );
     sliderEl.addEventListener("mouseleave", () => {
       sliderInterval = setInterval(() => {
         goToIndex(currentIndex + 1);
@@ -1613,11 +1772,11 @@
     });
 
     /* =========================
-       PROJECTS GRID from same images
+       PROJECTS GRID (reuse same images)
     ========================== */
     const gridEl = document.getElementById("projectsGrid");
 
-    indices.forEach((idx, i) => {
+    indices.forEach((idx) => {
       const meta = projectMeta[idx] || projectMeta[0];
       const card = document.createElement("article");
       card.className = "project-card";

@@ -4,18 +4,17 @@
 .floating-icons {
   position: fixed;
   bottom: 30px;
-  right: 50px;   /* moved left so it doesn’t touch maps */
+  right: 40px;
   display: flex;
   flex-direction: column;
   gap: 14px;
   z-index: 5000;
 }
 
-/* Call icon */
-.call-icon {
+.call-icon,
+.whatsapp-icon {
   width: 55px;
   height: 55px;
-  background: #007bff;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -25,49 +24,33 @@
   transition: 0.3s ease;
   box-shadow: 0 4px 12px rgba(0,0,0,0.28);
   animation: iconBounce 1.6s ease-in-out infinite;
+}
+
+.call-icon {
+  background: #007bff;
   animation-delay: 0.2s;
 }
 
-.call-icon:hover {
-  transform: scale(1.2);
-  animation-play-state: paused;
-}
-
-/* WhatsApp icon */
 .whatsapp-icon {
-  width: 55px;
-  height: 55px;
   background: #25d366;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 28px;
-  color: white;
-  transition: 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.28);
-  animation: iconBounce 1.6s ease-in-out infinite;
   animation-delay: 0.5s;
 }
 
+.call-icon:hover,
 .whatsapp-icon:hover {
-  transform: scale(1.2);
+  transform: scale(1.15);
   animation-play-state: paused;
 }
 
 /* Bounce animation */
 @keyframes iconBounce {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
 }
 
 
 /* ============================
-   MAIN FOOTER
+   FOOTER MAIN
 ============================= */
 .footer {
   width: 100%;
@@ -75,51 +58,50 @@
   background: #f1f1f1;
   color: #222;
   display: flex;
-  justify-content: flex-start;
   gap: 40px;
   flex-wrap: wrap;
+  justify-content: flex-start;
   border-top: 1px solid #d3d3d3;
 }
 
 /* SOCIAL + BRAND */
 .social-col {
-  width: 30%;
+  width: 28%;
   min-width: 260px;
   display: flex;
-  gap: 55px;
+  gap: 40px;
 }
 
 .footer-social-left {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 14px;
 }
 
 .footer-social-left a {
   color: #007bff;
   font-size: 34px;
-  transition: 0.3s;
+  transition: 0.3s ease;
 }
 
 .footer-social-left a:hover {
-  transform: scale(1.25);
+  transform: scale(1.2);
   color: #0056d6;
 }
 
 .footer-brand {
-  max-width: 300px;
+  max-width: 320px;
 }
 
 .footer-logo {
   font-size: 26px;
   font-weight: bold;
-  color: #000;
 }
 
 .footer-desc {
+  color: #444;
   margin-top: 8px;
   line-height: 1.6;
-  color: #444;
 }
 
 
@@ -127,11 +109,11 @@
 .footer-links {
   list-style: none;
   padding: 0;
-  min-width: 160px;
+  min-width: 170px;
 }
 
 .footer-links li {
-  margin: 8px 0;
+  margin: 10px 0;
 }
 
 .footer-links a {
@@ -140,10 +122,9 @@
 }
 
 .footer-links a:hover {
-  color: #007bff;
   margin-left: 4px;
+  color: #007bff;
 }
-
 
 /* Dropdown */
 .footer-dropdown {
@@ -153,7 +134,7 @@
 .footer-dropbtn {
   background: none;
   border: none;
-  color: black;
+  color: #222;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
@@ -163,22 +144,33 @@
 .footer-submenu {
   display: none;
   position: absolute;
-  left: 0;
-  margin-top: 6px;
-  background: white;
+  background: #fff;
   padding: 10px 12px;
   border-radius: 6px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  width: 200px;
+  left: 0;
+  margin-top: 6px;
 }
 
 .footer-dropdown.show .footer-submenu {
   display: block;
 }
 
+.footer-submenu a {
+  display: block;
+  padding: 8px 5px;
+  font-size: 15px;
+  color: #222;
+}
+
+.footer-submenu a:hover {
+  background: #eee;
+}
 
 /* CONTACT */
 .contact-col {
-  min-width: 180px;
+  min-width: 170px;
 }
 
 .contact-title {
@@ -195,13 +187,13 @@
 
 .contact-list li {
   margin: 6px 0;
+  font-size: 15px;
 }
-
 
 /* MAPS */
 .col-maps {
-  flex: 1.1;
-  min-width: 350px;
+  flex: 1.2;
+  min-width: 320px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -209,58 +201,45 @@
 
 .state-title {
   font-size: 20px;
-  margin-bottom: 12px;
+  font-weight: 700;
   color: #007bff;
-  font-weight: 600;
+  margin-bottom: 12px;
 }
 
 .district-row {
   display: flex;
   gap: 16px;
-  width: 100%;
-  justify-content: flex-end;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .district-card {
   width: 150px;
   background: rgba(0,0,0,0.08);
   border-radius: 12px;
-  padding: 8px;
+  padding: 10px;
   text-align: center;
 }
 
 .district-name {
-  font-size: 13px;
+  font-size: 14px;
+  font-weight: 600;
   margin-bottom: 6px;
-}
-
-.map-wrapper {
-  position: relative;
-}
-
-.map-icon {
-  position: absolute;
-  top: 6px;
-  left: 6px;
-  font-size: 22px;
-  color: red;
 }
 
 .map-frame {
   width: 100%;
-  height: 110px;
+  height: 120px;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
 }
 
-
-/* LOCATION LINK */
 .district-location {
   display: block;
   margin-top: 8px;
   color: #007bff;
-  font-weight: 600;
   text-decoration: none;
+  font-weight: 600;
   font-size: 14px;
 }
 
@@ -270,26 +249,148 @@
 
 
 /* ============================
-   MOBILE RESPONSIVE
+   RESPONSIVE DESIGN
 ============================= */
+
+/* 🔵 Medium screens (1024px - Tablets Landscape) */
+@media (max-width: 1100px) {
+  .footer {
+    padding: 50px 20px;
+    gap: 30px;
+  }
+
+  .social-col {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+/* 🟢 Tablets (768px) */
 @media (max-width: 900px) {
   .footer {
     flex-direction: column;
-    text-align: center;
     align-items: center;
+    text-align: center;
   }
 
   .social-col {
     justify-content: center;
+    width: 100%;
   }
 
-  .district-row {
-    justify-content: center;
-    flex-wrap: wrap;
+  .contact-col,
+  .footer-links {
+    text-align: center;
+  }
+
+  .col-maps {
+    width: 100%;
   }
 
   .floating-icons {
     right: 20px;
     bottom: 20px;
+  }
+}
+
+/* 🟡 Mobile (480px) */
+@media (max-width: 480px) {
+  .footer {
+    padding: 40px 20px;
+  }
+
+  .footer-left {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-social-left {
+    flex-direction: row;
+  }
+
+  .district-card {
+    width: 140px;
+  }
+
+  .map-frame {
+    height: 110px;
+  }
+}
+/* ============================
+   SMALL MOBILE (≤480px)
+============================= */
+@media (max-width: 480px) {
+
+  /* Footer padding reduced */
+  .footer {
+    padding: 25px 18px;
+  }
+
+  /* Social icons smaller */
+  .footer-social-left a i {
+    font-size: 14px !important;  /* ↓ from 34px */
+  }
+
+  /* Brand text smaller */
+  .footer-logo {
+    font-size: 10px !important;
+  }
+
+  .footer-desc {
+    font-size: 12px;
+  }
+
+  /* Quick links smaller */
+  .footer-links a {
+    font-size: 12px !important;
+  }
+
+  .footer-dropbtn {
+    font-size: 12px !important;
+  }
+
+  /* Contact text smaller */
+  .contact-title {
+    font-size: 12px !important;
+  }
+
+  .contact-list li {
+    font-size: 12px !important;
+  }
+
+  /* District cards shrink */
+  .district-card {
+    width: 100px !important;
+    padding: 8px;
+  }
+
+  .district-name {
+    font-size: 13px !important;
+  }
+
+  .map-frame {
+    height: 100px !important;
+  }
+
+  /* Floating icons smaller */
+  .floating-icons {
+    right: 14px !important;
+    bottom: 14px !important;
+    gap: 10px;
+  }
+
+  .call-icon,
+  .whatsapp-icon {
+    width: 46px;
+    height: 46px;
+    font-size: 20px;     /* icon inside */
+    box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+  }
+
+  /* Bounce movement smaller on mobile */
+  @keyframes iconBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
   }
 }
