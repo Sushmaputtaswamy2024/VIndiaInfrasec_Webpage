@@ -15,7 +15,7 @@ const ServiceBadge = () => {
             <path
               id="circlePath"
               d="M150,150 m-120,0 a120,120 0 1,1 240,0 a120,120 0 1,1 -240,0"
-            />
+            />   
           </defs>
 
           <text fill="white" fontSize="20" letterSpacing="4">
