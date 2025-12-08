@@ -1,95 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-
+  <meta charset="UTF-8" />
   <!-- Responsive -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- ================================
-       SEO TITLE & DESCRIPTION
-  ================================= -->
-  <title>Careers at VIndia Infrasec | Construction, Interior & Engineering Jobs</title>
+  <title>Careers at VIndia Infrasec | Work With Us</title>
 
-  <meta name="description" content="Work with VIndia Infrasec – a leading construction, interior design, and engineering company. Explore job openings, career growth opportunities, work culture and employee benefits.">
-
-  <meta name="keywords" content="construction careers india, engineering jobs india, VIndia Infrasec careers, structural engineering jobs, interior design jobs">
-
-  <!-- Canonical URL -->
-  <link rel="canonical" href="https://vindiainfrasec.com/careers/we-work.html">
-
-  <!-- ================================
-       OPEN GRAPH (FACEBOOK)
-  ================================= -->
-  <meta property="og:title" content="Careers at VIndia Infrasec">
-  <meta property="og:description" content="Explore careers, job openings, employee benefits and work culture at VIndia Infrasec.">
-  <meta property="og:image" content="https://vindiainfrasec.com/logo.png">
-  <meta property="og:url" content="https://vindiainfrasec.com/careers/we-work.html">
-  <meta property="og:type" content="website">
-
-  <!-- ================================
-       TWITTER CARD
-  ================================= -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Careers at VIndia Infrasec">
-  <meta name="twitter:description" content="Apply for engineering and construction jobs at VIndia Infrasec.">
-  <meta name="twitter:image" content="https://vindiainfrasec.com/logo.png">
-
-  <!-- ================================
-       FAVICON
-  ================================= -->
   <link rel="icon" type="image/png" href="../logo.png" />
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
   <!-- AOS -->
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
-
-  <!-- Footer / floating icons CSS -->
-  <!-- <link rel="stylesheet" href="../css/wework.css" /> -->
-
-  <!-- ================================
-       SCHEMA MARKUP (SEO BOOST)
-  ================================= -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "VIndia Infrasec",
-    "url": "https://vindiainfrasec.com",
-    "logo": "https://vindiainfrasec.com/logo.png",
-    "sameAs": [
-      "https://www.instagram.com/",
-      "https://www.facebook.com/",
-      "https://www.linkedin.com/",
-      "https://www.youtube.com/"
-    ],
-    "description": "A leading company offering construction, interior design, structural engineering and infrastructure solutions across South India."
-  }
-  </script>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
 
   <style>
     :root {
-      --primary: #0b63ce;
-      --primary-soft: #63b3d8;
+      --primary: #63b3d8;
+      --primary-dark: #3b8fb5;
       --bg: #f7f7f7;
       --text-dark: #111827;
       --text-muted: #6b7280;
       --white: #ffffff;
       --shadow-soft: 0 10px 30px rgba(15, 23, 42, 0.08);
+      --border: #e5e7eb;
       --radius-lg: 18px;
       --max-width: 1200px;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       font-family: "Work Sans", sans-serif;
@@ -98,10 +41,7 @@
       line-height: 1.6;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+    a { text-decoration: none; color: inherit; }
 
     .page-wrapper {
       min-height: 100vh;
@@ -109,7 +49,7 @@
       flex-direction: column;
     }
 
-    .container {
+    .container-custom {
       width: 100%;
       max-width: var(--max-width);
       margin: 0 auto;
@@ -117,24 +57,24 @@
     }
 
     /* =========================
-       HEADER (same as Services)
+       HEADER (same style as services)
     ========================== */
     header {
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(255, 255, 255, 0.96);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(229, 231, 235, 0.9);
+      background: #fff;
+      border-bottom: 1px solid #e5e7eb;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
     }
 
     .nav-bar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.75rem 1.5rem;
       max-width: var(--max-width);
-      margin: 0 auto;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.9rem 1.5rem;
     }
 
     .nav-left {
@@ -144,18 +84,17 @@
     }
 
     .nav-logo-wrap {
-  width: 44px;
-  height: 44px;
-  border-radius: 18px;
-  overflow: hidden;
-  background: #ffffff; /* CHANGED */
-  border: 1px solid #e5e7eb; /* subtle border */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: var(--shadow-soft);
-}
-
+      width: 50px;
+      height: 50px;
+      border-radius: 14px;
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
 
     .nav-logo-wrap img {
       width: 90%;
@@ -163,52 +102,44 @@
       object-fit: contain;
     }
 
-    .nav-brand-text {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
     .nav-brand-main {
       font-weight: 700;
-      font-size: 1.05rem;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
+      font-size: 1.1rem;
+      letter-spacing: 0.03em;
     }
 
     .nav-brand-sub {
       font-size: 0.72rem;
       color: var(--text-muted);
-      text-transform: uppercase;
       letter-spacing: 0.14em;
+      text-transform: uppercase;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 1.75rem;
-      font-size: 0.92rem;
+      gap: 1.6rem;
       font-weight: 500;
-      li{
-        list-style: none;
-      }
+      font-size: 0.95rem;
+      list-style: none;
     }
 
     .nav-link {
       position: relative;
-      padding-bottom: 0.1rem;
+      padding-bottom: 2px;
+      color: #222;
     }
 
     .nav-link::after {
       content: "";
       position: absolute;
+      bottom: -4px;
       left: 0;
-      bottom: -0.25rem;
       width: 0;
       height: 2px;
+      background: var(--primary);
       border-radius: 999px;
-      background: linear-gradient(90deg, var(--primary), var(--primary-soft));
-      transition: width 0.2s ease;
+      transition: 0.25s ease;
     }
 
     .nav-link:hover::after,
@@ -216,57 +147,48 @@
       width: 18px;
     }
 
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--primary-dark);
+    }
+
     .nav-cta {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
-    }
-
-    .nav-phone {
-      display: flex;
-      align-items: center;
-      gap: 0.35rem;
-      font-size: 0.88rem;
-      color: var(--text-muted);
-    }
-
-    .nav-phone span {
-      font-weight: 600;
-      color: var(--text-dark);
     }
 
     .btn-primary {
+      background: var(--primary);
+      color: #fff;
       padding: 0.55rem 1.2rem;
       border-radius: 999px;
-      background: radial-gradient(circle at 0% 0%, var(--primary-soft), var(--primary));
-      color: var(--white);
       font-size: 0.86rem;
       font-weight: 600;
-      letter-spacing: 0.04em;
+      border: none;
       text-transform: uppercase;
-      box-shadow: 0 14px 30px rgba(37, 99, 235, 0.3);
+      letter-spacing: 0.04em;
+      box-shadow: var(--shadow-soft);
       display: inline-flex;
       align-items: center;
       gap: 0.35rem;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+      transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     .btn-primary:hover {
+      background: var(--primary-dark);
       transform: translateY(-1px);
-      box-shadow: 0 18px 40px rgba(37, 99, 235, 0.35);
-      opacity: 0.96;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.16);
     }
 
     .nav-toggle {
       display: none;
       width: 34px;
       height: 34px;
+      background: #fff;
       border-radius: 50%;
-      border: 1px solid #e5e7eb;
+      border: 1px solid #d1d5db;
       align-items: center;
       justify-content: center;
-      background: var(--white);
-      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
     }
 
     .nav-toggle span,
@@ -278,18 +200,18 @@
       height: 2px;
       border-radius: 999px;
       background: #111827;
-      transition: 0.2s ease;
       position: relative;
+      transition: 0.2s ease;
     }
 
     .nav-toggle span::before {
-      top: -5px;
       position: absolute;
+      top: -5px;
     }
 
     .nav-toggle span::after {
-      top: 5px;
       position: absolute;
+      top: 5px;
     }
 
     .nav-toggle.active span {
@@ -307,22 +229,21 @@
     .nav-links-mobile {
       display: none;
       flex-direction: column;
-      padding: 0.4rem 1.5rem 0.9rem;
-      border-top: 1px solid rgba(229, 231, 235, 0.9);
-      background: rgba(255, 255, 255, 0.98);
+      padding: 0.5rem 1.5rem 1rem;
+      border-top: 1px solid #e5e7eb;
+      background: #fff;
     }
 
-    .nav-links-mobile.open {
-      display: flex;
-    }
+    .nav-links-mobile.open { display: flex; }
 
     .nav-links-mobile a {
       padding: 0.35rem 0;
       font-size: 0.9rem;
     }
 
-    .nav-links-mobile .mobile-cta {
-      margin-top: 0.4rem;
+    .nav-links-mobile .btn-primary {
+      margin-top: 0.7rem;
+      justify-content: center;
     }
 
     /* =========================
@@ -330,305 +251,392 @@
     ========================== */
     .career-hero {
       width: 100%;
+      height: 280px;
+      background: url("../img/carrer_back.png") center/cover no-repeat;
       position: relative;
-      background: url('https://www.techunido.com/wp-content/uploads/2018/06/Career-Banner.jpg') center/cover no-repeat;
-      height: 320px;
-      margin-top: 0.4rem;
+      margin-top: 4px;
     }
 
     .career-hero::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(0,0,0,0.4);
+      background: rgba(0,0,0,0.45);
     }
 
-    .career-hero-text {
+    .career-hero-inner {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: #ffffff;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-      z-index: 1;
-      padding: 0 1rem;
+      color: #fff;
+      padding: 0 1.5rem;
     }
 
-    .career-hero-text h1 {
-      font-size: clamp(2rem, 3.2vw, 2.6rem);
-      letter-spacing: 0.04em;
+    .career-hero-kicker {
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+      opacity: 0.9;
+    }
+
+    .career-hero-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .career-hero-sub {
+      font-size: 0.95rem;
+      max-width: 520px;
+      margin: 0 auto;
+      opacity: 0.95;
     }
 
     /* =========================
-       SECTIONS (S1 style)
+       MAIN SECTIONS (Minimal)
     ========================== */
-    .section-wrap {
-      padding: 3rem 0;
+    main {
+      padding: 3rem 0 3.5rem;
     }
 
-    .career-section {
-      background: var(--white);
+    .section-block {
+      background: #fff;
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow-soft);
       padding: 2rem 2.2rem;
       margin-bottom: 2rem;
     }
 
-    .career-section h2 {
-      font-size: 1.9rem;
-      color: var(--primary-soft);
-      margin-bottom: 0.75rem;
+    .section-block h2 {
+      font-size: 1.8rem;
+      color: var(--primary-dark);
+      margin-bottom: 0.7rem;
     }
 
-    .career-section p {
-      font-size: 0.98rem;
-      color: var(--text-dark);
-      line-height: 1.7;
+    .section-block p {
+      font-size: 0.96rem;
+      color: #444;
+      margin-bottom: 0.8rem;
     }
 
-    .career-media {
-      margin-top: 1.4rem;
-      display: flex;
-      justify-content: flex-start;
+    .section-muted {
+      color: var(--text-muted);
+      font-size: 0.9rem;
     }
 
-    .career-media img {
+    /* Simple 2-column layout for minimal design */
+    .two-col-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 1.8rem;
+      align-items: center;
+    }
+
+    .two-col-grid img {
       width: 100%;
-      max-width: 450px;
       border-radius: 16px;
       box-shadow: var(--shadow-soft);
+      display: block;
     }
 
-    /* Warning block styled as card */
-    .warning-block {
-      position: relative;
-      border-radius: var(--radius-lg);
-      padding: 3.2rem 1.8rem;
-      color: #ffffff;
-      overflow: hidden;
+    /* BENEFITS - minimal small cards */
+    .benefits-row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.4rem;
+      margin-top: 1.3rem;
+    }
+
+    .benefit-mini {
+      background: #f9fafb;
+      border-radius: 14px;
+      padding: 1.1rem 1rem;
+      border: 1px solid #e5e7eb;
+      text-align: left;
+      font-size: 0.9rem;
+      transition: 0.2s ease;
+    }
+
+    .benefit-mini:hover {
+      transform: translateY(-2px);
       box-shadow: var(--shadow-soft);
-      background: url("../img/9.jpg") center/cover no-repeat;
+    }
+
+    .benefit-mini-title {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .benefit-mini-icon {
+      font-size: 1.3rem;
+      margin-bottom: 0.4rem;
+      color: var(--primary-dark);
+    }
+
+    /* HIRING STEPS - 3 simple blocks */
+    .hiring-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.4rem;
+      margin-top: 1.3rem;
+    }
+
+    .hiring-step {
+      background: #f9fafb;
+      border-radius: 14px;
+      padding: 1.4rem 1.1rem;
+      border: 1px solid #e5e7eb;
+      text-align: left;
+      font-size: 0.9rem;
+      transition: 0.2s ease;
+    }
+
+    .hiring-step:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .step-badge {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--primary-soft);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .hiring-step h3 {
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    /* WARNING (FAKE JOB ALERT) */
+    .warning-block {
+      border-radius: var(--radius-lg);
+      padding: 1.8rem 1.6rem;
+      background: #111827;
+      color: #f9fafb;
       margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
     }
 
     .warning-block::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(15, 23, 42, 0.7);
+      background: radial-gradient(circle at top left, rgba(99,179,216,0.35), transparent 55%);
+      opacity: 0.9;
     }
 
-    .warning-block-inner {
+    .warning-inner {
       position: relative;
       z-index: 1;
+      text-align: left;
+    }
+
+    .warning-inner h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .warning-inner p {
+      font-size: 0.92rem;
+    }
+
+    .warning-inner strong {
+      font-weight: 600;
+    }
+
+    /* JOIN CTA - Minimal */
+    .join-cta {
       text-align: center;
     }
 
-    .warning-block h3 {
+    .join-cta h2 {
       font-size: 1.7rem;
-      margin-bottom: 0.75rem;
+      color: var(--primary-dark);
+      margin-bottom: 0.4rem;
     }
 
-    .warning-block p {
-      font-size: 0.98rem;
-      line-height: 1.7;
+    .join-cta p {
+      font-size: 0.96rem;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin: 0 auto 1.1rem;
     }
 
-    .warning-block strong {
+    .btn-ghost {
+      padding: 0.7rem 1.7rem;
+      border-radius: 999px;
+      border: 1px solid var(--primary-soft);
+      font-size: 0.9rem;
+      font-weight: 500;
+      background: #fff;
+      color: var(--primary-dark);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: 0.2s ease;
+    }
+
+    .btn-ghost:hover {
+      background: var(--primary-soft);
+      color: #fff;
+      border-color: var(--primary-soft);
+    }
+
+    /* =========================
+       FOOTER (same layout as services)
+    ========================== */
+    .footer {
+      width: 100%;
+      padding: 40px 3%;
+      background: #f2f2f2;
+      color: #222;
+      border-top: 1px solid #d3d3d3;
+      margin-top: auto;
+    }
+
+    .footer-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+      flex-wrap: nowrap;
+    }
+
+    .footer-left-one {
+      display: flex;
+      gap: 16px;
+      width: 28%;
+      min-width: 220px;
+    }
+
+    .footer-social-vertical {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer-social-vertical a {
+      font-size: 24px;
+      color: #1a73e8;
+    }
+
+    .footer-brand {
+      max-width: 260px;
+    }
+
+    .footer-logo {
+      font-size: 26px;
       font-weight: 700;
     }
 
-    /* Footer positioning */
-    footer {
-      margin-top: auto;
+    .footer-desc {
+      margin-top: 10px;
+      line-height: 1.6;
+      font-size: 0.9rem;
+      color: #444;
     }
-    /* FOOTER */
-.footer {
-  width: 100%;
-  padding: 60px 40px;
-  background: #f1f1f1;
-  color: #222;
-  display: flex;
-  justify-content: flex-start;
-  gap: 40px;
-  flex-wrap: wrap;
-  border-top: 1px solid #d3d3d3;
-}
 
-.social-col {
-  width: 30%;
-  min-width: 260px;
-  display: flex;
-  gap: 40px;
-}
+    .footer-center-one {
+      width: 18%;
+      min-width: 150px;
+    }
 
-.footer-social-left {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
+    .footer-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 0.92rem;
+    }
 
-.footer-social-left a {
-  color: #007bff;
-  font-size: 34px;
-  transition: 0.3s;
-}
+    .footer-links li {
+      margin: 6px 0;
+    }
 
-.footer-social-left a:hover {
-  transform: scale(1.25);
-}
+    .footer-links a {
+      color: #333;
+    }
 
-.footer-brand {
-  max-width: 260px;
-}
+    .footer-links a:hover {
+      color: #007bff;
+    }
 
-.footer-logo {
-  font-size: 26px;
-  font-weight: bold;
-  color: #000;
-}
+    .footer-right-call {
+      width: 16%;
+      min-width: 150px;
+    }
 
-.footer-desc {
-  margin-top: 10px;
-  line-height: 1.6;
-}
+    .contact-title {
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+    }
 
-.footer-links li {
-  margin: 8px 0;
-  list-style: none;
-}
+    .contact-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 0.9rem;
+    }
 
-.footer-links a {
-  color: #333;
-  font-size: 15px;
-}
+    .contact-list li {
+      margin: 4px 0;
+    }
 
-.footer-links a:hover {
-  color: #007bff;
-}
+    .footer-right-maps {
+      width: 33%;
+      min-width: 260px;
+    }
 
-.contact-col ul li {
-  margin: 6px 0;
-  list-style: none;
-}
+    .state-title {
+      font-size: 1.05rem;
+      margin-bottom: 0.6rem;
+    }
 
-.col-maps {
-  flex: 1;
-  min-width: 350px;
-}
+    .district-row {
+      display: flex;
+      gap: 10px;
+      justify-content: flex-start;
+      flex-wrap: nowrap;
+    }
 
-.state-title {
-  font-size: 22px;
-  margin-bottom: 10px;
-}
+    .district-card {
+      width: 120px;
+      background: #fff;
+      padding: 8px;
+      border-radius: 10px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+      font-size: 0.8rem;
+      text-align: center;
+    }
 
-.district-row {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
+    .district-card h4 {
+      margin-bottom: 4px;
+      font-size: 0.82rem;
+    }
 
-.district-card {
-  width: 150px;
-  background: rgba(0, 0, 0, 0.08);
-  border-radius: 12px;
-  padding: 8px;
-  text-align: center;
-}
-
-.map-wrapper {
-  position: relative;
-}
-
-.map-icon {
-  position: absolute;
-  top: 4px;
-  left: 4px;
-  font-size: 18px;
-}
-
-.map-frame {
-  width: 100%;
-  height: 110px;
-  border-radius: 8px;
-  border: none;
-}
-
-/* MOBILE */
-@media (max-width: 900px) {
-  .footer {
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-  }
-
-  .social-col {
-    justify-content: center;
-  }
-
-  .footer-social-left {
-    flex-direction: row;
-    gap: 18px;
-  }
-}
-/* FOOTER CLEAN DROPDOWN (MATCHING OTHER LINKS) */
-.footer-dropdown {
-  position: relative;
-  list-style: none;
-}
-
-.footer-dropbtn {
-  background: none;
-  border: none;
-  padding: 0;
-  font-size: 15px;
-  cursor: pointer;
-  color: #333;
-  font-weight: 400;
-}
-
-.footer-dropbtn:hover {
-  color: #007bff;
-}
-
-.footer-dropbtn::after {
-  content: " ▾";
-  font-size: 12px;
-  margin-left: 4px;
-}
-
-.footer-submenu {
-  display: none;
-  position: absolute;
-  top: 20px;
-  left: 0;
-  background: #ffffff;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  border-radius: 8px;
-  padding: 10px 0;
-  list-style: none;
-  z-index: 20;
-  min-width: 180px;
-}
-
-.footer-submenu li {
-  padding: 8px 18px;
-}
-
-.footer-submenu li:hover {
-  background: #f2f2f2;
-}
-
-.footer-submenu a {
-  color: #333;
-  font-size: 15px;
-  text-decoration: none;
-}
-
-.footer-dropdown.show .footer-submenu {
-  display: block;
-}
-
+    .map-frame {
+      width: 100%;
+      height: 85px;
+      border: none;
+      border-radius: 8px;
+    }
 
     /* =========================
        RESPONSIVE
@@ -638,204 +646,327 @@
       .nav-cta {
         display: none;
       }
-
       .nav-toggle {
         display: inline-flex;
       }
 
-      .career-section {
-        padding: 1.7rem 1.5rem;
+      .two-col-grid {
+        grid-template-columns: 1fr;
       }
     }
 
-    @media (max-width: 576px) {
+    @media (max-width: 950px) {
+      .footer-row {
+        flex-wrap: wrap;
+        text-align: center;
+      }
+
+      .footer-left-one,
+      .footer-center-one,
+      .footer-right-call,
+      .footer-right-maps {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .district-row {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        font-size: 14px;
+      }
+
+      .career-hero {
+        height: 220px;
+      }
+
+      .career-hero-title {
+        font-size: 1.7rem;
+      }
+
+      .section-block {
+        padding: 1.6rem 1.5rem;
+      }
+
+      .benefits-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .hiring-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 540px) {
+      .benefits-row,
+      .hiring-row {
+        grid-template-columns: 1fr;
+      }
+
       .nav-bar {
         padding-inline: 1rem;
       }
-      .container {
-        padding-inline: 1rem;
-      }
-      .career-section {
-        padding: 1.4rem 1.2rem;
+
+      .container-custom {
+        padding-inline: 1.2rem;
       }
     }
   </style>
 </head>
 
 <body>
-  <div class="page-wrapper">
+<div class="page-wrapper">
 
-    <!-- HEADER (services style) -->
-    <header>
-      <nav class="nav-bar">
-        <div class="nav-left">
-          <div class="nav-logo-wrap">
-            <img src="../logo.png" alt="VIndia Infrasec Logo">
-          </div>
-          <div class="nav-brand-text">
-            <div class="nav-brand-main">VIndia Infrasec</div>
-            <div class="nav-brand-sub">Construction • Interiors • Engineering</div>
-          </div>
+  <!-- HEADER -->
+  <header>
+    <nav class="nav-bar" aria-label="Main navigation">
+      <div class="nav-left">
+        <div class="nav-logo-wrap">
+          <a href="../index.html">
+            <img src="../logo.png" alt="VIndia Infrasec logo">
+          </a>
         </div>
-
-        <ul class="nav-links">
-          <li><a href="../index.html" class="nav-link">Home</a></li>
-          <li><a href="../about.html" class="nav-link">About</a></li>
-          <li><a href="../services.html" class="nav-link">Services</a></li>
-          <li><a href="../projects.html" class="nav-link">Projects</a></li>
-          <li><a href="we-work.html" class="nav-link active">Career</a></li>
-          <li><a href="../contact.html" class="nav-link">Contact</a></li>
-        </ul>
-
-        <div class="nav-cta">
-          <div class="nav-phone">
-            <span>+91 85929 11212</span>
-          </div>
-          <a href="tel:+918592911212" class="btn-primary">Call Now</a>
-        </div>
-
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-          <span></span>
-        </button>
-      </nav>
-
-      <div class="nav-links-mobile" id="navMobile">
-        <a href="../index.html" class="nav-link">Home</a>
-        <a href="../about.html" class="nav-link">About</a>
-        <a href="../services.html" class="nav-link">Services</a>
-        <a href="../projects.html" class="nav-link">Projects</a>
-        <a href="we-work.html" class="nav-link active">Career</a>
-        <a href="../contact.html" class="nav-link">Contact</a>
-        <div class="mobile-cta">
-          <a href="tel:+918592911212" class="btn-primary" style="margin-top:0.6rem;">Call Now</a>
+        <div>
+          <div class="nav-brand-main">VIndia Infrasec</div>
+          <div class="nav-brand-sub">Construction • Interiors • Architecture</div>
         </div>
       </div>
-    </header>
 
-    <!-- HERO -->
-    <section class="career-hero" data-aos="fade-in">
-      <div class="career-hero-text">
-        <h1>Work With VIndia Infrasec</h1>
+      <ul class="nav-links">
+        <li><a href="../index.html" class="nav-link">Home</a></li>
+        <li><a href="../about.html" class="nav-link">About Us</a></li>
+        <li><a href="../services.html" class="nav-link">Services</a></li>
+        <li><a href="../projects.html" class="nav-link">Projects</a></li>
+        <li><a href="we-work.html" class="nav-link active">Careers</a></li>
+        <li><a href="../contact.html" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-cta">
+        <a href="tel:+918592921212" class="btn-primary">Call Now</a>
       </div>
-    </section>
 
-    <!-- MAIN CONTENT -->
-    <main class="section-wrap">
-      <div class="container">
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span>
+      </button>
+    </nav>
 
-        <!-- SECTION 1 -->
-        <section class="career-section" data-aos="fade-up">
-          <h2>Grow Your Career With Us</h2>
-          <p>
-            VIndia Infrasec is a team of more than 234 skilled professionals across multiple locations in India.
-            Our culture encourages innovation, discipline, trust and high performance.
-          </p>
+    <div class="nav-links-mobile" id="navMobile">
+      <a href="../index.html" class="nav-link">Home</a>
+      <a href="../about.html" class="nav-link">About Us</a>
+      <a href="../services.html" class="nav-link">Services</a>
+      <a href="../projects.html" class="nav-link">Projects</a>
+      <a href="we-work.html" class="nav-link active">Careers</a>
+      <a href="../contact.html" class="nav-link">Contact</a>
+      <a href="tel:+918592921212" class="btn-primary">Call Now</a>
+    </div>
+  </header>
 
-          <div class="career-media">
-            <img src="../img/carrer_back.png" alt="Career opportunities at VIndia Infrasec" loading="lazy">
-          </div>
-        </section>
+  <!-- HERO -->
+  <section class="career-hero" data-aos="fade-in">
+    <div class="career-hero-inner">
+      <div>
+        <div class="career-hero-kicker">Careers</div>
+        <h1 class="career-hero-title">Work With VIndia Infrasec</h1>
+        <p class="career-hero-sub">
+          Join an engineering-led team delivering thoughtful construction and interior solutions across South India.
+        </p>
+      </div>
+    </div>
+  </section>
 
-        <!-- WARNING -->
-        <section class="warning-block" data-aos="fade-up">
-          <div class="warning-block-inner">
-            <h3>⚠ Beware of Fake Job Offers</h3>
+  <!-- MAIN -->
+  <main>
+    <div class="container-custom">
+
+      <!-- WHO WE ARE + IMAGE -->
+      <section class="section-block" data-aos="fade-up">
+        <div class="two-col-grid">
+          <div>
+            <h2>Grow Your Career With Us</h2>
             <p>
-              We NEVER ask for payments for job applications.
-              <br><br>
-              Contact us immediately if you receive suspicious messages:
-              <br>
-              <strong>info@vindiainfrasec.com</strong>
+              VIndia Infrasec brings together engineers, site teams and interior specialists who believe in
+              clear execution, quality work and long-term client trust.
+            </p>
+            <p class="section-muted">
+              We prefer people who are hands-on, responsible and willing to learn on real projects — not just at a desk.
             </p>
           </div>
-        </section>
-
-        <!-- SECTION 2 -->
-        <section class="career-section" data-aos="fade-up">
-          <h2>Our Work Culture</h2>
-          <p>
-            VIndia helps employees grow and reach their full potential.
-            We provide opportunities to develop careers—not just jobs.
-          </p>
-
-          <div class="career-media">
-            <img src="../img/career2.jpg" alt="VIndia employee work culture" loading="lazy">
+          <div>
+            <img src="../img/carrer_back.png" alt="Team at work">
           </div>
-        </section>
-
-      </div>
-    </main>
-
-   
-
-    <!-- FOOTER (same as your existing, styled by wework.css) -->
-    <footer class="footer">
-
-      <!-- SOCIAL -->
-      <div class="social-col">
-        <div class="footer-social-left">
-          <a href="#" title="Google"><i class="fab fa-google"></i></a>
-          <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
-          <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
         </div>
+      </section>
 
-        <div class="footer-brand">
-          <h2 class="footer-logo">VIndia Infrasec</h2>
-          <p class="footer-desc">
-            Delivering excellence in Construction, Interior Design & Structural Engineering across South India.
+      <!-- WORK CULTURE + MINIMAL BENEFITS -->
+      <section class="section-block" data-aos="fade-up">
+        <h2>How We Work</h2>
+        <p>
+          Our teams are small, accountable and engineering-first. You will work closely with project leads,
+          site engineers and design teams instead of getting lost in hierarchy.
+        </p>
+
+        <div class="benefits-row">
+          <div class="benefit-mini">
+            <div class="benefit-mini-icon"><i class="fas fa-user-check"></i></div>
+            <div class="benefit-mini-title">On-Site Learning</div>
+            <p>Real project exposure from day one.</p>
+          </div>
+
+          <div class="benefit-mini">
+            <div class="benefit-mini-icon"><i class="fas fa-people-group"></i></div>
+            <div class="benefit-mini-title">Close-Knit Teams</div>
+            <p>Direct access to decision makers.</p>
+          </div>
+
+          <div class="benefit-mini">
+            <div class="benefit-mini-icon"><i class="fas fa-briefcase"></i></div>
+            <div class="benefit-mini-title">Long-Term Roles</div>
+            <p>Structured growth within the company.</p>
+          </div>
+
+          <div class="benefit-mini">
+            <div class="benefit-mini-icon"><i class="fas fa-book-open"></i></div>
+            <div class="benefit-mini-title">Continuous Learning</div>
+            <p>Site reviews, technical discussions & feedback.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- WARNING: FAKE JOB OFFERS -->
+      <section class="warning-block" data-aos="fade-up">
+        <div class="warning-inner">
+          <h3>⚠ Beware of Fake Job Offers</h3>
+          <p>
+            We <strong>do not</strong> charge any fee for interviews, shortlisting or job offers.
+            If you receive suspicious calls, emails or WhatsApp messages claiming to be from VIndia Infrasec and
+            asking for payment, please ignore them and write to:
+            <br><br>
+            <strong>info@vindiainfrasec.com</strong>
           </p>
         </div>
+      </section>
+
+      <!-- HIRING STEPS -->
+      <section class="section-block" data-aos="fade-up">
+        <h2>Our Hiring Process</h2>
+        <p class="section-muted">
+          Simple and transparent — designed to identify people who fit our way of working.
+        </p>
+
+        <div class="hiring-row">
+          <div class="hiring-step">
+            <div class="step-badge">1</div>
+            <h3>Share Your Profile</h3>
+            <p>Send us your resume and a short note on what role you are looking for.</p>
+          </div>
+
+          <div class="hiring-step">
+            <div class="step-badge">2</div>
+            <h3>Discussion With Team</h3>
+            <p>We talk about your experience, interest areas and real site / project situations.</p>
+          </div>
+
+          <div class="hiring-step">
+            <div class="step-badge">3</div>
+            <h3>Offer & Onboarding</h3>
+            <p>Selected candidates receive a formal offer and a clear joining plan.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- JOIN CTA -->
+      <section class="section-block join-cta" data-aos="fade-up">
+        <h2>Interested in Working With Us?</h2>
+        <p>
+          Share your resume and we will reach out if there is a suitable role in engineering,
+          interiors, project coordination or site management.
+        </p>
+        <a href="current-openings.html" class="btn-ghost">
+          View Open Positions
+          <span>→</span>
+        </a>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-row">
+
+        <!-- LEFT -->
+        <div class="footer-left-one">
+          <div class="footer-social-vertical">
+            <a href="#"><i class="fab fa-google"></i></a>
+            <a href="https://youtube.com/@vindia_infrasec" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/company/vindia-infrasec/posts/?feedView=all" target="_blank">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div>
+
+          <div class="footer-brand">
+            <h2 class="footer-logo">VIndia Infrasec</h2>
+            <p class="footer-desc">
+              Delivering excellence in Construction, Interior Design & Structural Engineering across South India.
+            </p>
+          </div>
+        </div>
+
+        <!-- CENTER -->
+        <div class="footer-center-one">
+          <ul class="footer-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about.html">About Us</a></li>
+            <li><a href="/careers/we-work.html">Careers</a></li>
+            <li><a href="/services.html">Services</a></li>
+            <li><a href="/projects.html">Projects</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- CALL -->
+        <div class="footer-right-call">
+          <h3 class="contact-title">Call Us</h3>
+          <ul class="contact-list">
+            <li>+91 85929 11212</li>
+            <li>+91 85929 21212</li>
+            <li>+91 85929 31212</li>
+            <li>+91 85929 41212</li>
+            <li>+91 85929 51212</li>
+            <li>+91 85929 61212</li>
+          </ul>
+        </div>
+
+        <!-- MAPS -->
+        <div class="footer-right-maps">
+          <h3 class="state-title" id="stateTitle">Kerala</h3>
+          <div class="district-row" id="districtContainer"></div>
+        </div>
+
       </div>
+    </div>
+  </footer>
 
-      <!-- QUICK LINKS -->
-      <div class="col">
-        <ul class="footer-links">
-          <li><a href="/">Home</a></li>
-          <li><a href="/about.html">About Us</a></li>
+</div> <!-- /page-wrapper -->
 
-          <li class="footer-dropdown" id="careerDropdown">
-            <button class="footer-dropbtn" onclick="toggleCareer()">Career ▾</button>
+<!-- JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // AOS
+    AOS.init({
+      duration: 600,
+      once: true,
+      offset: 80
+    });
 
-            <ul class="footer-submenu">
-              <li><a href="/careers/we-work.html">We Work</a></li>
-              <li><a href="/careers/openings.html">Open Positions</a></li>
-              <li><a href="/careers/submit-cv.html">Submit Your CV</a></li>
-            </ul>
-          </li>
-
-          <li><a href="/services.html">Services</a></li>
-          <li><a href="/projects.html">Projects</a></li>
-          <li><a href="/contact.html">Contact</a></li>
-        </ul>
-      </div>
-
-      <!-- CONTACT -->
-      <div class="col contact-col">
-        <h3 class="contact-title">Call Us</h3>
-        <ul class="contact-list">
-          <li>+91 85929 11212</li>
-          <li>+91 85929 21212</li>
-          <li>+91 85929 31212</li>
-          <li>+91 85929 41212</li>
-          <li>+91 85929 51212</li>
-          <li>+91 85929 61212</li>
-        </ul>
-      </div>
-
-      <!-- MAPS -->
-      <div class="col col-maps">
-        <h3 class="state-title" id="stateTitle">Kerala</h3>
-        <div class="district-row" id="districtContainer"></div>
-      </div>
-
-    </footer>
-
-  </div> <!-- /.page-wrapper -->
-
-  <!-- JS -->
-  <script>
-    // Mobile nav toggle
+    // Mobile Nav
     const navToggle = document.getElementById("navToggle");
     const navMobile = document.getElementById("navMobile");
 
@@ -846,16 +977,7 @@
       });
     }
 
-    /* Career dropdown */
-    function toggleCareer() {
-      document.getElementById("careerDropdown").classList.toggle("show");
-    }
-    document.addEventListener("click", function (event) {
-      const dropdown = document.getElementById("careerDropdown");
-      if (dropdown && !dropdown.contains(event.target)) dropdown.classList.remove("show");
-    });
-
-    /* MAP ROTATION */
+    // Rotating Maps
     const states = [
       {
         title: "Kerala",
@@ -864,7 +986,7 @@
           "https://www.google.com/maps?q=Kochi,Kerala&output=embed",
           "https://www.google.com/maps?q=Trivandrum,Kerala&output=embed",
           "https://www.google.com/maps?q=Kannur,Kerala&output=embed"
-        ],
+        ]
       },
       {
         title: "Karnataka",
@@ -872,7 +994,7 @@
         maps: [
           "https://www.google.com/maps?q=Mysore,Karnataka&output=embed",
           "https://www.google.com/maps?q=Bengaluru,Karnataka&output=embed"
-        ],
+        ]
       },
       {
         title: "Tamil Nadu",
@@ -881,38 +1003,38 @@
           "https://www.google.com/maps?q=Coimbatore,Tamil+Nadu&output=embed",
           "https://www.google.com/maps?q=Chennai,Tamil+Nadu&output=embed",
           "https://www.google.com/maps?q=Madurai,Tamil+Nadu&output=embed"
-        ],
+        ]
       }
     ];
 
-    let index = 0;
+    let idx = 0;
     const stateTitle = document.getElementById("stateTitle");
     const districtContainer = document.getElementById("districtContainer");
 
-    function renderMaps() {
-      const state = states[index];
+    function updateMaps() {
+      const state = states[idx];
+      if (!stateTitle || !districtContainer) return;
+
       stateTitle.textContent = state.title;
 
-      districtContainer.innerHTML = state.districts.map((d, i) => `
-        <div class="district-card">
-          <h4 class="district-name">${d}</h4>
-          <div class="map-wrapper">
-            <span class="map-icon">📍</span>
-            <iframe src="${state.maps[i]}" class="map-frame" loading="lazy"></iframe>
+      districtContainer.innerHTML = state.districts.map((d, i) => {
+        const src = state.maps[i] || state.maps[0];
+        return `
+          <div class="district-card">
+            <h4>${d}</h4>
+            <iframe src="${src}" class="map-frame" loading="lazy" title="${d}"></iframe>
           </div>
-        </div>
-      `).join("");
+        `;
+      }).join("");
     }
 
-    renderMaps();
+    updateMaps();
     setInterval(() => {
-      index = (index + 1) % states.length;
-      renderMaps();
+      idx = (idx + 1) % states.length;
+      updateMaps();
     }, 3000);
-  </script>
-
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>AOS.init({ duration: 600, once: true, offset: 80 });</script>
+  });
+</script>
 
 </body>
 </html>

@@ -1,0 +1,197 @@
+/* =========================
+   GLOBAL VARIABLES
+========================= */
+:root {
+  --primary: #63b3d8;
+  --primary-dark: #0b63ce;
+  --text-dark: #222;
+  --text-light: #555;
+  --bg-light: #f7f7f7;
+  --shadow-soft: 0 4px 12px rgba(0,0,0,0.08);
+  --radius-md: 14px;
+  --radius-lg: 18px;
+}
+
+/* =========================
+   RESET
+========================= */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: "Work Sans", sans-serif;
+  background: var(--bg-light);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* =========================
+   HEADER (About Page Style)
+========================= */
+header {
+  background: #fff;
+  padding: 14px 0;
+  border-bottom: 1px solid #e5e5e5;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.nav-wrapper {
+  max-width: 1300px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.nav-logo-box {
+  width: 58px;
+  height: 58px;
+  border-radius: 16px;
+  border: 1px solid #ddd;
+  background: #fafafa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-logo-box img { width: 45px; }
+
+.brand-title { font-size: 1.35rem; font-weight: 700; }
+.brand-sub {
+  font-size: 0.72rem;
+  color: #777;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  font-weight: 500;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--primary);
+}
+
+/* CALL NOW BUTTON */
+.call-btn {
+  background: var(--primary);
+  color: #fff;
+  padding: 11px 22px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+/* MOBILE NAV */
+@media (max-width: 850px) {
+  .nav-links { display: none; }
+  .call-btn { display: none; }
+}
+
+/* =========================
+   FOOTER (About Page Style)
+========================= */
+.footer {
+  width: 100%;
+  padding: 50px 3%;
+  background: #f1f1f1;
+  border-top: 1px solid #d3d3d3;
+  color: #222;
+}
+
+.footer-inner {
+  max-width: 1400px;
+  margin: auto;
+}
+
+.footer-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: nowrap;
+}
+
+.footer-left-one {
+  display: flex;
+  gap: 16px;
+  width: 28%;
+  min-width: 220px;
+}
+
+.footer-social-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-social-vertical a {
+  font-size: 24px;
+  color: #1a73e8;
+}
+
+.footer-brand h2 { font-size: 26px; font-weight: 700; }
+
+/* FOOTER LINKS */
+.footer-links li {
+  list-style: none;
+  margin-bottom: 8px;
+}
+
+.footer-links a:hover { color: var(--primary); }
+
+/* CALL COLUMN */
+.contact-col ul li {
+  list-style: none;
+  margin-bottom: 6px;
+}
+
+/* MAP CARDS */
+.col-maps {
+  flex: 1;
+  min-width: 280px;
+}
+
+.district-card {
+  width: 120px;
+  background: #fff;
+  padding: 8px;
+  border-radius: 10px;
+  box-shadow: var(--shadow-soft);
+}
+
+.map-frame {
+  width: 100%;
+  height: 85px;
+  border: none;
+  border-radius: 8px;
+}
+
+/* MOBILE FOOTER */
+@media (max-width: 950px) {
+  .footer-row {
+    flex-wrap: wrap;
+    text-align: center;
+  }
+
+  .footer-left-one,
+  .footer-center-one,
+  .footer-right-call,
+  .col-maps {
+    width: 100%;
+    justify-content: center;
+  }
+}

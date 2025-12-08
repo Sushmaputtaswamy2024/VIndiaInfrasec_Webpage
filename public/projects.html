@@ -195,7 +195,7 @@
     }
 
     /* =========================
-       HEADER (same as services.html)
+       HEADER (same family as services.html)
     ========================== */
     header {
       background: #ffffff;
@@ -393,7 +393,7 @@
     }
 
     /* =========================
-       HERO (same layout style as services)
+       HERO
     ========================== */
     .hero-services {
       background: #ffffff;
@@ -654,7 +654,6 @@
 
     /* =========================
        PROJECTS SECTION
-       (Follows services-grid style, but with images)
     ========================== */
     .projects-section {
       background: var(--bg);
@@ -854,7 +853,7 @@
     }
 
     /* =========================
-       FOOTER (same as services.html)
+       FOOTER
     ========================== */
     footer {
       margin-top: auto;
@@ -953,6 +952,11 @@
       text-align: center;
     }
 
+    .district-name {
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+
     .map-frame {
       width: 100%;
       height: 110px;
@@ -1021,6 +1025,7 @@
     /* =========================
        RESPONSIVE
     ========================== */
+
     @media (max-width: 992px) {
       .hero-inner {
         grid-template-columns: 1fr;
@@ -1102,8 +1107,43 @@
         gap: 0.65rem;
       }
 
-      .projects-grid {
-        grid-template-columns: 1fr;
+      .section {
+        padding: 2.7rem 0;
+      }
+    }
+
+    @media (max-width: 600px) {
+      body {
+        font-size: 14px;
+      }
+
+      .hero-title {
+        font-size: 1.8rem;
+      }
+
+      .hero-subtitle,
+      .section-subtitle {
+        font-size: 0.9rem;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+
+      .project-title {
+        font-size: 0.98rem;
+      }
+
+      .project-desc {
+        font-size: 0.84rem;
+      }
+
+      .footer {
+        padding: 40px 20px;
+      }
+
+      .footer-logo {
+        font-size: 22px;
       }
     }
 
@@ -1115,13 +1155,17 @@
       .container {
         padding-inline: 1rem;
       }
+
+      .hero-title {
+        font-size: 1.7rem;
+      }
     }
   </style>
 </head>
 <body>
   <div class="page-wrapper">
 
-    <!-- ============ HEADER (same as services, Projects active) ============ -->
+    <!-- ============ HEADER (Projects active) ============ -->
     <header>
       <nav class="nav-bar" aria-label="Main navigation">
         <div class="nav-left">
@@ -1146,10 +1190,8 @@
         </ul>
 
         <div class="nav-cta">
-          <div class="nav-phone" aria-label="Primary contact number">
-            <span>+91-85929 21212</span>
-          </div>
-          <!-- Same as services.html: WhatsApp link -->
+         
+          <!-- Same pattern as services.html: WhatsApp link -->
           <a href="https://wa.me/918592921212" class="btn-primary">
             Call Now
           </a>
@@ -1174,7 +1216,7 @@
     </header>
 
     <main>
-      <!-- ============ HERO / TOP BANNER (same layout as services) ============ -->
+      <!-- ============ HERO ============ -->
       <section class="hero-services">
         <div class="container">
           <div class="hero-inner">
@@ -1574,16 +1616,16 @@
       </section>
     </main>
 
-    <!-- ============ FOOTER (same as services.html) ============ -->
+    <!-- ============ FOOTER ============ -->
     <footer class="footer">
 
       <!-- SOCIAL -->
       <div class="social-col">
         <div class="footer-social-left">
-          <a href="#" title="VIndia Infrasec on Google"><i class="fab fa-google"></i></a>
-          <a href="#" title="VIndia Infrasec on YouTube"><i class="fab fa-youtube"></i></a>
-          <a href="#" title="VIndia Infrasec on Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="#" title="VIndia Infrasec on LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-google"></i></a>
+          <a href="https://youtube.com/@vindia_infrasec"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/company/vindia-infrasec"><i class="fab fa-linkedin"></i></a>
         </div>
 
         <div class="footer-brand">
@@ -1671,7 +1713,8 @@
 
       filterButtons.forEach(btn => {
         btn.addEventListener("click", () => {
-          document.querySelector(".filter-pill.active").classList.remove("active");
+          const active = document.querySelector(".filter-pill.active");
+          if (active) active.classList.remove("active");
           btn.classList.add("active");
 
           const filter = btn.getAttribute("data-filter");
@@ -1679,7 +1722,7 @@
           projectCards.forEach(card => {
             const category = card.getAttribute("data-category");
             if (filter === "all" || category === filter) {
-              card.style.display = "";
+              card.style.display = "flex";
             } else {
               card.style.display = "none";
             }
@@ -1687,7 +1730,7 @@
         });
       });
 
-      // Footer maps rotation (same as services)
+      // Footer maps rotation
       const states = [
         {
           title: "Kerala",
@@ -1714,6 +1757,8 @@
 
       function updateMaps() {
         const state = states[index];
+        if (!stateTitle || !districtContainer) return;
+
         stateTitle.textContent = state.title;
 
         districtContainer.innerHTML = state.districts

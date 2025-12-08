@@ -1,0 +1,21 @@
+[
+  {
+    "slug": "how-to-plan-your-home-construction",
+    "title": "How to Plan Your Home Construction in 2025",
+    "image": "/images/construction1.jpg",
+    "category": "Construction",
+    "summary": "A step-by-step guide to planning your home construction, budget, layout, and timelines.",
+    "date": "Dec 2025",
+    "content": "<p>Building a home is one of the most important financial decisions...</p>"
+  },
+
+  {
+    "slug": "best-interior-design-trends",
+    "title": "Top Interior Design Trends for Modern Homes",
+    "image": "/images/interior1.jpg",
+    "category": "Interior Design",
+    "summary": "Explore trending textures, materials, colors, and spatial design ideas.",
+    "date": "Dec 2025",
+    "content": "<p>The modern interior design space has evolved dramatically...</p>"
+  }
+]

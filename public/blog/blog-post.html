@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Blog Post</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="blog.css">
+</head>
+
+<body>
+
+  <section id="post-container"></section>
+
+  <script>
+    const slug = new URLSearchParams(location.search).get("slug");
+
+    fetch("./posts.json")
+      .then(res => res.json())
+      .then(posts => {
+        const post = posts.find(p => p.slug === slug);
+
+        document.getElementById("post-container").innerHTML = `
+          <div class="post-hero">
+            <img src="${post.image}">
+          </div>
+
+          <div class="post-body">
+            <span class="category">${post.category}</span>
+            <h1>${post.title}</h1>
+            <p class="date">${post.date}</p>
+
+            ${post.content}
+          </div>
+        `;
+      });
+  </script>
+
+</body>
+</html>
