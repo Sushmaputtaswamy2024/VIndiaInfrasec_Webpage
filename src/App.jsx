@@ -5,6 +5,7 @@ import ScrollVideo from "./components/ScrollVideo";
 import Testimonials from "./components/Testimonials";
 import CallToAction from "./components/CallToAction";
 import Footer from "./components/Footer";
+import projectImages from "./utils/projectImages";
 
 // Shuffle images
 function shuffleImages(array) {
@@ -39,7 +40,7 @@ function App() {
       <ScrollVideo />
       <OverlappingCards />
 
-      <ProjectGallery images={images} />
+      <ProjectGallery images={projectImages} />
 
       <Testimonials />
       <CallToAction />
