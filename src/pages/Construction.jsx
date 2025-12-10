@@ -1,6 +1,5 @@
 import { useState } from "react";
 import "./construction.css";
-import building from "../assets/building.jpg"; // put image here
 
 export default function Construction() {
   const [menu, setMenu] = useState(false);
@@ -37,7 +36,8 @@ export default function Construction() {
         {/* IMAGE + TEXT SECTION */}
         <div className="image-text-section">
           <div className="left-image">
-            <img src={building} alt="Construction Work" />
+            {/* ✅ PUBLIC IMAGE PATH (NO IMPORT) */}
+            <img src="/building.jpg" alt="Construction Work" />
           </div>
 
           <div className="right-text">
