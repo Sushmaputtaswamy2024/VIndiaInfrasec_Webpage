@@ -60,7 +60,7 @@
       flex-direction: column;
     }
 
-    /* ========================= HEADER (same as about / services) ========================= */
+    /* ========================= HEADER ========================= */
 
     header {
       background: #fff;
@@ -382,7 +382,7 @@
       text-decoration: underline;
     }
 
-    /* ========================= DESKTOP FOOTER (same as about.html) ========================= */
+    /* ========================= DESKTOP FOOTER (B2-A, equal columns) ========================= */
 
     .footer {
       width: 100%;
@@ -390,17 +390,20 @@
       background: #f1f1f1;
       color: #222;
       display: flex;
-      justify-content: flex-start;
-      gap: 40px;
       flex-wrap: wrap;
+      gap: 32px;
+      justify-content: space-between;
       border-top: 1px solid #d3d3d3;
       box-sizing: border-box;
       margin-top: auto;
     }
 
+    .footer-col {
+      flex: 1 1 220px;
+      max-width: 25%;
+    }
+
     .social-col {
-      width: 30%;
-      min-width: 260px;
       display: flex;
       gap: 20px;
     }
@@ -464,8 +467,7 @@
     }
 
     .col-maps {
-      flex: 1;
-      min-width: 330px;
+      /* fourth equal column, no extra width */
     }
 
     .state-title {
@@ -475,8 +477,9 @@
 
     .district-row {
       display: flex;
+      flex-direction: row;
       gap: 12px;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
     }
 
     .district-card {
@@ -834,10 +837,10 @@
     </div>
   </section>
 
-  <!-- ========================= DESKTOP FOOTER (same as about) ========================= -->
+  <!-- ========================= DESKTOP FOOTER (B2-A) ========================= -->
   <footer class="footer">
-    <!-- SOCIAL -->
-    <div class="social-col">
+    <!-- 1: SOCIAL + BRAND (left) -->
+    <div class="footer-col social-col">
       <div class="footer-social-left">
         <a href="#"><i class="fab fa-google"></i></a>
         <a href="https://youtube.com/@vindia_infrasec" target="_blank"><i class="fab fa-youtube"></i></a>
@@ -855,21 +858,8 @@
       </div>
     </div>
 
-    <!-- QUICK LINKS -->
-    <div class="col">
-      <ul class="footer-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/about.html">About Us</a></li>
-        <li><a href="/careers/we-work.html">Careers</a></li>
-        <li><a href="/services.html">Services</a></li>
-        <li><a href="/projects.html">Projects</a></li>
-        <li><a href="/blog/blog.html">Blog</a></li>
-        <li><a href="/contact.html">Contact</a></li>
-      </ul>
-    </div>
-
-    <!-- CONTACT -->
-    <div class="col contact-col">
+    <!-- 2: CONTACT NUMBERS -->
+    <div class="footer-col contact-col">
       <h3 class="contact-title">Call Us</h3>
       <ul class="contact-list">
         <li>+91 85929 11212</li>
@@ -881,14 +871,27 @@
       </ul>
     </div>
 
-    <!-- MAPS (rotating states) -->
-    <div class="col col-maps">
+    <!-- 3: QUICK LINKS -->
+    <div class="footer-col">
+      <ul class="footer-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about.html">About Us</a></li>
+        <li><a href="/careers/we-work.html">Careers</a></li>
+        <li><a href="/services.html">Services</a></li>
+        <li><a href="/projects.html">Projects</a></li>
+        <li><a href="/blog/blog.html">Blog</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- 4: ROTATING MAPS -->
+    <div class="footer-col col-maps">
       <h3 class="state-title" id="stateTitle">Kerala</h3>
       <div class="district-row" id="districtContainer"></div>
     </div>
   </footer>
 
-  <!-- ========================= MOBILE FOOTER (same behaviour as about.html) ========================= -->
+  <!-- ========================= MOBILE FOOTER ========================= -->
   <div class="footer-mobile">
     <div class="fm-brand">
       <h2>VIndia Infrasec</h2>
@@ -955,7 +958,7 @@
     });
   }
 
-  // Rotating mini-maps (same pattern as about.html, with Pondicherry added)
+  // Rotating mini-maps (M1 - same pattern as about.html, with Pondicherry added)
   const states = [
     {
       title: "Kerala",
