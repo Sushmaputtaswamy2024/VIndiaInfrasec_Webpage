@@ -97,7 +97,7 @@
       color:var(--text-muted);
     }
 
-    /* ================= HEADER ================= */
+    /* ================= HEADER (same as about.html) ================= */
 
     header {
       background:#fff;
@@ -200,6 +200,14 @@
       gap:0.85rem;
     }
 
+    .nav-phone {
+      font-size:0.9rem;
+      color:#444;
+    }
+    .nav-phone span {
+      font-weight:600;
+    }
+
     .btn-primary {
       padding:0.55rem 1.2rem;
       border-radius:999px;
@@ -220,6 +228,7 @@
       background:var(--primary-dark);
       transform:translateY(-1px);
       box-shadow:0 4px 10px rgba(0,0,0,0.16);
+      color:#fff;
     }
 
     .btn-outline {
@@ -233,6 +242,7 @@
       align-items:center;
       gap:0.4rem;
       transition:border .2s ease, background .2s ease, transform .2s ease;
+      color:#333;
     }
 
     .btn-outline:hover {
@@ -303,6 +313,7 @@
     .nav-links-mobile.open {
       display:flex;
     }
+
     /* =============== HERO =============== */
 
     .hero-services {
@@ -594,12 +605,580 @@
       border-color:var(--primary);
       color:#fff;
     }
+
+    /* ============== MODAL CSS ============== */
+
+    .modal-backdrop {
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.55);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index:3000;
+      pointer-events:none;
+      padding:1rem;
+    }
+
+    .modal-backdrop.active {
+      display:flex;
+      pointer-events:all;
+    }
+
+    .modal {
+      background:#fff;
+      width:100%;
+      max-width:650px;
+      border-radius:18px;
+      border:1px solid var(--border);
+      padding-bottom:1rem;
+      max-height:90vh;
+      overflow-y:auto;
+      animation:modalIn 0.25s ease-out;
+      display:block !important;
+      z-index:4000;
+    }
+
+    @keyframes modalIn {
+      from { opacity:0; transform:translateY(12px) scale(0.96); }
+      to   { opacity:1; transform:none; }
+    }
+
+    .modal-header {
+      padding:1.25rem 1.4rem 0.6rem;
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:0.75rem;
+      flex-wrap:wrap;
+    }
+
+    .modal-kicker {
+      font-size:0.7rem;
+      text-transform:uppercase;
+      letter-spacing:0.14em;
+      color:var(--primary-dark);
+      margin-bottom:0.22rem;
+    }
+
+    .modal-title {
+      font-size:1.12rem;
+      font-weight:600;
+      margin-bottom:0.1rem;
+    }
+
+    .modal-subtitle {
+      font-size:0.84rem;
+      color:var(--text-muted);
+    }
+
+    .modal-label-pill {
+      padding:0.24rem 0.65rem;
+      border-radius:999px;
+      font-size:0.72rem;
+      background:#eef7fb;
+      color:var(--primary-dark);
+      font-weight:500;
+      white-space:nowrap;
+    }
+
+    .modal-close-btn {
+      width:32px;
+      height:32px;
+      border-radius:999px;
+      border:1px solid #d0d7de;
+      background:#f9fafb;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:1.1rem;
+      transition:background .2s ease, transform .2s ease;
+    }
+
+    .modal-close-btn:hover {
+      background:#222;
+      color:#f9fafb;
+      transform:translateY(-1px);
+    }
+
+    .modal-body {
+      padding:0.75rem 1.4rem 1.2rem;
+      border-top:1px solid #ececec;
+    }
+
+    .modal-grid {
+      display:grid;
+      grid-template-columns:1.1fr 1fr;
+      gap:1.2rem;
+      align-items:flex-start;
+      margin-top:0.7rem;
+    }
+
+    .modal-text-block p {
+      font-size:0.88rem;
+      color:var(--text-muted);
+      margin-bottom:0.5rem;
+    }
+
+    .modal-list {
+      margin-top:0.1rem;
+      padding-left:1rem;
+      font-size:0.86rem;
+    }
+
+    .modal-list li {
+      list-style:disc;
+      margin-bottom:0.3rem;
+      color:#4b5563;
+    }
+
+    .modal-meta-grid {
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0,1fr));
+      gap:0.55rem;
+      margin-top:0.7rem;
+      font-size:0.78rem;
+    }
+
+    .modal-meta-pill {
+      padding:0.35rem 0.55rem;
+      border-radius:0.9rem;
+      background:#f3f4f6;
+      color:#4b5563;
+    }
+
+    .modal-cta-row {
+      margin-top:0.9rem;
+      display:flex;
+      flex-wrap:wrap;
+      gap:0.7rem;
+      align-items:center;
+    }
+
+    .btn-modal-primary {
+      padding:0.55rem 1.2rem;
+      border-radius:999px;
+      background:var(--primary);
+      color:#fff;
+      font-size:0.86rem;
+      font-weight:600;
+      border:none;
+      box-shadow:var(--shadow-soft);
+      display:inline-flex;
+      align-items:center;
+      gap:0.35rem;
+      transition:background .2s ease, transform .2s ease, box-shadow .2s ease;
+    }
+
+    .btn-modal-primary:hover {
+      background:var(--primary-dark);
+      transform:translateY(-1px);
+      box-shadow:0 4px 12px rgba(0,0,0,0.18);
+      text-decoration:none;
+    }
+
+    .btn-modal-secondary {
+      padding:0.55rem 1.05rem;
+      border-radius:999px;
+      border:1px solid #cfd4da;
+      font-size:0.84rem;
+      background:#fff;
+      display:inline-flex;
+      align-items:center;
+      gap:0.35rem;
+      color:#333;
+      text-decoration:none;
+    }
+
+    .btn-modal-secondary:hover {
+      border-color:var(--primary);
+      text-decoration:none;
+    }
+
+    .modal-side-card {
+      border-radius:1.1rem;
+      background:#f7f7f7;
+      padding:0.95rem 0.9rem;
+      border:1px solid #e3e3e3;
+      font-size:0.8rem;
+    }
+
+    .modal-side-title {
+      font-size:0.86rem;
+      font-weight:600;
+      margin-bottom:0.2rem;
+    }
+
+    .modal-side-sub {
+      font-size:0.75rem;
+      color:#777;
+      margin-bottom:0.55rem;
+    }
+
+    .modal-side-highlight {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:0.6rem;
+      color:#444;
+      font-size:0.8rem;
+    }
+
+    .modal-side-highlight strong {
+      font-size:0.95rem;
+      color:#111;
+    }
+
+    .modal-side-badges {
+      display:flex;
+      flex-wrap:wrap;
+      gap:0.35rem;
+      font-size:0.7rem;
+    }
+
+    .modal-side-badge {
+      padding:0.18rem 0.55rem;
+      border-radius:999px;
+      background:#fff;
+      border:1px solid #d0d7de;
+    }
+
+    /* ========================= GLOBAL FOOTER (same as about.html) ========================= */
+
+    .footer {
+      width: 100%;
+      padding: 60px 40px;
+      background: #f1f1f1;
+      color: #222;
+      display: flex;
+      justify-content: flex-start;
+      gap: 40px;
+      flex-wrap: wrap;
+      border-top: 1px solid #d3d3d3;
+      box-sizing: border-box;
+      margin-top:auto;
+    }
+
+    .social-col {
+      width: 30%;
+      min-width: 260px;
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-social-left {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .footer-social-left a {
+      color: #007bff;
+      font-size: 32px;
+      transition: 0.3s;
+    }
+
+    .footer-social-left a:hover {
+      transform: scale(1.2);
+    }
+
+    .footer-brand {
+      max-width: 260px;
+    }
+
+    .footer-logo {
+      font-size: 26px;
+      font-weight: 700;
+    }
+
+    .footer-desc {
+      margin-top: 8px;
+      line-height: 1.55;
+      font-size: 14.5px;
+      color: #444;
+    }
+
+    .footer-links li {
+      list-style: none;
+      margin: 8px 0;
+    }
+
+    .footer-links a {
+      color: #333;
+      font-size: 15px;
+      transition: 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: #007bff;
+    }
+
+    .contact-col .contact-title {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .contact-list li {
+      list-style: none;
+      margin: 6px 0;
+      font-size: 15px;
+    }
+
+    .col-maps {
+      flex: 1;
+      min-width: 330px;
+    }
+
+    .state-title {
+      font-size: 22px;
+      margin-bottom: 14px;
+    }
+
+    .district-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .district-card {
+      width: 150px;
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 10px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .district-name {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .map-wrapper {
+      position: relative;
+    }
+
+    .map-icon {
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      font-size: 16px;
+    }
+
+    .map-frame {
+      width: 100%;
+      height: 110px;
+      border-radius: 8px;
+      border: none;
+    }
+
+    .district-location {
+      display: block;
+      margin-top: 6px;
+      font-size: 14px;
+      color: #007bff;
+    }
+
+    /* FLOATING ICONS (kept styles, markup not used) */
+    .floating-icons {
+      position: fixed;
+      bottom: 22px;
+      right: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 3000;
+    }
+
+    .call-icon,
+    .whatsapp-icon {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background: #25d366;
+      color: white;
+      font-size: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      transition: 0.3s;
+    }
+
+    .call-icon {
+      background: #007bff;
+    }
+
+    .call-icon:hover,
+    .whatsapp-icon:hover {
+      transform: scale(1.15);
+    }
+
+    /* MOBILE FOOTER (accordion) */
+    .footer-mobile {
+      display: none;
+      background: #ffffff;
+      padding: 30px 20px 50px;
+      border-top: 1px solid #ddd;
+    }
+
+    .fm-brand h2 {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .fm-brand p {
+      margin: 6px 0;
+      color: #555;
+      font-size: 14px;
+    }
+
+    .fm-brand a {
+      color: #007bff;
+      font-size: 14px;
+    }
+
+    .fm-section {
+      margin: 18px 0;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 10px;
+    }
+
+    .fm-header {
+      font-size: 17px;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      cursor: pointer;
+    }
+
+    .fm-header i {
+      font-size: 14px;
+      color: #444;
+    }
+
+    .fm-content {
+      display: none;
+      margin-top: 8px;
+      padding-left: 5px;
+    }
+
+    .fm-content.open {
+      display: block;
+    }
+
+    .fm-content a,
+    .fm-content p {
+      display: block;
+      font-size: 15px;
+      color: #333;
+      margin: 6px 0;
+    }
+
+    .fm-social {
+      margin-top: 18px;
+      display: flex;
+      gap: 18px;
+    }
+
+    .fm-social a {
+      color: #007bff;
+      font-size: 22px;
+    }
+
+    /* ========== RESPONSIVE ========== */
+
+    @media (max-width:1024px) {
+      .services-grid {
+        grid-template-columns:repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width:900px) {
+      .hero-inner {
+        grid-template-columns:1fr;
+      }
+
+      .hero-right {
+        order:-1;
+        margin-bottom:1.8rem;
+      }
+
+      .hero-title {
+        font-size:2rem;
+      }
+
+      .nav-links,
+      .nav-cta {
+        display:none;
+      }
+
+      .nav-toggle {
+        display:inline-flex;
+      }
+
+      /* desktop footer off, mobile footer on */
+      .footer {
+        display:none;
+      }
+      .footer-mobile {
+        display:block;
+      }
+    }
+
+    @media (max-width:768px) {
+      .services-grid {
+        grid-template-columns:1fr;
+      }
+
+      .modal-grid {
+        grid-template-columns:1fr;
+      }
+
+      .hero-title {
+        font-size:1.8rem;
+      }
+
+      .nav-brand-main {
+        font-size:1.02rem;
+      }
+
+      .nav-brand-sub {
+        font-size:0.66rem;
+      }
+    }
+
+    @media (max-width:650px) {
+      body {
+        font-size:14px;
+      }
+
+      .hero-title {
+        font-size:1.7rem;
+      }
+
+      .section-title {
+        font-size:1.7rem;
+      }
+    }
+
+    @media (max-width:500px) {
+      .floating-icons {
+        bottom:18px;
+        right:14px;
+      }
+
+      .fm-header {
+        font-size:16px;
+      }
+    }
   </style>
 </head>
 <body>
 <div class="page-wrapper">
 
-  <!-- HEADER -->
+  <!-- HEADER (same as about.html, Services active) -->
   <header>
     <nav class="nav-bar" aria-label="Main navigation">
       <div class="nav-left">
@@ -624,7 +1203,9 @@
       </ul>
 
       <div class="nav-cta">
-        <a href="tel:+918592921212" class="btn-primary">Call Now</a>
+        <div class="nav-phone"><span>+91 85929 21212</span></div>
+        <!-- WhatsApp Call Now -->
+        <a href="https://wa.me/918592921212" class="btn-primary">Call Now</a>
       </div>
 
       <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
@@ -895,6 +1476,7 @@
               </button>
             </div>
           </article>
+
           <!-- S07 -->
           <article class="service-card" data-modal-target="#modal7" data-aos="fade-up">
             <div class="service-tag-row">
@@ -1045,453 +1627,8 @@
       </div>
     </section>
   </main>
-  <!-- ============== MODAL CSS ============== -->
-  <style>
-    .modal-backdrop {
-      position:fixed;
-      inset:0;
-      background:rgba(0,0,0,0.55);
-      display:none;
-      align-items:center;
-      justify-content:center;
-      z-index:3000;
-      pointer-events:none;
-      padding:1rem;
-    }
 
-    .modal-backdrop.active {
-      display:flex;
-      pointer-events:all;
-    }
-
-    .modal {
-      background:#fff;
-      width:100%;
-      max-width:650px;
-      border-radius:18px;
-      border:1px solid var(--border);
-      padding-bottom:1rem;
-      max-height:90vh;
-      overflow-y:auto;
-      animation:modalIn 0.25s ease-out;
-      display:block !important;
-      z-index:4000;
-    }
-
-    @keyframes modalIn {
-      from { opacity:0; transform:translateY(12px) scale(0.96); }
-      to   { opacity:1; transform:none; }
-    }
-
-    .modal-header {
-      padding:1.25rem 1.4rem 0.6rem;
-      display:flex;
-      justify-content:space-between;
-      align-items:flex-start;
-      gap:0.75rem;
-      flex-wrap:wrap;
-    }
-
-    .modal-kicker {
-      font-size:0.7rem;
-      text-transform:uppercase;
-      letter-spacing:0.14em;
-      color:var(--primary-dark);
-      margin-bottom:0.22rem;
-    }
-
-    .modal-title {
-      font-size:1.12rem;
-      font-weight:600;
-      margin-bottom:0.1rem;
-    }
-
-    .modal-subtitle {
-      font-size:0.84rem;
-      color:var(--text-muted);
-    }
-
-    .modal-label-pill {
-      padding:0.24rem 0.65rem;
-      border-radius:999px;
-      font-size:0.72rem;
-      background:#eef7fb;
-      color:var(--primary-dark);
-      font-weight:500;
-      white-space:nowrap;
-    }
-
-    .modal-close-btn {
-      width:32px;
-      height:32px;
-      border-radius:999px;
-      border:1px solid #d0d7de;
-      background:#f9fafb;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:1.1rem;
-      transition:background .2s ease, transform .2s ease;
-    }
-
-    .modal-close-btn:hover {
-      background:#222;
-      color:#f9fafb;
-      transform:translateY(-1px);
-    }
-
-    .modal-body {
-      padding:0.75rem 1.4rem 1.2rem;
-      border-top:1px solid #ececec;
-    }
-
-    .modal-grid {
-      display:grid;
-      grid-template-columns:1.1fr 1fr;
-      gap:1.2rem;
-      align-items:flex-start;
-      margin-top:0.7rem;
-    }
-
-    .modal-text-block p {
-      font-size:0.88rem;
-      color:var(--text-muted);
-      margin-bottom:0.5rem;
-    }
-
-    .modal-list {
-      margin-top:0.1rem;
-      padding-left:1rem;
-      font-size:0.86rem;
-    }
-
-    .modal-list li {
-      list-style:disc;
-      margin-bottom:0.3rem;
-      color:#4b5563;
-    }
-
-    .modal-meta-grid {
-      display:grid;
-      grid-template-columns:repeat(2, minmax(0,1fr));
-      gap:0.55rem;
-      margin-top:0.7rem;
-      font-size:0.78rem;
-    }
-
-    .modal-meta-pill {
-      padding:0.35rem 0.55rem;
-      border-radius:0.9rem;
-      background:#f3f4f6;
-      color:#4b5563;
-    }
-
-    .modal-cta-row {
-      margin-top:0.9rem;
-      display:flex;
-      flex-wrap:wrap;
-      gap:0.7rem;
-      align-items:center;
-    }
-
-    .btn-modal-primary {
-      padding:0.55rem 1.2rem;
-      border-radius:999px;
-      background:var(--primary);
-      color:#fff;
-      font-size:0.86rem;
-      font-weight:600;
-      border:none;
-      box-shadow:var(--shadow-soft);
-      display:inline-flex;
-      align-items:center;
-      gap:0.35rem;
-      transition:background .2s ease, transform .2s ease, box-shadow .2s ease;
-    }
-
-    .btn-modal-primary:hover {
-      background:var(--primary-dark);
-      transform:translateY(-1px);
-      box-shadow:0 4px 12px rgba(0,0,0,0.18);
-      text-decoration:none;
-    }
-
-    .btn-modal-secondary {
-      padding:0.55rem 1.05rem;
-      border-radius:999px;
-      border:1px solid #cfd4da;
-      font-size:0.84rem;
-      background:#fff;
-      display:inline-flex;
-      align-items:center;
-      gap:0.35rem;
-      color:#333;
-      text-decoration:none;
-    }
-
-    .btn-modal-secondary:hover {
-      border-color:var(--primary);
-      text-decoration:none;
-    }
-
-    .modal-side-card {
-      border-radius:1.1rem;
-      background:#f7f7f7;
-      padding:0.95rem 0.9rem;
-      border:1px solid #e3e3e3;
-      font-size:0.8rem;
-    }
-
-    .modal-side-title {
-      font-size:0.86rem;
-      font-weight:600;
-      margin-bottom:0.2rem;
-    }
-
-    .modal-side-sub {
-      font-size:0.75rem;
-      color:#777;
-      margin-bottom:0.55rem;
-    }
-
-    .modal-side-highlight {
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      margin-bottom:0.6rem;
-      color:#444;
-      font-size:0.8rem;
-    }
-
-    .modal-side-highlight strong {
-      font-size:0.95rem;
-      color:#111;
-    }
-
-    .modal-side-badges {
-      display:flex;
-      flex-wrap:wrap;
-      gap:0.35rem;
-      font-size:0.7rem;
-    }
-
-    .modal-side-badge {
-      padding:0.18rem 0.55rem;
-      border-radius:999px;
-      background:#fff;
-      border:1px solid #d0d7de;
-    }
-
-    /* =============== FOOTER =============== */
-
-    .footer {
-      width:100%;
-      padding:40px 3%;
-      background:#f2f2f2;
-      color:#222;
-      border-top:1px solid #d3d3d3;
-      margin-top:auto;
-    }
-
-    .footer-inner {
-      max-width:1400px;
-      margin:0 auto;
-    }
-
-    .footer-row {
-      display:flex;
-      justify-content:space-between;
-      align-items:flex-start;
-      gap:20px;
-      flex-wrap:nowrap;
-    }
-
-    .footer-left-one {
-      display:flex;
-      gap:16px;
-      width:28%;
-      min-width:220px;
-    }
-
-    .footer-center-one {
-      width:18%;
-      min-width:150px;
-    }
-
-    .footer-right-call {
-      width:16%;
-      min-width:150px;
-    }
-
-    .footer-right-maps {
-      width:33%;
-      min-width:260px;
-    }
-
-    .footer-social-vertical {
-      display:flex;
-      flex-direction:column;
-      gap:8px;
-    }
-
-    .footer-social-vertical a {
-      font-size:24px;
-      color:#1a73e8;
-    }
-
-    .footer-links li {
-      margin:6px 0;
-    }
-
-    .footer-links a {
-      font-size:0.9rem;
-      color:#333;
-    }
-
-    .footer-links a:hover {
-      color:#007bff;
-    }
-
-    .contact-list li {
-      list-style:none;
-      margin:4px 0;
-      font-size:0.9rem;
-    }
-
-    .district-row {
-      display:flex;
-      gap:10px;
-      justify-content:flex-start;
-      flex-wrap:nowrap;
-    }
-
-    .district-card {
-      width:120px;
-      background:#fff;
-      padding:8px;
-      border-radius:10px;
-      box-shadow:0 3px 8px rgba(0,0,0,0.08);
-    }
-
-    .map-frame {
-      width:100%;
-      height:85px;
-      border:none;
-      border-radius:8px;
-    }
-
-    .district-card h4 {
-      font-size:0.8rem;
-      margin-bottom:4px;
-    }
-
-    .district-location {
-      display:inline-block;
-      margin-top:4px;
-      font-size:0.75rem;
-      color:#1a73e8;
-    }
-
-    .footer-logo {
-      font-size:1.4rem;
-      font-weight:700;
-    }
-
-    .footer-desc {
-      font-size:0.9rem;
-      margin-top:0.5rem;
-      color:#444;
-    }
-
-    /* ========== RESPONSIVE ========== */
-
-    @media (max-width:1024px) {
-      .services-grid {
-        grid-template-columns:repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width:900px) {
-      .hero-inner {
-        grid-template-columns:1fr;
-      }
-
-      .hero-right {
-        order:-1;
-        margin-bottom:1.8rem;
-      }
-
-      .hero-title {
-        font-size:2rem;
-      }
-    }
-
-    @media (max-width:768px) {
-      .nav-links,
-      .nav-cta {
-        display:none;
-      }
-
-      .nav-toggle {
-        display:inline-flex;
-      }
-
-      .services-grid {
-        grid-template-columns:1fr;
-      }
-
-      .modal-grid {
-        grid-template-columns:1fr;
-      }
-
-      .hero-title {
-        font-size:1.8rem;
-      }
-
-      .nav-brand-main {
-        font-size:1.02rem;
-      }
-
-      .nav-brand-sub {
-        font-size:0.66rem;
-      }
-    }
-
-    @media (max-width:650px) {
-      body {
-        font-size:14px;
-      }
-
-      .hero-title {
-        font-size:1.7rem;
-      }
-
-      .section-title {
-        font-size:1.7rem;
-      }
-
-      .footer-row {
-        flex-wrap:wrap;
-        text-align:center;
-      }
-
-      .footer-left-one,
-      .footer-center-one,
-      .footer-right-call,
-      .footer-right-maps {
-        width:100%;
-        justify-content:center;
-      }
-
-      .district-row {
-        justify-content:center;
-        flex-wrap:wrap;
-      }
-    }
-  </style>
-
-  <!-- ============== MODALS S01–S12 ============== -->
-
+  <!-- ============== MODALS S01–S12 (unchanged content) ============== -->
   <!-- S01 -->
   <div class="modal-backdrop" id="modal1">
     <div class="modal" role="dialog" aria-modal="true">
@@ -1687,6 +1824,7 @@
       </div>
     </div>
   </div>
+
   <!-- S05 -->
   <div class="modal-backdrop" id="modal5">
     <div class="modal" role="dialog" aria-modal="true">
@@ -2057,65 +2195,123 @@
     </div>
   </div>
 
-  <!-- FOOTER -->
+  <!-- DESKTOP FOOTER (same as about.html) -->
   <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-row">
+    <!-- SOCIAL -->
+    <div class="social-col">
+      <div class="footer-social-left">
+        <a href="#"><i class="fab fa-google"></i></a>
+        <a href="https://youtube.com/@vindia_infrasec" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/company/vindia-infrasec/posts/?feedView=all" target="_blank">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </div>
 
-        <!-- LEFT -->
-        <div class="footer-left-one">
-          <div class="footer-social-vertical">
-            <a href="#"><i class="fab fa-google"></i></a>
-            <a href="https://youtube.com/@vindia_infrasec" target="_blank"><i class="fab fa-youtube"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.linkedin.com/company/vindia-infrasec/posts/?feedView=all" target="_blank">
-              <i class="fab fa-linkedin"></i>
-            </a>
-          </div>
-
-          <div class="footer-brand">
-            <h2 class="footer-logo">VIndia Infrasec</h2>
-            <p class="footer-desc">
-              Delivering excellence in Construction, Interior Design & Structural Engineering across South India.
-            </p>
-          </div>
-        </div>
-
-        <!-- CENTER -->
-        <div class="footer-center-one">
-          <ul class="footer-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="/about.html">About Us</a></li>
-            <li><a href="/careers/we-work.html">Careers</a></li>
-            <li><a href="/services.html">Services</a></li>
-            <li><a href="/projects.html">Projects</a></li>
-            <li><a href="/contact.html">Contact</a></li>
-          </ul>
-        </div>
-
-        <!-- RIGHT CALL COLUMN -->
-        <div class="footer-right-call">
-          <h3 class="contact-title">Call Us</h3>
-          <ul class="contact-list">
-            <li>+91 85929 11212</li>
-            <li>+91 85929 21212</li>
-            <li>+91 85929 31212</li>
-            <li>+91 85929 41212</li>
-            <li>+91 85929 51212</li>
-            <li>+91 85929 61212</li>
-          </ul>
-        </div>
-
-        <!-- RIGHT MAPS COLUMN -->
-        <div class="footer-right-maps">
-          <h3 class="state-title" id="stateTitle">Kerala</h3>
-          <div class="district-row" id="districtContainer"></div>
-        </div>
-
+      <div class="footer-brand">
+        <h2 class="footer-logo">VIndia Infrasec</h2>
+        <p class="footer-desc">
+          Delivering excellence in Construction, Interior Design & Structural Engineering across South India.
+        </p>
       </div>
     </div>
+
+    <!-- QUICK LINKS -->
+    <div class="col">
+      <ul class="footer-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about.html">About Us</a></li>
+        <li><a href="/careers/we-work.html">Careers</a></li>
+        <li><a href="/services.html">Services</a></li>
+        <li><a href="/projects.html">Projects</a></li>
+        <li><a href="/blog/blog.html">Blog</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="col contact-col">
+      <h3 class="contact-title">Call Us</h3>
+      <ul class="contact-list">
+        <li>+91 85929 11212</li>
+        <li>+91 85929 21212</li>
+        <li>+91 85929 31212</li>
+        <li>+91 85929 41212</li>
+        <li>+91 85929 51212</li>
+        <li>+91 85929 61212</li>
+      </ul>
+    </div>
+
+    <!-- MAPS (rotating states) -->
+    <div class="col col-maps">
+      <h3 class="state-title" id="stateTitle">Kerala</h3>
+      <div class="district-row" id="districtContainer"></div>
+    </div>
   </footer>
+
+  <!-- MOBILE FOOTER (accordion, with clickable map locations) -->
+  <div class="footer-mobile">
+    <div class="fm-brand">
+      <h2>VIndia Infrasec</h2>
+      <p>Delivering excellence in Construction, Interior Design & Structural Engineering across South India.</p>
+      <a href="/about.html">Know More →</a>
+    </div>
+
+    <div class="fm-section" onclick="toggleFM(1)">
+      <div class="fm-header">
+        Quick Links <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="fm-content fm1">
+        <a href="/">Home</a>
+        <a href="/services.html">Services</a>
+        <a href="/projects.html">Projects</a>
+        <a href="/blog/blog.html">Blog</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+    </div>
+
+    <div class="fm-section" onclick="toggleFM(2)">
+      <div class="fm-header">
+        Contact <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="fm-content fm2">
+        <p>+91 85929 61212</p>
+        <p>+91 85929 21212</p>
+        <p>info@vindiainfrasec.com</p>
+      </div>
+    </div>
+
+    <div class="fm-section" onclick="toggleFM(3)">
+      <div class="fm-header">
+        Locations <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="fm-content fm3">
+        <!-- Clickable Google Maps links for each office -->
+        <a href="https://www.google.com/maps/search/?api=1&query=VIndia+Infrasec,+No:03,+First+Floor,+Gokulam+Main+Road,+Jayalakshmipuram,+Mysuru+City+-+570+012,+Karnataka" target="_blank">
+          Mysuru
+        </a>
+        <a href="https://www.google.com/maps/search/?api=1&query=VIndia+Infrasec,+Brigade+Arcade,+E104,+Brigade+Metropolis,+Mahadevapura,+Bengaluru,+Karnataka+560048" target="_blank">
+          Bengaluru
+        </a>
+        <a href="https://www.google.com/maps/search/?api=1&query=VIndia+Infrasec,+VIndia+Arcade,+CP+XI+433+B,+P+O+Alavil,+Kannur,+Kerala+670008" target="_blank">
+          Kannur
+        </a>
+        <a href="https://www.google.com/maps/search/?api=1&query=VIndia+Infrasec,+Near+SURYA+PLYWOODS+%26+DOORS,+SREE+KAMATCHI+AMMAN+KOIL+STREET,+ANNASALAI,+Pondicherry,+Puducherry+605001" target="_blank">
+          Pondicherry
+        </a>
+      </div>
+    </div>
+
+    <div class="fm-social">
+      <a href="#"><i class="fab fa-google"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.linkedin.com/company/vindia-infrasec/posts/?feedView=all"><i class="fab fa-linkedin"></i></a>
+      <a href="https://youtube.com/@vindia_infrasec"><i class="fab fa-youtube"></i></a>
+    </div>
+  </div>
+
 </div> <!-- /.page-wrapper -->
+
 <!-- JS -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
@@ -2182,7 +2378,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Rotating Maps
+  // Rotating mini-maps (R1: rotate states)
   const states = [
     {
       title: "Kerala",
@@ -2190,15 +2386,15 @@ document.addEventListener("DOMContentLoaded", () => {
       maps: [
         "https://www.google.com/maps?q=Kochi,Kerala&output=embed",
         "https://www.google.com/maps?q=Trivandrum,Kerala&output=embed",
-        "https://www.google.com/maps?q=Kannur,Kerala&output=embed"
+        "https://www.google.com/maps?q=VIndia+Infrasec,+VIndia+Arcade,+CP+XI+433+B,+P+O+Alavil,+Kannur,+Kerala+670008&output=embed"
       ]
     },
     {
       title: "Karnataka",
       districts: ["Mysore", "Bengaluru"],
       maps: [
-        "https://www.google.com/maps?q=Mysore,Karnataka&output=embed",
-        "https://www.google.com/maps?q=Bengaluru,Karnataka&output=embed"
+        "https://www.google.com/maps?q=VIndia+Infrasec,+No:03,+First+Floor,+Gokulam+Main+Road,+Jayalakshmipuram,+Mysuru+City+-+570+012,+Karnataka&output=embed",
+        "https://www.google.com/maps?q=VIndia+Infrasec,+Brigade+Arcade,+E104,+Brigade+Metropolis,+Mahadevapura,+Bengaluru,+Karnataka+560048&output=embed"
       ]
     },
     {
@@ -2208,6 +2404,13 @@ document.addEventListener("DOMContentLoaded", () => {
         "https://www.google.com/maps?q=Coimbatore,Tamil+Nadu&output=embed",
         "https://www.google.com/maps?q=Chennai,Tamil+Nadu&output=embed",
         "https://www.google.com/maps?q=Madurai,Tamil+Nadu&output=embed"
+      ]
+    },
+    {
+      title: "Puducherry",
+      districts: ["Pondicherry"],
+      maps: [
+        "https://www.google.com/maps?q=VIndia+Infrasec,+Near+SURYA+PLYWOODS+%26+DOORS,+SREE+KAMATCHI+AMMAN+KOIL+STREET,+ANNASALAI,+Pondicherry,+Puducherry+605001&output=embed"
       ]
     }
   ];
@@ -2224,11 +2427,15 @@ document.addEventListener("DOMContentLoaded", () => {
     districtContainerEl.innerHTML = state.districts
       .map((district, i) => {
         const src = state.maps[i] || state.maps[0];
+        const link = src.replace("&output=embed", "");
         return `
           <div class="district-card">
             <h4 class="district-name">${district}</h4>
-            <iframe src="${src}" class="map-frame" loading="lazy" title="${district}"></iframe>
-            <a class="district-location" href="${src.replace('&output=embed','')}" target="_blank" rel="noopener noreferrer">
+            <div class="map-wrapper">
+              <span class="map-icon">📍</span>
+              <iframe src="${src}" class="map-frame" loading="lazy" title="${district}"></iframe>
+            </div>
+            <a class="district-location" href="${link}" target="_blank" rel="noopener noreferrer">
               Location
             </a>
           </div>
@@ -2273,6 +2480,12 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+
+// Mobile footer accordion
+function toggleFM(i) {
+  const section = document.querySelector(".fm" + i);
+  if (section) section.classList.toggle("open");
+}
 </script>
 </body>
 </html>

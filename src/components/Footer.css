@@ -1,74 +1,6 @@
 /* ============================
-   FIXED FLOATING ICONS
-============================= */
-.floating-icons {
-  position: fixed;
-  bottom: 30px;
-  right: 50px;   /* moved left so it doesn’t touch maps */
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  z-index: 5000;
-}
-
-/* Call icon */
-.call-icon {
-  width: 55px;
-  height: 55px;
-  background: #007bff;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 26px;
-  color: white;
-  transition: 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.28);
-  animation: iconBounce 1.6s ease-in-out infinite;
-  animation-delay: 0.2s;
-}
-
-.call-icon:hover {
-  transform: scale(1.2);
-  animation-play-state: paused;
-}
-
-/* WhatsApp icon */
-.whatsapp-icon {
-  width: 55px;
-  height: 55px;
-  background: #25d366;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 28px;
-  color: white;
-  transition: 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.28);
-  animation: iconBounce 1.6s ease-in-out infinite;
-  animation-delay: 0.5s;
-}
-
-.whatsapp-icon:hover {
-  transform: scale(1.2);
-  animation-play-state: paused;
-}
-
-/* Bounce animation */
-@keyframes iconBounce {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
-}
-
-
-/* ============================
-   MAIN FOOTER
-============================= */
+   GLOBAL FOOTER BASE
+============================ */
 .footer {
   width: 100%;
   padding: 60px 40px;
@@ -79,158 +11,114 @@
   gap: 40px;
   flex-wrap: wrap;
   border-top: 1px solid #d3d3d3;
+  box-sizing: border-box;
 }
 
-/* SOCIAL + BRAND */
+/* ============================
+   SOCIAL + BRAND
+============================ */
 .social-col {
   width: 30%;
   min-width: 260px;
   display: flex;
-  gap: 55px;
+  gap: 20px;
 }
 
 .footer-social-left {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 14px;
 }
 
 .footer-social-left a {
   color: #007bff;
-  font-size: 34px;
+  font-size: 32px;
   transition: 0.3s;
 }
 
 .footer-social-left a:hover {
-  transform: scale(1.25);
-  color: #0056d6;
+  transform: scale(1.2);
 }
 
 .footer-brand {
-  max-width: 300px;
+  max-width: 260px;
 }
 
 .footer-logo {
   font-size: 26px;
-  font-weight: bold;
-  color: #000;
+  font-weight: 700;
 }
 
 .footer-desc {
   margin-top: 8px;
-  line-height: 1.6;
+  line-height: 1.55;
+  font-size: 14.5px;
   color: #444;
 }
 
-
-/* QUICK LINKS */
-.footer-links {
-  list-style: none;
-  padding: 0;
-  min-width: 160px;
-}
-
+/* ============================
+   QUICK LINKS
+============================ */
 .footer-links li {
+  list-style: none;
   margin: 8px 0;
 }
 
 .footer-links a {
   color: #333;
-  transition: 0.3s;
+  font-size: 15px;
+  transition: 0.2s;
 }
 
 .footer-links a:hover {
   color: #007bff;
-  margin-left: 4px;
 }
 
-
-/* Dropdown */
-.footer-dropdown {
-  position: relative;
-}
-
-.footer-dropbtn {
-  background: none;
-  border: none;
-  color: black;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  padding: 0;
-}
-
-.footer-submenu {
-  display: none;
-  position: absolute;
-  left: 0;
-  margin-top: 6px;
-  background: white;
-  padding: 10px 12px;
-  border-radius: 6px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-
-.footer-dropdown.show .footer-submenu {
-  display: block;
-}
-
-
-/* CONTACT */
-.contact-col {
-  min-width: 180px;
-}
-
-.contact-title {
-  color: #007bff;
-  font-size: 18px;
-  margin-bottom: 10px;
-  font-weight: 600;
-}
-
-.contact-list {
-  list-style: none;
-  padding: 0;
+/* ============================
+   CONTACT
+============================ */
+.contact-col .contact-title {
+  font-size: 20px;
+  margin-bottom: 8px;
 }
 
 .contact-list li {
+  list-style: none;
   margin: 6px 0;
+  font-size: 15px;
 }
 
-
-/* MAPS */
+/* ============================
+   MAPS SECTION
+============================ */
 .col-maps {
-  flex: 1.1;
-  min-width: 350px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex: 1;
+  min-width: 330px;
 }
 
 .state-title {
-  font-size: 20px;
-  margin-bottom: 12px;
-  color: #007bff;
-  font-weight: 600;
+  font-size: 22px;
+  margin-bottom: 14px;
 }
 
 .district-row {
   display: flex;
-  gap: 16px;
-  width: 100%;
-  justify-content: flex-end;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
 .district-card {
   width: 150px;
-  background: rgba(0,0,0,0.08);
+  background: #ffffff;
   border-radius: 12px;
-  padding: 8px;
+  padding: 10px;
   text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
 .district-name {
-  font-size: 13px;
+  font-size: 15px;
+  font-weight: 600;
   margin-bottom: 6px;
 }
 
@@ -242,54 +130,156 @@
   position: absolute;
   top: 6px;
   left: 6px;
-  font-size: 22px;
-  color: red;
+  font-size: 16px;
 }
 
 .map-frame {
   width: 100%;
   height: 110px;
-  border: none;
   border-radius: 8px;
+  border: none;
 }
 
-
-/* LOCATION LINK */
 .district-location {
   display: block;
-  margin-top: 8px;
+  margin-top: 6px;
+  font-size: 14px;
   color: #007bff;
-  font-weight: 600;
-  text-decoration: none;
+}
+
+/* ============================
+   FLOATING CALL + WHATSAPP
+============================ */
+.floating-icons {
+  position: fixed;
+  bottom: 22px;
+  right: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 3000;
+}
+
+.call-icon,
+.whatsapp-icon {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: #25d366;
+  color: white;
+  font-size: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  transition: 0.3s;
+}
+
+.call-icon {
+  background: #007bff;
+}
+
+.call-icon:hover,
+.whatsapp-icon:hover {
+  transform: scale(1.15);
+}
+
+/* ============================
+   MOBILE FOOTER (ACCORDION)
+============================ */
+.footer-mobile {
+  display: none;
+  background: #ffffff;
+  padding: 30px 20px 50px;
+  border-top: 1px solid #ddd;
+}
+
+.fm-brand h2 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.fm-brand p {
+  margin: 6px 0;
+  color: #555;
   font-size: 14px;
 }
 
-.district-location:hover {
-  text-decoration: underline;
+.fm-brand a {
+  color: #007bff;
+  font-size: 14px;
 }
 
+/* Accordion Sections */
+.fm-section {
+  margin: 18px 0;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+}
+
+.fm-header {
+  font-size: 17px;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.fm-header i {
+  font-size: 14px;
+  color: #444;
+}
+
+.fm-content {
+  display: none;
+  margin-top: 8px;
+  padding-left: 5px;
+}
+
+.fm-content.open {
+  display: block;
+}
+
+.fm-content a,
+.fm-content p {
+  display: block;
+  font-size: 15px;
+  color: #333;
+  margin: 6px 0;
+}
+
+/* MOBILE SOCIAL */
+.fm-social {
+  margin-top: 18px;
+  display: flex;
+  gap: 18px;
+}
+
+.fm-social a {
+  color: #007bff;
+  font-size: 22px;
+}
 
 /* ============================
-   MOBILE RESPONSIVE
-============================= */
+   RESPONSIVE BEHAVIOR
+============================ */
 @media (max-width: 900px) {
   .footer {
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
+    display: none; /* hide desktop footer */
   }
 
-  .social-col {
-    justify-content: center;
+  .footer-mobile {
+    display: block; /* show mobile footer */
   }
+}
 
-  .district-row {
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
+@media (max-width: 500px) {
   .floating-icons {
-    right: 20px;
-    bottom: 20px;
+    bottom: 18px;
+    right: 14px;
   }
-} 
+
+  .fm-header {
+    font-size: 16px;
+  }
+}
