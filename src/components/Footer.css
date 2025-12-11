@@ -1,43 +1,74 @@
-/* ============================
-   GLOBAL FOOTER BASE
-============================ */
+/* =========================
+   Footer.css — VIndia Infrasec
+   ========================= */
+
+/* ---------- ROOT / BASE ---------- */
+:root {
+  --bg-footer: #f1f1f1;
+  --text-dark: #222;
+  --muted: #444;
+  --accent: #007bff;
+  --white: #fff;
+  --card-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  --radius-lg: 12px;
+}
+
+/* ---------- DESKTOP FOOTER LAYOUT ---------- */
 .footer {
   width: 100%;
   padding: 60px 40px;
-  background: #f1f1f1;
-  color: #222;
+  background: var(--bg-footer);
+  color: var(--text-dark);
   display: flex;
   justify-content: flex-start;
   gap: 40px;
   flex-wrap: wrap;
   border-top: 1px solid #d3d3d3;
   box-sizing: border-box;
+  align-items: flex-start;
 }
 
-/* ============================
-   SOCIAL + BRAND
-============================ */
+/* Shared small column */
+.col {
+  min-width: 150px;
+  display: block;
+}
+
+/* ---------- SOCIAL + BRAND COLUMN ---------- */
 .social-col {
   width: 30%;
   min-width: 260px;
   display: flex;
   gap: 20px;
+  align-items: flex-start;
+  box-sizing: border-box;
 }
 
 .footer-social-left {
   display: flex;
   flex-direction: column;
   gap: 14px;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 2px;
 }
 
 .footer-social-left a {
-  color: #007bff;
-  font-size: 32px;
-  transition: 0.3s;
+  color: var(--accent);
+  font-size: 28px;
+  transition: transform 0.25s ease, color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  text-decoration: none;
+  will-change: transform; /* GPU accelerated */
 }
 
 .footer-social-left a:hover {
-  transform: scale(1.2);
+  transform: scale(1.18);
+  color: #0056b3;
 }
 
 .footer-brand {
@@ -47,18 +78,22 @@
 .footer-logo {
   font-size: 26px;
   font-weight: 700;
+  margin: 0;
 }
 
 .footer-desc {
   margin-top: 8px;
   line-height: 1.55;
   font-size: 14.5px;
-  color: #444;
+  color: var(--muted);
 }
 
-/* ============================
-   QUICK LINKS
-============================ */
+/* ---------- QUICK LINKS ---------- */
+.footer-links {
+  padding: 0;
+  margin: 0;
+}
+
 .footer-links li {
   list-style: none;
   margin: 8px 0;
@@ -67,70 +102,83 @@
 .footer-links a {
   color: #333;
   font-size: 15px;
-  transition: 0.2s;
+  transition: color 0.18s ease, transform 0.18s ease;
+  text-decoration: none;
 }
 
 .footer-links a:hover {
-  color: #007bff;
+  color: var(--accent);
+  transform: translateX(2px);
 }
 
-/* ============================
-   CONTACT
-============================ */
+/* ---------- CONTACT COLUMN ---------- */
 .contact-col .contact-title {
   font-size: 20px;
   margin-bottom: 8px;
+  color: var(--text-dark);
+}
+
+.contact-list {
+  padding: 0;
+  margin: 0;
 }
 
 .contact-list li {
   list-style: none;
   margin: 6px 0;
   font-size: 15px;
+  color: #333;
 }
 
-/* ============================
-   MAPS SECTION
-============================ */
+/* ---------- MAP COLUMN ---------- */
 .col-maps {
   flex: 1;
   min-width: 330px;
+  max-width: 520px;
+  box-sizing: border-box;
 }
 
 .state-title {
   font-size: 22px;
   margin-bottom: 14px;
+  color: var(--text-dark);
 }
 
 .district-row {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
+  align-items: flex-start;
 }
 
 .district-card {
   width: 150px;
-  background: #ffffff;
-  border-radius: 12px;
+  background: var(--white);
+  border-radius: var(--radius-lg);
   padding: 10px;
   text-align: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  box-shadow: var(--card-shadow);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .district-name {
   font-size: 15px;
   font-weight: 600;
   margin-bottom: 6px;
+  color: #222;
 }
 
+/* ---------- MAP ---------- */
 .map-wrapper {
+  width: 100%;
+  height: 110px;
+  overflow: hidden;
+  border-radius: 8px;
+  margin-bottom: 8px;
   position: relative;
-}
-
-.map-icon {
-  position: absolute;
-  top: 6px;
-  left: 6px;
-  font-size: 16px;
 }
 
 .map-frame {
@@ -138,18 +186,27 @@
   height: 110px;
   border-radius: 8px;
   border: none;
+  display: block;
 }
 
+/* ---------- LOCATION LINK ---------- */
 .district-location {
   display: block;
   margin-top: 6px;
   font-size: 14px;
-  color: #007bff;
+  color: var(--accent);
+  text-decoration: none;
 }
 
-/* ============================
-   FLOATING CALL + WHATSAPP
-============================ */
+/* Prevent overflow */
+.district-card a,
+.district-card p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ---------- FLOATING CALL + WHATSAPP ---------- */
 .floating-icons {
   position: fixed;
   bottom: 22px;
@@ -158,6 +215,7 @@
   flex-direction: column;
   gap: 12px;
   z-index: 3000;
+  align-items: center;
 }
 
 .call-icon,
@@ -165,31 +223,33 @@
   width: 55px;
   height: 55px;
   border-radius: 50%;
-  background: #25d366;
   color: white;
-  font-size: 26px;
+  font-size: 22px;
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-  transition: 0.3s;
+  transition: transform 0.18s ease;
+  text-decoration: none;
 }
 
 .call-icon {
-  background: #007bff;
+  background: var(--accent);
+}
+
+.whatsapp-icon {
+  background: #25d366;
 }
 
 .call-icon:hover,
 .whatsapp-icon:hover {
-  transform: scale(1.15);
+  transform: scale(1.12);
 }
 
-/* ============================
-   MOBILE FOOTER (ACCORDION)
-============================ */
+/* ---------- MOBILE FOOTER ---------- */
 .footer-mobile {
   display: none;
-  background: #ffffff;
+  background: var(--white);
   padding: 30px 20px 50px;
   border-top: 1px solid #ddd;
 }
@@ -206,14 +266,15 @@
 }
 
 .fm-brand a {
-  color: #007bff;
+  color: var(--accent);
   font-size: 14px;
+  text-decoration: none;
 }
 
-/* Accordion Sections */
+/* Accordion */
 .fm-section {
   margin: 18px 0;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #eee;
   padding-bottom: 10px;
 }
 
@@ -223,17 +284,12 @@
   display: flex;
   justify-content: space-between;
   cursor: pointer;
-}
-
-.fm-header i {
-  font-size: 14px;
-  color: #444;
+  align-items: center;
 }
 
 .fm-content {
   display: none;
   margin-top: 8px;
-  padding-left: 5px;
 }
 
 .fm-content.open {
@@ -242,13 +298,12 @@
 
 .fm-content a,
 .fm-content p {
-  display: block;
   font-size: 15px;
-  color: #333;
   margin: 6px 0;
+  color: #333;
+  text-decoration: none;
 }
 
-/* MOBILE SOCIAL */
 .fm-social {
   margin-top: 18px;
   display: flex;
@@ -256,30 +311,49 @@
 }
 
 .fm-social a {
-  color: #007bff;
+  color: var(--accent);
   font-size: 22px;
 }
 
-/* ============================
-   RESPONSIVE BEHAVIOR
-============================ */
-@media (max-width: 900px) {
-  .footer {
-    display: none; /* hide desktop footer */
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 1100px) {
+  .social-col {
+    width: 100%;
   }
 
-  .footer-mobile {
-    display: block; /* show mobile footer */
+  .col-maps {
+    min-width: 300px;
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 900px) {
+  .footer {
+    display: none;
+  }
+  .footer-mobile {
+    display: block;
+  }
+}
+
+@media (max-width: 600px) {
+  .district-card {
+    width: 46%;
+  }
+
+  .map-frame {
+    height: 96px;
+  }
+
   .floating-icons {
     bottom: 18px;
     right: 14px;
   }
+}
 
-  .fm-header {
-    font-size: 16px;
-  }
+/* Focus improvements */
+.footer a:focus,
+.footer-mobile a:focus {
+  outline: 2px solid rgba(0,123,255,0.18);
+  outline-offset: 3px;
+  border-radius: 4px;
 }

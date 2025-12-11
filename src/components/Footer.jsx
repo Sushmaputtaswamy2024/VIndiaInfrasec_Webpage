@@ -11,6 +11,7 @@ import { useState, useEffect } from "react";
 
 export default function Footer() {
   const [index, setIndex] = useState(0);
+  const [openSection, setOpenSection] = useState(null);
 
   const states = [
     {
@@ -19,15 +20,15 @@ export default function Footer() {
       maps: [
         "https://www.google.com/maps?q=Kochi,Kerala&output=embed",
         "https://www.google.com/maps?q=Trivandrum,Kerala&output=embed",
-        "https://www.google.com/maps?q=Kannur,Kerala&output=embed",
+        "https://www.google.com/maps?q=VIndia+Arcade,+CP+XI+433+B,+P+O+Alavil,+Kannur,+Kerala+670008&output=embed",
       ],
     },
     {
       title: "Karnataka",
-      districts: ["Mysore", "Bengaluru"],
+      districts: ["Mysuru", "Bengaluru"],
       maps: [
-        "https://www.google.com/maps?q=Mysore,Karnataka&output=embed",
-        "https://www.google.com/maps?q=Bengaluru,Karnataka&output=embed",
+        "https://www.google.com/maps?q=No:03,+First+Floor,+Gokulam+Main+Road,+Jayalakshmipuram,+Mysuru+City,+Karnataka+570012&output=embed",
+        "https://www.google.com/maps?q=Brigade+Metropolis,+Mahadevapura,+Bengaluru,+Karnataka+560048&output=embed",
       ],
     },
     {
@@ -39,24 +40,32 @@ export default function Footer() {
         "https://www.google.com/maps?q=Madurai,Tamil+Nadu&output=embed",
       ],
     },
+    {
+      title: "Puducherry",
+      districts: ["Pondicherry"],
+      maps: [
+        "https://www.google.com/maps?q=VIndia+Infrasec,+Near+SURYA+PLYWOODS,+Pondicherry,+Puducherry+605001&output=embed",
+      ],
+    },
   ];
 
+  // Auto-rotate state every 3 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % states.length);
     }, 3000);
+
     return () => clearInterval(interval);
   }, []);
 
-  // Mobile Dropdown Toggle
-  const toggleFM = (i) => {
-    const section = document.querySelector(`.fm${i}`);
-    section.classList.toggle("open");
+  // Mobile accordion toggle
+  const toggleSection = (id) => {
+    setOpenSection(openSection === id ? null : id);
   };
 
   return (
     <>
-      {/* FLOATING ICONS */}
+      {/* Floating Icons */}
       <div className="floating-icons">
         <a href="tel:+918592921212" className="call-icon">
           <FaPhoneAlt />
@@ -72,10 +81,9 @@ export default function Footer() {
         </a>
       </div>
 
-      {/* DESKTOP FOOTER */}
+      {/* Desktop Footer */}
       <footer className="footer">
-
-        {/* SOCIAL + BRAND */}
+        {/* LEFT SIDE */}
         <div className="social-col">
           <div className="footer-social-left">
             <a href="#"><FaGoogle /></a>
@@ -93,7 +101,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* QUICK LINKS */}
+        {/* CENTER LINKS */}
         <div className="col">
           <ul className="footer-links">
             <li><a href="/">Home</a></li>
@@ -106,7 +114,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* CONTACT */}
+        {/* CALL NUMBERS */}
         <div className="col contact-col">
           <h3 className="contact-title">Call Us</h3>
           <ul className="contact-list">
@@ -119,47 +127,55 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* MAPS SECTION */}
+        {/* MAP ROTATION */}
         <div className="col col-maps">
           <h3 className="state-title">{states[index].title}</h3>
+
           <div className="district-row">
             {states[index].districts.map((district, i) => (
               <div className="district-card" key={i}>
                 <h4 className="district-name">{district}</h4>
 
-                <div className="map-wrapper">
-                  <span className="map-icon">📍</span>
-                  <iframe
-                    src={states[index].maps[i]}
-                    loading="lazy"
-                    className="map-frame"
-                  ></iframe>
-                </div>
+                <iframe
+                  src={states[index].maps[i] || states[index].maps[0]}
+                  className="map-frame"
+                  loading="lazy"
+                  title={district}
+                ></iframe>
 
                 <a
                   className="district-location"
-                  href={states[index].maps[i].replace("&output=embed", "")}
+                  href={
+                    (states[index].maps[i] || states[index].maps[0]).replace(
+                      "&output=embed",
+                      ""
+                    )
+                  }
                   target="_blank"
                   rel="noopener noreferrer"
-                >Location</a>
+                >
+                  Location
+                </a>
               </div>
             ))}
           </div>
         </div>
       </footer>
 
-      {/* MOBILE FOOTER */}
+      {/* Mobile Footer */}
       <div className="footer-mobile">
         <div className="fm-brand">
           <h2>VIndia Infrasec</h2>
-          <p>Delivering excellence in Construction & Interior Engineering.</p>
+          <p>Delivering excellence in Construction, Interior Design & Engineering.</p>
           <a href="/about.html">Know More →</a>
         </div>
 
         {/* QUICK LINKS */}
-        <div className="fm-section" onClick={() => toggleFM(1)}>
-          <div className="fm-header">Quick Links <i className="fas fa-chevron-down"></i></div>
-          <div className="fm-content fm1">
+        <div className="fm-section" onClick={() => toggleSection(1)}>
+          <div className="fm-header">
+            Quick Links <i className="fas fa-chevron-down"></i>
+          </div>
+          <div className={`fm-content fm1 ${openSection === 1 ? "open" : ""}`}>
             <a href="/">Home</a>
             <a href="/services.html">Services</a>
             <a href="/projects.html">Projects</a>
@@ -169,27 +185,27 @@ export default function Footer() {
         </div>
 
         {/* CONTACT */}
-        <div className="fm-section" onClick={() => toggleFM(2)}>
-          <div className="fm-header">Contact <i className="fas fa-chevron-down"></i></div>
-          <div className="fm-content fm2">
+        <div className="fm-section" onClick={() => toggleSection(2)}>
+          <div className="fm-header">
+            Contact <i className="fas fa-chevron-down"></i>
+          </div>
+          <div className={`fm-content fm2 ${openSection === 2 ? "open" : ""}`}>
             <p>+91 85929 61212</p>
             <p>+91 85929 21212</p>
             <p>info@vindiainfrasec.com</p>
           </div>
         </div>
 
-        {/* LOCATIONS (Full clickable maps) */}
-        <div className="fm-section" onClick={() => toggleFM(3)}>
-          <div className="fm-header">Locations <i className="fas fa-chevron-down"></i></div>
-          <div className="fm-content fm3">
-
-            <a href="https://www.google.com/maps/search/?api=1&query=VIndia+Infrasec,+No:03,+First+Floor,+Gokulam+Main+Road,+Jayalakshmipuram,+Mysuru+City+-+570012,+Karnataka" target="_blank">Mysuru </a>
-
-            <a href="https://www.google.com/maps/search/?api=1&query=VIndia+Infrasec,+Brigade+Arcade,+E104,+Brigade+Metropolis,+Mahadevapura,+Bengaluru,+Karnataka+560048" target="_blank">Bengaluru</a>
-
-            <a href="https://www.google.com/maps/search/?api=1&query=VIndia+Infrasec,+VIndia+Arcade,+CP+XI+433+B,+P+O+Alavil,+Kannur,+Kerala+670008" target="_blank">Kannur</a>
-
-            <a href="https://www.google.com/maps/search/?api=1&query=VIndia+Infrasec,+Near+SURYA+PLYWOODS+%26+DOORS,+SREE+KAMATCHI+AMMAN+KOIL+STREET,+ANNASALAI,+Pondicherry,+Puducherry+605001" target="_blank">Pondicherry</a>
+        {/* LOCATIONS */}
+        <div className="fm-section" onClick={() => toggleSection(3)}>
+          <div className="fm-header">
+            Locations <i className="fas fa-chevron-down"></i>
+          </div>
+          <div className={`fm-content fm3 ${openSection === 3 ? "open" : ""}`}>
+            <a href="https://www.google.com/maps?q=Mysuru" target="_blank">Mysuru</a>
+            <a href="https://www.google.com/maps?q=Bengaluru" target="_blank">Bengaluru</a>
+            <a href="https://www.google.com/maps?q=Kannur" target="_blank">Kannur</a>
+            <a href="https://www.google.com/maps?q=Pondicherry" target="_blank">Pondicherry</a>
           </div>
         </div>
 
