@@ -4,7 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./style.css";
 import ShortService from "./ShortService";
 import About from "../About";
-import img from "./images/building1.webp";
+import img from "/images/building1.webp";
 
 gsap.registerPlugin(ScrollTrigger);
 
