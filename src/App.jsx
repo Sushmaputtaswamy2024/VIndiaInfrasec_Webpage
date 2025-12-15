@@ -1,3 +1,5 @@
+import { Routes, Route } from "react-router-dom";
+
 import ProjectGallery from "./components/ProjectGallery";
 import OverlappingCards from "./components/Service/OverlappingCards";
 import Home from "./components/Home";
@@ -5,6 +7,8 @@ import ScrollVideo from "./components/ScrollVideo";
 import Testimonials from "./components/Testimonials";
 import CallToAction from "./components/CallToAction";
 import Footer from "./components/Footer";
+
+import Construction from "./pages/Construction";
 import projectImages from "./utils/projectImages";
 import About from "./components/About";
 
@@ -18,9 +22,9 @@ function shuffleImages(array) {
   return arr;
 }
 
-// Import images from Gallery folder
+// Import images
 const imageModules = import.meta.glob(
-  "./components/Gallery/*.{jpg,png,jpeg,webp}",
+  "./components/Gallery/*.{webp}",
   { eager: true }
 );
 
@@ -32,21 +36,39 @@ let images = Object.values(imageModules).map(
 // Shuffle
 images = shuffleImages(images);
 
-console.log("Loaded Images:", images);
-
 function App() {
   return (
     <>
+<<<<<<< Updated upstream
       <Home />
       <ScrollVideo />
       <About/>
       <OverlappingCards />
+=======
+      <Routes>
+>>>>>>> Stashed changes
 
-      <ProjectGallery images={projectImages} />
+        {/* HOME PAGE */}
+        <Route
+          path="/"
+          element={
+            <>
+              <Home />
+              <ScrollVideo />
+              <OverlappingCards />
 
-      <Testimonials />
-      <CallToAction />
-      <Footer />
+              <ProjectGallery images={projectImages} />
+              <Testimonials />
+              <CallToAction />
+              <Footer />
+            </>
+          }
+        />
+
+        {/* CONSTRUCTION PAGE */}
+        <Route path="/construction" element={<Construction />} />
+
+      </Routes>
     </>
   );
 }
