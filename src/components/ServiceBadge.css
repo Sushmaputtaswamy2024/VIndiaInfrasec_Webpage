@@ -1,9 +1,8 @@
 /* FIXED BADGE CONTAINER */
 .badge-container {
   position: absolute;
-  bottom: 2px;
-  right: 5px;
-
+  top: 22px;          /* 🔝 moved to top */
+  right: 10px;
   width: 60px;
   height: 60px;
   pointer-events: none;

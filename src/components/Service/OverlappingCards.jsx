@@ -1,11 +1,20 @@
 import React, { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+<<<<<<< Updated upstream
 import { useNavigate } from "react-router-dom";
 import "./style.css";
 import ShortService from "./ShortService";
 import About from "../About";
 import img from "./images/building1.jpg";
+=======
+import "./OverlappingCards.css";
+
+import img1 from "/images/building1.webp";
+import img2 from "/images/building2.webp";
+import img3 from "/images/architecture.webp";
+import ServiceBadge from "../ServiceBadge";
+>>>>>>> Stashed changes
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -105,6 +114,7 @@ export default function OverlappingCards() {
   }, []);
 
   return (
+<<<<<<< Updated upstream
     <div ref={containerRef}>
       <section className="empty-section">
         <About />
@@ -125,5 +135,35 @@ export default function OverlappingCards() {
         ))}
       </div>
     </div>
+=======
+   <section ref={containerRef} className="cards-container">
+  {services.map((s, i) => (
+    <div className={`card-wrapper card-${i + 1}`} key={i}>
+      <div className="service-card" data-theme={i}>
+
+        {/* 🔝 SERVICE BADGE AT TOP */}
+        <ServiceBadge />
+
+        {/* LEFT IMAGE */}
+        <img src={s.img} alt={s.heading} loading="lazy" />
+
+        {/* RIGHT CONTENT */}
+        <div className="content">
+          <h2>{s.heading}</h2>
+          <p>{s.description}</p>
+
+          <div className="tags">
+            {s.tags.map((t, idx) => (
+              <span key={idx} className="pill">{t}</span>
+            ))}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  ))}
+</section>
+
+>>>>>>> Stashed changes
   );
 }

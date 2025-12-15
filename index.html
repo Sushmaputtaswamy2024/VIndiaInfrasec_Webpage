@@ -1,60 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- ============================= -->
-    <!-- BASIC META + RESPONSIVE SETUP -->
-    <!-- ============================= -->
+    <!-- =============================
+         BASIC META
+    ============================== -->
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- ============================= -->
-    <!-- SEO TITLE + DESCRIPTION -->
-    <!-- ============================= -->
+    <!-- =============================
+         SEO
+    ============================== -->
     <title>VIndia Infrasec Pvt Ltd | Construction, Interiors & Structural Design</title>
 
     <meta
       name="description"
-      content="VIndia Infrasec delivers premium construction, interior design, architectural and structural engineering services across South India. Safe, modern, and high-quality solutions since 2010."
+      content="VIndia Infrasec delivers premium construction, interior design, architectural and structural engineering services across South India."
     />
 
-    <!-- ============================= -->
-    <!-- SEO KEYWORDS -->
-    <!-- ============================= -->
     <meta
       name="keywords"
-      content="construction company, interior design, structural engineering, commercial builders, architects, house plans, smart construction, home builder, building contractors, Kerala builders, Karnataka builders, Tamil Nadu builders, architectural design"
+      content="construction company, interior design, structural engineering, architects, home builders, commercial builders, Kerala, Karnataka, Tamil Nadu"
     />
 
     <meta name="author" content="VIndia Infrasec Pvt Ltd" />
 
-    <!-- ============================= -->
-    <!-- FAVICON -->
-    <!-- ============================= -->
+    <!-- =============================
+         FAVICON
+    ============================== -->
     <link rel="icon" type="image/png" href="/logo.png" />
 
-    <!-- ============================= -->
-    <!-- PERFORMANCE: PRELOAD CRITICAL ASSETS -->
-    <!-- ============================= -->
-    <link rel="preload" as="video" href="/src/assets/backgroundVideo/Background.mp4" />
+    <!-- =============================
+         PERFORMANCE OPTIMIZATION
+    ============================== -->
+
+    <!-- Instant background paint (prevents white flash) -->
+    <style>
+      body {
+        margin: 0;
+        background: #0b0f2b; /* hero fallback color */
+      }
+    </style>
+
+    <!-- Fonts (non-blocking) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-    <!-- ============================= -->
-    <!-- OPEN GRAPH (WHATSAPP, FB, LINKEDIN) -->
-    <!-- ============================= -->
+    <!-- =============================
+         OPEN GRAPH
+    ============================== -->
     <meta property="og:title" content="VIndia Infrasec Pvt Ltd" />
     <meta
       property="og:description"
-      content="Premium construction, interiors & structural engineering services across South India."
+      content="Premium construction, interiors & structural engineering services."
     />
     <meta property="og:image" content="/thumbnail.jpg" />
     <meta property="og:url" content="https://vindiainfrasec.com" />
     <meta property="og:type" content="website" />
 
-    <!-- ============================= -->
-    <!-- TWITTER CARD -->
-    <!-- ============================= -->
+    <!-- =============================
+         TWITTER CARD
+    ============================== -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="VIndia Infrasec Pvt Ltd" />
     <meta
@@ -63,14 +73,14 @@
     />
     <meta name="twitter:image" content="/thumbnail.jpg" />
 
-    <!-- ============================= -->
-    <!-- CANONICAL URL -->
-    <!-- ============================= -->
+    <!-- =============================
+         CANONICAL
+    ============================== -->
     <link rel="canonical" href="https://vindiainfrasec.com" />
 
-    <!-- ============================= -->
-    <!-- LOCAL BUSINESS SCHEMA (SEO BOOST) -->
-    <!-- ============================= -->
+    <!-- =============================
+         LOCAL BUSINESS SCHEMA
+    ============================== -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -87,15 +97,17 @@
         },
         "sameAs": [
           "https://www.instagram.com/vindia_infrasec",
-          "https://www.linkedin.com/company/vindia-infrasec",
-          "https://www.youtube.com/"
+          "https://www.linkedin.com/company/vindia-infrasec"
         ]
       }
     </script>
   </head>
 
   <body>
+    <!-- React root -->
     <div id="root"></div>
+
+    <!-- Main JS (deferred automatically by Vite) -->
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

@@ -22,15 +22,14 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0;
 }
 
 /* ================================== */
-/* CARD WRAPPER (GSAP PIN SAFE) */
+/* CARD WRAPPER (GSAP SAFE) */
 /* ================================== */
 .card-wrapper {
   width: 100%;
-  height: 100vh; /* required for overlap */
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -41,83 +40,102 @@ body {
 /* SERVICE CARD */
 /* ================================== */
 .service-card {
+  position: relative;
   width: 85%;
   max-width: 1150px;
-  height: 75vh; /* ✅ exactly 75% screen height */
-
+  height: 75vh;
   display: flex;
   overflow: hidden;
-  border-radius: 26px;
-  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.35);
+  border-radius: 28px;
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.35);
 }
-/* ================================== */
-/* CARD COLORS – PDF MATCHED */
-/* ================================== */
 
-/* 1️⃣ Construction (Blue → Teal) */
-.card-1 .service-card {
+/* ✅ PDF-style LIGHT TOP GLAZE */
+.service-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
   background: linear-gradient(
     to bottom,
-    rgb(10, 182, 226) 0%,
-    rgb(10, 182, 226) 60%,
-    rgb(2, 104, 155) 100%
+    rgba(255, 255, 255, 0.22) 0%,
+    rgba(255, 255, 255, 0.10) 25%,
+    rgba(255, 255, 255, 0.02) 45%,
+    rgba(0, 0, 0, 0.15) 100%
+  );
+  pointer-events: none;
+}
+
+/* ================================== */
+/* CARD COLORS – TRUE PDF MATCH */
+/* ================================== */
+
+/* 1️⃣ Construction (Cyan → Blue) */
+.service-card[data-theme="0"] {
+  background: linear-gradient(
+    190deg,
+    #78daf0 0%,     /* light top */
+    #58b9d4 32%,
+    #0a88c9 58%,
+    #02689b 100%    /* deep bottom */
   );
 }
 
-
 /* 2️⃣ Interior Design (Purple → Blue) */
-.card-2 .service-card {
+.service-card[data-theme="1"] {
   background: linear-gradient(
-    135deg,
-    rgb(184, 116, 255), /* R184 G116 B255 */
-    rgb(71, 136, 246)   /* R71 G136 B246 */
+    190deg,
+    #ac91e0 0%,     /* light lavender */
+    #9b71c8 35%,
+    #6466d3 60%,
+    #234e98 100%
   );
 }
 
 /* 3️⃣ Architectural Design (Teal → Deep Teal) */
-.card-3 .service-card {
+.service-card[data-theme="2"] {
   background: linear-gradient(
-    135deg,
-    rgb(0, 170, 168),   /* R0 G170 B168 */
-    rgb(2, 97, 131)    /* R2 G97 B131 */
+    180deg,
+    #7be3dc 0%,     /* mint top */
+    #00aaa8 35%,
+    #008c96 60%,
+    #026183 100%
   );
 }
-
 
 /* ================================== */
 /* IMAGE */
 /* ================================== */
-.service-card img,
-.short-service-image {
+.service-card img {
   width: 48%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(0.95) contrast(1.05);
+  filter: brightness(0.96) contrast(1.05);
 }
 
 /* ================================== */
-/* CONTENT */
+/* CONTENT (NO BACKGROUND ❗) */
 /* ================================== */
 .content {
   flex: 1;
-  padding: 45px 55px;
+  padding: 48px 56px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.18);
   color: #ffffff;
+  position: relative;
+  z-index: 1;
 }
 
 .content h2 {
-  font-size: 2.2rem;
+  font-size: 2.35rem;
   font-weight: 700;
   margin-bottom: 18px;
 }
 
 .content p {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   line-height: 1.7;
-  color: #e6e8ff;
+  color: #f2f6ff;
 }
 
 /* ================================== */
@@ -127,16 +145,17 @@ body {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
+  margin-top: 16px;
 }
 
 .pill {
-  background: rgba(255, 255, 255, 0.15);
-  padding: 8px 18px;
-  border-radius: 20px;
-  font-size: 0.9rem;
+  background: rgba(255, 255, 255, 0.22);
+  padding: 8px 20px;
+  border-radius: 999px;
+  font-size: 0.85rem;
   font-weight: 600;
-  color: #cfe4ff;
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.35);
 }
 
 /* ================================== */
@@ -159,6 +178,6 @@ body {
   }
 
   .content {
-    padding: 30px;
+    padding: 32px;
   }
 }
