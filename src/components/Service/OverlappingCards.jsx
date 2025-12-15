@@ -1,10 +1,10 @@
-import React, { useLayoutEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./style.css";
 import ShortService from "./ShortService";
 import About from "../About";
-import img from "./images/building1.jpg";
+import img from "/images/building1.webp";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,43 +13,41 @@ gsap.registerPlugin(ScrollTrigger);
 // =============================
 const services = [
   {
-  img,
-  heading: "Construction",
-  subcontent1: "Develop",
-  subcontent2: "Supervision",
-  subcontent3: "Estimate",
-  description:
-    "High-quality construction services with expert supervision, accurate estimation, and timely project delivery."
-},
-{
-  img,
-  heading: "Interior Design",
-  subcontent1: "Plan",
-  subcontent2: "Execute",
-  subcontent3: "Deliver",
-  description:
-    "Modern and functional interior design solutions crafted to enhance both residential and commercial spaces."
-},
-{
-  img,
-  heading: "Architectural Design",
-  subcontent1: "Concept",
-  subcontent2: "Planning",
-  subcontent3: "Execution",
-  description:
-    "Creative and efficient architectural designs that combine aesthetics, functionality, and intelligent space planning."
-}
-
+    img,
+    heading: "Construction",
+    subcontent1: "Develop",
+    subcontent2: "Supervision",
+    subcontent3: "Estimate",
+    description:
+      "High-quality construction services with expert supervision, accurate estimation, and timely project delivery.",
+  },
+  {
+    img,
+    heading: "Interior Design",
+    subcontent1: "Plan",
+    subcontent2: "Execute",
+    subcontent3: "Deliver",
+    description:
+      "Modern and functional interior design solutions crafted to enhance residential and commercial spaces.",
+  },
+  {
+    img,
+    heading: "Architectural Design",
+    subcontent1: "Concept",
+    subcontent2: "Planning",
+    subcontent3: "Execution",
+    description:
+      "Creative architectural designs combining aesthetics, functionality, and intelligent space planning.",
+  },
 ];
 
 export default function OverlappingCards() {
   const containerRef = useRef(null);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const ctx = gsap.context(() => {
       const wrappers = gsap.utils.toArray(".card-wrapper");
 
-      // Overlap Animations
       wrappers.forEach((wrapper, index) => {
         const card = wrapper.querySelector(".service-card");
 
@@ -74,16 +72,15 @@ export default function OverlappingCards() {
         });
       });
 
-      // Smooth Image Zoom
-      gsap.utils.toArray(".service-card img").forEach((img) => {
+      gsap.utils.toArray(".service-card img").forEach((image) => {
         gsap.fromTo(
-          img,
+          image,
           { scale: 1 },
           {
             scale: 1.18,
             ease: "none",
             scrollTrigger: {
-              trigger: img.closest(".card-wrapper"),
+              trigger: image.closest(".card-wrapper"),
               start: "top bottom",
               end: "bottom top",
               scrub: 1.2,
@@ -98,28 +95,21 @@ export default function OverlappingCards() {
 
   return (
     <div ref={containerRef}>
-
-      {/* =============================
-          ABOUT SECTION (No changes)
-      ============================== */}
+      {/* ABOUT SECTION */}
       <section className="empty-section">
         <About />
       </section>
 
-      {/* =============================
-          SEO Heading (HIDDEN)
-      ============================== */}
+      {/* SEO Heading */}
       <h2 className="sr-only">
-        Our Services – Construction, Interior Design & Structural Design
+        Construction, Interior Design and Architectural Services in India
       </h2>
 
-      {/* =============================
-          SERVICE CARDS
-      ============================== */}
+      {/* SERVICE CARDS */}
       <div
         className="cards-container"
         role="list"
-        aria-label="Construction, Interior Design and Structural Design Services"
+        aria-label="Construction, Interior Design and Architectural Services"
       >
         {services.map((service, index) => (
           <div className="card-wrapper" key={index} role="listitem">
