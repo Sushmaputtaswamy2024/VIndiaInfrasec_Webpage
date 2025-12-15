@@ -16,6 +16,9 @@ import img3 from "/images/architecture.webp";
 import ServiceBadge from "../ServiceBadge";
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -123,6 +126,7 @@ export default function OverlappingCards() {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     <div ref={containerRef}>
       <section className="empty-section">
         <About />
@@ -168,6 +172,8 @@ export default function OverlappingCards() {
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
    <section ref={containerRef} className="cards-container">
   {services.map((s, i) => (
     <div className={`card-wrapper card-${i + 1}`} key={i}>
@@ -198,6 +204,9 @@ export default function OverlappingCards() {
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
