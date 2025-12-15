@@ -6,6 +6,7 @@ import Testimonials from "./components/Testimonials";
 import CallToAction from "./components/CallToAction";
 import Footer from "./components/Footer";
 import projectImages from "./utils/projectImages";
+import About from "./components/About";
 
 // Shuffle images
 function shuffleImages(array) {
@@ -38,6 +39,7 @@ function App() {
     <>
       <Home />
       <ScrollVideo />
+      <About/>
       <OverlappingCards />
 
       <ProjectGallery images={projectImages} />
