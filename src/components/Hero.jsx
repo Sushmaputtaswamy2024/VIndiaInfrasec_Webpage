@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
-import backgroundVideo from "../assets/backgroundVideo/Background.mp4";
+import backgroundVideo from "../assets/Background.mp4";
 import "./Hero.css";
 
 export default function Hero() {
