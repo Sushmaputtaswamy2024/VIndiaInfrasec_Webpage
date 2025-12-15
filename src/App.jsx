@@ -39,14 +39,13 @@ images = shuffleImages(images);
 function App() {
   return (
     <>
-<<<<<<< Updated upstream
+
       <Home />
       <ScrollVideo />
       <About/>
       <OverlappingCards />
-=======
       <Routes>
->>>>>>> Stashed changes
+
 
         {/* HOME PAGE */}
         <Route
