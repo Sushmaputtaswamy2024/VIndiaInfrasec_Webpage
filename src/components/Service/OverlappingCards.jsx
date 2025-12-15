@@ -14,6 +14,9 @@ import img1 from "/images/building1.webp";
 import img2 from "/images/building2.webp";
 import img3 from "/images/architecture.webp";
 import ServiceBadge from "../ServiceBadge";
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 gsap.registerPlugin(ScrollTrigger);
@@ -115,6 +118,7 @@ export default function OverlappingCards() {
 
   return (
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     <div ref={containerRef}>
       <section className="empty-section">
         <About />
@@ -131,6 +135,28 @@ export default function OverlappingCards() {
             <div className="service-card">
               <ShortService {...service} />
             </div>
+=======
+   <section ref={containerRef} className="cards-container">
+  {services.map((s, i) => (
+    <div className={`card-wrapper card-${i + 1}`} key={i}>
+      <div className="service-card" data-theme={i}>
+
+        {/* 🔝 SERVICE BADGE AT TOP */}
+        <ServiceBadge />
+
+        {/* LEFT IMAGE */}
+        <img src={s.img} alt={s.heading} loading="lazy" />
+
+        {/* RIGHT CONTENT */}
+        <div className="content">
+          <h2>{s.heading}</h2>
+          <p>{s.description}</p>
+
+          <div className="tags">
+            {s.tags.map((t, idx) => (
+              <span key={idx} className="pill">{t}</span>
+            ))}
+>>>>>>> Stashed changes
           </div>
         ))}
       </div>
@@ -164,6 +190,9 @@ export default function OverlappingCards() {
   ))}
 </section>
 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   );
 }
