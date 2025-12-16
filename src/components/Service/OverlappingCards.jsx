@@ -44,7 +44,7 @@ const services = [
     subcontent3: "Execution",
     description:
       "Creative and efficient architectural designs that combine aesthetics, functionality, and intelligent space planning.",
-  },
+  }, 
 ];
 
 // PAGE LINKS FOR EACH CARD
