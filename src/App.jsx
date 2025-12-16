@@ -40,29 +40,30 @@ function App() {
   return (
     <>
 
-      <Home />
+      {/* <Home />
       <ScrollVideo />
       <About/>
-      <OverlappingCards />
+      <OverlappingCards /> */}
       <Routes>
 
 
         {/* HOME PAGE */}
-        <Route
-          path="/"
-          element={
-            <>
-              <Home />
-              <ScrollVideo />
-              <OverlappingCards />
+       <Route
+  path="/"
+  element={
+    <>
+      <Home />
+      <ScrollVideo />
+      <About />
+      <OverlappingCards />
+      <ProjectGallery images={projectImages} />
+      <Testimonials />
+      <CallToAction />
+      <Footer />   {/* 👈 here */}
+    </>
+  }
+/>
 
-              <ProjectGallery images={projectImages} />
-              <Testimonials />
-              <CallToAction />
-              <Footer />
-            </>
-          }
-        />
 
         {/* CONSTRUCTION PAGE */}
         <Route path="/construction" element={<Construction />} />

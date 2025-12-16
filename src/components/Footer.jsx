@@ -1,4 +1,3 @@
-import "./Footer.css";
 import {
   FaGoogle,
   FaYoutube,
@@ -8,6 +7,7 @@ import {
   FaPhoneAlt,
 } from "react-icons/fa";
 import { useEffect, useState } from "react";
+import "./Footer.css";
 
 export default function Footer() {
   const [index, setIndex] = useState(0);
