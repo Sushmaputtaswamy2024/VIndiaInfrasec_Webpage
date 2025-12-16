@@ -2,7 +2,6 @@ import React, { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./OverlappingCards.css";
-
 import img1 from "/images/building1.webp";
 import img2 from "/images/building2.webp";
 import img3 from "/images/architecture.webp";
