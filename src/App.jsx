@@ -7,10 +7,10 @@ import OverlappingCards from "./components/Service/OverlappingCards";
 import ProjectGallery from "./components/ProjectGallery";
 import Testimonials from "./components/Testimonials";
 import CallToAction from "./components/CallToAction";
-import Footer from "./components/Footer";
 
 import Construction from "./pages/Construction";
 import projectImages from "./utils/projectImages";
+import Footer from "./components/Footer1";
 
 function App() {
   return (
@@ -28,7 +28,8 @@ function App() {
             <ProjectGallery images={projectImages} />
             <Testimonials />
             <CallToAction />
-            <Footer />
+            <Footer/>
+
           </>
         }
       />

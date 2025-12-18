@@ -1,24 +1,19 @@
 /* =========================
-   Footer.css — EXACT from projects.html (React compatible)
+   FOOTER – GSAP SAFE REBUILD
+   (Same layout, isolated)
    ========================= */
-
-/* ---------- ROOT VARIABLES ---------- */
-:root {
-  --bg-footer: #f2f2f2;
-  --text-dark: #222;
-  --muted: #444;
-  --accent: #007bff;
-  --white: #ffffff;
-  --card-shadow: 0 3px 8px rgba(0,0,0,0.08);
-  --radius-lg: 10px;
-}
 
 /* ---------- DESKTOP FOOTER ---------- */
 .footer {
   width: 100%;
   padding: 40px 3%;
-  background: var(--bg-footer);
-  color: var(--text-dark);
+  background: #f2f2f2;           /* FORCE solid bg */
+  color: #222;
+
+  position: relative;
+  z-index: 50;
+  isolation: isolate;            /* 🔥 MOST IMPORTANT LINE */
+
   border-top: 1px solid #d3d3d3;
 }
 
@@ -29,38 +24,33 @@
 
 .footer-row {
   display: flex;
-  justify-content: space-between;
   align-items: flex-start;
-  gap: 60px;
-  flex-wrap: nowrap;
+  justify-content: space-between;
+  gap: 24px;
 }
 
-/* LEFT COLUMN (28%) */
+/* ---------- LEFT COLUMN ---------- */
 .footer-left-one {
   display: flex;
   gap: 16px;
   width: 28%;
-  min-width: 220px;
+  min-width: 240px;
 }
 
 .footer-social-vertical {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 
 .footer-social-vertical a {
   font-size: 24px;
   color: #1a73e8;
-  transition: 0.3s;
-}
-
-.footer-social-vertical a:hover {
-  transform: scale(1.15);
+  text-decoration: none;
 }
 
 .footer-brand {
-  max-width: 240px;
+  max-width: 260px;
 }
 
 .footer-logo {
@@ -70,76 +60,81 @@
 
 .footer-desc {
   font-size: 0.9rem;
-  margin-top: 0.5rem;
+  margin-top: 6px;
   color: #444;
 }
 
-/* CENTER COLUMN (18%) */
+/* ---------- CENTER LINKS ---------- */
 .footer-center-one {
   width: 18%;
-  min-width: 150px;
+  min-width: 160px;
+}
+
+.footer-links {
+  padding: 0;
 }
 
 .footer-links li {
-  margin: 6px 0;
   list-style: none;
+  margin: 6px 0;
 }
 
 .footer-links a {
   font-size: 0.9rem;
   color: #333;
-  transition: 0.2s;
+  text-decoration: none;
 }
 
 .footer-links a:hover {
   color: #007bff;
-  transform: translateX(2px);
 }
 
-/* RIGHT CALL COLUMN (16%) */
+/* ---------- CALL NUMBERS ---------- */
 .footer-right-call {
   width: 16%;
-  min-width: 150px;
+  min-width: 160px;
 }
 
 .contact-title {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   margin-bottom: 8px;
 }
 
-.contact-list li {
-  margin: 4px 0;
-  font-size: 0.9rem;
-  list-style: none;
+.contact-list {
+  padding: 0;
 }
 
-/* RIGHT MAPS COLUMN (33%) */
+.contact-list li {
+  list-style: none;
+  font-size: 0.9rem;
+  margin: 4px 0;
+}
+
+/* ---------- MAPS ---------- */
 .footer-right-maps {
   width: 33%;
-  min-width: 260px;
+  min-width: 280px;
 }
 
 .state-title {
-  font-size: 1.1rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.05rem;
+  margin-bottom: 8px;
 }
 
 .district-row {
   display: flex;
-  gap: 10px;
-  flex-wrap: nowrap;
+  gap: 12px;
 }
 
 .district-card {
   width: 150px;
-  background: #fff;
+  background: #ffffff;           /* FORCE white cards */
   padding: 8px;
   border-radius: 10px;
-  box-shadow: var(--card-shadow);
-  text-align: left;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
 }
 
-.district-card h4 {
+.district-name {
   font-size: 0.8rem;
   margin-bottom: 4px;
 }
@@ -156,9 +151,10 @@
   margin-top: 4px;
   font-size: 0.75rem;
   color: #1a73e8;
+  text-decoration: none;
 }
 
-/* ---------- FLOATING CALL + WHATSAPP ---------- */
+/* ---------- FLOATING ICONS ---------- */
 .floating-icons {
   position: fixed;
   bottom: 22px;
@@ -166,54 +162,27 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  z-index: 3000;
+  z-index: 9999;
 }
 
 .call-icon,
 .whatsapp-icon {
-  width: 55px;
-  height: 55px;
+  width: 54px;
+  height: 54px;
   border-radius: 50%;
-  color: white;
+  color: #ffffff;
   font-size: 22px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-  transition: 0.18s;
-}
-/* DASH ANIMATION FOR FLOATING ICONS */
-@keyframes dash-towards {
-  0%   { transform: translateX(0); }
-  50%  { transform: translateX(-8px); }
-  100% { transform: translateX(0); }
-}
-
-@keyframes dash-towards-reverse {
-  0%   { transform: translateX(0); }
-  50%  { transform: translateX(8px); }
-  100% { transform: translateX(0); }
 }
 
 .call-icon {
-  animation: dash-towards 2s ease-in-out infinite;
-}
-
-.whatsapp-icon {
-  animation: dash-towards-reverse 2s ease-in-out infinite;
-}
-
-.call-icon {
-  background: var(--accent);
+  background: #007bff;
 }
 
 .whatsapp-icon {
   background: #25d366;
-}
-
-.call-icon:hover,
-.whatsapp-icon:hover {
-  transform: scale(1.12);
 }
 
 /* ---------- MOBILE FOOTER ---------- */
@@ -221,44 +190,34 @@
   display: none;
   background: #ffffff;
   padding: 30px 20px 50px;
-  border-top: 1px solid #ddd;
+  position: relative;
+  z-index: 50;
+  isolation: isolate;
 }
 
 .fm-brand h2 {
   font-size: 20px;
-  font-weight: 700;
 }
 
 .fm-brand p {
-  margin: 6px 0;
+  font-size: 14px;
   color: #555;
-  font-size: 14px;
 }
 
-.fm-brand a {
-  color: #007bff;
-  font-size: 14px;
-}
-
-/* Accordion items */
 .fm-section {
   margin: 18px 0;
   border-bottom: 1px solid #ccc;
-  padding-bottom: 10px;
 }
 
 .fm-header {
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 600;
-  display: flex;
-  justify-content: space-between;
   cursor: pointer;
 }
 
 .fm-content {
   display: none;
   margin-top: 8px;
-  padding-left: 5px;
 }
 
 .fm-content.open {
@@ -268,7 +227,7 @@
 .fm-content a,
 .fm-content p {
   display: block;
-  font-size: 15px;
+  font-size: 14px;
   margin: 6px 0;
   color: #333;
 }
@@ -289,14 +248,8 @@
   .footer {
     display: none;
   }
+
   .footer-mobile {
     display: block;
-  }
-}
-
-@media (max-width: 600px) {
-  .floating-icons {
-    bottom: 18px;
-    right: 14px;
   }
 }

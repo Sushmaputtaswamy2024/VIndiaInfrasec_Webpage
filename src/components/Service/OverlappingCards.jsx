@@ -2,9 +2,11 @@ import React, { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./OverlappingCards.css";
+
 import img1 from "/images/building1.webp";
 import img2 from "/images/building2.webp";
 import img3 from "/images/architecture.webp";
+import ServiceBadge from "../ServiceBadge";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -37,31 +39,39 @@ export default function OverlappingCards() {
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      const wrappers = gsap.utils.toArray(".card-wrapper");
+      const cards = gsap.utils.toArray(".service-card");
 
-      wrappers.forEach((wrapper, index) => {
-        const card = wrapper.querySelector(".service-card");
-
-        // Do NOT pin last card
-        if (index === wrappers.length - 1) return;
-
-        gsap.timeline({
-          scrollTrigger: {
-            trigger: wrapper,
-            start: "top top",
-            end: "bottom top",
-            scrub: 0.9,
-            pin: true,
-            pinSpacing: true,
-            anticipatePin: 1,
-          },
-        }).to(card, {
-          scale: 0.94,
-          opacity: 0,
-          ease: "none",
+      // INITIAL STATE (HEIGHT-SAFE)
+      cards.forEach((card, i) => {
+        gsap.set(card, {
+          zIndex: i + 1,
+          y: i === 0 ? 0 : window.innerHeight, // 🔥 safer than "100vh"
+          scale: 1,
         });
       });
 
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top top",
+          end: `+=${cards.length * 100}%`,
+          scrub: true,
+          pin: true,
+          anticipatePin: 1,
+
+          // 🔥 refresh when layout changes
+          invalidateOnRefresh: true,
+        },
+      });
+
+      cards.forEach((card, i) => {
+        if (i === 0) return;
+
+        tl.to(cards[i - 1], { scale: 0.92, ease: "none" }, i - 1);
+        tl.to(card, { y: 0, ease: "none" }, i - 1);
+      });
+
+      // 🔥 wait for images before calculating
       ScrollTrigger.refresh();
     }, containerRef);
 
@@ -71,19 +81,18 @@ export default function OverlappingCards() {
   return (
     <section ref={containerRef} className="cards-container">
       {services.map((s, i) => (
-        <div className="card-wrapper" key={i}>
-          <div className="service-card" data-theme={i}>
-            <img src={s.img} alt={s.heading} loading="lazy" />
-            <div className="content">
-              <h2>{s.heading}</h2>
-              <p>{s.description}</p>
-              <div className="tags">
-                {s.tags.map((t, idx) => (
-                  <span key={idx} className="pill">
-                    {t}
-                  </span>
-                ))}
-              </div>
+        <div className="service-card" data-theme={i} key={i}>
+          <ServiceBadge />
+          <img src={s.img} alt={s.heading} loading="lazy" />
+          <div className="content">
+            <h2>{s.heading}</h2>
+            <p>{s.description}</p>
+            <div className="tags">
+              {s.tags.map((t, idx) => (
+                <span key={idx} className="pill">
+                  {t}
+                </span>
+              ))}
             </div>
           </div>
         </div>

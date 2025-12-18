@@ -1,11 +1,16 @@
-/* FIXED BADGE CONTAINER */
+/* =========================
+   FIXED BADGE CONTAINER
+========================= */
 .badge-container {
   position: absolute;
-  top: 22px;          /* 🔝 moved to top */
-  right: 10px;
+  top: 22px;
+  right: 16px;
+
   width: 60px;
   height: 60px;
+
   pointer-events: none;
+  z-index: 5;
 }
 
 /* ROTATING GRADIENT RING */
@@ -14,8 +19,7 @@
   height: 60px;
   border-radius: 50%;
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
 
   background: conic-gradient(
     #0a82c8,
@@ -26,49 +30,42 @@
     #0a82c8
   );
 
-  transform-origin: 50% 50%;
   animation: spin 8s linear infinite;
-  z-index: 1;
 }
 
-/* CURVED TEXT INSIDE RING */
+/* CURVED TEXT */
 .curved-text {
   width: 60px;
   height: 60px;
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
 
-  transform-origin: 50% 50%;
   transform: rotate(-70deg);
   z-index: 2;
 }
 
 .curved-text text {
-  fill: white;
+  fill: #ffffff;
   font-size: 30px;
   letter-spacing: 3px;
   font-weight: 600;
-  text-transform: uppercase;
 }
 
-/* CENTER WHITE CIRCLE */
+/* CENTER CIRCLE */
 .center-circle {
   width: 35px;
   height: 35px;
-  background: white;
+  background: #ffffff;
   border-radius: 50%;
 
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  inset: 0;
+  margin: auto;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  transform-origin: 50% 50%;
   z-index: 3;
 }
 
@@ -80,47 +77,49 @@
   color: transparent;
   -webkit-background-clip: text;
 }
-/* Prevent drifting when card hovers */
-.service-card:hover .badge-container {
-  transform: translateY(-4px);
+
+/* DESKTOP HOVER ONLY */
+@media (hover: hover) {
+  .service-card:hover .badge-container {
+    transform: translateY(-4px);
+  }
 }
 
+/* =========================
+   TABLET
+========================= */
+@media (max-width: 900px) {
+  .badge-container {
+    top: 16px;
+    right: 16px;
+    transform: scale(0.9);
+  }
+}
 
+/* =========================
+   MOBILE
+========================= */
+@media (max-width: 600px) {
+  .badge-container {
+    top: 14px;
+    right: 14px;
+    transform: scale(0.75);
+  }
+}
 
-/* ROTATION ANIMATION */
+/* =========================
+   SMALL MOBILE
+========================= */
+@media (max-width: 420px) {
+  .badge-container {
+    top: 12px;
+    right: 12px;
+    transform: scale(0.65);
+  }
+}
+
+/* ROTATION */
 @keyframes spin {
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
-}
-/* ========================= */
-/* TABLET (≤ 900px)          */
-/* ========================= */
-@media (max-width: 900px) {
-  .badge-container {
-    transform: scale(0.9);
-    right: 35px; 
-    bottom: 8px;
-  }
-}
-
-/* ========================= */
-/* MOBILE (≤ 600px)          */
-/* ========================= */
-@media (max-width: 600px) {
-  .badge-container {
-    transform: scale(0.75);
-    right: 20px;
-    bottom: 10px;
-  }
-}
-
-/* ========================= */
-/* SMALL MOBILE (≤ 420px)    */
-/* ========================= */
-@media (max-width: 420px) {
-  .badge-container {
-    transform: scale(0.6);
-    right: 12px;
-    bottom: 12px;
-  }
 }

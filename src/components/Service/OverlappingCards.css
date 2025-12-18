@@ -1,152 +1,117 @@
-/* ================================== */
-/* GLOBAL RESET */
-/* ================================== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html,
-body {
-  font-family: "Inter", sans-serif;
-  background: #ffffff;
-  overflow-x: hidden;
-}
-
-/* ================================== */
-/* CONTAINER */
-/* ================================== */
+/* ======================================================
+   CONTAINER
+====================================================== */
 .cards-container {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* ================================== */
-/* CARD WRAPPER (GSAP SAFE) */
-/* ================================== */
-.card-wrapper {
-  width: 100%;
-  height: auto;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   position: relative;
+  width: 100%;
+  height: 100vh;
+  background: #ffffff;
+
+  /* 🔥 loading safe */
+  overflow: clip;
 }
 
-/* ================================== */
-/* SERVICE CARD */
-/* ================================== */
+/* ======================================================
+   CARD (DESKTOP + MOBILE STACK)
+====================================================== */
 .service-card {
-  position: relative;
+  position: absolute;
+  inset: 0;
+  margin: auto;
+
   width: 85%;
   max-width: 1150px;
   height: 75vh;
+
   display: flex;
   overflow: hidden;
+
   border-radius: 28px;
-  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+
+  /* 🔥 loading safe */
+  will-change: transform, opacity;
+  transform: translateY(0);
 }
 
-/* ✅ PDF-style LIGHT TOP GLAZE */
+/* ======================================================
+   GLASS DEPTH
+====================================================== */
 .service-card::after {
   content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(255, 255, 255, 0.22) 0%,
-    rgba(255, 255, 255, 0.10) 25%,
-    rgba(255, 255, 255, 0.02) 45%,
-    rgba(0, 0, 0, 0.15) 100%
+    rgba(255, 255, 255, 0.18),
+    rgba(0, 0, 0, 0.22)
   );
   pointer-events: none;
 }
 
-/* ================================== */
-/* CARD COLORS – TRUE PDF MATCH */
-/* ================================== */
-
-/* 1️⃣ Construction (Cyan → Blue) */
+/* ======================================================
+   THEMES
+====================================================== */
 .service-card[data-theme="0"] {
-  background: linear-gradient(
-    190deg,
-    #78daf0 0%,     /* light top */
-    #58b9d4 32%,
-    #0a88c9 58%,
-    #02689b 100%    /* deep bottom */
-  );
+  background: linear-gradient(180deg, #78daf0, #02689b);
 }
 
-/* 2️⃣ Interior Design (Purple → Blue) */
 .service-card[data-theme="1"] {
-  background: linear-gradient(
-    190deg,
-    #ac91e0 0%,     /* light lavender */
-    #9b71c8 35%,
-    #6466d3 60%,
-    #234e98 100%
-  );
+  background: linear-gradient(180deg, #ac91e0, #234e98);
 }
 
-/* 3️⃣ Architectural Design (Teal → Deep Teal) */
 .service-card[data-theme="2"] {
-  background: linear-gradient(
-    180deg,
-    #7be3dc 0%,     /* mint top */
-    #00aaa8 35%,
-    #008c96 60%,
-    #026183 100%
-  );
+  background: linear-gradient(180deg, #7be3dc, #026183);
 }
 
-/* ================================== */
-/* IMAGE */
-/* ================================== */
+/* ======================================================
+   IMAGE (DESKTOP)
+====================================================== */
 .service-card img {
   width: 48%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(0.96) contrast(1.05);
+  display: block;
+
+  /* 🔥 prevents layout shift */
+  aspect-ratio: 4 / 5;
 }
 
-/* ================================== */
-/* CONTENT (NO BACKGROUND ❗) */
-/* ================================== */
+/* ======================================================
+   CONTENT
+====================================================== */
 .content {
   flex: 1;
   padding: 48px 56px;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
+
   color: #ffffff;
   position: relative;
   z-index: 1;
 }
 
 .content h2 {
-  font-size: 2.35rem;
-  font-weight: 700;
+  font-size: 2.4rem;
   margin-bottom: 18px;
+  font-weight: 700;
 }
 
 .content p {
   font-size: 1.05rem;
   line-height: 1.7;
-  color: #f2f6ff;
+  margin-bottom: 16px;
 }
 
-/* ================================== */
-/* TAGS */
-/* ================================== */
+/* ======================================================
+   TAGS
+====================================================== */
 .tags {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
-  margin-top: 16px;
 }
 
 .pill {
@@ -156,29 +121,68 @@ body {
   font-size: 0.85rem;
   font-weight: 600;
   color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.35);
 }
 
-/* ================================== */
-/* RESPONSIVE */
-/* ================================== */
+/* ======================================================
+   MOBILE – RESPONSIVE & CONTENT SAFE
+====================================================== */
 @media (max-width: 900px) {
-  .card-wrapper {
+
+  .cards-container {
     height: auto;
-    padding: 60px 0;
+    min-height: 100svh;
   }
 
   .service-card {
+    width: 92%;
     height: auto;
+    min-height: 90svh;
     flex-direction: column;
+    border-radius: 24px;
   }
 
   .service-card img {
     width: 100%;
-    height: 260px;
+    height: auto;
+    max-height: 50svh;
+    object-fit: cover;
+    border-radius: 24px 24px 0 0;
+
+    /* 🔥 loading safe */
+    aspect-ratio: 16 / 9;
   }
 
   .content {
-    padding: 32px;
+    padding: 20px 22px 26px;
+    justify-content: flex-start;
+  }
+
+  .content h2 {
+    font-size: 1.9rem;
+    margin-bottom: 10px;
+  }
+
+  .content p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+}
+
+/* ======================================================
+   SMALL MOBILE
+====================================================== */
+@media (max-width: 420px) {
+
+  .service-card {
+    min-height: 95svh;
+  }
+
+  .content h2 {
+    font-size: 1.7rem;
+  }
+
+  .content p {
+    font-size: 0.9rem;
   }
 }

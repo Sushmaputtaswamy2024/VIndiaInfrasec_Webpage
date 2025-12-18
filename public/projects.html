@@ -1071,42 +1071,35 @@
       }
     }
 
-    @media (max-width: 768px) {
-      .nav-links-mobile {
-        display: none;
-        flex-direction: column;
-        padding: 0.4rem 1.5rem 0.9rem;
-        border-top: 1px solid #e3e3e3;
-        background: #ffffff;
-      }
+    /* ======================================================
+   MOBILE FIX — SHOW ONE PROJECT CARD AT A TIME
+   (NO CONTENT CHANGE)
+====================================================== */
+@media (max-width: 768px) {
 
-      .nav-links-mobile.open {
-        display: flex;
-      }
+  /* Grid becomes single column */
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
 
-      .nav-links-mobile a {
-        padding: 0.35rem 0;
-        font-size: 0.9rem;
-      }
+  /* Each card takes full viewport height */
+  .project-card {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
 
-      .nav-links-mobile .mobile-cta {
-        margin-top: 0.4rem;
-      }
+  /* Image takes controlled height */
+  .project-image-wrap {
+    height: 65vh;
+  }
 
-      .hero-inner {
-        padding-top: 2.2rem;
-        padding-bottom: 2.4rem;
-      }
-
-      .hero-meta-row {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .section {
-        padding: 2.7rem 0;
-      }
-    }
+  /* Content scrolls safely if needed */
+  .project-body {
+    flex: 1;
+    overflow-y: auto;
+  }
+}
 
     @media (max-width: 600px) {
       body {
@@ -1252,7 +1245,7 @@
                 <div class="hero-card-inner">
                   <div class="hero-card-header">
                     <div>
-                      <div class="hero-card-title">Execution Snapshot</div>
+                      <div class="hero-card-title">Executing</div>
                       <div class="hero-card-sub">Mix of residential, commercial & interiors</div>
                     </div>
                     <div class="hero-chip">
@@ -1320,7 +1313,7 @@
             <!-- 1 -->
             <article class="project-card" data-category="Residential" data-aos="fade-up">
               <div class="project-image-wrap">
-                <img src="/project/g+2.webp" alt="G+2 Villa Elevation, Mysuru" />
+                <img src="/project/g2.webp" alt="G+2 Villa Elevation, Mysuru" />
               </div>
               <div class="project-body">
                 <div class="project-tag-row">
@@ -1351,7 +1344,7 @@
             <!-- 2 -->
             <article class="project-card" data-category="Commercial" data-aos="fade-up" data-aos-delay="60">
               <div class="project-image-wrap">
-                <img src="/project/contemprory appartment.webp" alt="Apartment Block, Bengaluru" />
+                <img src="/project/appartment.webp" alt="Apartment Block, Bengaluru" />
               </div>
               <div class="project-body">
                 <div class="project-tag-row">
@@ -1413,7 +1406,7 @@
             <!-- 4 -->
             <article class="project-card" data-category="Residential" data-aos="fade-up">
               <div class="project-image-wrap">
-                <img src="/project/compact duplex home.webp" alt="Compact Duplex Home, Kochi" />
+                <img src="/project/duplex.webp" alt="Compact Duplex Home, Kochi" />
               </div>
               <div class="project-body">
                 <div class="project-tag-row">
@@ -1537,7 +1530,7 @@
             <!-- 8 -->
             <article class="project-card" data-category="Landscaping" data-aos="fade-up" data-aos-delay="60">
               <div class="project-image-wrap">
-                <img src="/project/Terrace development.webp" alt="Terrace & Outdoor Development, Kannur" />
+                <img src="/project/terracedevelopment.webp" alt="Terrace & Outdoor Development, Kannur" />
               </div>
               <div class="project-body">
                 <div class="project-tag-row">
