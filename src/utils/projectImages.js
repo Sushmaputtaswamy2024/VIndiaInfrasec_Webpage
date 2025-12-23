@@ -1,7 +1,6 @@
-// src/utils/projectImages.js
+const projectImages = import.meta.glob(
+  "/public/Gallery/*.webp",
+  { eager: true, as: "url" }
+);
 
-const files = Array.from({ length: 48 }, (_, i) => `${i + 1}.webp`);
-
-const projectImages = files.map((file) => `/Gallery/${file}`);
-
-export default projectImages;
+export default Object.values(projectImages);
