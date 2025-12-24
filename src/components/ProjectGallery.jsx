@@ -3,7 +3,7 @@ import completedProjects from "../utils/completedProjects";
 import projectImages from "../utils/projectImages";
 import "./ProjectGallery.marquee.css";
 
-/* Fisher–Yates shuffle (pure, safe) */
+/* Shuffle */
 const shuffle = (arr) => {
   const a = [...arr];
   for (let i = a.length - 1; i > 0; i--) {
@@ -13,13 +13,39 @@ const shuffle = (arr) => {
   return a;
 };
 
+/* Insert text randomly every N items */
+const injectTextRandomly = (images, label) => {
+  const result = [];
+  images.forEach((img, i) => {
+    result.push({ type: "img", src: img });
+    if (i % 4 === 2) {
+      result.push({ type: "text", label });
+    }
+  });
+  return result;
+};
+
 export default function ProjectGallery() {
   const row1Ref = useRef(null);
   const row2Ref = useRef(null);
 
-  /* 🔒 Shuffle ONCE per load (prevents order reset on re-render) */
-  const topImages = useMemo(() => shuffle(completedProjects), []);
-  const bottomImages = useMemo(() => shuffle(projectImages), []);
+  const topRow = useMemo(
+    () =>
+      injectTextRandomly(
+        shuffle(completedProjects).concat(shuffle(completedProjects)),
+        "Completed Projects"
+      ),
+    []
+  );
+
+  const bottomRow = useMemo(
+    () =>
+      injectTextRandomly(
+        shuffle(projectImages).concat(shuffle(projectImages)),
+        "Designs"
+      ),
+    []
+  );
 
   useEffect(() => {
     const startMarquee = (row, speed, direction) => {
@@ -29,30 +55,23 @@ export default function ProjectGallery() {
         if (!row) return;
 
         const width = row.scrollWidth / 2;
-
-        // wait until images are fully measured
-        if (!width) {
-          requestAnimationFrame(move);
-          return;
-        }
+        if (!width) return requestAnimationFrame(move);
 
         x += direction === "left" ? -speed : speed;
 
-        // seamless looping
         if (direction === "left" && x <= -width) x += width;
         if (direction === "right" && x >= 0) x -= width;
 
-        row.style.transform = `translate3d(${x}px, 0, 0)`;
+        row.style.transform = `translate3d(${x}px,0,0)`;
         requestAnimationFrame(move);
       };
 
-      requestAnimationFrame(move);
+      move();
     };
 
-    const isMobile = window.innerWidth < 768;
-
-    startMarquee(row1Ref.current, isMobile ? 0.25 : 0.45, "left");
-    startMarquee(row2Ref.current, isMobile ? 0.4 : 0.7, "right");
+    // 🔥 Faster speeds
+    startMarquee(row1Ref.current, 0.75, "left");
+    startMarquee(row2Ref.current, 1.1, "right");
   }, []);
 
   return (
@@ -60,30 +79,40 @@ export default function ProjectGallery() {
       <h2 className="gallery-title">Our Project Gallery</h2>
 
       <div className="marquee-wrapper">
-        {/* 🔹 TOP ROW — COMPLETED PROJECTS */}
+        {/* TOP ROW */}
         <div className="marquee-row" ref={row1Ref}>
-          {[...topImages, ...topImages].map((img, i) => (
-            <img
-              key={`completed-${i}`}
-              src={img}
-              alt="Completed project"
-              loading="lazy"
-              draggable="false"
-            />
-          ))}
+          {topRow.map((item, i) =>
+            item.type === "img" ? (
+              <img
+                key={`top-img-${i}`}
+                src={item.src}
+                alt="Completed project"
+                loading="lazy"
+              />
+            ) : (
+              <div key={`top-text-${i}`} className="marquee-text-card center-text">
+                <span>{item.label}</span>
+              </div>
+            )
+          )}
         </div>
 
-        {/* 🔹 BOTTOM ROW — GALLERY */}
+        {/* BOTTOM ROW */}
         <div className="marquee-row reverse" ref={row2Ref}>
-          {[...bottomImages, ...bottomImages].map((img, i) => (
-            <img
-              key={`gallery-${i}`}
-              src={img}
-              alt="Gallery project"
-              loading="lazy"
-              draggable="false"
-            />
-          ))}
+          {bottomRow.map((item, i) =>
+            item.type === "img" ? (
+              <img
+                key={`bot-img-${i}`}
+                src={item.src}
+                alt="Design gallery"
+                loading="lazy"
+              />
+            ) : (
+              <div key={`bot-text-${i}`} className="marquee-text-card inline-text">
+                <span>{item.label}</span>
+              </div>
+            )
+          )}
         </div>
       </div>
     </section>

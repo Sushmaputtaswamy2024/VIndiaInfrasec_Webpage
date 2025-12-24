@@ -1,55 +1,172 @@
+/* =========================
+   GALLERY SECTION
+========================= */
 .gallery-section {
-  padding: 60px 0;
-  background: #fff;
+  padding: 80px 0;
+  background: #ffffff;
   overflow: hidden;
 }
 
 .gallery-title {
   text-align: center;
-  font-size: 32px;
+  font-size: 34px;
   font-weight: 700;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
+  color: #111;
+  letter-spacing: 0.04em;
 }
 
+/* =========================
+   MARQUEE WRAPPER
+========================= */
 .marquee-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 20px; /* spacing between rows */
 }
 
+/* =========================
+   MARQUEE ROW
+========================= */
 .marquee-row {
   display: flex;
-  gap: 20px;
+  gap: 22px;
   width: max-content;
-}
-
-.marquee-row img {
-  width: 280px;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .marquee-row.reverse {
   flex-direction: row-reverse;
 }
 
-/* ✅ Mobile Responsive */
+/* =========================
+   IMAGE CARDS
+========================= */
+.marquee-row img {
+  width: 280px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 16px;
+  flex-shrink: 0;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.14);
+}
+
+/* =========================
+   TEXT CARD (IMAGE SLOT)
+========================= */
+.marquee-text-card {
+  width: 280px;
+  height: 180px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  font-family: "Work Sans", "Inter", sans-serif;
+}
+
+/* =========================
+   COMPLETED PROJECTS TEXT
+========================= */
+.marquee-text-card.center-text span {
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+
+  background: linear-gradient(
+    90deg,
+    #0a2540,
+    #1e3a8a,
+    #0ea5e9,
+    #22d3ee
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  text-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+/* =========================
+   DESIGNS TEXT (ENHANCED)
+========================= */
+.marquee-text-card.inline-text span {
+  font-size: 1.55rem;
+  font-weight: 650;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+
+  background: linear-gradient(
+    90deg,
+    #6d28d9,
+    #9333ea,
+    #ec4899,
+    #fb7185
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  text-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* =========================
+   TABLET
+========================= */
 @media (max-width: 768px) {
   .gallery-title {
-    font-size: 24px;
+    font-size: 26px;
+    margin-bottom: 45px;
   }
 
-  .marquee-row img {
+  .marquee-row img,
+  .marquee-text-card {
     width: 200px;
     height: 130px;
   }
+
+  .marquee-text-card.center-text span {
+    font-size: 1.2rem;
+  }
+
+  .marquee-text-card.inline-text span {
+    font-size: 1.1rem;
+  }
 }
 
+/* =========================
+   MOBILE
+========================= */
 @media (max-width: 480px) {
-  .marquee-row img {
+  .gallery-section {
+    padding: 60px 0;
+  }
+
+  .gallery-title {
+    font-size: 22px;
+  }
+
+  .marquee-wrapper {
+    gap: 45px;
+  }
+
+  .marquee-row img,
+  .marquee-text-card {
     width: 160px;
     height: 110px;
+  }
+
+  .marquee-text-card.center-text span {
+    font-size: 1rem;
+  }
+
+  .marquee-text-card.inline-text span {
+    font-size: 1.05rem;
   }
 }
