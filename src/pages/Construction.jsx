@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Footer from "./Footer";
 import "./construction.css";
 
 export default function Construction() {
@@ -9,58 +10,61 @@ export default function Construction() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
+  // 🔁 Repeat animation on scroll (up & down)
   useEffect(() => {
     const elements = document.querySelectorAll(".fade-in");
-    function reveal() {
+
+    const reveal = () => {
       elements.forEach((el) => {
-        if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 120 && rect.bottom > 120) {
           el.classList.add("visible");
+        } else {
+          el.classList.remove("visible");
         }
       });
-    }
+    };
+
     window.addEventListener("scroll", reveal);
     reveal();
+
     return () => window.removeEventListener("scroll", reveal);
   }, []);
 
-  const validPhone = (p) => {
-    const digits = p.replace(/\D/g, "");
-    return digits.length >= 7;
-  };
+  const validPhone = (p) => p.replace(/\D/g, "").length >= 7;
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!name.trim()) {
-      alert("Name is required.");
-      return;
-    }
-
-    if (!phone.trim() || !validPhone(phone)) {
-      alert("A valid contact number is required.");
-      return;
-    }
+    if (!name.trim()) return alert("Name is required.");
+    if (!phone.trim() || !validPhone(phone))
+      return alert("Valid contact number required.");
 
     const number = "918592921212";
 
-    const parts = [];
-    parts.push("Hello, I'm interested in Construction services.");
-    parts.push(`Name: ${name}`);
-    parts.push(`Contact: ${phone}`);
-    if (email) parts.push(`Email: ${email}`);
-    if (message) parts.push(`Message: ${message}`);
-    parts.push("Please contact me to schedule a meeting.");
+    const text = encodeURIComponent(
+      [
+        "Hello, I'm interested in Construction services.",
+        `Name: ${name}`,
+        `Contact: ${phone}`,
+        email && `Email: ${email}`,
+        message && `Message: ${message}`,
+        "Please contact me to schedule a meeting.",
+      ]
+        .filter(Boolean)
+        .join(" | ")
+    );
 
-    const text = encodeURIComponent(parts.join(" | "));
-    const url = `https://wa.me/${number}?text=${text}`;
-    window.open(url, "_blank");
+    window.open(`https://wa.me/${number}?text=${text}`, "_blank");
   };
 
   return (
     <div className="construction-page">
 
+      {/* ☰ Hamburger */}
       <div className="hamburger" onClick={() => setMenu(!menu)}>☰</div>
 
+      {/* Sidebar */}
       <aside className={`side-menu ${menu ? "open" : ""}`}>
         <p>Construction</p>
         <p>Interior Design</p>
@@ -68,13 +72,17 @@ export default function Construction() {
         <p>Blog</p>
       </aside>
 
+      {/* Main Content */}
       <div className="content-wrapper">
 
         <h1 className="main-title fade-in">Construction</h1>
 
-        <div className="video-section fade-in video-fade">
-          <video autoPlay muted playsInline loop>
-            <source src="/construction/construction.mp4" type="video/mp4" />
+        <div className="video-section fade-in">
+          <video autoPlay muted loop playsInline>
+            <source
+              src="/construction/construction.mp4"
+              type="video/mp4"
+            />
           </video>
         </div>
 
@@ -90,7 +98,11 @@ export default function Construction() {
             { img: "6.webp", t: "Handover", p: "Final finishing and smooth project delivery." }
           ].map((s, i) => (
             <div key={i} className={`step-row fade-in ${i % 2 ? "reverse" : ""}`}>
-              <img src={`/construction/${s.img}`} className="step-img" alt={s.t} />
+              <img
+                src={`/construction/${s.img}`}
+                className="step-img"
+                alt={s.t}
+              />
               <div className="step-text">
                 <h3>{s.t}</h3>
                 <p>{s.p}</p>
@@ -125,17 +137,19 @@ export default function Construction() {
 
           <textarea
             placeholder="Message (optional)"
+            rows="4"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            rows="4"
           />
 
           <button type="submit">Contact Construction Team</button>
         </form>
 
-        <footer className="footer">Vindia Infrasec</footer>
-
       </div>
+
+      {/* ✅ Reusable Footer */}
+      <Footer />
+
     </div>
   );
 }
