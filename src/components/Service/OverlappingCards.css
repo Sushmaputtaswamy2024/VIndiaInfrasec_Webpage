@@ -18,7 +18,7 @@
   position: absolute;
   inset: 0;
   margin: auto;
-
+  
   width: 85%;
   max-width: 1150px;
   height: 75vh;
@@ -81,6 +81,7 @@
    CONTENT
 ====================================================== */
 .content {
+  font-family: ma;
   flex: 1;
   padding: 48px 56px;
 
