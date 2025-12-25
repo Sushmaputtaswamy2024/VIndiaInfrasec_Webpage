@@ -11,7 +11,9 @@
     <!-- =============================
          SEO
     ============================== -->
-    <title>VIndia Infrasec Pvt Ltd | Construction, Interiors & Structural Design</title>
+    <title>
+      VIndia Infrasec Pvt Ltd | Construction, Interiors & Structural Design
+    </title>
 
     <meta
       name="description"
@@ -20,10 +22,11 @@
 
     <meta
       name="keywords"
-      content="construction company, interior design, structural engineering, architects, home builders, commercial builders, Kerala, Karnataka, Tamil Nadu"
+      content="construction company, interior design, structural engineering, architects, home builders, commercial builders, South India"
     />
 
     <meta name="author" content="VIndia Infrasec Pvt Ltd" />
+    <meta name="robots" content="index, follow" />
 
     <!-- =============================
          FAVICON
@@ -31,17 +34,24 @@
     <link rel="icon" type="image/png" href="/logo.png" />
 
     <!-- =============================
-         PERFORMANCE OPTIMIZATION
+         PERFORMANCE + LAYOUT SAFETY
     ============================== -->
-
-    <!-- Instant background paint (prevents white flash) -->
     <style>
+      /* Prevent white flash + horizontal scroll */
+      html,
       body {
         margin: 0;
+        padding: 0;
+        width: 100%;
+        overflow-x: hidden;
+        font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", Roboto, sans-serif;
       }
     </style>
 
-    <!-- Fonts (non-blocking) -->
+    <!-- =============================
+         FONTS (NON-BLOCKING)
+    ============================== -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -103,10 +113,10 @@
   </head>
 
   <body>
-    <!-- React root -->
+    <!-- React Root -->
     <div id="root"></div>
 
-    <!-- Main JS (deferred automatically by Vite) -->
+    <!-- Vite Entry -->
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
