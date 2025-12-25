@@ -10,14 +10,14 @@ export default function Construction() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
-  // 🔁 Repeat animation on scroll (up & down)
+  // 🔁 Repeat animations on scroll
   useEffect(() => {
     const elements = document.querySelectorAll(".fade-in");
 
     const reveal = () => {
       elements.forEach((el) => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 120 && rect.bottom > 120) {
+        const r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight - 120 && r.bottom > 120) {
           el.classList.add("visible");
         } else {
           el.classList.remove("visible");
@@ -31,31 +31,21 @@ export default function Construction() {
     return () => window.removeEventListener("scroll", reveal);
   }, []);
 
-  const validPhone = (p) => p.replace(/\D/g, "").length >= 7;
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!name.trim()) return alert("Name is required.");
-    if (!phone.trim() || !validPhone(phone))
-      return alert("Valid contact number required.");
-
-    const number = "918592921212";
+    if (!name.trim()) return alert("Name required");
+    if (!phone.trim()) return alert("Phone required");
 
     const text = encodeURIComponent(
-      [
-        "Hello, I'm interested in Construction services.",
-        `Name: ${name}`,
-        `Contact: ${phone}`,
-        email && `Email: ${email}`,
-        message && `Message: ${message}`,
-        "Please contact me to schedule a meeting.",
-      ]
-        .filter(Boolean)
-        .join(" | ")
+      `Hello, I'm interested in Construction services.
+Name: ${name}
+Contact: ${phone}
+Email: ${email}
+Message: ${message}`
     );
 
-    window.open(`https://wa.me/${number}?text=${text}`, "_blank");
+    window.open(`https://wa.me/918592921212?text=${text}`, "_blank");
   };
 
   return (
@@ -72,17 +62,14 @@ export default function Construction() {
         <p>Blog</p>
       </aside>
 
-      {/* Main Content */}
+      {/* MAIN COLUMN */}
       <div className="content-wrapper">
 
         <h1 className="main-title fade-in">Construction</h1>
 
         <div className="video-section fade-in">
           <video autoPlay muted loop playsInline>
-            <source
-              src="/construction/construction.mp4"
-              type="video/mp4"
-            />
+            <source src="/construction/construction.mp4" type="video/mp4" />
           </video>
         </div>
 
@@ -90,22 +77,18 @@ export default function Construction() {
 
         <div className="steps-container">
           {[
-            { img: "1.webp", t: "Schedule a Meeting", p: "Meet our experts to discuss your project." },
-            { img: "2.webp", t: "Study it Carefully", p: "We analyze your needs and prepare accurate plans." },
-            { img: "3.webp", t: "Begin Design", p: "We create concepts, drawings, and space planning." },
-            { img: "4.webp", t: "Pre-Construction", p: "Approvals, budgeting, and materials planning." },
-            { img: "5.webp", t: "Construction", p: "Execution, supervision, and quality assurance." },
-            { img: "6.webp", t: "Handover", p: "Final finishing and smooth project delivery." }
-          ].map((s, i) => (
+            ["1.webp", "Schedule a Meeting", "Meet our experts to discuss your project."],
+            ["2.webp", "Study it Carefully", "We analyze your needs and prepare plans."],
+            ["3.webp", "Begin Design", "We create concepts and drawings."],
+            ["4.webp", "Pre-Construction", "Approvals and budgeting."],
+            ["5.webp", "Construction", "Execution and supervision."],
+            ["6.webp", "Handover", "Final delivery and finishing."]
+          ].map(([img, t, p], i) => (
             <div key={i} className={`step-row fade-in ${i % 2 ? "reverse" : ""}`}>
-              <img
-                src={`/construction/${s.img}`}
-                className="step-img"
-                alt={s.t}
-              />
+              <img src={`/construction/${img}`} className="step-img" alt={t} />
               <div className="step-text">
-                <h3>{s.t}</h3>
-                <p>{s.p}</p>
+                <h3>{t}</h3>
+                <p>{p}</p>
               </div>
             </div>
           ))}
@@ -114,42 +97,18 @@ export default function Construction() {
         <form className="form-box fade-in" onSubmit={handleSubmit}>
           <h2>Book a Meeting</h2>
 
-          <input
-            type="text"
-            placeholder="Full Name *"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-
-          <input
-            type="tel"
-            placeholder="Contact Number *"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-          />
-
-          <input
-            type="email"
-            placeholder="Email (optional)"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-
-          <textarea
-            placeholder="Message (optional)"
-            rows="4"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-          />
+          <input placeholder="Full Name *" value={name} onChange={e => setName(e.target.value)} />
+          <input placeholder="Contact Number *" value={phone} onChange={e => setPhone(e.target.value)} />
+          <input placeholder="Email (optional)" value={email} onChange={e => setEmail(e.target.value)} />
+          <textarea placeholder="Message (optional)" rows="4" value={message} onChange={e => setMessage(e.target.value)} />
 
           <button type="submit">Contact Construction Team</button>
         </form>
 
+        {/* ✅ FOOTER IS HERE – CORRECT PLACE */}
+        <Footer />
+
       </div>
-
-      {/* ✅ Reusable Footer */}
-      <Footer />
-
     </div>
   );
 }

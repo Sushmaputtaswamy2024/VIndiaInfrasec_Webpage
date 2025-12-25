@@ -10,7 +10,7 @@ import CallToAction from "./components/CallToAction";
 
 import Construction from "./pages/Construction";
 import projectImages from "./utils/projectImages";
-import Footer from "./components/Footer1";
+import Footer from "./components/Footer";
 
 function App() {
   return (
