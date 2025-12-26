@@ -3,7 +3,9 @@ import completedProjects from "../utils/completedProjects";
 import projectImages from "../utils/projectImages";
 import "./ProjectGallery.marquee.css";
 
-/* Shuffle */
+/* =====================================
+   Shuffle helper
+===================================== */
 const shuffle = (arr) => {
   const a = [...arr];
   for (let i = a.length - 1; i > 0; i--) {
@@ -13,40 +15,62 @@ const shuffle = (arr) => {
   return a;
 };
 
-/* Insert text randomly every N items */
-const injectTextRandomly = (images, label) => {
-  const result = [];
-  images.forEach((img, i) => {
-    result.push({ type: "img", src: img });
-    if (i % 4 === 2) {
-      result.push({ type: "text", label });
-    }
+/* =====================================
+   Insert text SPARSELY (1–2 times only)
+===================================== */
+const injectTextSparsely = (images, label, count = 2) => {
+  const result = images.map((img) => ({
+    type: "img",
+    src: img,
+  }));
+
+  const maxIndex = Math.min(result.length - 1, images.length);
+  const usedIndexes = new Set();
+
+  while (usedIndexes.size < count) {
+    const index = Math.floor(Math.random() * maxIndex);
+    usedIndexes.add(index);
+  }
+
+  [...usedIndexes].forEach((i) => {
+    result.splice(i, 0, { type: "text", label });
   });
+
   return result;
 };
 
+/* =====================================
+   COMPONENT
+===================================== */
 export default function ProjectGallery() {
   const row1Ref = useRef(null);
   const row2Ref = useRef(null);
 
+  /* TOP ROW — Completed Projects */
   const topRow = useMemo(
     () =>
-      injectTextRandomly(
+      injectTextSparsely(
         shuffle(completedProjects).concat(shuffle(completedProjects)),
-        "Completed Projects"
+        "Completed Projects",
+        2
       ),
     []
   );
 
+  /* BOTTOM ROW — Designs */
   const bottomRow = useMemo(
     () =>
-      injectTextRandomly(
+      injectTextSparsely(
         shuffle(projectImages).concat(shuffle(projectImages)),
-        "Designs"
+        "Designs",
+        2
       ),
     []
   );
 
+  /* =====================================
+     Marquee animation
+  ===================================== */
   useEffect(() => {
     const startMarquee = (row, speed, direction) => {
       let x = 0;
@@ -69,11 +93,13 @@ export default function ProjectGallery() {
       move();
     };
 
-    // 🔥 Faster speeds
     startMarquee(row1Ref.current, 0.75, "left");
     startMarquee(row2Ref.current, 1.1, "right");
   }, []);
 
+  /* =====================================
+     RENDER
+  ===================================== */
   return (
     <section className="gallery-section">
       <h2 className="gallery-title">Our Project Gallery</h2>
@@ -90,7 +116,10 @@ export default function ProjectGallery() {
                 loading="lazy"
               />
             ) : (
-              <div key={`top-text-${i}`} className="marquee-text-card center-text">
+              <div
+                key={`top-text-${i}`}
+                className="marquee-text-card center-text"
+              >
                 <span>{item.label}</span>
               </div>
             )
@@ -108,7 +137,10 @@ export default function ProjectGallery() {
                 loading="lazy"
               />
             ) : (
-              <div key={`bot-text-${i}`} className="marquee-text-card inline-text">
+              <div
+                key={`bot-text-${i}`}
+                className="marquee-text-card inline-text"
+              >
                 <span>{item.label}</span>
               </div>
             )
