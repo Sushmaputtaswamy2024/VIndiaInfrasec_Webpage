@@ -1,124 +1,94 @@
-/* =========================
-   FIXED BADGE CONTAINER
-========================= */
+/* =====================================================
+   BADGE CONTAINER
+===================================================== */
 .badge-container {
   position: absolute;
-  top: 22px;
-  right: 16px;
-
-  width: 60px;
-  height: 60px;
-
-  pointer-events: none;
-  z-index: 5;
+  top: 30%;
+  right: -42px;
+  transform: translateY(-50%);
+  width: 86px;
+  height: 86px;
+  z-index: 40;
 }
 
-/* ROTATING GRADIENT RING */
+/* =====================================================
+   OUTER GRADIENT RING
+===================================================== */
 .rotating-ring {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
   position: absolute;
   inset: 0;
-
-  background: conic-gradient(
-    #0a82c8,
-    #3a8df1,
-    #7bb0ff,
-    #7be8ff,
-    #3ae3c2,
-    #0a82c8
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    #2996e4,
+    #e6c3f8
   );
-
-  animation: spin 8s linear infinite;
+  animation: spin 10s linear infinite;
+  z-index: 1;
 }
 
-/* CURVED TEXT */
+
+/* =====================================================
+   SOLID TEXT BACKGROUND RING (KEY FIX)
+===================================================== */
+.text-ring {
+  position: absolute;
+  inset: 8px;              /* controls thickness */
+  border-radius: 50%;
+  background: #9fdcff;     /* light blue like image */
+  z-index: 2;
+}
+
+/* =====================================================
+   CURVED TEXT
+===================================================== */
 .curved-text {
-  width: 60px;
-  height: 60px;
   position: absolute;
   inset: 0;
-
-  transform: rotate(-70deg);
-  z-index: 2;
+  transform: rotate(-90deg);
+  z-index: 3;
 }
 
 .curved-text text {
   fill: #ffffff;
-  font-size: 30px;
-  letter-spacing: 3px;
+  font-size: 26px;
+  letter-spacing: 4px;
   font-weight: 600;
+  text-anchor: middle;
+  dominant-baseline: middle;
 }
 
-/* CENTER CIRCLE */
+/* =====================================================
+   CENTER CIRCLE
+===================================================== */
 .center-circle {
-  width: 35px;
-  height: 35px;
-  background: #ffffff;
-  border-radius: 50%;
-
   position: absolute;
   inset: 0;
   margin: auto;
-
+  width: 54px;
+  height: 54px;
+  background: #ffffff;
+  border-radius: 50%;
   display: flex;
-  justify-content: center;
   align-items: center;
-
-  z-index: 3;
+  justify-content: center;
+  z-index: 4;
 }
 
-/* ARROW */
-.arrow {
-  font-size: 30px;
-  font-weight: bold;
-  background: linear-gradient(45deg, #3aa0ff, #42f1d0);
-  color: transparent;
-  -webkit-background-clip: text;
+/* =====================================================
+   ARROW ICON
+===================================================== */
+.arrow-icon {
+  font-size: 28px;
+  font-weight: 900;
+  color: #5bbcff;
+  transform: rotate(-10deg);
+  line-height: 1;
 }
 
-/* DESKTOP HOVER ONLY */
-@media (hover: hover) {
-  .service-card:hover .badge-container {
-    transform: translateY(-4px);
-  }
-}
-
-/* =========================
-   TABLET
-========================= */
-@media (max-width: 900px) {
-  .badge-container {
-    top: 16px;
-    right: 16px;
-    transform: scale(0.9);
-  }
-}
-
-/* =========================
-   MOBILE
-========================= */
-@media (max-width: 600px) {
-  .badge-container {
-    top: 14px;
-    right: 14px;
-    transform: scale(0.75);
-  }
-}
-
-/* =========================
-   SMALL MOBILE
-========================= */
-@media (max-width: 420px) {
-  .badge-container {
-    top: 12px;
-    right: 12px;
-    transform: scale(0.65);
-  }
-}
-
-/* ROTATION */
+/* =====================================================
+   ROTATION
+===================================================== */
 @keyframes spin {
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
