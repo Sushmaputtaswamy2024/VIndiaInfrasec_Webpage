@@ -1,16 +1,13 @@
-/* ===========================================================
-   PAGE WRAPPER
-=========================================================== */
 .construction-page {
   display: flex;
   width: 100%;
   background: #ffffff;
   overflow-x: hidden;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-/* ===========================================================
-   HAMBURGER
-=========================================================== */
+/* Hamburger */
 .hamburger {
   position: fixed;
   top: 20px;
@@ -20,20 +17,15 @@
   z-index: 1000;
 }
 
-/* ===========================================================
-   SIDEBAR (NO BLUE LEAK)
-=========================================================== */
+/* Sidebar */
 .side-menu {
   position: fixed;
   top: 0;
   left: 0;
-
   width: 240px;
   height: 100vh;
-
   background: linear-gradient(180deg, #3a4f79, #1d2a43);
   color: #ffffff;
-
   padding: 80px 20px;
 
   transform: translateX(-100%);
@@ -51,37 +43,29 @@
   cursor: pointer;
 }
 
-/* ===========================================================
-   CONTENT
-=========================================================== */
+/* Content column */
 .content-wrapper {
   width: 100%;
   padding: 40px 20px;
   text-align: center;
   box-sizing: border-box;
+
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;   /* 🔥 ensures footer stays below */
 }
 
-/* ===========================================================
-   HEADINGS
-=========================================================== */
+/* Headings */
 .main-title {
   font-size: 65px;
-  font-weight: 700;
   margin-bottom: 20px;
-  color: #000;
 }
 
 .section-header {
   font-size: 36px;
   margin: 40px 0 20px;
-  color: #000;
 }
 
-/* ===========================================================
-   VIDEO
-=========================================================== */
+/* Video */
 .video-section {
   display: flex;
   justify-content: center;
@@ -91,12 +75,9 @@
   width: 100%;
   max-width: 1100px;
   border-radius: 20px;
-  box-shadow: 0 8px 22px rgba(0,0,0,0.15);
 }
 
-/* ===========================================================
-   STEPS
-=========================================================== */
+/* Steps */
 .steps-container {
   max-width: 1100px;
   margin: auto;
@@ -104,10 +85,9 @@
 
 .step-row {
   display: flex;
-  align-items: center;
-  justify-content: center;
   gap: 30px;
   margin: 40px 0;
+  align-items: center;
 }
 
 .step-row.reverse {
@@ -117,7 +97,6 @@
 .step-img {
   width: 50%;
   border-radius: 16px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
 }
 
 .step-text {
@@ -125,71 +104,38 @@
   text-align: left;
 }
 
-.step-text h3 {
-  font-size: 30px;
-  margin-bottom: 10px;
-}
-
-.step-text p {
-  font-size: 20px;
-  line-height: 1.6;
-  color: #444;
-}
-
-/* ===========================================================
-   FORM
-=========================================================== */
+/* Form */
 .form-box {
   max-width: 620px;
-  margin: 80px auto 60px;
+  margin: 80px auto 40px;
   padding: 40px;
-  background: #ffffff;
   border-radius: 20px;
-  text-align: center;
   box-shadow: 0 6px 24px rgba(0,0,0,0.12);
-}
-
-.form-box h2 {
-  font-size: 28px;
-  margin-bottom: 20px;
 }
 
 .form-box input,
 .form-box textarea {
   width: 100%;
   padding: 14px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
   margin-bottom: 16px;
-  font-size: 16px;
-}
-
-.form-box textarea {
-  resize: none;
+  border-radius: 10px;
+  border: 1px solid #ccc;
 }
 
 .form-box button {
   width: 100%;
   padding: 16px;
   background: #0f172a;
-  color: white;
+  color: #fff;
   border-radius: 10px;
-  font-size: 18px;
   border: none;
-  cursor: pointer;
 }
 
-.form-box button:hover {
-  background: #1a2236;
-}
-
-/* ===========================================================
-   REPEATABLE FADE-IN
-=========================================================== */
+/* Animations */
 .fade-in {
   opacity: 0;
   transform: translateY(40px);
-  transition: all 0.8s ease;
+  transition: 0.8s ease;
 }
 
 .fade-in.visible {
@@ -197,22 +143,11 @@
   transform: translateY(0);
 }
 
-/* ===========================================================
-   RESPONSIVE
-=========================================================== */
+/* Responsive */
 @media (max-width: 768px) {
-  .main-title {
-    font-size: 42px;
-  }
-
-  .section-header {
-    font-size: 26px;
-  }
-
   .step-row,
   .step-row.reverse {
     flex-direction: column;
-    text-align: center;
   }
 
   .step-img,
@@ -222,11 +157,5 @@
 
   .step-text {
     text-align: center;
-  }
-}
-
-@media (max-width: 480px) {
-  .main-title {
-    font-size: 32px;
   }
 }
