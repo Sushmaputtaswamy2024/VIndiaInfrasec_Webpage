@@ -18,7 +18,7 @@ export default function Sidebar() {
       </div>
 
       {/* Sidebar */}
-      <aside className={`side-menu ${open ? "open" : ""}`}>
+      <aside className={`sidemenu ${open ? "open" : ""}`}>
         <Link to="/architecture" onClick={() => setOpen(false)}>
           Architecture
         </Link>

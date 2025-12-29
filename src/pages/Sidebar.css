@@ -25,18 +25,19 @@ body {
   font-size: 32px;
   cursor: pointer;
   z-index: 3000;
-  color: #111;
+  /* color: #111; */
 }
 
 /* ================= SIDEBAR ================= */
-.side-menu {
+.sidemenu {
   position: fixed;
   top: 0;
   left: -260px;
   width: 240px;
   height: 100vh;
-  background: #0f172a;
-  padding: 80px 20px;
+
+  background: #0f172a; /* ✅ REQUIRED */
+  padding: 80px 10px; 
 
   display: flex;
   flex-direction: column;
@@ -45,17 +46,17 @@ body {
   transition: left 0.3s ease;
   z-index: 2999;
 
-  /* 🔥 THIS REMOVES THE BLUE LINE */
-  overflow: hidden;
+  overflow: hidden; /* removes blue line */
 }
 
+
 /* Open state */
-.side-menu.open {
+.sidemenu.open {
   left: 0;
 }
 
 /* ================= LINKS ================= */
-.side-menu a {
+.sidemenu a {
   color: #ffffff;
   text-decoration: none;
   font-size: 18px;
@@ -67,26 +68,26 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
-.side-menu a:hover {
+.sidemenu a:hover {
   opacity: 0.85;
 }
 
-.side-menu a:focus,
-.side-menu a:active,
-.side-menu a:focus-visible {
+.sidemenu a:focus,
+.sidemenu a:active,
+.sidemenu a:focus-visible {
   outline: none !important;
   box-shadow: none !important;
 }
 
 /* ================= MOBILE ================= */
 @media (max-width: 768px) {
-  .side-menu {
+  .sidemenu {
     width: 100%;
     left: -100%;
     padding: 90px 24px;
   }
 
-  .side-menu.open {
+  .sidemenu.open {
     left: 0;
   }
 }
