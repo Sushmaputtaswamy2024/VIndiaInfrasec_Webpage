@@ -1,20 +1,17 @@
-// import { useState } from "react";
 import "./interior.css";
 import Footer from "./Footer";
 import Sidebar from "./Sidebar";
 
 export default function Interior() {
-  // const [menuOpen, setMenuOpen] = useState(false);
-
   return (
     <div className="interior-page">
-      {/* ✅ COMMON SIDEBAR */}
-      <Sidebar/>
-      
-    {/* ================= PAGE HEADING ================= */}
-<section className="page-heading">
-  <h1>Interior</h1>
-</section>
+      {/* ================= SIDEBAR ================= */}
+      <Sidebar />
+
+      {/* ================= PAGE HEADING ================= */}
+      <section className="page-heading">
+        <h1>Interior</h1>
+      </section>
 
       {/* ================= SLIDER ================= */}
       <section className="interior-slider">
@@ -34,13 +31,40 @@ export default function Interior() {
         </p>
 
         <div className="offer-grid">
-          <div><img src="/interior/kitchen.webp" /><span>Modular Kitchens</span></div>
-          <div><img src="/interior/false.webp" /><span>False Ceilings</span></div>
-          <div><img src="/interior/Bathroom.webp" /><span>Bathroom Designs</span></div>
-          <div><img src="/interior/storage.webp" /><span>Storage Solutions & Wardrobes</span></div>
-          <div><img src="/interior/foyers.webp" /><span>Foyers</span></div>
-          <div><img src="/interior/pooja.webp" /><span>Pooja Units</span></div>
-          <div><img src="/interior/balcony.webp" /><span>Outdoor / Balcony Spaces</span></div>
+          <div className="kitchen">
+            <img src="/interior/kitchen.webp" alt="Modular Kitchens" />
+            <span>Modular Kitchens</span>
+          </div>
+
+          <div className="false-ceiling">
+            <img src="/interior/false.webp" alt="False Ceilings" />
+            <span>False Ceilings</span>
+          </div>
+
+          <div className="bathroom">
+            <img src="/interior/Bathroom.webp" alt="Bathroom Designs" />
+            <span>Bathroom Designs</span>
+          </div>
+
+          <div className="storage">
+            <img src="/interior/storage.webp" alt="Storage Solutions" />
+            <span>Storage Solutions & Wardrobes</span>
+          </div>
+
+          <div className="foyer">
+            <img src="/interior/foyers.webp" alt="Foyers" />
+            <span>Foyers</span>
+          </div>
+
+          <div className="pooja">
+            <img src="/interior/pooja.webp" alt="Pooja Units" />
+            <span>Pooja Units</span>
+          </div>
+
+          <div className="outdoor">
+            <img src="/interior/balcony.webp" alt="Outdoor / Balcony Spaces" />
+            <span>Outdoor / Balcony Spaces</span>
+          </div>
         </div>
       </section>
 
@@ -50,20 +74,17 @@ export default function Interior() {
           Interior design involves creating functional, aesthetically pleasing indoor spaces,
           considering color, lighting, materials and furniture layout.
         </p>
-
-        <p>
-          We design spaces that reflect your lifestyle, not just your budget.
-        </p>
+        <p>We design spaces that reflect your lifestyle, not just your budget.</p>
       </section>
 
-      {/* ================= ONE LINE ================= */}
+      {/* ================= SINGLE LINE ================= */}
       <p className="single-line">
         Living spaces & much more to transform your home!
       </p>
 
       {/* ================= VIDEO ================= */}
       <section className="video-section">
-        <video src="interior/interior.mp4" autoPlay muted loop playsInline />
+        <video src="/interior/interior.mp4" autoPlay muted loop playsInline />
       </section>
 
       {/* ================= JOURNEY ================= */}
@@ -94,7 +115,6 @@ export default function Interior() {
 
       {/* ================= FOOTER ================= */}
       <Footer />
-
     </div>
   );
 }
