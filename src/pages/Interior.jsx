@@ -1,22 +1,16 @@
-import { useState } from "react";
+// import { useState } from "react";
 import "./interior.css";
 import Footer from "./Footer";
+import Sidebar from "./Sidebar";
 
 export default function Interior() {
-  const [menuOpen, setMenuOpen] = useState(false);
+  // const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <div className="interior-page">
-
-      {/* ================= SIDEBAR ================= */}
-      <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>☰</div>
-
-      <aside className={`side-menu ${menuOpen ? "open" : ""}`}>
-        <a href="/">Home</a>
-        <a href="/construction">Construction</a>
-        <a href="/interior">Interior</a>
-        <a href="/architecture">Architecture</a>
-      </aside>
+      {/* ✅ COMMON SIDEBAR */}
+      <Sidebar/>
+      
     {/* ================= PAGE HEADING ================= */}
 <section className="page-heading">
   <h1>Interior</h1>

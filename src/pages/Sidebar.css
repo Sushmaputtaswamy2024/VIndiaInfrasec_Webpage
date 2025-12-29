@@ -33,7 +33,7 @@ body {
   position: fixed;
   top: 0;
   left: -260px;
-  width: 240px;
+  width: 200px;
   height: 100vh;
 
   background: #0f172a; /* ✅ REQUIRED */
@@ -80,10 +80,19 @@ body {
   box-shadow: none !important;
 }
 
+/* ================= BACKDROP ================= */
+.sidebar-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 2998;
+}
+
+
 /* ================= MOBILE ================= */
 @media (max-width: 768px) {
   .sidemenu {
-    width: 100%;
+    /* width: 100%; */
     left: -100%;
     padding: 90px 24px;
   }
