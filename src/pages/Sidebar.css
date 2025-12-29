@@ -25,7 +25,7 @@ body {
   font-size: 32px;
   cursor: pointer;
   z-index: 3000;
-  /* color: #111; */
+  color: #111;
 }
 
 /* ================= SIDEBAR ================= */
@@ -54,6 +54,7 @@ body {
 .sidemenu.open {
   left: 0;
 }
+
 
 /* ================= LINKS ================= */
 .sidemenu a {
