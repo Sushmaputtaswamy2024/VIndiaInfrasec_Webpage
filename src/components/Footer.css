@@ -1,42 +1,35 @@
-/* =====================================================
-   FOOTER BASE
-===================================================== */
+/* ---------- Footer base ---------- */
+footer {
+  margin-top: auto;
+}
+
 .footer {
   width: 100%;
-  padding: 32px 3%;
+  padding: 40px 3%;
   background: #f2f2f2;
   color: #222;
   border-top: 1px solid #d3d3d3;
-
-  position: relative;
-  z-index: 50;
-  isolation: isolate;
 }
 
 .footer-inner {
-  max-width: 1500px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
-/* =====================================================
-   MAIN ROW — FORCE SINGLE LINE
-===================================================== */
 .footer-row {
   display: flex;
+  justify-content: space-evenly;
   align-items: flex-start;
-  gap: 20px;
-  flex-wrap: nowrap;     /* 🔥 no wrap */
+  gap: 10px;
+  flex-wrap: nowrap;
 }
 
-/* =====================================================
-   LEFT — BRAND + SOCIAL
-===================================================== */
+/* LEFT — BRAND + SOCIAL */
 .footer-left-one {
   display: flex;
-  gap: 12px;
-  width: 21%;
-  min-width: 210px;
-  flex-shrink: 0;
+  gap: 16px;
+  width: 28%;
+  min-width: 220px;
 }
 
 .footer-social-vertical {
@@ -46,143 +39,130 @@
 }
 
 .footer-social-vertical a {
-  font-size: 20px;
+  font-size: 24px;
   color: #1a73e8;
   text-decoration: none;
 }
 
 .footer-brand {
-  max-width: 220px;
+  max-width: 260px;
 }
 
 .footer-logo {
-  font-size: 1.15rem;
+  font-size: 1.4rem;
   font-weight: 700;
 }
 
 .footer-desc {
-  font-size: 0.78rem;
-  margin-top: 4px;
-  line-height: 1.4;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
   color: #444;
 }
 
-/* =====================================================
-   CENTER — LINKS
-===================================================== */
+/* CENTER — LINKS */
 .footer-center-one {
-  width: 13%;
-  min-width: 140px;
-  flex-shrink: 0;
+  width: 18%;
+  min-width: 150px;
 }
 
 .footer-links {
   padding: 0;
+  margin: 0;
 }
 
 .footer-links li {
   list-style: none;
-  margin: 4px 0;
+  margin: 10px 0;
 }
 
 .footer-links a {
-  font-size: 0.82rem;
-  color: #333;
+  font-size: 0.9rem;
   text-decoration: none;
+  color: #333;
 }
 
-/* =====================================================
-   RIGHT — CALL NUMBERS
-===================================================== */
+.footer-links a:hover {
+  color: #007bff;
+}
+
+/* RIGHT — CALL NUMBERS */
 .footer-right-call {
   width: 15%;
-  min-width: 150px;
-  flex-shrink: 0;
-}
-
-.contact-title {
-  font-size: 0.9rem;
-  margin-bottom: 4px;
-  font-weight: 600;
+  min-width: 100px;
 }
 
 .contact-list {
   padding: 0;
+  margin: 0;
 }
 
 .contact-list li {
   list-style: none;
-  font-size: 0.78rem;
-  margin: 3px 0;
+  margin: 4px 0;
+  font-size: 0.9rem;
 }
 
-/* =====================================================
-   RIGHT — MAPS (COMPACT, NO DOMINANCE)
-===================================================== */
+/* RIGHT — MAPS */
 .footer-right-maps {
-  width: 36%;
-  min-width: 0;
+  width: 33%;
+  min-width: 260px;
 }
 
 .state-title {
-  font-size: 0.85rem;
-  margin-bottom: 6px;
-  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
 }
 
-/* MAP ROW */
 .district-row {
   display: flex;
   gap: 10px;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
 }
 
-/* MAP CARD */
 .district-card {
-  flex: 0 0 auto;
   width: 135px;
-
-  background: #ffffff;
+  background: #fff;
   padding: 6px;
   border-radius: 10px;
-
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
 }
 
-.district-name {
-  font-size: 0.72rem;
-  margin-bottom: 4px;
-  font-weight: 600;
+.district-card h4 {
+  font-size: 0.78rem;
+  margin-bottom: 3px;
 }
 
-/* GOOGLE MAP */
 .map-frame {
-  width: 100% !important;
-  height: 70px;
+  width: 100%;
+  height: 72px;
   border: none;
-  border-radius: 6px;
-  display: block;
+  border-radius: 8px;
 }
 
-/* LOCATION LINK */
 .district-location {
   display: inline-block;
   margin-top: 4px;
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   color: #1a73e8;
   text-decoration: none;
 }
 
-/* =====================================================
-   FLOATING ICONS
-===================================================== */
+/* ---------- Floating Icons (Desktop only) ---------- */
 .floating-icons {
   position: fixed;
-  bottom: 22px;
   right: 18px;
+  bottom: 22px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  animation: floatPulse 1.8s ease-in-out infinite;
+  gap: 14px;
   z-index: 9999;
+
+}
+@keyframes floatPulse {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
 }
 
 .call-icon,
@@ -190,28 +170,87 @@
   width: 54px;
   height: 54px;
   border-radius: 50%;
-  color: #ffffff;
-  font-size: 22px;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #ffffff;
+  font-size: 22px;
+  text-decoration: none;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
 }
 
 .call-icon {
   background: #007bff;
+  width: 68px;    
+    height: 68px;
+    font-size: 30px;
+
 }
 
 .whatsapp-icon {
   background: #25d366;
+  width: 68px;   
+    height: 68px;
+    font-size: 30px;
 }
 
-/* =====================================================
-   MOBILE FOOTER
-===================================================== */
+/* ---------- Mobile footer (HIDDEN by default) ---------- */
 .footer-mobile {
   display: none;
+  background: #fff;
+  padding: 30px 20px 50px;
+  border-top: 1px solid #ddd;
 }
 
+.fm-brand h2 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.fm-section {
+  margin: 18px 0;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+}
+
+.fm-header {
+  font-size: 17px;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.fm-content {
+  display: none;
+  margin-top: 8px;
+  padding-left: 5px;
+}
+
+.fm-content.open {
+  display: block;
+}
+
+.fm-content a,
+.fm-content p {
+  display: block;
+  font-size: 15px;
+  color: #333;
+  margin: 6px 0;
+}
+
+.fm-social {
+  margin-top: 18px;
+  display: flex;
+  gap: 18px;
+}
+
+.fm-social a {
+  color: #007bff;
+  font-size: 22px;
+}
+
+/* ---------- RESPONSIVE SWITCH (THIS FIXES EVERYTHING) ---------- */
 @media (max-width: 900px) {
   .footer {
     display: none;
@@ -219,7 +258,26 @@
 
   .footer-mobile {
     display: block;
-    padding: 30px 20px 50px;
-    background: #ffffff;
   }
+
+  .floating-icons {
+    right: 16px;
+    bottom: 90px;   /* above mobile footer */
+    animation: floatPulse 1.8s ease-in-out infinite;
+  }
+
+  .call-icon,
+  .whatsapp-icon {
+    width: 48px;    /* ⬅ mobile size */
+    height: 48px;
+    font-size: 20px;
+  }
+
+
+@keyframes floatPulse {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
 }
+
+  }
+

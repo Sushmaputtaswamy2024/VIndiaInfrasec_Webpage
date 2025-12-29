@@ -154,6 +154,7 @@
   }
 
   .service-card {
+    margin-top: 20px;
     width: 92%;
     height: auto;
     min-height: 90svh;
@@ -191,6 +192,7 @@
 ====================================================== */
 @media (max-width: 420px) {
   .service-card {
+    margin-top: 20px;
     min-height: 95svh;
     border-radius: 28px;
   }

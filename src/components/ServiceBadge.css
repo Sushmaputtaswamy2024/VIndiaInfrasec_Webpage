@@ -19,9 +19,9 @@
   inset: 0;
   border-radius: 50%;
   background: linear-gradient(
-    135deg,
-    #2996e4,
-    #e6c3f8
+    165deg,
+    #1186d9,
+    #21e2bff1
   );
   animation: spin 10s linear infinite;
   z-index: 1;
@@ -92,4 +92,95 @@
 @keyframes spin {
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
+}
+/* =====================================================
+   RESPONSIVE — TABLET
+===================================================== */
+@media (max-width: 1024px) {
+  .badge-container {
+    width: 72px;
+    height: 72px;
+    right: -32px;
+    top: 32%;
+  }
+
+  .text-ring {
+    inset: 6px;
+  }
+
+  .center-circle {
+    width: 46px;
+    height: 46px;
+  }
+
+  .curved-text text {
+    font-size: 22px;
+    letter-spacing: 3px;
+  }
+
+  .arrow-icon {
+    font-size: 24px;
+  }
+}
+
+/* =====================================================
+   RESPONSIVE — MOBILE
+===================================================== */
+@media (max-width: 768px) {
+  .badge-container {
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    right: -20px;
+    top: 18%;
+    transform: translateY(0);
+  }
+
+  .text-ring {
+    inset: 5px;
+  }
+
+  .center-circle {
+    width: 40px;
+    height: 40px;
+  }
+
+  .curved-text text {
+    font-size: 18px;
+    letter-spacing: 2.5px;
+  }
+
+  .arrow-icon {
+    font-size: 20px;
+  }
+}
+
+/* =====================================================
+   RESPONSIVE — VERY SMALL DEVICES
+===================================================== */
+@media (max-width: 480px) {
+  .badge-container {
+    width: 56px;
+    height: 56px;
+    right: -14px;
+    top: 14%;
+  }
+
+  .text-ring {
+    inset: 4px;
+  }
+
+  .center-circle {
+    width: 34px;
+    height: 34px;
+  }
+
+  .curved-text text {
+    font-size: 15px;
+    letter-spacing: 2px;
+  }
+
+  .arrow-icon {
+    font-size: 18px;
+  }
 }
