@@ -1,9 +1,14 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./Sidebar.css";
 
 export default function Sidebar() {
   const [open, setOpen] = useState(false);
+
+  // 🔒 LOCK PAGE SCROLL WHEN SIDEBAR IS OPEN
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "auto";
+  }, [open]);
 
   return (
     <>
