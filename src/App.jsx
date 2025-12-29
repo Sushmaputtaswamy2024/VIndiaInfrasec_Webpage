@@ -11,6 +11,8 @@ import CallToAction from "./components/CallToAction";
 import Construction from "./pages/Construction";
 import projectImages from "./utils/projectImages";
 import Footer from "./components/Footer";
+import Interior from "./pages/Interior";
+import Architectural from "./pages/Architectural";
 
 function App() {
   return (
@@ -36,6 +38,8 @@ function App() {
 
       {/* CONSTRUCTION PAGE */}
       <Route path="/construction" element={<Construction />} />
+      <Route path="/interior" element={<Interior/>} />
+      <Route path="/architecture" element={<Architectural/>} />
 
     </Routes>
   );

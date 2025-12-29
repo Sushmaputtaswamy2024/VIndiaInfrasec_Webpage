@@ -1,0 +1,288 @@
+/* ================= BASE ================= */
+.interior-page {
+  font-family: "Poppins", sans-serif;
+  background: #ffffff;
+  overflow-x: hidden;
+}
+
+/* ================= SIDEBAR ================= */
+.hamburger {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 30px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: -260px;
+  width: 240px;
+  height: 100vh;
+  background: #0f172a;
+  padding: 80px 20px;
+  transition: 0.3s ease;
+  z-index: 999;
+}
+
+.side-menu.open {
+  left: 0;
+}
+
+.side-menu a {
+  display: block;
+  color: #ffffff;
+  text-decoration: none;
+  margin: 18px 0;
+}
+
+/* ================= PAGE HEADING ================= */
+.page-heading {
+  text-align: center;
+  padding: 90px 0 30px;
+}
+
+.page-heading h1 {
+  font-size: 42px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* ================= SLIDER ================= */
+.interior-slider {
+  overflow: hidden;
+  margin-top: 60px;
+}
+
+.slider-track {
+  display: flex;
+  gap: 40px;
+  width: max-content;
+  animation: slide 40s linear infinite;
+}
+
+.slider-track img {
+  width: 85vw;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 18px;
+}
+
+@keyframes slide {
+  from { transform: translateX(0); }
+  to { transform: translateX(-260vw); }
+}
+
+/* ================= WHAT WE OFFER ================= */
+.offer-section {
+  text-align: center;
+  padding: 80px 10%;
+}
+
+.offer-section h2 {
+  font-size: 34px;
+}
+
+.offer-sub {
+  max-width: 720px;
+  margin: 12px auto 40px;
+  line-height: 1.6;
+}
+
+/* GRID: 3 + 3 + 1 */
+.offer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+/* CARD */
+.offer-grid div {
+  position: relative;
+  height: 220px;                 /* alignment fix */
+  overflow: hidden;
+  border-radius: 18px;
+  background: #000000;
+}
+
+/* IMAGE – NO DISTORTION */
+.offer-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;           /* keeps proportions */
+  transition: transform 0.6s ease;
+}
+
+/* LABEL – BOTTOM RIGHT */
+.offer-grid span {
+  position: absolute;
+  bottom: 12px;
+  right: 14px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+  padding: 6px 14px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 20px;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* HOVER */
+.offer-grid div:hover img {
+  transform: scale(1.08);
+}
+
+.offer-grid div:hover span {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+/* OUTDOOR – FULL WIDTH */
+.offer-grid div:last-child {
+  grid-column: span 3;
+}
+
+/* ================= TEXT ================= */
+.text-block {
+  max-width: 900px;
+  margin: 70px auto;
+  text-align: center;
+}
+
+.text-block p {
+  margin: 14px 0;
+  line-height: 1.7;
+}
+
+/* ================= SINGLE LINE ================= */
+.single-line {
+  text-align: center;
+  font-size: 20px;
+  margin: 60px 0;
+}
+
+/* ================= VIDEO ================= */
+.video-section video {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+}
+
+/* ================= JOURNEY ================= */
+.journey-section {
+  text-align: center;
+  padding: 70px 10%;
+}
+
+.journey-steps {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.circle {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: #e6f6fb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  text-align: center;
+  padding: 12px;
+  animation: pop 0.6s ease forwards;
+}
+
+/* ================= FORM ================= */
+.start-project {
+  max-width: 620px;
+  margin: 80px auto;
+  text-align: center;
+}
+
+.start-project form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.start-project input,
+.start-project textarea {
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.start-project button {
+  padding: 14px;
+  background: #0bb3d9;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* ================= ANIMATIONS ================= */
+@keyframes pop {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1024px) {
+  .offer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .offer-grid div:last-child {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .offer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .offer-grid div {
+    height: 200px;
+  }
+
+  .offer-grid div:last-child {
+    grid-column: span 1;
+  }
+
+  .slider-track img {
+    height: 260px;
+  }
+
+  .offer-section h2 {
+    font-size: 26px;
+  }
+
+  .single-line {
+    font-size: 18px;
+    padding: 0 14px;
+  }
+
+  .circle {
+    width: 120px;
+    height: 120px;
+    font-size: 13px;
+  }
+
+  .video-section video {
+    height: 260px;
+  }
+}

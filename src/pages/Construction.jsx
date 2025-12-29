@@ -1,16 +1,15 @@
 import { useState, useEffect } from "react";
+import Sidebar from "./Sidebar";
 import Footer from "./Footer";
-import "./construction.css";
+import "./Construction.css";
 
 export default function Construction() {
-  const [menu, setMenu] = useState(false);
-
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
-  // 🔁 Repeat animations on scroll
+  // 🔁 Scroll animations
   useEffect(() => {
     const elements = document.querySelectorAll(".fade-in");
 
@@ -50,26 +49,19 @@ Message: ${message}`
 
   return (
     <div className="construction-page">
+      {/* ✅ COMMON SIDEBAR */}
+      <Sidebar />
 
-      {/* ☰ Hamburger */}
-      <div className="hamburger" onClick={() => setMenu(!menu)}>☰</div>
-
-      {/* Sidebar */}
-      <aside className={`side-menu ${menu ? "open" : ""}`}>
-        <p>Construction</p>
-        <p>Interior Design</p>
-        <p>Structural Design</p>
-        <p>Blog</p>
-      </aside>
-
-      {/* MAIN COLUMN */}
+      {/* MAIN CONTENT */}
       <div className="content-wrapper">
-
         <h1 className="main-title fade-in">Construction</h1>
 
         <div className="video-section fade-in">
           <video autoPlay muted loop playsInline>
-            <source src="/construction/construction.mp4" type="video/mp4" />
+            <source
+              src="/construction/construction.mp4"
+              type="video/mp4"
+            />
           </video>
         </div>
 
@@ -83,12 +75,19 @@ Message: ${message}`
             ["4.webp", "Pre-Construction", "Approvals and budgeting."],
             ["5.webp", "Construction", "Execution and supervision."],
             ["6.webp", "Handover", "Final delivery and finishing."]
-          ].map(([img, t, p], i) => (
-            <div key={i} className={`step-row fade-in ${i % 2 ? "reverse" : ""}`}>
-              <img src={`/construction/${img}`} className="step-img" alt={t} />
+          ].map(([img, title, desc], i) => (
+            <div
+              key={i}
+              className={`step-row fade-in ${i % 2 !== 0 ? "reverse" : ""}`}
+            >
+              <img
+                src={`/construction/${img}`}
+                alt={title}
+                className="step-img"
+              />
               <div className="step-text">
-                <h3>{t}</h3>
-                <p>{p}</p>
+                <h3>{title}</h3>
+                <p>{desc}</p>
               </div>
             </div>
           ))}
@@ -97,17 +96,33 @@ Message: ${message}`
         <form className="form-box fade-in" onSubmit={handleSubmit}>
           <h2>Book a Meeting</h2>
 
-          <input placeholder="Full Name *" value={name} onChange={e => setName(e.target.value)} />
-          <input placeholder="Contact Number *" value={phone} onChange={e => setPhone(e.target.value)} />
-          <input placeholder="Email (optional)" value={email} onChange={e => setEmail(e.target.value)} />
-          <textarea placeholder="Message (optional)" rows="4" value={message} onChange={e => setMessage(e.target.value)} />
+          <input
+            placeholder="Full Name *"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <input
+            placeholder="Contact Number *"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+          />
+          <input
+            placeholder="Email (optional)"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <textarea
+            rows="4"
+            placeholder="Message (optional)"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+          />
 
           <button type="submit">Contact Construction Team</button>
         </form>
 
-        {/* ✅ FOOTER IS HERE – CORRECT PLACE */}
+        {/* ✅ FOOTER */}
         <Footer />
-
       </div>
     </div>
   );
