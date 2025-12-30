@@ -639,6 +639,91 @@
     }
 
     /* =========================
+       MOBILE FOOTER
+    ========================== */
+    .footer-mobile {
+      display: none;
+      background: #fff;
+      padding: 30px 20px 50px;
+      border-top: 1px solid #ddd;
+    }
+
+    .fm-brand h2 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .fm-brand p {
+      font-size: 14px;
+      color: #444;
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+
+    .fm-brand a {
+      color: var(--primary-dark);
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .fm-section {
+      margin: 18px 0;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 10px;
+    }
+
+    .fm-header {
+      font-size: 17px;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      cursor: pointer;
+      color: #222;
+    }
+
+    .fm-header i {
+      transition: transform 0.3s ease;
+    }
+
+    .fm-section.active .fm-header i {
+      transform: rotate(180deg);
+    }
+
+    .fm-content {
+      display: none;
+      margin-top: 8px;
+      padding-left: 5px;
+    }
+
+    .fm-content.open {
+      display: block;
+    }
+
+    .fm-content a,
+    .fm-content p {
+      display: block;
+      font-size: 15px;
+      color: #333;
+      margin: 6px 0;
+    }
+
+    .fm-content a {
+      color: #1a73e8;
+    }
+
+    .fm-social {
+      margin-top: 18px;
+      display: flex;
+      gap: 18px;
+    }
+
+    .fm-social a {
+      color: #007bff;
+      font-size: 22px;
+    }
+
+    /* =========================
        RESPONSIVE
     ========================== */
     @media (max-width: 992px) {
@@ -652,6 +737,16 @@
 
       .two-col-grid {
         grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .footer {
+        display: none;
+      }
+
+      .footer-mobile {
+        display: block;
       }
     }
 
@@ -953,6 +1048,53 @@
     </div>
   </footer>
 
+  <!-- MOBILE FOOTER -->
+  <div class="footer-mobile">
+    <div class="fm-brand">
+      <h2>VIndia Infrasec</h2>
+      <p>Delivering excellence in Construction, Interior Design & Structural Engineering across South India.</p>
+      <a href="../about.html">Know More →</a>
+    </div>
+
+    <div class="fm-section" onclick="toggleFM(1)">
+      <div class="fm-header">Quick Links <i class="fas fa-chevron-down"></i></div>
+      <div class="fm-content fm1">
+        <a href="../index.html">Home</a>
+        <a href="../services.html">Services</a>
+        <a href="../projects.html">Projects</a>
+        <a href="we-work.html">Careers</a>
+        <a href="../contact.html">Contact</a>
+      </div>
+    </div>
+
+    <div class="fm-section" onclick="toggleFM(2)">
+      <div class="fm-header">Contact <i class="fas fa-chevron-down"></i></div>
+      <div class="fm-content fm2">
+        <p><a href="tel:+918592961212">+91 85929 61212</a></p>
+        <p><a href="tel:+918592921212">+91 85929 21212</a></p>
+        <p><a href="mailto:info@vindiainfrasec.com">info@vindiainfrasec.com</a></p>
+      </div>
+    </div>
+
+    <div class="fm-section" onclick="toggleFM(3)">
+      <div class="fm-header">Locations <i class="fas fa-chevron-down"></i></div>
+      <div class="fm-content fm3">
+        <a href="https://www.google.com/maps?q=No:03,+First+Floor,+Gokulam+Main+Road,+Jayalakshmipuram,+Mysuru+City+-+570+012,+Mysore,+Karnataka+570012" target="_blank">Mysuru</a>
+        <a href="https://www.google.com/maps?q=Brigade+Arcade,+E104,+Brigade+Metropolis,+Mahadevapura,+Bengaluru,+Karnataka+560048" target="_blank">Bengaluru</a>
+        <a href="https://www.google.com/maps?q=Kochi,Kerala" target="_blank">Kochi</a>
+        <a href="https://www.google.com/maps?q=VIndia+Arcade,+CP+XI+433+B,+P+O+Alavil,+Kannur,+Kerala+670008" target="_blank">Kannur</a>
+        <a href="https://www.google.com/maps?q=VIndia+Infrasec,+Near+SURYA+PLYWOODS+%26+DOORS,+SREE+KAMATCHI+AMMAN+KOIL+STREET,+ANNASALAI,+Pondicherry,+Puducherry+605001" target="_blank">Pondicherry</a>
+      </div>
+    </div>
+
+    <div class="fm-social">
+      <a href="#"><i class="fab fa-google"></i></a>
+      <a href="https://youtube.com/@vindia_infrasec" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.linkedin.com/company/vindia-infrasec/posts/?feedView=all" target="_blank"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </div>
+
 </div> <!-- /page-wrapper -->
 
 <!-- JS -->
@@ -1034,6 +1176,17 @@
       updateMaps();
     }, 3000);
   });
+
+  // Mobile footer accordion
+  function toggleFM(i) {
+    const section = document.querySelector(".fm" + i);
+    const fmSection = section.closest(".fm-section");
+    if (section) {
+      section.classList.toggle("open");
+      fmSection.classList.toggle("active");
+    }
+  }
+  window.toggleFM = toggleFM;
 </script>
 
 </body>

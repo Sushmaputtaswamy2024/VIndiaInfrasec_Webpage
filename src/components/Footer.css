@@ -18,9 +18,9 @@ footer {
 
 .footer-row {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: flex-start;
-  gap: 10px;
+  gap: 60px;
   flex-wrap: nowrap;
 }
 
@@ -68,11 +68,12 @@ footer {
 .footer-links {
   padding: 0;
   margin: 0;
+  list-style: none;
 }
 
 .footer-links li {
   list-style: none;
-  margin: 10px 0;
+  margin: 6px 0;
 }
 
 .footer-links a {
@@ -87,13 +88,19 @@ footer {
 
 /* RIGHT — CALL NUMBERS */
 .footer-right-call {
-  width: 15%;
-  min-width: 100px;
+  width: 16%;
+  min-width: 150px;
+}
+
+.contact-title {
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
 }
 
 .contact-list {
   padding: 0;
   margin: 0;
+  list-style: none;
 }
 
 .contact-list li {
@@ -121,21 +128,27 @@ footer {
 }
 
 .district-card {
-  width: 135px;
+  width: 150px;
   background: #fff;
-  padding: 6px;
+  padding: 8px;
   border-radius: 10px;
   box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+  text-align: left;
 }
 
 .district-card h4 {
-  font-size: 0.78rem;
-  margin-bottom: 3px;
+  font-size: 0.8rem;
+  margin-bottom: 4px;
+}
+
+.district-name {
+  font-size: 0.8rem;
+  margin-bottom: 4px;
 }
 
 .map-frame {
   width: 100%;
-  height: 72px;
+  height: 85px;
   border: none;
   border-radius: 8px;
 }
@@ -205,6 +218,21 @@ footer {
 .fm-brand h2 {
   font-size: 20px;
   font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.fm-brand p {
+  font-size: 14px;
+  color: #444;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.fm-brand a {
+  color: #3b8fb5;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
 }
 
 .fm-section {
@@ -219,6 +247,15 @@ footer {
   display: flex;
   justify-content: space-between;
   cursor: pointer;
+  color: #222;
+}
+
+.fm-header svg {
+  transition: transform 0.3s ease;
+}
+
+.fm-section.active .fm-header svg {
+  transform: rotate(180deg);
 }
 
 .fm-content {
@@ -237,6 +274,15 @@ footer {
   font-size: 15px;
   color: #333;
   margin: 6px 0;
+  text-decoration: none;
+}
+
+.fm-content a {
+  color: #1a73e8;
+}
+
+.fm-content a:hover {
+  text-decoration: underline;
 }
 
 .fm-social {
@@ -248,9 +294,31 @@ footer {
 .fm-social a {
   color: #007bff;
   font-size: 22px;
+  text-decoration: none;
 }
 
-/* ---------- RESPONSIVE SWITCH (THIS FIXES EVERYTHING) ---------- */
+/* ---------- RESPONSIVE STYLES ---------- */
+@media (max-width: 950px) {
+  .footer-row {
+    flex-wrap: wrap;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .footer-left-one,
+  .footer-center-one,
+  .footer-right-call,
+  .footer-right-maps {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .district-row {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
 @media (max-width: 900px) {
   .footer {
     display: none;
@@ -272,12 +340,10 @@ footer {
     height: 48px;
     font-size: 20px;
   }
-
+}
 
 @keyframes floatPulse {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-6px); }
 }
-
-  }
 

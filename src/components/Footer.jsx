@@ -5,6 +5,7 @@ import {
   FaLinkedin,
   FaWhatsapp,
   FaPhoneAlt,
+  FaChevronDown,
 } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import "./Footer.css";
@@ -56,10 +57,14 @@ export default function Footer() {
     return () => clearInterval(timer);
   }, []);
 
-  // Mobile accordion
+  // Mobile accordion with section toggle
+  const [openSections, setOpenSections] = useState({});
+
   const toggleFM = (i) => {
-    const el = document.querySelector(`.fm${i}`);
-    if (el) el.classList.toggle("open");
+    setOpenSections((prev) => ({
+      ...prev,
+      [i]: !prev[i],
+    }));
   };
 
   return (
@@ -89,11 +94,12 @@ export default function Footer() {
             <div className="footer-left-one">
               <div className="footer-social-vertical">
                 <a href="#"><FaGoogle /></a>
-                <a href="https://youtube.com/@vindia_infrasec" target="_blank"><FaYoutube /></a>
+                <a href="https://youtube.com/@vindia_infrasec" target="_blank" rel="noopener noreferrer"><FaYoutube /></a>
                 <a href="#"><FaInstagram /></a>
                 <a
                   href="https://www.linkedin.com/company/vindia-infrasec/posts/?feedView=all"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <FaLinkedin />
                 </a>
@@ -178,47 +184,48 @@ export default function Footer() {
           <a href="/about.html">Know More →</a>
         </div>
 
-        <div className="fm-section" onClick={() => toggleFM(1)}>
+        <div className={`fm-section ${openSections[1] ? "active" : ""}`} onClick={() => toggleFM(1)}>
           <div className="fm-header">
-            Quick Links <i className="fas fa-chevron-down"></i>
+            Quick Links <FaChevronDown />
           </div>
-          <div className="fm-content fm1">
+          <div className={`fm-content fm1 ${openSections[1] ? "open" : ""}`}>
             <a href="/">Home</a>
             <a href="/services.html">Services</a>
             <a href="/projects.html">Projects</a>
-            {/* <a href="/blog/blog.html">Blog</a> */}
+            <a href="/careers/we-work.html">Careers</a>
             <a href="/contact.html">Contact</a>
           </div>
         </div>
 
-        <div className="fm-section" onClick={() => toggleFM(2)}>
+        <div className={`fm-section ${openSections[2] ? "active" : ""}`} onClick={() => toggleFM(2)}>
           <div className="fm-header">
-            Contact <i className="fas fa-chevron-down"></i>
+            Contact <FaChevronDown />
           </div>
-          <div className="fm-content fm2">
+          <div className={`fm-content fm2 ${openSections[2] ? "open" : ""}`}>
             <p><a href="tel:+918592961212">+91 85929 61212</a></p>
             <p><a href="tel:+918592921212">+91 85929 21212</a></p>
             <p><a href="mailto:info@vindiainfrasec.com">info@vindiainfrasec.com</a></p>
           </div>
         </div>
 
-        <div className="fm-section" onClick={() => toggleFM(3)}>
+        <div className={`fm-section ${openSections[3] ? "active" : ""}`} onClick={() => toggleFM(3)}>
           <div className="fm-header">
-            Locations <i className="fas fa-chevron-down"></i>
+            Locations <FaChevronDown />
           </div>
-          <div className="fm-content fm3">
-            <a href="https://www.google.com/maps?q=Mysuru" target="_blank">Mysuru</a>
-            <a href="https://www.google.com/maps?q=Bengaluru" target="_blank">Bengaluru</a>
-            <a href="https://www.google.com/maps?q=Kannur" target="_blank">Kannur</a>
-            <a href="https://www.google.com/maps?q=Pondicherry" target="_blank">Pondicherry</a>
+          <div className={`fm-content fm3 ${openSections[3] ? "open" : ""}`}>
+            <a href="https://www.google.com/maps?q=No:03,+First+Floor,+Gokulam+Main+Road,+Jayalakshmipuram,+Mysuru+City+-+570+012,+Mysore,+Karnataka+570012" target="_blank" rel="noopener noreferrer">Mysuru</a>
+            <a href="https://www.google.com/maps?q=Brigade+Arcade,+E104,+Brigade+Metropolis,+Mahadevapura,+Bengaluru,+Karnataka+560048" target="_blank" rel="noopener noreferrer">Bengaluru</a>
+            <a href="https://www.google.com/maps?q=Kochi,Kerala" target="_blank" rel="noopener noreferrer">Kochi</a>
+            <a href="https://www.google.com/maps?q=VIndia+Arcade,+CP+XI+433+B,+P+O+Alavil,+Kannur,+Kerala+670008" target="_blank" rel="noopener noreferrer">Kannur</a>
+            <a href="https://www.google.com/maps?q=VIndia+Infrasec,+Near+SURYA+PLYWOODS+%26+DOORS,+SREE+KAMATCHI+AMMAN+KOIL+STREET,+ANNASALAI,+Pondicherry,+Puducherry+605001" target="_blank" rel="noopener noreferrer">Pondicherry</a>
           </div>
         </div>
 
         <div className="fm-social">
           <a href="#"><FaGoogle /></a>
-          <a href="#"><FaInstagram /></a>
-          <a href="#"><FaLinkedin /></a>
-          <a href="https://youtube.com/@vindia_infrasec"><FaYoutube /></a>
+          <a href="https://youtube.com/@vindia_infrasec" target="_blank" rel="noopener noreferrer"><FaYoutube /></a>
+          <a href="https://www.instagram.com/vindia_infrasec?igsh=MWo4N3EycGNmYTkwbQ=="><FaInstagram /></a>
+          <a href="https://www.linkedin.com/company/vindia-infrasec/posts/?feedView=all" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
         </div>
       </div>
     </>
