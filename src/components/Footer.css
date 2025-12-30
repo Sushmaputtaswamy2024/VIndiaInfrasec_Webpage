@@ -24,7 +24,7 @@ footer {
   flex-wrap: nowrap;
 }
 
-/* LEFT — BRAND + SOCIAL */
+/* ---------- LEFT — BRAND + SOCIAL ---------- */
 .footer-left-one {
   display: flex;
   gap: 16px;
@@ -59,7 +59,7 @@ footer {
   color: #444;
 }
 
-/* CENTER — LINKS */
+/* ---------- CENTER — LINKS ---------- */
 .footer-center-one {
   width: 18%;
   min-width: 150px;
@@ -72,7 +72,6 @@ footer {
 }
 
 .footer-links li {
-  list-style: none;
   margin: 6px 0;
 }
 
@@ -86,7 +85,7 @@ footer {
   color: #007bff;
 }
 
-/* RIGHT — CALL NUMBERS */
+/* ---------- RIGHT — CALL NUMBERS ---------- */
 .footer-right-call {
   width: 16%;
   min-width: 150px;
@@ -104,12 +103,11 @@ footer {
 }
 
 .contact-list li {
-  list-style: none;
   margin: 4px 0;
   font-size: 0.9rem;
 }
 
-/* RIGHT — MAPS */
+/* ---------- RIGHT — MAPS ---------- */
 .footer-right-maps {
   width: 33%;
   min-width: 260px;
@@ -123,7 +121,6 @@ footer {
 .district-row {
   display: flex;
   gap: 10px;
-  justify-content: flex-start;
   flex-wrap: nowrap;
 }
 
@@ -133,7 +130,6 @@ footer {
   padding: 8px;
   border-radius: 10px;
   box-shadow: 0 3px 8px rgba(0,0,0,0.08);
-  text-align: left;
 }
 
 .district-card h4 {
@@ -161,18 +157,25 @@ footer {
   text-decoration: none;
 }
 
-/* ---------- Floating Icons (Desktop only) ---------- */
+/* ---------- FLOATING ICONS (Desktop + Mobile Safe) ---------- */
 .floating-icons {
   position: fixed;
   right: 18px;
   bottom: 22px;
   display: flex;
   flex-direction: column;
-  animation: floatPulse 1.8s ease-in-out infinite;
   gap: 14px;
   z-index: 9999;
+  animation: floatPulse 1.8s ease-in-out infinite;
 
+  /* 🔑 critical fix */
+  pointer-events: none;
 }
+
+.floating-icons a {
+  pointer-events: auto;
+}
+
 @keyframes floatPulse {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-6px); }
@@ -180,39 +183,36 @@ footer {
 
 .call-icon,
 .whatsapp-icon {
-  width: 54px;
-  height: 54px;
+  width: 68px;
+  height: 68px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #ffffff;
-  font-size: 22px;
+  font-size: 30px;
   text-decoration: none;
   box-shadow: 0 6px 16px rgba(0,0,0,0.25);
 }
 
 .call-icon {
   background: #007bff;
-  width: 68px;    
-    height: 68px;
-    font-size: 30px;
-
 }
 
 .whatsapp-icon {
   background: #25d366;
-  width: 68px;   
-    height: 68px;
-    font-size: 30px;
 }
 
-/* ---------- Mobile footer (HIDDEN by default) ---------- */
+/* ---------- MOBILE FOOTER ---------- */
 .footer-mobile {
   display: none;
   background: #fff;
   padding: 30px 20px 50px;
   border-top: 1px solid #ddd;
+
+  /* 🔑 ensure clickable */
+  position: relative;
+  z-index: 10000;
 }
 
 .fm-brand h2 {
@@ -285,6 +285,7 @@ footer {
   text-decoration: underline;
 }
 
+/* ---------- MOBILE SOCIAL ICONS ---------- */
 .fm-social {
   margin-top: 18px;
   display: flex;
@@ -294,10 +295,14 @@ footer {
 .fm-social a {
   color: #007bff;
   font-size: 22px;
+  padding: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
 }
 
-/* ---------- RESPONSIVE STYLES ---------- */
+/* ---------- RESPONSIVE ---------- */
 @media (max-width: 950px) {
   .footer-row {
     flex-wrap: wrap;
@@ -330,20 +335,14 @@ footer {
 
   .floating-icons {
     right: 16px;
-    bottom: 90px;   /* above mobile footer */
-    animation: floatPulse 1.8s ease-in-out infinite;
+    bottom: 90px;
   }
 
   .call-icon,
   .whatsapp-icon {
-    width: 48px;    /* ⬅ mobile size */
+    width: 48px;
     height: 48px;
     font-size: 20px;
   }
 }
-
-@keyframes floatPulse {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-}
-
+/* ---------- END OF Footer.css ---------- */
