@@ -224,7 +224,7 @@ export default function Footer() {
         <div className="fm-social">
           <a href="#"><FaGoogle /></a>
           <a href="https://youtube.com/@vindia_infrasec" target="_blank" rel="noopener noreferrer"><FaYoutube /></a>
-          <a href="https://www.instagram.com/vindia_infrasec?igsh=MWo4N3EycGNmYTkwbQ=="><FaInstagram /></a>
+          <a href="#"><FaInstagram /></a>
           <a href="https://www.linkedin.com/company/vindia-infrasec/posts/?feedView=all" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
         </div>
       </div>
