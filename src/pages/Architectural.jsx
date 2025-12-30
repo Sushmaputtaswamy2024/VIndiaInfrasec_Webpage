@@ -8,7 +8,7 @@ export default function Architectural() {
   const [isMobile, setIsMobile] = useState(false);
   const [played, setPlayed] = useState(false);
 
-  // detect mobile
+  // ================= MOBILE DETECTION =================
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth <= 768);
     checkMobile();
@@ -16,9 +16,10 @@ export default function Architectural() {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  // desktop: play video when visible
+  // ================= DESKTOP VIDEO AUTOPLAY =================
   useEffect(() => {
     if (isMobile) return;
+
     const video = videoRef.current;
     if (!video) return;
 
@@ -38,7 +39,7 @@ export default function Architectural() {
     return () => observer.disconnect();
   }, [isMobile]);
 
-  // mobile tap-to-play
+  // ================= MOBILE TAP TO PLAY =================
   const handlePlay = () => {
     const video = videoRef.current;
     if (!video) return;
@@ -47,27 +48,52 @@ export default function Architectural() {
     setPlayed(true);
   };
 
+  // ================= WHATSAPP REDIRECT =================
+  const handleWhatsAppSubmit = (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+
+    const name = form[0].value || "Not provided";
+    const email = form[1].value || "Not provided";
+    const phone = form[2].value || "Not provided";
+    const location = form[3].value || "Not provided";
+    const details = form[4].value || "Interested in architectural services";
+
+    const whatsappMessage =
+`Hello Architectural Team,
+
+I am interested in architectural services.
+
+Name: ${name}
+Email: ${email}
+Phone: ${phone}
+Project Location: ${location}
+Project Details:
+${details}
+`;
+
+    const whatsappURL = `https://wa.me/8592921212?text=${encodeURIComponent(
+      whatsappMessage
+    )}`;
+
+    window.open(whatsappURL, "_blank");
+  };
+
   return (
     <div className="architecture-page">
-      {/* Sidebar */}
       <Sidebar />
 
       <main className="page-content">
-        {/* ================= TITLE ================= */}
         <section className="arch-hero">
           <h1>Architectural Design</h1>
           <p className="arch-subtitle">Design • Consulting • Building</p>
         </section>
 
-        {/* ================= IMAGE AFTER TITLE ================= */}
         <section className="arch-title-image">
-          <img
-            src="/architectural/2.3.webp"
-            alt="Architectural exterior"
-          />
+          <img src="/architectural/2.3.webp" alt="Architectural exterior" />
         </section>
 
-        {/* ================= INTRO ================= */}
         <section className="arch-intro">
           <p>
             Our world is evolving rapidly. Architecture must respond with
@@ -76,7 +102,6 @@ export default function Architectural() {
           </p>
         </section>
 
-        {/* ================= EXPERT ================= */}
         <section className="arch-expert">
           <h2>Get Architectural Design Expert Advice for Your Home or Property</h2>
 
@@ -95,11 +120,10 @@ export default function Architectural() {
           </div>
         </section>
 
-        {/* ================= CONSULTATION ================= */}
         <section className="arch-consultation">
           <h2>
-            Get advice quickly and easily without committing to full architectural
-            fees
+            Get advice quickly and easily without committing to full
+            architectural fees
           </h2>
 
           <div className="consultation-grid">
@@ -109,18 +133,17 @@ export default function Architectural() {
             </div>
 
             <div className="consult-card">
-              <img src="/architectural/2.5.webp" alt="Planning" />
-              <h3>Planning & Concepts</h3>
+              <img src="/architectural/1.webp" alt="Execution guidance" />
+              <h3>Execution Guidance</h3>
             </div>
 
             <div className="consult-card">
-              <img src="/architectural/1.webp" alt="Execution" />
-              <h3>Execution Guidance</h3>
+              <img src="/architectural/2.5.webp" alt="Planning concepts" />
+              <h3>Planning & Concepts</h3>
             </div>
           </div>
         </section>
 
-        {/* ================= ENTRANCE (VIDEO) ================= */}
         <section className="arch-entrance">
           <div className="entrance-media">
             <video
@@ -141,22 +164,20 @@ export default function Architectural() {
           </div>
         </section>
 
-        {/* ================= START PROJECT ================= */}
         <section className="arch-start">
           <h2>Start a Project</h2>
 
-          <form className="arch-form">
+          <form className="arch-form" onSubmit={handleWhatsAppSubmit}>
             <input type="text" placeholder="Full Name" required />
             <input type="email" placeholder="Email" required />
             <input type="tel" placeholder="Phone" required />
             <input type="text" placeholder="Project Location" />
             <textarea placeholder="Tell us about your project" rows="4" />
-            <button type="submit">Book a Consultation</button>
+            <button type="submit">Contact Architectural Team</button>
           </form>
         </section>
       </main>
 
-      {/* Footer */}
       <Footer />
     </div>
   );
