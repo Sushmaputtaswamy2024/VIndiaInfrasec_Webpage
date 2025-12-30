@@ -91,7 +91,7 @@ export default function Footer() {
 
             <div className="footer-left-one">
               <div className="footer-social-vertical">
-                <a href="https://www.google.com" target="_blank" rel="noopener noreferrer">
+                <a href="#">
                   <FaGoogle />
                 </a>
 
@@ -210,7 +210,7 @@ export default function Footer() {
         </div>
 
         <div className="fm-social">
-          <a href="https://www.google.com" target="_blank" rel="noopener noreferrer"><FaGoogle /></a>
+          <a href="#"><FaGoogle /></a>
           <a href="https://youtube.com/@vindia_infrasec" target="_blank" rel="noopener noreferrer"><FaYoutube /></a>
           <a
             href="https://www.instagram.com/vindia_infrasec?igsh=MTRwejBkOGd6cmhmMQ=="
