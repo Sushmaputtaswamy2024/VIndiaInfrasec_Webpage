@@ -10,11 +10,22 @@ export default function Hero() {
   const videoRef = useRef(null);
 
   const [showVideo, setShowVideo] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
-useEffect(() => {
-  const id = requestIdleCallback(() => setShowVideo(true));
-  return () => cancelIdleCallback(id);
-}, []);
+  useEffect(() => {
+    const id = requestIdleCallback(() => setShowVideo(true));
+    return () => cancelIdleCallback(id);
+  }, []);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
 
   return (
@@ -36,7 +47,7 @@ useEffect(() => {
         playsInline
         preload="auto"
         initial={{ scale: 1 }}
-        animate={{ scale: 1.08 }}
+        animate={{ scale: isMobile ? 1 : 1.08 }}
         transition={{ duration: 8, ease: "easeOut" }}
       />
       )}
