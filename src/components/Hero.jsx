@@ -7,40 +7,31 @@ import "./Hero.css";
 export default function Hero() {
   const [showSecondLine, setShowSecondLine] = useState(false);
   const [showSubtext, setShowSubtext] = useState(false);
-  const videoRef = useRef(null);
   const [showVideo, setShowVideo] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const videoRef = useRef(null);
 
-  // Lazy load video for better performance
+  // Lazy load video
   useEffect(() => {
     const id = requestIdleCallback(() => setShowVideo(true));
     return () => cancelIdleCallback(id);
   }, []);
 
-  // Responsive mobile detection with debouncing
+  // Detect mobile
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768);
+    const check = () => setIsMobile(window.innerWidth <= 768);
+    check();
+
+    let t;
+    const resize = () => {
+      clearTimeout(t);
+      t = setTimeout(check, 150);
     };
-    
-    // Initial check
-    checkMobile();
-    
-    // Debounced resize handler for better performance
-    let resizeTimeout;
-    const handleResize = () => {
-      clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(checkMobile, 150);
-    };
-    
-    window.addEventListener('resize', handleResize, { passive: true });
-    return () => {
-      window.removeEventListener('resize', handleResize);
-      clearTimeout(resizeTimeout);
-    };
+
+    window.addEventListener("resize", resize, { passive: true });
+    return () => window.removeEventListener("resize", resize);
   }, []);
 
-  // Callback handlers for type animation
   const handleFirstLineComplete = useCallback(() => {
     setShowSecondLine(true);
   }, []);
@@ -51,12 +42,10 @@ export default function Hero() {
 
   return (
     <section className="hero" role="banner">
-      {/* SEO H1 */}
       <h1 className="sr-only">
         VIndia Infrasec – Construction, Interior, Architectural & Structural Design
       </h1>
 
-      {/* Background Video */}
       {showVideo && (
         <motion.video
           ref={videoRef}
@@ -68,39 +57,26 @@ export default function Hero() {
           playsInline
           preload="auto"
           initial={{ scale: 1 }}
-          animate={{ scale: isMobile ? 1 : 1.08 }}
+          animate={{ scale: isMobile ? 1.08 : 1.1 }}
           transition={{ duration: 8, ease: "easeOut" }}
-          aria-label="Background video"
         />
       )}
 
-      {/* Overlay */}
-      <div className="video-overlay" aria-hidden="true" />
+      <div className="video-overlay" />
 
-      {/* Text Content */}
       <div className="hero-overlay">
         <div className="hero-typed-container">
-          {/* LINE 1 */}
           <TypeAnimation
-            sequence={[
-              "You Dream It.",
-              600,
-              handleFirstLineComplete,
-            ]}
+            sequence={["You Dream It.", 600, handleFirstLineComplete]}
             speed={50}
             repeat={0}
             className="hero-typed-line1"
             style={{ caretColor: "transparent" }}
           />
 
-          {/* LINE 2 — FORCED NEW LINE */}
           {showSecondLine && (
             <TypeAnimation
-              sequence={[
-                "We Build It.",
-                600,
-                handleSecondLineComplete,
-              ]}
+              sequence={["We Build It.", 600, handleSecondLineComplete]}
               speed={50}
               repeat={0}
               className="hero-typed-line2"
@@ -108,7 +84,6 @@ export default function Hero() {
             />
           )}
 
-          {/* SUBTEXT */}
           {showSubtext && (
             <motion.p
               className="hero-typed-subtext"

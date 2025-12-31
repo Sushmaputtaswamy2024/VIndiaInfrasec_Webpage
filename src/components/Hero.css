@@ -1,44 +1,40 @@
 /* ============================================
-   HERO SECTION - OPTIMIZED FOR ALL DEVICES
-   ============================================ */
-
-/* Base Hero Container */
+   HERO BASE
+============================================ */
 .hero {
   position: relative;
   width: 100vw;
-  width: 100dvw; /* Dynamic viewport width for mobile */
   height: 100vh;
-  height: 100dvh; /* Dynamic viewport height for mobile */
   overflow: hidden;
   font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Background Video - Optimized for all screen sizes */
+/* ============================================
+   BACKGROUND VIDEO
+============================================ */
 .hero-video-bg {
   position: absolute;
   inset: 0;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-  min-width: 100%;
-  min-height: 100%;
   max-width: 100%;
   max-height: 100%;
+
   object-fit: cover;
-  object-position: center center;
-  
-  /* Visual enhancements */
+  object-position: center;
+
+  aspect-ratio: 16 / 9;
+
   filter: brightness(1.22) contrast(1.08) saturate(1.1);
-  
-  z-index: 0;
-  
-  /* Performance optimizations */
+
   will-change: transform;
-  transform: translateZ(0); /* Hardware acceleration */
+  transform: translateZ(0);
+  z-index: 0;
 }
 
-/* Video Overlay */
+/* ============================================
+   OVERLAY
+============================================ */
 .video-overlay {
   position: absolute;
   inset: 0;
@@ -50,7 +46,9 @@
   z-index: 1;
 }
 
-/* Content Overlay */
+/* ============================================
+   CONTENT
+============================================ */
 .hero-overlay {
   position: absolute;
   inset: 0;
@@ -60,7 +58,7 @@
   justify-content: center;
   text-align: center;
   padding: 0 20px;
-  color: white;
+  color: #fff;
 }
 
 .hero-typed-container {
@@ -68,61 +66,56 @@
   width: 100%;
 }
 
-/* Typography */
 .hero-typed-line1 {
   font-size: 3.4rem;
   font-weight: 400;
-  margin-bottom: 10px;
-  color: #ffffff;
   line-height: 1.2;
 }
 
 .hero-typed-line2 {
-  display: block;
   font-size: 4rem;
   font-weight: 700;
-  margin-top: 8px;
-  margin-bottom: 28px;
   color: #0b5ed7;
+  margin: 10px 0 26px;
   line-height: 1.2;
 }
 
 .hero-typed-subtext {
   font-size: 1.35rem;
   color: #f2f6ff;
-  line-height: 1.5;
 }
 
-/* Screen Reader Only */
+/* ============================================
+   SCREEN READER
+============================================ */
 .sr-only {
   position: absolute;
   width: 1px;
   height: 1px;
-  padding: 0;
-  margin: -1px;
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
 }
 
 /* ============================================
-   RESPONSIVE BREAKPOINTS
-   ============================================ */
-
-/* Mobile Devices (≤768px) */
+   MOBILE FIX — WIDTH PRIORITY
+   (Keeps building edges visible)
+============================================ */
 @media (max-width: 768px) {
   .hero {
-    height: 100vh;
-    height: 100dvh;
-    min-height: 500px;
-    width: 100vw;
-    width: 100dvw;
+    height: clamp(420px, 60vh, 520px);
   }
 
   .hero-video-bg {
-    transform: scale(1) !important;
-    will-change: auto; /* Disable will-change on mobile */
+    width: 100%;
+    height: auto;
+
+    min-width: 100%;
+    min-height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    transform: scale(1); /* ❗ No zoom on mobile */
   }
 
   .hero-typed-line1 {
@@ -138,18 +131,12 @@
   }
 }
 
-/* Small Mobile Devices (≤480px) */
+/* ============================================
+   SMALL PHONES
+============================================ */
 @media (max-width: 480px) {
   .hero {
-    height: 100vh;
-    height: 100dvh;
-    min-height: 400px;
-    width: 100vw;
-    width: 100dvw;
-  }
-
-  .hero-video-bg {
-    transform: scale(1) !important;
+    height: clamp(380px, 55vh, 460px);
   }
 
   .hero-typed-line1 {
@@ -163,118 +150,13 @@
   .hero-typed-subtext {
     font-size: 0.9rem;
   }
-
-  .hero-overlay {
-    padding: 0 15px;
-  }
 }
 
-/* Tablet Devices (769px - 1024px) */
-@media (min-width: 769px) and (max-width: 1024px) {
-  .hero-video-bg {
-    /* Tablet-specific optimizations */
-    object-position: center center;
-  }
-
-  .hero-typed-line1 {
-    font-size: 2.8rem;
-  }
-
-  .hero-typed-line2 {
-    font-size: 3.4rem;
-  }
-}
-
-/* Landscape Mobile Devices */
-@media (max-width: 768px) and (orientation: landscape) {
-  .hero {
-    height: 100vh;
-    height: 100dvh;
-    width: 100vw;
-    width: 100dvw;
-  }
-
-  .hero-video-bg {
-    transform: scale(1) !important;
-  }
-
-  .hero-typed-line1 {
-    font-size: 1.8rem;
-  }
-
-  .hero-typed-line2 {
-    font-size: 2.2rem;
-  }
-
-  .hero-typed-subtext {
-    font-size: 0.95rem;
-  }
-}
-
-/* Large Desktop Screens (≥1920px) */
-@media (min-width: 1920px) {
-  .hero-typed-line1 {
-    font-size: 4rem;
-  }
-
-  .hero-typed-line2 {
-    font-size: 4.8rem;
-  }
-
-  .hero-typed-subtext {
-    font-size: 1.5rem;
-  }
-}
-
-/* Ultra-wide Screens (≥2560px) */
-@media (min-width: 2560px) {
-  .hero-typed-container {
-    max-width: 1200px;
-  }
-
-  .hero-typed-line1 {
-    font-size: 4.5rem;
-  }
-
-  .hero-typed-line2 {
-    font-size: 5.5rem;
-  }
-
-  .hero-typed-subtext {
-    font-size: 1.7rem;
-  }
-}
-
-/* Portrait Orientation (General) */
-@media (orientation: portrait) {
-  .hero-video-bg {
-    object-position: center center;
-  }
-}
-
-/* Very Tall Screens (Portrait Monitors) */
-@media (min-height: 1200px) and (max-width: 1024px) {
-  .hero-video-bg {
-    object-position: center center;
-  }
-}
-
-/* High DPI Displays */
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-  .hero-video-bg {
-    /* Ensure crisp video rendering on retina displays */
-    image-rendering: -webkit-optimize-contrast;
-  }
-}
-
-/* Reduced Motion Preference */
+/* ============================================
+   REDUCED MOTION
+============================================ */
 @media (prefers-reduced-motion: reduce) {
   .hero-video-bg {
-    transform: scale(1) !important;
-    transition: none !important;
-  }
-
-  .hero-typed-subtext {
-    transition: none !important;
+    transform: none;
   }
 }
