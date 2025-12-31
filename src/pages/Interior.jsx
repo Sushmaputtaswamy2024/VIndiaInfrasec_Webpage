@@ -1,8 +1,37 @@
+import { useState } from "react";
 import "./interior.css";
 import Footer from "./Footer";
 import Sidebar from "./Sidebar";
 
 export default function Interior() {
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  // ================= WHATSAPP SUBMIT =================
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const whatsappMessage =
+`Hello Interior Design Team,
+
+I am interested in interior design services.
+
+Name: ${name || "Not provided"}
+Phone: ${phone || "Not provided"}
+Email: ${email || "Not provided"}
+Project Details:
+${message || "Interested in interior design services"}
+`;
+
+    const whatsappURL = `https://wa.me/918592921212?text=${encodeURIComponent(
+      whatsappMessage
+    )}`;
+
+    window.open(whatsappURL, "_blank");
+  };
+
   return (
     <div className="interior-page">
       {/* ================= SIDEBAR ================= */}
@@ -104,11 +133,34 @@ export default function Interior() {
       <section className="start-project">
         <h2>Start a Project</h2>
 
-        <form>
-          <input type="text" placeholder="Full Name" required />
-          <input type="email" placeholder="Email" required />
-          <input type="tel" placeholder="Phone" required />
-          <textarea placeholder="Message"></textarea>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Full Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+
+          <input
+            type="tel"
+            placeholder="Phone"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+          />
+
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+
+          <textarea
+            placeholder="Message"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+          />
+
           <button type="submit">Book a Meeting</button>
         </form>
       </section>

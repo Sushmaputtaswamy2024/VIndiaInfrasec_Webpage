@@ -1,4 +1,4 @@
-/* ================= GLOBAL SCROLL FIX ================= */
+/* ================= GLOBAL ================= */
 html,
 body {
   margin: 0;
@@ -6,15 +6,13 @@ body {
   overflow-x: hidden;
 }
 
-/* Hide scrollbar completely */
 body::-webkit-scrollbar {
-  width: 0;
   display: none;
 }
 
 body {
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* Edge */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 /* ================= HAMBURGER ================= */
@@ -26,6 +24,12 @@ body {
   cursor: pointer;
   z-index: 3000;
   color: #111;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.hamburger:hover {
+  transform: scale(1.08);
+  opacity: 0.85;
 }
 
 /* ================= SIDEBAR ================= */
@@ -36,8 +40,8 @@ body {
   width: 200px;
   height: 100vh;
 
-  background: #0f172a; /* ✅ REQUIRED */
-  padding: 80px 10px; 
+  background: #0f172a;
+  padding: 80px 10px;
 
   display: flex;
   flex-direction: column;
@@ -46,15 +50,28 @@ body {
   transition: left 0.3s ease;
   z-index: 2999;
 
-  overflow: hidden; /* removes blue line */
+  overflow: hidden;
+
+  box-shadow:
+    inset 1px 0 0 rgba(255, 255, 255, 0.06),
+    6px 0 22px rgba(0, 0, 0, 0.45);
 }
 
-
-/* Open state */
 .sidemenu.open {
   left: 0;
+  animation: sidebarSlide 0.35s ease-out;
 }
 
+@keyframes sidebarSlide {
+  from {
+    transform: translateX(-12px);
+    opacity: 0.9;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
 
 /* ================= LINKS ================= */
 .sidemenu a {
@@ -64,20 +81,34 @@ body {
   font-weight: 500;
 
   outline: none;
-  border: none;
   box-shadow: none;
   -webkit-tap-highlight-color: transparent;
+
+  position: relative;
+  transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
 .sidemenu a:hover {
   opacity: 0.85;
+  transform: translateX(3px);
 }
 
-.sidemenu a:focus,
-.sidemenu a:active,
-.sidemenu a:focus-visible {
-  outline: none !important;
-  box-shadow: none !important;
+.sidemenu a::before {
+  content: "";
+  position: absolute;
+  left: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.sidemenu a:hover::before {
+  opacity: 1;
 }
 
 /* ================= BACKDROP ================= */
@@ -85,19 +116,57 @@ body {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(2px);
   z-index: 2998;
 }
 
+/* ================================================= */
+/* ================= RESPONSIVE ==================== */
+/* ================================================= */
 
-/* ================= MOBILE ================= */
-@media (max-width: 768px) {
+/* Tablets */
+@media (max-width: 1024px) {
   .sidemenu {
-    /* width: 100%; */
+    width: 220px;
+    padding: 90px 16px;
+  }
+
+  .sidemenu a {
+    font-size: 17px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .hamburger {
+    font-size: 34px;
+    top: 16px;
+    left: 16px;
+  }
+
+  .sidemenu {
+    width: 100%;
     left: -100%;
-    padding: 90px 24px;
+    padding: 110px 28px;
+  }
+
+  .sidemenu a {
+    font-size: 20px;
+    padding: 6px 0;
   }
 
   .sidemenu.open {
     left: 0;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .hamburger {
+    font-size: 36px;
+  }
+
+  .sidemenu a {
+    font-size: 21px;
   }
 }

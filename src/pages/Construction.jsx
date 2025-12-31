@@ -30,21 +30,27 @@ export default function Construction() {
     return () => window.removeEventListener("scroll", reveal);
   }, []);
 
+  // ================= WHATSAPP SUBMIT =================
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!name.trim()) return alert("Name required");
-    if (!phone.trim()) return alert("Phone required");
+    const whatsappMessage =
+`Hello Construction Team,
 
-    const text = encodeURIComponent(
-      `Hello, I'm interested in Construction services.
-Name: ${name}
-Contact: ${phone}
-Email: ${email}
-Message: ${message}`
-    );
+I am interested in construction services.
 
-    window.open(`https://wa.me/918592921212?text=${text}`, "_blank");
+Name: ${name || "Not provided"}
+Phone: ${phone || "Not provided"}
+Email: ${email || "Not provided"}
+Project Details:
+${message || "Interested in construction services"}
+`;
+
+    const whatsappURL = `https://wa.me/918592921212?text=${encodeURIComponent(
+      whatsappMessage
+    )}`;
+
+    window.open(whatsappURL, "_blank");
   };
 
   return (
@@ -93,32 +99,38 @@ Message: ${message}`
           ))}
         </div>
 
+        {/* ================= FORM ================= */}
         <form className="form-box fade-in" onSubmit={handleSubmit}>
           <h2>Book a Meeting</h2>
 
           <input
-            placeholder="Full Name *"
+            placeholder="Full Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
+
           <input
-            placeholder="Contact Number *"
+            placeholder="Contact Number"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
           />
+
           <input
-            placeholder="Email (optional)"
+            placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
+
           <textarea
             rows="4"
-            placeholder="Message (optional)"
+            placeholder="Message"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
           />
 
-          <button type="submit">Contact Construction Team</button>
+          <button type="submit">
+            Contact Construction Team
+          </button>
         </form>
 
         {/* ✅ FOOTER */}
