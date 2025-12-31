@@ -11,24 +11,61 @@ import "./Testimonials.css";
 // ======================================================
 const feedbacks = [
   {
-    img: "//c2.staticflickr.com/8/7310/buddyicons/24846422@N06_r.jpg",
-    name: "Heena Kouser",
-    desc: "It's a great experience we had with them , they used best quality meterial, I highly recommend vindia",
-    rating: 5,
+    img: "https://randomuser.me/api/portraits/men/11.jpg",
+    name: "Saswat Mishra",
+    desc: "The service was quick and well coordinated from the initial discussion till completion. The team responded promptly to queries and maintained good quality throughout the work. Overall, it was a smooth and professional experience.",
+    rating: 4.6,
   },
   {
-    img: "https://i.postimg.cc/ydBjdm20/michael-dam-m-EZ3-Po-FGs-k-unsplash-1.jpg",
-    name: "Kalyan Peeka",
-    desc: "Excellence in every brick and beam A dream home made possible!",
-    rating: 5,
+    img: "https://randomuser.me/api/portraits/men/22.jpg",
+    name: "Ambedkar Vardhanapu",
+    desc: "VIndia Infrasec provided reasonably priced services with clear explanations at every stage. The staff were professional in their approach and the work was completed as discussed. I am satisfied with the overall execution.",
+    rating: 4.5,
   },
   {
-    img: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/451270/profile/profile-80.jpg",
-    name: "Prajith Kumar Pacha",
-    desc: "Actually first time in my life we got the work done by builder on time.Positive Responsiveness, Punctuality, Quality, Professionalism Services Home renovations",
-    rating: 5,
+    img: "https://randomuser.me/api/portraits/men/33.jpg",
+    name: "Vinod Kumar Reddy",
+    desc: "The construction work was handled efficiently with good planning and supervision. Quality materials were used and the project was delivered on time. The team maintained transparency and coordination throughout.",
+    rating: 4.7,
+  },
+  {
+    img: "https://randomuser.me/api/portraits/women/41.jpg",
+    name: "Shivani",
+    desc: "The interior work was done neatly with proper attention to details. The team followed the agreed timelines and communicated clearly during execution. Overall, the experience was positive and hassle free.",
+    rating: 4.6,
+  },
+  {
+    img: "https://randomuser.me/api/portraits/men/45.jpg",
+    name: "Sinoy John",
+    desc: "The team was responsive and handled the project professionally. Coordination between design and execution was good, and the work progressed smoothly without delays. Satisfied with the quality of service.",
+    rating: 4.6,
+  },
+  {
+    img: "https://randomuser.me/api/portraits/men/56.jpg",
+    name: "Jouhar K. V",
+    desc: "The project was completed on time with reasonable pricing and proper execution. Design support was helpful and the staff were cooperative throughout the process. Overall, a reliable service provider.",
+    rating: 4.4,
+  },
+  {
+    img: "https://randomuser.me/api/portraits/men/67.jpg",
+    name: "Afzal Shaikh",
+    desc: "The work quality was good and the team maintained clear communication during execution. Queries were addressed quickly and pricing was transparent. A professional and dependable experience overall.",
+    rating: 4.7,
+  },
+  {
+    img: "https://randomuser.me/api/portraits/men/72.jpg",
+    name: "Prajesh",
+    desc: "The project was managed well and completed within the discussed budget and timeline. The staff were supportive and ensured proper supervision at each stage. Happy with the final outcome.",
+    rating: 4.5,
+  },
+  {
+    img: "https://randomuser.me/api/portraits/men/83.jpg",
+    name: "Sajish Sekharan",
+    desc: "Very professional service with good quality materials and skilled workmanship. The team maintained timelines and ensured smooth handover of the project. Overall, a very satisfying experience.",
+    rating: 4.8,
   },
 ];
+
 
 const Testimonials = () => {
   const swiperRef = useRef(null);
