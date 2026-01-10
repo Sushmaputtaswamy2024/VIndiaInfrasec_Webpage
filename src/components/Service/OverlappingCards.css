@@ -1,14 +1,13 @@
 /* ======================================================
-   CONTAINER
+   CONTAINER (PIN-SAFE)
 ====================================================== */
 .cards-container {
   position: relative;
   width: 100%;
-  height: 100vh;                 /* desktop immersive */
+  min-height: 100vh;              /* ✅ FIX */
   background: #ffffff;
-  overflow: visible;
+  overflow: hidden;               /* ✅ FIX */
   border-radius: 24px;
-
 }
 
 /* ======================================================
@@ -28,11 +27,8 @@
   border-radius: 40px;
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
 
-  overflow: visible;
-  will-change: transform, opacity;
-  transform: none;
-  opacity: 1;
-  transition: none;
+  overflow: visible;               /* ✅ IMPORTANT */
+  will-change: transform;
   z-index: 1;
 }
 
@@ -59,11 +55,11 @@
    THEMES
 ====================================================== */
 .service-card[data-theme="0"] {
-  background: linear-gradient(180deg, #0AB6E2, #02689B);
+  background: linear-gradient(180deg, #0ab6e2, #02689b);
 }
 
 .service-card[data-theme="1"] {
-  background: linear-gradient(180deg, #ba89ef, #4788F6);
+  background: linear-gradient(180deg, #ba89ef, #4788f6);
 }
 
 .service-card[data-theme="2"] {
@@ -71,7 +67,7 @@
 }
 
 /* ======================================================
-   IMAGE (DESKTOP)
+   IMAGE
 ====================================================== */
 .service-card img {
   width: 48%;
@@ -131,31 +127,30 @@
 }
 
 /* ======================================================
-   MOBILE (OVERLAPPING – NOT STACKED)
+   MOBILE (OVERLAP — PIN SAFE)
 ====================================================== */
 @media (max-width: 900px) {
   .cards-container {
-    height: 100vh;     /* needed for absolute overlap */
+    min-height: 100vh;     /* ✅ FIX */
     padding: 0;
     margin-top: 20px;
   }
 
   .service-card {
-    position: absolute;     /* ✅ key fix */
+    position: absolute;   /* overlap preserved */
     inset: 0;
     margin: auto;
 
     width: 92%;
-    height: auto;
-    min-height: unset;
+    height: 80vh;         /* ✅ FIXED HEIGHT */
     flex-direction: column;
     border-radius: 32px;
   }
 
   .service-card img {
     width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 9;
+    height: 45%;
+    object-fit: cover;
     border-radius: 32px 32px 0 0;
   }
 
@@ -182,6 +177,7 @@
 @media (max-width: 420px) {
   .service-card {
     border-radius: 26px;
+    height: 82vh;
   }
 
   .content h2 {
