@@ -30,7 +30,7 @@
 ---------------------------- */
 .section-title {
   font-size: clamp(20px, 5vw, 28px);
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   padding-bottom: 20px;
   font-weight: 400;
   position: relative;
@@ -64,6 +64,43 @@
 }
 
 /* ---------------------------
+   GOOGLE RATING BADGE
+---------------------------- */
+.google-rating-badge {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 14px auto 18px;
+  padding: 10px 18px;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.google-stars {
+  color: #fbbc04; /* Google yellow */
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+
+.google-rating-text {
+  margin-top: 4px;
+  font-size: 14px;
+  color: #444;
+}
+
+/* ---------------------------
+   DISCLAIMER
+---------------------------- */
+.testimonial-disclaimer {
+  max-width: 520px;
+  margin: 0 auto 30px;
+  font-size: 13px;
+  color: #777;
+  line-height: 1.5;
+}
+
+/* ---------------------------
    SLIDER AREA
 ---------------------------- */
 .feedback-slider .swiper-slide img {
@@ -79,7 +116,6 @@
   padding: 60px;
   margin-top: -40px;
   width: 100%;
-  box-sizing: border-box;
   background: transparent;
 }
 
@@ -187,7 +223,6 @@
 
 /* Mobile */
 @media (max-width: 767px) {
-
   .customer-feedback .container {
     max-width: 100%;
     padding: 0 12px;
@@ -206,7 +241,10 @@
     top: 55px;
   }
 
-  /* Move thumbnails closer */
+  .google-rating-badge {
+    margin-bottom: 16px;
+  }
+
   .thumb-prev {
     left: -40px;
   }
@@ -220,7 +258,7 @@
 @media (max-width: 500px) {
   .thumb-prev,
   .thumb-next {
-    display: none; /* hide side thumbnails */
+    display: none;
   }
 
   .customer-rating {

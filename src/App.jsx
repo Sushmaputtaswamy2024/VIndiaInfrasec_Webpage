@@ -41,7 +41,7 @@ function App() {
           }
         />
 
-        {/* 🏗️ OTHER PAGES */}
+        {/*  OTHER PAGES */}
         <Route path="/construction" element={<Construction />} />
         <Route path="/interior" element={<Interior />} />
         <Route path="/architecture" element={<Architectural />} />

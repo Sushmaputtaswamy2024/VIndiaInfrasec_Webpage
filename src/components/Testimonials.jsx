@@ -7,71 +7,75 @@ import { Navigation, Pagination } from "swiper/modules";
 import "./Testimonials.css";
 
 // ======================================================
-// SEO-Friendly Testimonials Data
+// TESTIMONIAL DATA
+// Reviews based on real client feedback
+// Some content lightly edited for clarity
 // ======================================================
 const feedbacks = [
   {
-    img: "https://randomuser.me/api/portraits/men/11.jpg",
+    img: "/Testimonials/SaswatMishra.webp",
     name: "Saswat Mishra",
-    desc: "The service was quick and well coordinated from the initial discussion till completion. The team responded promptly to queries and maintained good quality throughout the work. Overall, it was a smooth and professional experience.",
-    rating: 4.6,
+    desc: "Had an amazing experience with VIndia Infrasec. Sajay and his team were reliable, punctual, and paid attention to every detail. If you’re looking for a hassle-free home-building process, they are a great choice.",
+    rating: 5,
   },
   {
-    img: "https://randomuser.me/api/portraits/men/22.jpg",
-    name: "Ambedkar Vardhanapu",
-    desc: "VIndia Infrasec provided reasonably priced services with clear explanations at every stage. The staff were professional in their approach and the work was completed as discussed. I am satisfied with the overall execution.",
-    rating: 4.5,
-  },
-  {
-    img: "https://randomuser.me/api/portraits/men/33.jpg",
-    name: "Vinod Kumar Reddy",
-    desc: "The construction work was handled efficiently with good planning and supervision. Quality materials were used and the project was delivered on time. The team maintained transparency and coordination throughout.",
-    rating: 4.7,
-  },
-  {
-    img: "https://randomuser.me/api/portraits/women/41.jpg",
-    name: "Shivani",
-    desc: "The interior work was done neatly with proper attention to details. The team followed the agreed timelines and communicated clearly during execution. Overall, the experience was positive and hassle free.",
-    rating: 4.6,
-  },
-  {
-    img: "https://randomuser.me/api/portraits/men/45.jpg",
-    name: "Sinoy John",
-    desc: "The team was responsive and handled the project professionally. Coordination between design and execution was good, and the work progressed smoothly without delays. Satisfied with the quality of service.",
-    rating: 4.6,
-  },
-  {
-    img: "https://randomuser.me/api/portraits/men/56.jpg",
-    name: "Jouhar K. V",
-    desc: "The project was completed on time with reasonable pricing and proper execution. Design support was helpful and the staff were cooperative throughout the process. Overall, a reliable service provider.",
-    rating: 4.4,
-  },
-  {
-    img: "https://randomuser.me/api/portraits/men/67.jpg",
+    img: "/Testimonials/Afzal.webp",
     name: "Afzal Shaikh",
-    desc: "The work quality was good and the team maintained clear communication during execution. Queries were addressed quickly and pricing was transparent. A professional and dependable experience overall.",
+    desc: "Good quality work with clear communication throughout the project. Queries were addressed quickly and pricing was transparent. Overall, a professional and satisfactory experience.",
     rating: 4.7,
   },
   {
-    img: "https://randomuser.me/api/portraits/men/72.jpg",
-    name: "Prajesh",
-    desc: "The project was managed well and completed within the discussed budget and timeline. The staff were supportive and ensured proper supervision at each stage. Happy with the final outcome.",
+    img: "/Testimonials/Ambedkar.webp",
+    name: "Ambedkar Vardhanapu",
+    desc: "Reasonably priced services with clear explanations at every stage. The team was professional and the work was completed as discussed. Happy with the overall execution.",
     rating: 4.5,
   },
   {
-    img: "https://randomuser.me/api/portraits/men/83.jpg",
-    name: "Sajish Sekharan",
-    desc: "Very professional service with good quality materials and skilled workmanship. The team maintained timelines and ensured smooth handover of the project. Overall, a very satisfying experience.",
-    rating: 4.8,
+    img: "/Testimonials/DeepakShenoy.webp",
+    name: "Deepak Shenoy",
+    desc: "Had a great experience with VIndia Infrasec. They are professional, stick to timelines, and delivered high-quality work within my budget. Overall, very satisfied with the service.",
+    rating: 5,
+  },
+  {
+    img: "/Testimonials/Varshagupta.webp",
+    name: "Varsha Gupta",
+    desc: "The project was handled end-to-end with clarity and professionalism. Design was thoughtful and aligned with our requirements. Workmanship quality stood out with precise detailing and a refined finish.",
+    rating: 4.6,
+  },
+  {
+    img: "/Testimonials/Subhrasommajumdar.webp",
+    name: "Subhrasom Majumdar",
+    desc: "The project followed a structured execution process integrating design and interiors. Planning clarity and functional detailing were evident throughout. The final outcome was balanced and professionally finished.",
+    rating: 5,
+  },
+  {
+    img: "/Testimonials/Prajith.webp",
+    name: "Prajith",
+    desc: "This is the first time in my life a builder completed the work on time. The team was very responsive and professional. Quality of work was good and the experience was stress-free.",
+    rating: 5,
+  },
+  {
+    img: "/Testimonials/Rineesh.webp",
+    name: "Rineesh",
+    desc: "The interior design and finishing quality are impressive. Spaces are thoughtfully planned with a good balance of aesthetics and functionality. The workmanship reflects a premium standard.",
+    rating: 5,
+  },
+  {
+    img: "/Testimonials/Pavan.webp",
+    name: "Pavan JH",
+    desc: "Architectural planning and interior execution were handled professionally from start to finish. The design was well thought out and the interior finishes were of high quality. Attention to detail and coordination were consistently maintained. Overall, a smooth and satisfying experience.",
+    rating: 5,
   },
 ];
 
+const GOOGLE_OVERALL_RATING = 4.8;
 
 const Testimonials = () => {
   const swiperRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const prevIndex = (activeIndex - 1 + feedbacks.length) % feedbacks.length;
+  const prevIndex =
+    (activeIndex - 1 + feedbacks.length) % feedbacks.length;
   const nextIndex = (activeIndex + 1) % feedbacks.length;
 
   return (
@@ -80,125 +84,115 @@ const Testimonials = () => {
       aria-labelledby="testimonials-title"
       role="region"
     >
-      {/* Hidden SEO text */}
+      {/* SEO helper text */}
       <p className="sr-only">
-        Customer reviews and testimonials for VIndia Infrasec, showcasing
-        client satisfaction across construction, interiors, and structural design.
+        Customer reviews and testimonials for VIndia Infrasec covering
+        construction, interiors, and structural design services.
       </p>
 
       <div className="container text-center">
-        <div className="row">
-          <div className="col-sm-offset-2 col-sm-8">
-            <h2 id="testimonials-title" className="section-title">
-              What Clients Say
-            </h2>
+        <h2 id="testimonials-title" className="section-title">
+          What Clients Say
+        </h2>
+
+        {/* Overall Google Rating */}
+        <div className="google-rating-badge">
+          <div className="google-stars">★★★★☆</div>
+          <div className="google-rating-text">
+            <strong>{GOOGLE_OVERALL_RATING} / 5</strong> based on Google Reviews
           </div>
         </div>
 
-        {/* ================================================
-            TESTIMONIAL SLIDER
-        ================================================= */}
-        <div className="row">
-          <div className="col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8">
-            <Swiper
-              modules={[Navigation, Pagination]}
-              slidesPerView={1}
-              navigation
-              pagination={{ clickable: true }}
-              loop
-              onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-              className="feedback-slider"
-              ref={swiperRef}
-              aria-label="Customer testimonials slider"
-            >
-              {feedbacks.map((item, i) => (
-                <SwiperSlide key={i} role="group" aria-label={`Review from ${item.name}`}>
-                  <div className="feedback-slider-item">
-                    <img
-                      src={item.img}
-                      className="center-block img-circle"
-                      alt={`Photo of ${item.name}`}
-                      loading="lazy"
-                      decoding="async"
-                    />
-                    <h3 className="customer-name">{item.name}</h3>
-                    <p className="customer-feedback-text">{item.desc}</p>
+        {/* Disclaimer */}
+        <p className="testimonial-disclaimer">
+          Reviews shown are based on client feedback. Some content may be lightly
+          edited for clarity. Images are for representative purposes only.
+        </p>
 
-                    <span
-                      className="light-bg customer-rating"
-                      aria-label={`Rating: ${item.rating} out of 5`}
-                    >
-                      {item.rating}
-                      <i className="fa fa-star" />
-                    </span>
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
+        {/* ===================== SLIDER ===================== */}
+        <Swiper
+          modules={[Navigation, Pagination]}
+          slidesPerView={1}
+          navigation
+          pagination={{ clickable: true }}
+          loop
+          onSlideChange={(swiper) =>
+            setActiveIndex(swiper.realIndex)
+          }
+          className="feedback-slider"
+          ref={swiperRef}
+        >
+          {feedbacks.map((item, i) => (
+            <SwiperSlide key={i}>
+              <div className="feedback-slider-item">
+                <img
+                  src={item.img}
+                  alt={`Client review from ${item.name}`}
+                  loading="lazy"
+                  onError={(e) =>
+                    (e.currentTarget.src =
+                      "/Testimonials/Afzal.webp")
+                  }
+                  className="testimonial-avatar"
+                />
 
-            {/* ================================================
-                THUMB NAVIGATION (PREV / NEXT)
-            ================================================= */}
-            <div className="feedback-slider-thumb hidden-xs" aria-hidden="true">
-              <div
-                className="thumb-prev"
-                onClick={() =>
-                  swiperRef.current.swiper.slideToLoop(prevIndex)
-                }
-              >
-                <span>
-                  <img
-                    src={feedbacks[prevIndex].img}
-                    alt=""
-                    loading="lazy"
-                  />
-                </span>
+                <h3 className="customer-name">{item.name}</h3>
+                <p className="customer-feedback-text">{item.desc}</p>
+
                 <span className="light-bg customer-rating">
-                  {feedbacks[prevIndex].rating}
+                  {item.rating}
                   <i className="fa fa-star" />
                 </span>
               </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
 
-              <div
-                className="thumb-next"
-                onClick={() =>
-                  swiperRef.current.swiper.slideToLoop(nextIndex)
-                }
-              >
-                <span>
-                  <img
-                    src={feedbacks[nextIndex].img}
-                    alt=""
-                    loading="lazy"
-                  />
-                </span>
-                <span className="light-bg customer-rating">
-                  {feedbacks[nextIndex].rating}
-                  <i className="fa fa-star" />
-                </span>
-              </div>
-            </div>
+        {/* ===================== THUMB NAV ===================== */}
+        <div className="feedback-slider-thumb hidden-xs">
+          <div
+            className="thumb-prev"
+            onClick={() =>
+              swiperRef.current.swiper.slideToLoop(prevIndex)
+            }
+          >
+            <img src={feedbacks[prevIndex].img} alt="" />
+          </div>
+
+          <div
+            className="thumb-next"
+            onClick={() =>
+              swiperRef.current.swiper.slideToLoop(nextIndex)
+            }
+          >
+            <img src={feedbacks[nextIndex].img} alt="" />
           </div>
         </div>
       </div>
 
-      {/* =================================================
-          SCHEMA MARKUP (Boosts Google ranking)
-      ================================================= */}
+      {/* ===================== SCHEMA (SEO) ===================== */}
       <script type="application/ld+json">
         {JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "ItemList",
-          itemListElement: feedbacks.map((f, i) => ({
+          "@type": "Organization",
+          name: "VIndia Infrasec",
+          aggregateRating: {
+            "@type": "AggregateRating",
+            ratingValue: GOOGLE_OVERALL_RATING,
+            reviewCount: feedbacks.length,
+          },
+          review: feedbacks.map((f) => ({
             "@type": "Review",
-            author: f.name,
+            author: {
+              "@type": "Person",
+              name: f.name,
+            },
             reviewBody: f.desc,
             reviewRating: {
               "@type": "Rating",
               ratingValue: f.rating,
               bestRating: "5",
             },
-            position: i + 1,
           })),
         })}
       </script>
