@@ -16,23 +16,17 @@ const shuffle = (arr) => {
 };
 
 /* =====================================
-   Insert text SPARSELY (1–2 times only)
+   Insert text SPARSELY
 ===================================== */
 const injectTextSparsely = (images, label, count = 2) => {
-  const result = images.map((img) => ({
-    type: "img",
-    src: img,
-  }));
+  const result = images.map((img) => ({ type: "img", src: img }));
 
-  const maxIndex = Math.min(result.length - 1, images.length);
-  const usedIndexes = new Set();
-
-  while (usedIndexes.size < count) {
-    const index = Math.floor(Math.random() * maxIndex);
-    usedIndexes.add(index);
+  const used = new Set();
+  while (used.size < count && result.length > 4) {
+    used.add(Math.floor(Math.random() * result.length));
   }
 
-  [...usedIndexes].forEach((i) => {
+  [...used].forEach((i) => {
     result.splice(i, 0, { type: "text", label });
   });
 
@@ -45,8 +39,9 @@ const injectTextSparsely = (images, label, count = 2) => {
 export default function ProjectGallery() {
   const row1Ref = useRef(null);
   const row2Ref = useRef(null);
+  const rafIds = useRef([]);
 
-  /* TOP ROW — Completed Projects */
+  /* TOP ROW */
   const topRow = useMemo(
     () =>
       injectTextSparsely(
@@ -57,7 +52,7 @@ export default function ProjectGallery() {
     []
   );
 
-  /* BOTTOM ROW — Designs */
+  /* BOTTOM ROW */
   const bottomRow = useMemo(
     () =>
       injectTextSparsely(
@@ -69,32 +64,41 @@ export default function ProjectGallery() {
   );
 
   /* =====================================
-     Marquee animation
+     Marquee animation (SAFE)
   ===================================== */
   useEffect(() => {
     const startMarquee = (row, speed, direction) => {
+      if (!row) return;
+
       let x = 0;
+      let rafId;
 
-      const move = () => {
-        if (!row) return;
-
+      const animate = () => {
         const width = row.scrollWidth / 2;
-        if (!width) return requestAnimationFrame(move);
 
-        x += direction === "left" ? -speed : speed;
+        if (width > 0) {
+          x += direction === "left" ? -speed : speed;
 
-        if (direction === "left" && x <= -width) x += width;
-        if (direction === "right" && x >= 0) x -= width;
+          if (direction === "left" && x <= -width) x += width;
+          if (direction === "right" && x >= 0) x -= width;
 
-        row.style.transform = `translate3d(${x}px,0,0)`;
-        requestAnimationFrame(move);
+          row.style.transform = `translate3d(${x}px,0,0)`;
+        }
+
+        rafId = requestAnimationFrame(animate);
+        rafIds.current.push(rafId);
       };
 
-      move();
+      animate();
     };
 
     startMarquee(row1Ref.current, 0.75, "left");
     startMarquee(row2Ref.current, 1.1, "right");
+
+    return () => {
+      rafIds.current.forEach(cancelAnimationFrame);
+      rafIds.current = [];
+    };
   }, []);
 
   /* =====================================
@@ -114,6 +118,7 @@ export default function ProjectGallery() {
                 src={item.src}
                 alt="Completed project"
                 loading="lazy"
+                decoding="async"
               />
             ) : (
               <div
@@ -135,6 +140,7 @@ export default function ProjectGallery() {
                 src={item.src}
                 alt="Design gallery"
                 loading="lazy"
+                decoding="async"
               />
             ) : (
               <div
