@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -74,9 +74,17 @@ const Testimonials = () => {
   const swiperRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
+  /* 🔑 iPhone Safari fix: force Swiper recalculation */
+  useEffect(() => {
+    if (swiperRef.current && swiperRef.current.swiper) {
+      swiperRef.current.swiper.update();
+    }
+  }, []);
+
   const prevIndex =
     (activeIndex - 1 + feedbacks.length) % feedbacks.length;
-  const nextIndex = (activeIndex + 1) % feedbacks.length;
+  const nextIndex =
+    (activeIndex + 1) % feedbacks.length;
 
   return (
     <section
@@ -116,6 +124,13 @@ const Testimonials = () => {
           navigation
           pagination={{ clickable: true }}
           loop
+
+          /* 🔑 iPhone Safari fixes (NO UI change) */
+          observer
+          observeParents
+          passiveListeners={false}
+          touchStartPreventDefault={false}
+
           onSlideChange={(swiper) =>
             setActiveIndex(swiper.realIndex)
           }
@@ -137,7 +152,9 @@ const Testimonials = () => {
                 />
 
                 <h3 className="customer-name">{item.name}</h3>
-                <p className="customer-feedback-text">{item.desc}</p>
+                <p className="customer-feedback-text">
+                  {item.desc}
+                </p>
 
                 <span className="light-bg customer-rating">
                   {item.rating}

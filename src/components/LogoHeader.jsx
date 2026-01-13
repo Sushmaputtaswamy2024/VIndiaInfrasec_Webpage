@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import logo from "/logo.png";
@@ -10,39 +10,65 @@ export default function LogoHeader({ triggerRef }) {
   const logoImageRef = useRef(null);
   const barRef = useRef(null);
 
-  useEffect(() => {
-    const logo = logoContainerRef.current;
-    const image = logoImageRef.current;
-    const bar = barRef.current;
+  useLayoutEffect(() => {
+    const logoEl = logoContainerRef.current;
+    const imageEl = logoImageRef.current;
+    const barEl = barRef.current;
     const trigger = triggerRef?.current;
 
-    if (!trigger) return;
+    if (!logoEl || !imageEl || !barEl || !trigger) return;
 
     const isMobile = window.innerWidth < 600;
     const startWidth = isMobile ? 140 : 260;
     const endWidth = isMobile ? 80 : 120;
 
-    gsap.set(image, { width: startWidth });
-    gsap.set(logo, { left: "100%", xPercent: -100 });
+    gsap.set(imageEl, {
+      width: startWidth,
+      force3D: true,
+    });
 
-    gsap.timeline({
+    gsap.set(logoEl, {
+      left: "100%",
+      xPercent: -100,
+      force3D: true,
+    });
+
+    const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: trigger,
+        trigger,
         start: "bottom top",
         end: "bottom top",
         scrub: 1,
         invalidateOnRefresh: true,
       },
-    })
-      .fromTo(bar, { height: 0, opacity: 0 }, { height: 80, opacity: 1 }, 0)
-      .to(logo, { left: "50%", xPercent: -50 }, 0)
-      .to(image, { width: endWidth }, 0);
+    });
 
+    tl.fromTo(
+      barEl,
+      { height: 0, opacity: 0 },
+      { height: 80, opacity: 1 },
+      0
+    )
+      .to(
+        logoEl,
+        { left: "50%", xPercent: -50 },
+        0
+      )
+      .to(
+        imageEl,
+        { width: endWidth },
+        0
+      );
+
+    ScrollTrigger.refresh();
+
+    return () => {
+      tl.kill();
+    };
   }, [triggerRef]);
 
   return (
     <>
-      {/* FIXED WHITE BAR (DECORATIVE ONLY) */}
       <div
         ref={barRef}
         aria-hidden="true"
@@ -56,10 +82,10 @@ export default function LogoHeader({ triggerRef }) {
           background: "#fff",
           zIndex: 2000,
           pointerEvents: "none",
+          transform: "translateZ(0)",
         }}
       />
 
-      {/* FLOATING LOGO */}
       <div
         ref={logoContainerRef}
         role="banner"
@@ -68,15 +94,16 @@ export default function LogoHeader({ triggerRef }) {
           position: "fixed",
           top: "12px",
           zIndex: 3000,
+          transform: "translateZ(0)",
         }}
       >
         <img
           ref={logoImageRef}
           src={logo}
           alt="VIndia Infrasec logo"
-          loading="eager"           // ensures instant visibility
-          decoding="async"          // better performance
-          style={{ width: "260px" }}
+          loading="eager"
+          decoding="async"
+          style={{ width: "260px", display: "block" }}
         />
       </div>
     </>

@@ -8,12 +8,13 @@ import {
   FaChevronDown,
   FaFacebookF,
 } from "react-icons/fa";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import "./Footer.css";
 
 export default function Footer() {
   const [index, setIndex] = useState(0);
   const [openSections, setOpenSections] = useState({});
+  const footerRef = useRef(null);
 
   const states = [
     {
@@ -51,12 +52,27 @@ export default function Footer() {
     },
   ];
 
+  /* ✅ SAFARI-SAFE ROTATION */
   useEffect(() => {
-    const timer = setInterval(() => {
-      setIndex((prev) => (prev + 1) % states.length);
-    }, 3000);
+    let timer;
+
+    const start = () => {
+      timer = setInterval(() => {
+        setIndex((prev) => (prev + 1) % states.length);
+      }, 3500);
+    };
+
+    start();
+
     return () => clearInterval(timer);
-  }, []);
+  }, [states.length]);
+
+  /* ✅ FORCE iOS REPAINT */
+  useEffect(() => {
+    if (footerRef.current) {
+      footerRef.current.style.webkitTransform = "translateZ(0)";
+    }
+  }, [index]);
 
   const toggleFM = (i) => {
     setOpenSections((prev) => ({
@@ -66,7 +82,7 @@ export default function Footer() {
   };
 
   const googleLink =
-    "https://www.google.com/search?q=vindia+infrasec&oq=vindia+infrasec&sourceid=chrome&ie=UTF-8";
+    "https://www.google.com/search?q=vindia+infrasec&oq=vindia+infrasec&ie=UTF-8";
 
   return (
     <>
@@ -87,39 +103,15 @@ export default function Footer() {
       </div>
 
       {/* DESKTOP FOOTER */}
-      <footer className="footer">
+      <footer className="footer" ref={footerRef}>
         <div className="footer-inner">
           <div className="footer-row">
-
             <div className="footer-left-one">
               <div className="footer-social-vertical">
-                <a href={googleLink} target="_blank" rel="noopener noreferrer">
-                  <FaGoogle />
-                </a>
-
-                <a
-                  href="https://youtube.com/@vindia_infrasec"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FaYoutube />
-                </a>
-
-                <a
-                  href="https://www.instagram.com/vindia_infrasec?igsh=MTRwejBkOGd6cmhmMQ=="
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FaInstagram />
-                </a>
-
-                <a
-                  href="https://www.linkedin.com/company/vindia-infrasec/posts/?feedView=all"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FaLinkedin />
-                </a>
+                <a href={googleLink} target="_blank" rel="noopener noreferrer"><FaGoogle /></a>
+                <a href="https://youtube.com/@vindia_infrasec" target="_blank" rel="noopener noreferrer"><FaYoutube /></a>
+                <a href="https://www.instagram.com/vindia_infrasec" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
+                <a href="https://www.linkedin.com/company/vindia-infrasec/posts/?feedView=all" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
               </div>
 
               <div className="footer-brand">
@@ -156,12 +148,10 @@ export default function Footer() {
 
             <div className="footer-right-maps">
               <h3 className="state-title">{states[index].title}</h3>
-
               <div className="district-row">
                 {states[index].districts.map((district, i) => {
                   const src = states[index].maps[i] || states[index].maps[0];
                   const link = src.replace("&output=embed", "");
-
                   return (
                     <div className="district-card" key={district}>
                       <h4 className="district-name">{district}</h4>
@@ -171,12 +161,7 @@ export default function Footer() {
                         loading="lazy"
                         title={district}
                       />
-                      <a
-                        className="district-location"
-                        href={link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
+                      <a className="district-location" href={link} target="_blank" rel="noopener noreferrer">
                         Location
                       </a>
                     </div>
@@ -184,7 +169,6 @@ export default function Footer() {
                 })}
               </div>
             </div>
-
           </div>
         </div>
       </footer>
@@ -193,17 +177,11 @@ export default function Footer() {
       <div className="footer-mobile">
         <div className="fm-brand">
           <h2>VIndia Infrasec</h2>
-          <p>
-            Delivering excellence in Construction, Interior Design &
-            Structural Engineering across South India.
-          </p>
+          <p>Delivering excellence in Construction, Interior Design & Structural Engineering across South India.</p>
           <a href="/about.html">Know More →</a>
         </div>
 
-        <div
-          className={`fm-section ${openSections[1] ? "active" : ""}`}
-          onClick={() => toggleFM(1)}
-        >
+        <div className={`fm-section ${openSections[1] ? "active" : ""}`} onClick={() => toggleFM(1)}>
           <div className="fm-header">
             Quick Links <FaChevronDown />
           </div>
@@ -217,37 +195,11 @@ export default function Footer() {
         </div>
 
         <div className="fm-social">
-          <a href={googleLink} target="_blank" rel="noopener noreferrer">
-            <FaGoogle />
-          </a>
-          <a
-            href="https://youtube.com/@vindia_infrasec"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaYoutube />
-          </a>
-          <a
-            href="https://www.instagram.com/vindia_infrasec?igsh=MTRwejBkOGd6cmhmMQ=="
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaInstagram />
-          </a>
-          <a
-            href="https://www.facebook.com/vindiainfrasec"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaFacebookF />
-          </a>
-          <a
-            href="https://www.linkedin.com/company/vindia-infrasec/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaLinkedin />
-          </a>
+          <a href={googleLink} target="_blank" rel="noopener noreferrer"><FaGoogle /></a>
+          <a href="https://youtube.com/@vindia_infrasec" target="_blank" rel="noopener noreferrer"><FaYoutube /></a>
+          <a href="https://www.instagram.com/vindia_infrasec" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
+          <a href="https://www.facebook.com/vindiainfrasec" target="_blank" rel="noopener noreferrer"><FaFacebookF /></a>
+          <a href="https://www.linkedin.com/company/vindia-infrasec/" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
         </div>
       </div>
     </>

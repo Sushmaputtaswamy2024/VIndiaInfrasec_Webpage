@@ -24,7 +24,7 @@ export default function Construction() {
       });
     };
 
-    window.addEventListener("scroll", reveal);
+    window.addEventListener("scroll", reveal, { passive: true });
     reveal();
 
     return () => window.removeEventListener("scroll", reveal);
@@ -34,8 +34,7 @@ export default function Construction() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const whatsappMessage =
-`Hello Construction Team,
+    const whatsappMessage = `Hello Construction Team,
 
 I am interested in construction services.
 
@@ -63,7 +62,17 @@ ${message || "Interested in construction services"}
         <h1 className="main-title fade-in">Construction</h1>
 
         <div className="video-section fade-in">
-          <video autoPlay muted loop playsInline>
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            onCanPlay={(e) => {
+              e.currentTarget.muted = true;
+              e.currentTarget.play().catch(() => {});
+            }}
+          >
             <source
               src="/construction/construction.mp4"
               type="video/mp4"
@@ -90,6 +99,7 @@ ${message || "Interested in construction services"}
                 src={`/construction/${img}`}
                 alt={title}
                 className="step-img"
+                loading="lazy"
               />
               <div className="step-text">
                 <h3>{title}</h3>

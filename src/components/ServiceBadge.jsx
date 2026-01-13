@@ -6,15 +6,24 @@ const ServiceBadge = () => {
     <div className="badge-container">
       {/* OUTER RING */}
       <div className="rotating-ring">
-        <svg className="curved-text" viewBox="0 0 300 300">
+        <svg
+          className="curved-text"
+          viewBox="0 0 300 300"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <defs>
             <path
               id="circlePath"
               d="M150,150 m-120,0 a120,120 0 1,1 240,0 a120,120 0 1,1 -240,0"
             />
           </defs>
+
           <text>
-            <textPath href="#circlePath" startOffset="50%">
+            <textPath
+              href="#circlePath"
+              xlinkHref="#circlePath"   /* 🔑 REQUIRED FOR iOS */
+              startOffset="50%"
+            >
               VIEW OUR SERVICE
             </textPath>
           </text>
@@ -23,9 +32,8 @@ const ServiceBadge = () => {
 
       {/* CENTER */}
       <div className="center-circle">
-  <i className="bi bi-arrow-up-right arrow-icon"></i>
-</div>
-
+        <i className="bi bi-arrow-up-right arrow-icon"></i>
+      </div>
     </div>
   );
 };

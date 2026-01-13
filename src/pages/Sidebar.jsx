@@ -1,23 +1,52 @@
-import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { NavLink, useLocation } from "react-router-dom";
+import { useState, useEffect, useRef } from "react";
 import "./Sidebar.css";
 
 export default function Sidebar() {
   const [open, setOpen] = useState(false);
+  const startX = useRef(null);
+  const location = useLocation();
 
-  // Lock page scroll
+  /* ================= CLOSE ON ROUTE CHANGE ================= */
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "auto";
+    setOpen(false);
+  }, [location.pathname]);
+
+  /* ================= SCROLL LOCK (MOBILE SAFE) ================= */
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => (document.body.style.overflow = "");
   }, [open]);
+
+  /* ================= SWIPE HANDLERS ================= */
+  const onTouchStart = (e) => {
+    startX.current = e.touches[0].clientX;
+  };
+
+  const onTouchMove = (e) => {
+    if (startX.current === null) return;
+    const diff = e.touches[0].clientX - startX.current;
+
+    if (!open && diff > 70) setOpen(true);       // swipe right → open
+    if (open && diff < -70) setOpen(false);      // swipe left → close
+  };
+
+  const onTouchEnd = () => {
+    startX.current = null;
+  };
 
   return (
     <>
-      {/* Hamburger */}
-      <div className="hamburger" onClick={() => setOpen(prev => !prev)}>
+      {/* Hamburger (MUST be button for mobile) */}
+      <button
+        className="hamburger"
+        aria-label="Open menu"
+        onClick={() => setOpen(true)}
+      >
         ☰
-      </div>
+      </button>
 
-      {/* Backdrop (CLICK TO CLOSE) */}
+      {/* Backdrop */}
       {open && (
         <div
           className="sidebar-backdrop"
@@ -26,18 +55,16 @@ export default function Sidebar() {
       )}
 
       {/* Sidebar */}
-      <aside className={`sidemenu ${open ? "open" : ""}`}>
-        <Link to="/construction" onClick={() => setOpen(false)}>
-          Construction
-        </Link>
-
-        <Link to="/interior" onClick={() => setOpen(false)}>
-          Interior
-        </Link>
-
-        <Link to="/architecture" onClick={() => setOpen(false)}>
-          Architecture
-        </Link>
+      <aside
+        className={`sidemenu ${open ? "open" : ""}`}
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+      >
+        <NavLink to="/" end>Home</NavLink>
+        <NavLink to="/construction">Construction</NavLink>
+        <NavLink to="/interior">Interior</NavLink>
+        <NavLink to="/architecture">Architecture</NavLink>
       </aside>
     </>
   );

@@ -43,15 +43,19 @@ export default function OverlappingCards() {
   const navigate = useNavigate();
 
   useLayoutEffect(() => {
+    /* 🔑 iOS SAFARI SCROLL NORMALIZATION */
+    ScrollTrigger.normalizeScroll(true);
+
     const ctx = gsap.context(() => {
       const cards = gsap.utils.toArray(".service-card");
 
-      // Initial state
+      // Initial state (UNCHANGED)
       cards.forEach((card, i) => {
         gsap.set(card, {
           zIndex: i + 1,
           y: i === 0 ? 0 : window.innerHeight,
           scale: 1,
+          force3D: true,
         });
       });
 
@@ -62,6 +66,10 @@ export default function OverlappingCards() {
           end: `+=${cards.length * 100}%`,
           scrub: true,
           pin: true,
+
+          /* 🔑 REQUIRED FOR iOS SAFARI */
+          pinType: "fixed",
+
           anticipatePin: 1,
           invalidateOnRefresh: true,
         },
@@ -74,10 +82,17 @@ export default function OverlappingCards() {
         tl.to(card, { y: 0, ease: "none" }, i - 1);
       });
 
+      /* 🔑 iOS needs explicit refresh */
       ScrollTrigger.refresh();
     }, containerRef);
 
-    return () => ctx.revert();
+    /* 🔑 Refresh again after full load (iOS fix) */
+    window.addEventListener("load", ScrollTrigger.refresh);
+
+    return () => {
+      window.removeEventListener("load", ScrollTrigger.refresh);
+      ctx.revert();
+    };
   }, []);
 
   return (
@@ -96,7 +111,11 @@ export default function OverlappingCards() {
           <ServiceBadge />
 
           {s.img && (
-            <img src={s.img} alt={s.heading} loading="lazy" />
+            <img
+              src={s.img}
+              alt={s.heading}
+              loading="lazy"
+            />
           )}
 
           <div className="content">

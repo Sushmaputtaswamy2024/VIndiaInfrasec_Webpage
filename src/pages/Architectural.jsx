@@ -8,7 +8,7 @@ export default function Architectural() {
   const [isMobile, setIsMobile] = useState(false);
   const [played, setPlayed] = useState(false);
 
-  // ================= MOBILE DETECTION =================
+  /* ================= MOBILE DETECTION ================= */
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth <= 768);
     checkMobile();
@@ -16,17 +16,22 @@ export default function Architectural() {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  // ================= DESKTOP VIDEO AUTOPLAY =================
+  /* ================= DESKTOP VIDEO AUTOPLAY ================= */
   useEffect(() => {
     if (isMobile) return;
 
     const video = videoRef.current;
     if (!video) return;
 
+    /* 🔑 iOS SAFARI VIDEO PREP */
+    video.muted = true;
+    video.setAttribute("playsinline", "");
+    video.play().catch(() => {});
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          video.play();
+          video.play().catch(() => {});
           video.classList.add("visible");
         } else {
           video.pause();
@@ -39,29 +44,30 @@ export default function Architectural() {
     return () => observer.disconnect();
   }, [isMobile]);
 
-  // ================= MOBILE TAP TO PLAY =================
+  /* ================= MOBILE TAP TO PLAY ================= */
   const handlePlay = () => {
     const video = videoRef.current;
     if (!video) return;
-    video.play();
+
+    video.muted = true;
+    video.setAttribute("playsinline", "");
+    video.play().catch(() => {});
     video.classList.add("visible");
     setPlayed(true);
   };
 
-  // ================= WHATSAPP REDIRECT =================
+  /* ================= WHATSAPP REDIRECT ================= */
   const handleWhatsAppSubmit = (e) => {
     e.preventDefault();
 
     const form = e.target;
-
     const name = form[0].value || "Not provided";
     const email = form[1].value || "Not provided";
     const phone = form[2].value || "Not provided";
     const location = form[3].value || "Not provided";
     const details = form[4].value || "Interested in architectural services";
 
-    const whatsappMessage =
-`Hello Architectural Team,
+    const whatsappMessage = `Hello Architectural Team,
 
 I am interested in architectural services.
 
@@ -134,7 +140,7 @@ ${details}
 
             <div className="consult-card">
               <img src="/architectural/1.webp" alt="Execution guidance" />
-              <h3>Execution Guidance</h3>
+              <h3>Execution Guidance</h3            >
             </div>
 
             <div className="consult-card">

@@ -25,17 +25,19 @@
   );
   animation: spin 10s linear infinite;
   z-index: 1;
+
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
-
 /* =====================================================
-   SOLID TEXT BACKGROUND RING (KEY FIX)
+   SOLID TEXT BACKGROUND RING
 ===================================================== */
 .text-ring {
   position: absolute;
-  inset: 8px;              /* controls thickness */
+  inset: 8px;
   border-radius: 50%;
-  background: #9fdcff;     /* light blue like image */
+  background: #9fdcff;
   z-index: 2;
 }
 
@@ -45,7 +47,8 @@
 .curved-text {
   position: absolute;
   inset: 0;
-  transform: rotate(-90deg);
+  transform: rotate(-90deg) translateZ(0);
+  -webkit-transform: rotate(-90deg) translateZ(0);
   z-index: 3;
 }
 
@@ -56,6 +59,8 @@
   font-weight: 600;
   text-anchor: middle;
   dominant-baseline: middle;
+
+  paint-order: stroke;
 }
 
 /* =====================================================
@@ -69,10 +74,14 @@
   height: 54px;
   background: #ffffff;
   border-radius: 50%;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   z-index: 4;
+
+  transform: translateZ(0);
 }
 
 /* =====================================================
@@ -93,6 +102,7 @@
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
 }
+
 /* =====================================================
    RESPONSIVE — TABLET
 ===================================================== */
@@ -104,9 +114,7 @@
     top: 32%;
   }
 
-  .text-ring {
-    inset: 6px;
-  }
+  .text-ring { inset: 6px; }
 
   .center-circle {
     width: 46px;
@@ -118,9 +126,7 @@
     letter-spacing: 3px;
   }
 
-  .arrow-icon {
-    font-size: 24px;
-  }
+  .arrow-icon { font-size: 24px; }
 }
 
 /* =====================================================
@@ -128,7 +134,6 @@
 ===================================================== */
 @media (max-width: 768px) {
   .badge-container {
-    position: absolute;
     width: 64px;
     height: 64px;
     right: -20px;
@@ -136,9 +141,7 @@
     transform: translateY(0);
   }
 
-  .text-ring {
-    inset: 5px;
-  }
+  .text-ring { inset: 5px; }
 
   .center-circle {
     width: 40px;
@@ -150,13 +153,11 @@
     letter-spacing: 2.5px;
   }
 
-  .arrow-icon {
-    font-size: 20px;
-  }
+  .arrow-icon { font-size: 20px; }
 }
 
 /* =====================================================
-   RESPONSIVE — VERY SMALL DEVICES
+   VERY SMALL DEVICES
 ===================================================== */
 @media (max-width: 480px) {
   .badge-container {
@@ -166,9 +167,7 @@
     top: 14%;
   }
 
-  .text-ring {
-    inset: 4px;
-  }
+  .text-ring { inset: 4px; }
 
   .center-circle {
     width: 34px;
@@ -180,7 +179,5 @@
     letter-spacing: 2px;
   }
 
-  .arrow-icon {
-    font-size: 18px;
-  }
+  .arrow-icon { font-size: 18px; }
 }

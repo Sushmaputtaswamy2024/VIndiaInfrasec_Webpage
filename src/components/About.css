@@ -4,10 +4,12 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 50px 20px;
+  padding: 60px 20px;
   position: relative;
-  background-color: gray;
-  overflow: visible;
+  background-color: #808080;
+
+  /* ✅ iOS Safari safe */
+  overflow-x: hidden;
 }
 
 /* Invisible SEO heading */
@@ -18,7 +20,8 @@
   padding: 0;
   margin: -1px;
   overflow: hidden;
-  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
   border: 0;
 }
 
@@ -44,7 +47,7 @@
 .about-line {
   margin-bottom: 16px;
   opacity: 0;
-  transform: translateY(18px);
+  transform: translate3d(0, 18px, 0); /* ✅ GPU safe */
 }
 
 /* Stats */
@@ -78,7 +81,7 @@
 /* Tablet */
 @media (max-width: 992px) {
   .about-section {
-    padding: 70px 20px 120px;
+    padding: 70px 20px 100px;
   }
 
   .about-section h1 {
@@ -87,11 +90,6 @@
 
   .about-text {
     font-size: 13px;
-    margin-bottom: 40px;
-  }
-
-  .stats-container {
-    gap: 35px;
   }
 
   .stat-box h2 {
@@ -101,23 +99,13 @@
 
 /* Mobile */
 @media (max-width: 768px) {
-  .about-section {
-    padding: 50px 15px 100px;
-  }
-
   .about-section h1 {
     font-size: 26px;
-    margin-bottom: 18px;
   }
 
   .about-text {
     font-size: 12px;
     line-height: 1.5;
-    margin-bottom: 30px;
-  }
-
-  .stats-container {
-    gap: 20px;
   }
 
   .stat-box h2 {

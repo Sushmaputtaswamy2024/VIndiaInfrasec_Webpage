@@ -1,11 +1,11 @@
 import "./About.css";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-function About() {
+export default function About() {
   const aboutRef = useRef(null);
 
   const [years, setYears] = useState(0);
@@ -16,65 +16,51 @@ function About() {
   const lines = [
     "VIndia Infrasec started its operations with a small villa project in the year 2010. VIndia Infrasec has defied all odds to be recognized as a spearheading force of engineering construction in South India.",
     "VIndia Infrasec is built on the principles of excellence and integrity. We work at the highest ethical standards and ensure the quality of our projects. It started its operations in the form of a partnership firm in the year 2010 and got incorporated as a Private Ltd Company in 2020.",
-    "VIndia Infrasec is headquartered in Bangalore. Today the company has a strategic presence in locations across South India. We are differentiated by the quality of our people. We align our capabilities to the objectives of our customers to convert their dreams into reality."
+    "VIndia Infrasec is headquartered in Bangalore. Today the company has a strategic presence in locations across South India. We are differentiated by the quality of our people. We align our capabilities to the objectives of our customers to convert their dreams into reality.",
   ];
 
   useEffect(() => {
-    const element = aboutRef.current;
-
-    const resetLines = () => {
+    const ctx = gsap.context(() => {
+      // Reset initial state
       gsap.set(".about-line", { opacity: 0, y: 20 });
-    };
 
-    const resetCounters = () => {
-      setYears(0);
-      setProjects(0);
-      setCurrent(0);
-      setEmployees(0);
-    };
+      ScrollTrigger.create({
+        trigger: aboutRef.current,
+        start: "top 80%",
+        once: true, // ✅ Safari stability
+        onEnter: () => {
+          // Text animation
+          gsap.to(".about-line", {
+            opacity: 1,
+            y: 0,
+            stagger: 0.3,
+            duration: 1,
+            ease: "power2.out",
+          });
 
-    const startCounters = () => {
-      const animate = (setter, val, duration) => {
-        const obj = { x: 0 };
-        gsap.to(obj, {
-          x: val,
-          duration,
-          ease: "power3.out",
-          onUpdate: () => setter(Math.floor(obj.x)),
-        });
-      };
+          // Counters
+          const animate = (setter, value, duration) => {
+            const obj = { val: 0 };
+            gsap.to(obj, {
+              val: value,
+              duration,
+              ease: "power3.out",
+              onUpdate: () => setter(Math.floor(obj.val)),
+            });
+          };
 
-      animate(setYears, 15, 2.2);
-      animate(setProjects, 684, 2.8);
-      animate(setCurrent, 24, 1.8);
-      animate(setEmployees, 234, 2.5);
-    };
+          animate(setYears, 15, 2);
+          animate(setProjects, 684, 2.5);
+          animate(setCurrent, 24, 1.8);
+          animate(setEmployees, 234, 2.2);
 
-    const animateLines = () => {
-      gsap.to(".about-line", {
-        opacity: 1,
-        y: 0,
-        stagger: 0.3,
-        duration: 1,
-        ease: "power2.out",
+          // ✅ iOS repaint fix
+          ScrollTrigger.refresh(true);
+        },
       });
-    };
+    }, aboutRef);
 
-    ScrollTrigger.create({
-      trigger: element,
-      start: "top 75%",
-      onEnter: () => {
-        resetLines();
-        resetCounters();
-        animateLines();
-        gsap.delayedCall(0.6, startCounters);
-
-        // 🔥 IMPORTANT FIX: Refresh after animations complete
-        gsap.delayedCall(1.2, () => {
-          ScrollTrigger.refresh();
-        });
-      },
-    });
+    return () => ctx.revert(); // ✅ cleanup (CRITICAL for iOS)
   }, []);
 
   return (
@@ -88,9 +74,9 @@ function About() {
       </h1>
 
       <div className="about-text">
-        {lines.map((txt, i) => (
-          <p key={i} className="about-line">
-            {txt}
+        {lines.map((text, index) => (
+          <p key={index} className="about-line">
+            {text}
           </p>
         ))}
       </div>
@@ -116,5 +102,3 @@ function About() {
     </section>
   );
 }
-
-export default About;

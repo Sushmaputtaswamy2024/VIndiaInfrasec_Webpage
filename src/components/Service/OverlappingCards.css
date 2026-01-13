@@ -4,10 +4,14 @@
 .cards-container {
   position: relative;
   width: 100%;
-  min-height: 100vh;              /* ✅ FIX */
+  min-height: 100vh;
   background: #ffffff;
-  overflow: hidden;               /* ✅ FIX */
+  overflow: hidden;
   border-radius: 24px;
+
+  /* iOS SAFARI STABILITY */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 /* ======================================================
@@ -27,9 +31,12 @@
   border-radius: 40px;
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
 
-  overflow: visible;               /* ✅ IMPORTANT */
+  overflow: visible;
   will-change: transform;
   z-index: 1;
+
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 /* ======================================================
@@ -77,6 +84,9 @@
 
   border-radius: 40px 0 0 40px;
   z-index: 2;
+
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 /* ======================================================
@@ -93,6 +103,8 @@
   color: #ffffff;
   position: relative;
   z-index: 2;
+
+  transform: translateZ(0);
 }
 
 .content h2 {
@@ -131,18 +143,18 @@
 ====================================================== */
 @media (max-width: 900px) {
   .cards-container {
-    min-height: 100vh;     /* ✅ FIX */
+    min-height: 100vh;
     padding: 0;
     margin-top: 20px;
   }
 
   .service-card {
-    position: absolute;   /* overlap preserved */
+    position: absolute;
     inset: 0;
     margin: auto;
 
     width: 92%;
-    height: 80vh;         /* ✅ FIXED HEIGHT */
+    height: 80vh;
     flex-direction: column;
     border-radius: 32px;
   }
@@ -186,5 +198,31 @@
 
   .content p {
     font-size: 0.9rem;
+  }
+}
+
+/* ======================================================
+   iOS SAFARI ONLY FIX (CRITICAL)
+====================================================== */
+@supports (-webkit-touch-callout: none) {
+  .cards-container {
+    min-height: 100svh;
+    min-height: -webkit-fill-available;
+  }
+
+  .service-card {
+    height: 75svh;
+  }
+
+  @media (max-width: 900px) {
+    .service-card {
+      height: 80svh;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .service-card {
+      height: 82svh;
+    }
   }
 }

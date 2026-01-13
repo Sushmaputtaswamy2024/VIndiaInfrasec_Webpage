@@ -5,9 +5,11 @@
   position: relative;
   width: 100vw;
   height: 100vh;
+  min-height: 100svh; /* ✅ iOS Safari fix */
   overflow: hidden;
   font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
+
 
 /* ============================================
    BACKGROUND VIDEO

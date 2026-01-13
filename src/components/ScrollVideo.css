@@ -2,31 +2,51 @@
 .scroll-video-section {
   width: 100%;
   padding: 60px 0;
+
   display: flex;
   justify-content: center;
   align-items: center;
+
   overflow: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
-/* WRAPPER (GSAP animates width & borderRadius) */
+/* WRAPPER */
 .video-expand-wrapper {
   position: relative;
-  width: 350px;               /* initial size controlled by GSAP */
-  max-width: 90vw;            /* responsive upper limit */
+
+  width: 350px;
+  max-width: 90vw;
+
   aspect-ratio: 16 / 9;
+
+  /* ❌ REMOVE FIXED HEIGHT ON DESKTOP */
+  height: auto;
+  min-height: unset;
+
   overflow: hidden;
   background: #000;
   border-radius: 40px;
   margin: 0 auto;
 
-  /* Make GPU handle animations = smoother */
-  will-change: width, border-radius;
+  will-change: width, border-radius, transform;
+  transform: translate3d(0, 0, 0);
+
+  contain: layout paint;
+}
+
+/* 🔥 DESKTOP LIMIT (PREVENT OVER-STRETCH) */
+@media (min-width: 769px) {
+  .video-expand-wrapper {
+    max-width: 1200px;
+  }
 }
 
 /* CENTER TEXT */
 .button-text {
   position: absolute;
   inset: 0;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -34,11 +54,9 @@
   color: white;
   font-size: clamp(1.4rem, 5vw, 2.2rem);
   font-weight: 700;
+
   z-index: 10;
   pointer-events: none;
-
-  /* Prevent text from shifting during animations */
-  padding: 0 10px;
   text-align: center;
 }
 
@@ -47,13 +65,17 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  pointer-events: none;  /* prevents click issues on mobile */
+  display: block;
 }
 
-/* TABLET + MOBILE */
+/* =====================
+   MOBILE (UNCHANGED)
+===================== */
 @media (max-width: 650px) {
   .video-expand-wrapper {
     width: 85vw;
+    height: calc(85vw * 9 / 16);
+    min-height: calc(85vw * 9 / 16);
     border-radius: 20px;
   }
 
@@ -66,5 +88,14 @@
 @media (max-width: 400px) {
   .button-text {
     font-size: clamp(1rem, 4vw, 1.4rem);
+  }
+}
+
+/* =========================
+   iOS SAFARI ONLY PATCH
+========================= */
+@supports (-webkit-touch-callout: none) {
+  .video-expand-wrapper {
+    aspect-ratio: auto;
   }
 }

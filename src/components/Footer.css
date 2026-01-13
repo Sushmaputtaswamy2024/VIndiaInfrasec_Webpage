@@ -323,6 +323,22 @@ footer {
     flex-wrap: wrap;
   }
 }
+/* ✅ iOS Safari stability fixes */
+@media (prefers-reduced-motion: reduce) {
+  .floating-icons {
+    animation: none;
+  }
+}
+
+.footer,
+.footer-mobile {
+  -webkit-transform: translateZ(0);
+}
+
+.map-frame {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
 
 @media (max-width: 900px) {
   .footer {

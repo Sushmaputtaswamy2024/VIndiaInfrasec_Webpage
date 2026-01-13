@@ -4,6 +4,10 @@
   min-height: 100vh;
   background: #ffffff;
   overflow-x: hidden;
+
+  /* iOS SAFARI FIX */
+  min-height: -webkit-fill-available;
+  transform: translateZ(0);
 }
 
 /* Main content */
@@ -14,6 +18,8 @@
   text-align: center;
   display: flex;
   flex-direction: column;
+
+  transform: translateZ(0);
 }
 
 /* Headings */
@@ -38,6 +44,10 @@
   width: 100%;
   max-width: 1100px;
   border-radius: 20px;
+
+  /* iOS SAFARI VIDEO FIX */
+  display: block;
+  transform: translateZ(0);
 }
 
 /* Steps */
@@ -60,6 +70,8 @@
 .step-img {
   width: 50%;
   border-radius: 16px;
+
+  transform: translateZ(0);
 }
 
 .step-text {
@@ -126,5 +138,12 @@
 
   .step-text {
     text-align: center;
+  }
+}
+
+/* ================= iOS SAFARI ONLY ================= */
+@supports (-webkit-touch-callout: none) {
+  .construction-page {
+    min-height: 100svh;
   }
 }

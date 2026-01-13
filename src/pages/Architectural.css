@@ -113,17 +113,30 @@
 .entrance-media {
   width: 100%;
   aspect-ratio: 16 / 9;
+
+  /* 🔑 iOS SAFARI FIX */
+  height: calc(1100px * 9 / 16);
+  max-height: 62vh;
+
   border-radius: 20px;
   overflow: hidden;
   position: relative;
+
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 .entrance-video {
   width: 100%;
   height: 100%;
   object-fit: cover;
+
   opacity: 0;
   transition: opacity 0.8s ease;
+
+  display: block;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 .entrance-video.visible {
@@ -191,11 +204,22 @@
   .consultation-grid {
     grid-template-columns: 1fr;
   }
+
+  .entrance-media {
+    height: calc(100vw * 9 / 16);
+  }
 }
 
 /* hide play overlay on desktop */
 @media (min-width: 769px) {
   .play-overlay {
     display: none;
+  }
+}
+
+/* ================= iOS SAFARI ONLY ================= */
+@supports (-webkit-touch-callout: none) {
+  .entrance-media {
+    height: 56svh;
   }
 }

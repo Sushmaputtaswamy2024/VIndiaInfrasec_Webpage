@@ -11,10 +11,15 @@ export default function Hero() {
   const [isMobile, setIsMobile] = useState(false);
   const videoRef = useRef(null);
 
-  // Lazy load video
+  // ✅ SAFARI-SAFE lazy loading
   useEffect(() => {
-    const id = requestIdleCallback(() => setShowVideo(true));
-    return () => cancelIdleCallback(id);
+    if ("requestIdleCallback" in window) {
+      const id = window.requestIdleCallback(() => setShowVideo(true));
+      return () => window.cancelIdleCallback(id);
+    } else {
+      const id = setTimeout(() => setShowVideo(true), 200);
+      return () => clearTimeout(id);
+    }
   }, []);
 
   // Detect mobile
@@ -53,11 +58,11 @@ export default function Hero() {
           src={backgroundVideo}
           autoPlay
           muted
-          loop
           playsInline
+          loop
           preload="auto"
           initial={{ scale: 1 }}
-          animate={{ scale: isMobile ? 1.08 : 1.1 }}
+          animate={{ scale: isMobile ? 1.05 : 1.1 }}
           transition={{ duration: 8, ease: "easeOut" }}
         />
       )}

@@ -2,13 +2,12 @@ import "./CallToAction.css";
 import { FaPhoneAlt } from "react-icons/fa";
 import { useState } from "react";
 
-/* ✅ Country-wise phone number rules */
 const COUNTRY_RULES = {
-  "+91": 10,   // India
-  "+1": 10,    // USA / Canada
-  "+44": 10,   // UK
-  "+61": 9,    // Australia
-  "+971": 9,   // UAE
+  "+91": 10,
+  "+1": 10,
+  "+44": 10,
+  "+61": 9,
+  "+971": 9,
 };
 
 export default function CallToAction() {
@@ -20,12 +19,9 @@ export default function CallToAction() {
   const scriptURL =
     "https://script.google.com/macros/s/AKfycbzdujBYV0nsdcvMsD2iiFVnP4Tax7pMgAv7xzhL1eXjf3UABypAH2tZZl4pxbNCZHlT/exec";
 
-  /* ✅ Validation based on selected country */
   const isValidPhone = (num, code) => {
-    const length = COUNTRY_RULES[code];
-    return length
-      ? new RegExp(`^[0-9]{${length}}$`).test(num)
-      : false;
+    const len = COUNTRY_RULES[code];
+    return len ? new RegExp(`^[0-9]{${len}}$`).test(num) : false;
   };
 
   const handleSubmit = async () => {
@@ -36,9 +32,7 @@ export default function CallToAction() {
     try {
       await fetch(scriptURL, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        mode: "no-cors", // ✅ REQUIRED for iOS Safari
         body: JSON.stringify({
           phone: `${countryCode}${phone}`,
         }),
@@ -48,8 +42,8 @@ export default function CallToAction() {
       setPhone("");
 
       setTimeout(() => setShowToast(false), 2500);
-    } catch (error) {
-      console.error("Submission failed:", error);
+    } catch (err) {
+      console.error("CTA failed:", err);
     } finally {
       setLoading(false);
     }
@@ -68,13 +62,12 @@ export default function CallToAction() {
       <div className="cta-input-wrapper">
         <FaPhoneAlt className="cta-icon" />
 
-        {/* COUNTRY CODE */}
         <select
           className="country-select"
           value={countryCode}
           onChange={(e) => {
             setCountryCode(e.target.value);
-            setPhone(""); // reset phone on country change
+            setPhone("");
           }}
         >
           <option value="+91">+91</option>
@@ -84,7 +77,6 @@ export default function CallToAction() {
           <option value="+971">+971</option>
         </select>
 
-        {/* PHONE INPUT */}
         <input
           className={`cta-input ${
             phone
@@ -95,6 +87,8 @@ export default function CallToAction() {
           }`}
           type="tel"
           inputMode="numeric"
+          pattern="[0-9]*"          /* ✅ iOS keypad fix */
+          autoComplete="tel"
           value={phone}
           onChange={(e) =>
             setPhone(e.target.value.replace(/\D/g, ""))
@@ -103,7 +97,6 @@ export default function CallToAction() {
         />
       </div>
 
-      {/* SUBMIT */}
       <button
         className="cta-btn"
         disabled={!isValidPhone(phone, countryCode) || loading}
@@ -112,9 +105,10 @@ export default function CallToAction() {
         {loading ? "Submitting..." : "Submit"}
       </button>
 
-      {/* SUCCESS TOAST */}
       {showToast && (
-        <div className="toast">Number Submitted Successfully! 🎉</div>
+        <div className="toast">
+          Number Submitted Successfully! 🎉
+        </div>
       )}
     </section>
   );

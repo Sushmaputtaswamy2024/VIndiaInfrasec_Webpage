@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./interior.css";
 import Footer from "./Footer";
 import Sidebar from "./Sidebar";
@@ -8,6 +8,16 @@ export default function Interior() {
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+
+  /* 🔑 iOS SAFARI VIDEO PREP */
+  useEffect(() => {
+    const video = document.querySelector(".video-section video");
+    if (video) {
+      video.muted = true;
+      video.setAttribute("playsinline", "");
+      video.play().catch(() => {});
+    }
+  }, []);
 
   // ================= WHATSAPP SUBMIT =================
   const handleSubmit = (e) => {
@@ -34,15 +44,12 @@ ${message || "Interested in interior design services"}
 
   return (
     <div className="interior-page">
-      {/* ================= SIDEBAR ================= */}
       <Sidebar />
 
-      {/* ================= PAGE HEADING ================= */}
       <section className="page-heading">
         <h1>Interior</h1>
       </section>
 
-      {/* ================= SLIDER ================= */}
       <section className="interior-slider">
         <div className="slider-track">
           <img src="/interior/slide1.webp" alt="" />
@@ -52,7 +59,6 @@ ${message || "Interested in interior design services"}
         </div>
       </section>
 
-      {/* ================= WHAT WE OFFER ================= */}
       <section className="offer-section">
         <h2>What We Offer</h2>
         <p className="offer-sub">
@@ -97,7 +103,6 @@ ${message || "Interested in interior design services"}
         </div>
       </section>
 
-      {/* ================= TEXT ================= */}
       <section className="text-block">
         <p>
           Interior design involves creating functional, aesthetically pleasing indoor spaces,
@@ -106,17 +111,21 @@ ${message || "Interested in interior design services"}
         <p>We design spaces that reflect your lifestyle, not just your budget.</p>
       </section>
 
-      {/* ================= SINGLE LINE ================= */}
       <p className="single-line">
         Living spaces & much more to transform your home!
       </p>
 
-      {/* ================= VIDEO ================= */}
       <section className="video-section">
-        <video src="/interior/interior.mp4" autoPlay muted loop playsInline />
+        <video
+          src="/interior/interior.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+        />
       </section>
 
-      {/* ================= JOURNEY ================= */}
       <section className="journey-section">
         <h2>Our Home Interior Design Journey</h2>
 
@@ -129,7 +138,6 @@ ${message || "Interested in interior design services"}
         </div>
       </section>
 
-      {/* ================= START PROJECT ================= */}
       <section className="start-project">
         <h2>Start a Project</h2>
 
@@ -165,7 +173,6 @@ ${message || "Interested in interior design services"}
         </form>
       </section>
 
-      {/* ================= FOOTER ================= */}
       <Footer />
     </div>
   );

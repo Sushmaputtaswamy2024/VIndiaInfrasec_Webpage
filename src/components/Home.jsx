@@ -1,9 +1,16 @@
 import Hero from "./Hero";
 import LogoHeader from "./LogoHeader";
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 
 export default function Home() {
   const heroRef = useRef(null);
+
+  // ✅ iOS Safari fix: ensure ref is ready before LogoHeader
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <section
@@ -11,13 +18,17 @@ export default function Home() {
       id="home"
       className="home-section"
       aria-label="VIndia Infrasec hero section"
-      role="banner"               /* SEO: identifies the main hero area */
+      role="banner"
+      style={{
+        minHeight: "100svh",          // ✅ iOS viewport fix
+        WebkitOverflowScrolling: "touch",
+      }}
     >
-      {/* HERO SECTION — primary H1 should be inside Hero.jsx */}
+      {/* HERO SECTION */}
       <Hero />
 
-      {/* Sticky / Animated Logo Header */}
-      <LogoHeader triggerRef={heroRef} />
+      {/* Render LogoHeader ONLY after mount (Safari-safe) */}
+      {mounted && <LogoHeader triggerRef={heroRef} />}
     </section>
   );
 }
